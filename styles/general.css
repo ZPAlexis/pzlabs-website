@@ -1,0 +1,15 @@
+body {
+  font-family: Roboto, Arial;
+  background-color: #28292a;
+  color: rgb(240, 248, 255);
+  margin: 0;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  
+}

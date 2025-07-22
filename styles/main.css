@@ -1,0 +1,35 @@
+.main-container {
+  max-width: 1200px;
+  min-width: 320px;
+  width: 100%;
+}
+
+.intro-section {
+  height: 600px;
+  background-color: lightblue;
+}
+
+.social-links-section {
+  height: 60px;
+  background-color: lightcoral;
+}
+
+.about-projects-section {
+  height: 300px;
+  background-color: lightblue;
+}
+
+.project-list-section {
+  height: 600px;
+  background-color: lightcoral;
+}
+
+.about-me-section {
+  height: 300px;
+  background-color: lightblue;
+}
+
+.blog-list-section {
+  height: 600px;
+  background-color: lightcoral;
+}

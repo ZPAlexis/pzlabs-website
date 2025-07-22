@@ -1,0 +1,33 @@
+.header {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: greenyellow;
+  z-index: 100;
+}
+
+.header-nav {
+  max-width: 1200px;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  background-color: rgb(166, 147, 184);
+}
+
+.projects-link, .homepage-link, .about-link {
+  color: rgb(240, 248, 255);
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.projects-link:hover, .homepage-link:hover, .about-link:hover {
+  font-weight: bold;
+}
