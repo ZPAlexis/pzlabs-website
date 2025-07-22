@@ -1,17 +1,72 @@
-.main-container {
-  max-width: 1200px;
-  min-width: 320px;
-  width: 100%;
+.link {
+  font-weight: bold;
+  color: black;
+  text-align: center;
 }
 
 .intro-section {
-  height: 600px;
+  display: flex;
   background-color: lightblue;
+}
+
+.intro-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: beige;
+  flex: 1;
+  margin: 20px;
+  min-height: 400px;
+}
+
+.intro-left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  background-color: greenyellow;
+  flex: 1;
+  padding: 20px;
+  max-width: 420px;
+}
+
+.intro-title, .intro-description, .intro-cta {
+  text-align: right;
+  width: 80%;
+}
+
+.intro-title {
+  font-size: xx-large;
+  margin: 0;
+}
+
+.intro-description {
+
+}
+
+.intro-right-container {
+  background-color: rgb(79, 99, 49);
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  padding: 0 20px 0 20px;
+  align-items: center;
+  max-width: 420px;
+}
+
+.intro-image {
+  width: 80%;
 }
 
 .social-links-section {
   height: 60px;
   background-color: lightcoral;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 100px;
 }
 
 .about-projects-section {
@@ -32,4 +87,31 @@
 .blog-list-section {
   height: 600px;
   background-color: lightcoral;
+}
+
+@media (max-width: 720px) {
+  .intro-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .intro-left-container {
+    align-items: baseline;  
+  }
+
+  .intro-title, .intro-description, .intro-cta {
+    text-align: left;
+  }
+
+  .intro-right-container {
+    justify-content: center;
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .social-links-section {
+    justify-content: space-between;
+    padding: 0 20px;
+    gap:20px;
+  }
 }
