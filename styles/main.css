@@ -1,7 +1,6 @@
 .link {
   font-weight: bold;
   color: black;
-  text-align: center;
 }
 
 .intro-section {
@@ -41,7 +40,11 @@
 }
 
 .intro-description {
+  padding: 10px 0;
+}
 
+.intro-cta {
+  font-style: italic;
 }
 
 .intro-right-container {
@@ -70,23 +73,218 @@
 }
 
 .about-projects-section {
-  height: 300px;
+  display: flex;
   background-color: lightblue;
 }
 
-.project-list-section {
-  height: 600px;
+.about-projects-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  background-color: beige;
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+}
+
+.about-projects-title, .about-projects-description, .about-projects-cta {
+  text-align: center;
+  max-width: 600px;
+}
+
+.about-projects-title {
+  font-size: xx-large;
+  margin: 0;
+}
+
+.about-projects-description {
+  max-width: 800px;
+  padding: 10px 0;
+}
+
+.about-projects-cta {
+  font-style: italic;
+}
+
+.projects-section {
+  display: flex;
   background-color: lightcoral;
 }
 
-.about-me-section {
-  height: 300px;
-  background-color: lightblue;
+.projects-container {
+  display: flex;
+  flex-direction: column ;
+  justify-content: baseline;
+  align-items: center;
+  background-color: beige;
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.project-container {
+  display: flex;
+  flex-direction: row ;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgb(79, 99, 49);
+  max-width: 800px;
+}
+
+.project-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-link:visited {
+  color: inherit;
+}
+
+.project-container:hover .project-image {
+  box-shadow: 2px 2px 0 0 #222;
+  filter: grayscale(0%) brightness(1.00);
+}
+
+.project-container:hover .project-title-text::after {
+  width: 100%;
+}
+
+.project-image-container {
+  background-color: blueviolet;
+  width: 100%;
+  max-width: 320px;
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(5%) brightness(0.95);
+  box-shadow: 4px 4px 0 0 #222;
+  transition: box-shadow 0.15s, filter 0.15s;
+  z-index: 1;
+}
+
+.project-description-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: greenyellow;
+  width: 320px;
+}
+
+.project-title-text {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.project-title-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.6s;
+}
+
+.project-description-text {
+  margin: 10px 0;
+}
+
+.project-theme-text, .project-objective-text, .project-stack-text {
+
 }
 
 .blog-list-section {
-  height: 600px;
+  display: flex;
   background-color: lightcoral;
+}
+
+.blog-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  background-color: beige;
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  gap: 40px;
+}
+
+.blog-post {
+  background-color: purple;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 400px;
+  height: 300px;
+  overflow: hidden;
+  box-shadow: 6px 6px 0 0 #222;
+  transition: box-shadow 0.15s;
+}
+
+.blog-post-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-post-link:visited {
+  color: inherit;
+}
+
+.blog-post:hover {
+  box-shadow: 4px 4px 0 0 #222;
+}
+
+.blog-post:hover .blog-overlay {
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+.blog-post:hover .blog-image {
+  filter: grayscale(0%) brightness(1.00);
+}
+
+.blog-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  top: 0;
+  filter: grayscale(5%) brightness(0.95);
+  transition: filter 0.15s;
+}
+
+.blog-overlay {
+  position: relative;
+  z-index: 1;
+  margin: 10px;
+  background: rgba(2, 2, 2, 0.637);
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 8px 20px;
+  transition: background-color 0.3s;
+}
+
+.blog-title, .blog-author {
+  color: white;
+  margin: 0;
+}
+
+.blog-title {
+  font-size: 22px;
 }
 
 @media (max-width: 720px) {
@@ -111,7 +309,14 @@
 
   .social-links-section {
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 40px;
     gap:20px;
+  }
+
+  .project-container {
+  display: flex;
+  flex-direction: column ;
+  justify-content: flex-start;
+  align-items: center;
   }
 }

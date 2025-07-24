@@ -14,9 +14,9 @@ body {
   max-width: 1200px;
   min-width: 320px;
   width: 100%;
-  background-color: aquamarine; /* dev - remove */
+  background-color: rgb(255, 0, 0); /* dev - remove */
 }
 
 p {
-  
+  margin: 0;
 }
