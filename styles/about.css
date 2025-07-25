@@ -1,0 +1,29 @@
+.about-hero-section {
+  height: 360px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: lightcoral;
+  flex: 1;
+  padding: 20px;
+}
+
+.about-text-section {
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: lightblue;
+  flex: 1;
+  padding: 20px;
+}
+
+.about-skills-section {
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: lightcoral;
+  flex: 1;
+  padding: 20px;
+}
