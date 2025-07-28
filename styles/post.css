@@ -62,8 +62,8 @@
 
 .post-related {
   display: flex;
-  width: 100%;
-  margin: 0;
+  flex: 1;
+  margin: 20px 20px 0 20px;
   background-color: aquamarine;
   font-size: xx-large;
 }

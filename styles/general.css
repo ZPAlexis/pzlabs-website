@@ -25,3 +25,7 @@ p {
   font-weight: bold;
   color: black;
 }
+
+.icon {
+  width: 100%;
+}

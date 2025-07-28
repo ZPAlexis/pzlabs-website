@@ -1,0 +1,11 @@
+.projects-list-container {
+  display: flex;
+  flex-direction: column ;
+  justify-content: baseline;
+  align-items: center;
+  background-color: beige;
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  gap: 20px;
+}

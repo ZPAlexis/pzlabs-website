@@ -4,23 +4,21 @@
   justify-content: center;
   background-color: lightcoral;
   flex: 1;
-  padding: 20px;
 }
 
 .about-hero-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
   background-color: beige;
   flex: 1;
+  margin: 20px;
 }
 
 .about-hero-image-container {
   background-color: greenyellow;
   display: flex;
   flex: 1;
-  min-width: 160px;
+  min-width: 120px;
   min-height: 60%;
   max-height: 260px;
   padding: 20px 0;
@@ -34,7 +32,6 @@
   object-fit: cover;
   display: block;
   border-radius: 100%;
-
 }
 
 .about-hero-bio-container {
@@ -42,7 +39,7 @@
   flex-direction: column;
   background-color: rgb(56, 83, 15);
   flex: 2;
-  min-width: 50%;
+  min-width: 220px;
   min-height: 200px;
   padding: 20px;
   justify-content: baseline;
@@ -58,15 +55,17 @@
   flex-direction: row;
   background-color: aquamarine;
   gap: 10px;
-  
+  justify-content: baseline;
 }
 
 .about-bio-title-icon {
-
+  flex: 0 0 24px;
+  background-color: brown;
+  flex-shrink: 0;
 }
 
 .about-bio-title-text {
-
+  font-size: large;
 }
 
 .about-hero-socials-container {
@@ -74,30 +73,109 @@
   flex-direction: column;
   background-color: rgb(84, 95, 65);
   flex: 1;
-  min-width: 160px;
+  min-width: 130px;
   min-height: 60px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.social-link-container {
+  height: 48px;
+  width: 48px;
 }
 
 .about-text-section {
-  height: 400px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   background-color: lightblue;
   flex: 1;
+  gap: 20px;
   padding: 20px;
+}
+
+.about-text-container {
+  background-color: beige;
+  padding: 20px;
+}
+
+.about-text-title {
+  margin: 20px 0 10px 0;
 }
 
 .about-skills-section {
-  height: 400px;
   display: flex;
+  background-color: lightcoral;
+}
+
+.about-skills-container {
+  background-color: beige;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 0 20px 20px 20px;
+}
+
+.about-skills-cards-container {
+  background-color: yellowgreen;
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  background-color: lightcoral;
+  align-items: flex-start;
   flex: 1;
-  padding: 20px;
+  gap: 20px;
+  max-width: 840px;
+}
+
+.about-skills-card {
+  background-color: rgb(252, 252, 252);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 6px 6px 0 0 #222;
+  transition: box-shadow 0.15s;
+  width: 164px;
+  padding: 14px;
+  gap: 4px;
+  max-height: 140px;
+}
+
+.about-skills-card-icon{
+  height: 38px;
+  width: 38px;
+}
+
+.about-skills-card-title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.about-skills-card-description {
+  font-size: small;
+  overflow: hidden;
+  max-height: 70px;
+  line-height: 0.9;
 }
 
 @media (max-width: 720px) {
+  .about-hero-container {
+    flex-wrap: wrap;
+  }
   
+  .about-hero-socials-container {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    min-width: 320px;
+  }
+
+  .social-link-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
