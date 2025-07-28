@@ -1,13 +1,11 @@
 .intro-section {
   display: flex;
-  background-color: lightblue;
 }
 
 .intro-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: beige;
   flex: 1;
   margin: 20px;
   min-height: 400px;
@@ -18,7 +16,6 @@
   flex-direction: column;
   justify-content: end;
   align-items: end;
-  background-color: greenyellow;
   flex: 1;
   padding: 20px;
   max-width: 420px;
@@ -43,7 +40,6 @@
 }
 
 .intro-right-container {
-  background-color: rgb(79, 99, 49);
   flex: 1;
   display: flex;
   justify-content: left;
@@ -58,7 +54,6 @@
 
 .social-links-section {
   height: 60px;
-  background-color: lightcoral;
   padding: 0 20px;
   display: flex;
   justify-content: center;
@@ -69,7 +64,6 @@
 
 .about-projects-section {
   display: flex;
-  background-color: lightblue;
 }
 
 .about-projects-container {
@@ -77,7 +71,6 @@
   flex-direction: column;
   justify-content: baseline;
   align-items: center;
-  background-color: beige;
   flex: 1;
   margin: 20px;
   padding: 20px;
@@ -105,7 +98,6 @@
 .projects-section {
   display: flex;
   justify-content: center;
-  background-color: lightcoral;
 }
 
 .projects-container {
@@ -113,7 +105,6 @@
   flex-direction: column ;
   justify-content: baseline;
   align-items: center;
-  background-color: beige;
   max-width: 1160px;
   min-width: 320px;
   margin: 20px;
@@ -126,7 +117,6 @@
   flex-direction: row ;
   justify-content: center;
   align-items: flex-start;
-  background-color: rgb(79, 99, 49);
   max-width: 800px;
   gap: 20px;
 }
@@ -151,7 +141,6 @@
 }
 
 .project-image-container {
-  background-color: blueviolet;
   width: 100%;
   min-width: 320px;
   max-width: 420px;
@@ -172,7 +161,6 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-color: greenyellow;
   width: 100%;
   max-width: 360px;
 }
@@ -205,7 +193,6 @@
 .blog-list-section {
   display: flex;
   flex-direction: column;
-  background-color: lightcoral;
 }
 
 .blog-list-container {
@@ -214,7 +201,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: baseline;
-  background-color: beige;
   flex: 1;
   margin: 0 20px 20px 20px;
   padding: 20px;
@@ -222,7 +208,6 @@
 }
 
 .blog-post {
-  background-color: blueviolet;
   position: relative;
   display: flex;
   flex-direction: column;

@@ -1,6 +1,5 @@
 body {
   font-family: "Fira Code", monospace, 'Courier New', Courier, monospace, Roboto, Arial;
-  background-color: #28292a;
   color: rgb(0, 0, 0);
   margin: 0;
   padding-top: 60px;
@@ -14,7 +13,6 @@ body {
   max-width: 1200px;
   min-width: 320px;
   width: 100%;
-  background-color: rgb(255, 0, 0); /* dev - remove */
 }
 
 p {

@@ -2,20 +2,17 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: lightcoral;
   flex: 1;
 }
 
 .about-hero-container {
   display: flex;
   flex-wrap: nowrap;
-  background-color: beige;
   flex: 1;
   margin: 20px;
 }
 
 .about-hero-image-container {
-  background-color: greenyellow;
   display: flex;
   flex: 1;
   min-width: 120px;
@@ -37,7 +34,6 @@
 .about-hero-bio-container {
   display: flex;
   flex-direction: column;
-  background-color: rgb(56, 83, 15);
   flex: 2;
   min-width: 220px;
   min-height: 200px;
@@ -53,14 +49,12 @@
 .about-bio-title-container {
   display: flex;
   flex-direction: row;
-  background-color: aquamarine;
   gap: 10px;
   justify-content: baseline;
 }
 
 .about-bio-title-icon {
   flex: 0 0 24px;
-  background-color: brown;
   flex-shrink: 0;
 }
 
@@ -71,7 +65,6 @@
 .about-hero-socials-container {
   display: flex;
   flex-direction: column;
-  background-color: rgb(84, 95, 65);
   flex: 1;
   min-width: 130px;
   min-height: 60px;
@@ -90,14 +83,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: lightblue;
   flex: 1;
   gap: 20px;
   padding: 20px;
 }
 
 .about-text-container {
-  background-color: beige;
   padding: 20px;
 }
 
@@ -107,11 +98,9 @@
 
 .about-skills-section {
   display: flex;
-  background-color: lightcoral;
 }
 
 .about-skills-container {
-  background-color: beige;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -121,7 +110,6 @@
 }
 
 .about-skills-cards-container {
-  background-color: yellowgreen;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

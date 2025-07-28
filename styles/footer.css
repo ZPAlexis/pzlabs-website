@@ -6,7 +6,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: end;
-  background-color: purple;
 }
 
 .footer-container {
