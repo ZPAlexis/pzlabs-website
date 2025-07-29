@@ -24,6 +24,17 @@ p {
   color: black;
 }
 
+.simple-link {
+  font-weight: 400;
+  color: black;
+  box-shadow: 6px 6px 0 0 #222;
+  border: #000000;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 14px;
+  padding: 0 20px;
+}
+
 .icon {
   width: 100%;
 }

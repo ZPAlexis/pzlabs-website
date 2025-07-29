@@ -8,7 +8,7 @@
   align-items: center;
   flex: 1;
   margin: 20px;
-  padding: 20px;
+  padding: 0 20px;
   gap: 20px;
 }
 
@@ -17,7 +17,6 @@
   width: 100%;
   align-items: end;
   margin: 0;
-  padding-top: 60px;
   font-size: xx-large;
 }
 
@@ -39,12 +38,14 @@
 }
 
 .post-text {
-  text-align: justify;
-  font-size: large;
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: Roboto;
 }
 
 .post-image {
-  width: 80%;
+  width: 100%;
 }
 
 .post-heading {
@@ -59,6 +60,6 @@
 .post-related {
   display: flex;
   flex: 1;
-  margin: 20px 20px 0 20px;
+  margin: 20px 40px 0 40px;
   font-size: xx-large;
 }

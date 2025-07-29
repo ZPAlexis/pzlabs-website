@@ -12,11 +12,10 @@
 
 .header-nav {
   max-width: 1200px;
-  min-width: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 20px;
   flex: 1;
 }
 
@@ -24,6 +23,8 @@
   font-size: 16px;
   text-transform: uppercase;
   color: rgb(0, 0, 0);
+  text-align: center;
+  width: 100px;
 }
 
 .projects-link:hover, .homepage-link:hover, .about-link:hover {
