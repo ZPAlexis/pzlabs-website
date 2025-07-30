@@ -7,8 +7,7 @@
   flex-direction: row;
   justify-content: center;
   flex: 1;
-  margin: 20px;
-
+  margin: 20px 0;
 }
 
 .intro-left-container {
@@ -53,7 +52,7 @@
 
 .social-links-section {
   min-height: 60px;
-  padding: 20px 0;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +71,7 @@
   justify-content: baseline;
   align-items: center;
   flex: 1;
-  margin: 20px;
+  margin: 20px 0;
   padding: 0 20px;
 }
 
@@ -105,9 +104,10 @@
   flex-direction: column ;
   justify-content: baseline;
   align-items: center;
+  flex: 1;
   max-width: 1160px;
   min-width: 320px;
-  margin: 20px;
+  margin: 20px 0;
   padding: 0 20px;
   gap: 40px;
 }
@@ -202,7 +202,7 @@
   justify-content: center;
   align-items: baseline;
   flex: 1;
-  margin: 0 20px 20px 20px;
+  margin-bottom: 20px;
   padding: 20px;
   gap: 40px;
 }
