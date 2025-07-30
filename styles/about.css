@@ -161,7 +161,7 @@
   .about-hero-socials-container {
     flex-direction: row;
     justify-content: center;
-    min-width: 420px;
+    min-width: 50%;
   }
 
   .social-link-container {
