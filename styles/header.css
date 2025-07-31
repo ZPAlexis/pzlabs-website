@@ -22,11 +22,47 @@
 .projects-link, .homepage-link, .about-link {
   font-size: 16px;
   text-transform: uppercase;
-  color: rgb(0, 0, 0);
+  color: inherit;
   text-align: center;
   width: 100px;
 }
 
 .projects-link:hover, .homepage-link:hover, .about-link:hover {
   font-weight: bold;
+}
+
+.dark-mode-toggle-button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: flex;
+}
+
+body:has(#dark-mode-toggle:checked) .light-black-icon {
+  opacity: 0;
+}
+
+body:has(#dark-mode-toggle:checked) .light-white-icon {
+  opacity: 0.9;
+}
+
+.hidden-checkbox {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  opacity: 0;
+}
+
+.light-black-icon {
+  width: 100%;
+  position: absolute;
+  opacity: 0.9
+}
+
+.light-white-icon {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
 }
