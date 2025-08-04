@@ -4,7 +4,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://pages.github.com/)
 
-This repository serves as a dual-purpose project: my personal portfolio & blog website and a dynamic "web laboratory" for experimenting with front-end technologies. 
+This repository serves as a dual-purpose project: my personal portfolio & blog website and a dynamic "web laboratory" for experimenting with front-end and back-end technologies. 
 
 Initially built with HTML and CSS, it will progressively incorporate JavaScript functionalities, showcasing my journey and skills in web development.
 
