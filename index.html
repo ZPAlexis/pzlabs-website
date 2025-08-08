@@ -67,18 +67,10 @@
             playGame('scissors');
           " class="move-button"><img src="icons/scissors-emoji.png" class="move-icon"></button>
         </div>
+        <p class="js-moves moves"></p>
         <p class="js-result result"></p>
-        <p class="js-moves"></p>
         <p class="js-score score"></p>
-        <button onclick="
-          score.wins = 0;
-          score.losses = 0;
-          score.ties = 0;
-          localStorage.removeItem('score');
-          updateScoreText();
-          document.querySelector('.js-result').innerHTML = '';
-          document.querySelector('.js-moves').innerHTML = '';
-        " class="reset-score-button">Reset Score</button>
+        <p class="js-reset-score-button"></p>
       </div>
     </section>
 

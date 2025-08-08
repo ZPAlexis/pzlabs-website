@@ -7,8 +7,31 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 updateScoreText();
 
 function updateScoreText() {
-  document.querySelector('.js-score')
+  if (score.wins !== 0 || score.losses !== 0 || score.ties !== 0) {
+    document.querySelector('.js-score')
     .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+
+    document.querySelector('.js-reset-score-button')
+    .innerHTML = `<button onclick="
+          score.wins = 0;
+          score.losses = 0;
+          score.ties = 0;
+          localStorage.removeItem('score');
+          updateScoreText();
+        " class="button-link reset-score-button">Reset Score</button>`;
+  } else if (score.wins === 0 && score.losses === 0 && score.ties === 0) {
+    document.querySelector('.js-score')
+    .innerHTML = '';
+
+    document.querySelector('.js-result').innerHTML = '';
+
+    document.querySelector('.js-moves')
+    .innerHTML = `Make a move to play the game.`;
+
+    document.querySelector('.js-reset-score-button')
+    .innerHTML = '';
+  }
+  
 }
 /*
 if (!score) {
@@ -68,7 +91,7 @@ function playGame(playerMove) {
 
   document.querySelector('.js-result').innerHTML = result;
 
-  document.querySelector('.js-moves').innerHTML = `You <img src="icons/${playerMove}-emoji.png" class="move-icon"> <img src="icons/${computerMove}-emoji.png" class="move-icon"> Computer`;
+  document.querySelector('.js-moves').innerHTML = `<img src="icons/${playerMove}-emoji.png" class="move-icon"> VS <img src="icons/${computerMove}-emoji.png" class="move-icon">`;
 
 }
 

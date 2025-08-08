@@ -50,6 +50,7 @@ p {
   border-width: 2px;
   border-radius: 14px;
   padding: 0 20px;
+  cursor: pointer;
 }
 
 .icon {
