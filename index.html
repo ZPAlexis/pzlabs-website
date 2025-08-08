@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/rock-paper-scissors.css">
 </head>
 <body>
   <header class="header">
@@ -50,6 +51,35 @@
         <a class="button-link" href="">LinkedIn</a>
         <a class="button-link" href="">Behance</a>
         <a class="button-link" href="">Instagram</a>
+    </section>
+
+    <section class="rock-paper-scissors-project">
+      <div class="rock-paper-scissors-container">
+        <h1 class="about-projects-title">Rock Paper Scissors</h1>
+        <div class="rock-paper-scissors-buttons-container">
+          <button onclick="
+            playGame('rock');
+          " class="move-button"><img src="icons/rock-emoji.png" class="move-icon"></button>
+          <button onclick="
+            playGame('paper');
+          " class="move-button"><img src="icons/paper-emoji.png" class="move-icon"></button>
+          <button onclick="
+            playGame('scissors');
+          " class="move-button"><img src="icons/scissors-emoji.png" class="move-icon"></button>
+        </div>
+        <p class="js-result result"></p>
+        <p class="js-moves"></p>
+        <p class="js-score score"></p>
+        <button onclick="
+          score.wins = 0;
+          score.losses = 0;
+          score.ties = 0;
+          localStorage.removeItem('score');
+          updateScoreText();
+          document.querySelector('.js-result').innerHTML = '';
+          document.querySelector('.js-moves').innerHTML = '';
+        " class="reset-score-button">Reset Score</button>
+      </div>
     </section>
 
     <section class="about-projects-section">
@@ -198,5 +228,6 @@
     </div>
   </footer>
 
+  <script src="scripts/index.js"></script>
 </body>
 </html>

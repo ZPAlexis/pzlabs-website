@@ -1,0 +1,59 @@
+.rock-paper-scissors-project {
+  display: flex;
+}
+
+.rock-paper-scissors-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  margin-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.rock-paper-scissors-buttons-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+}
+
+.move-icon {
+  height: 50px;
+}
+
+.move-button {
+  background-color: transparent;
+  padding: 20px;
+  cursor: pointer;
+  border: 3px solid #fbfbff;
+  border-radius: 100%;
+  margin: 0 4px;
+}
+
+.move-button:hover {
+  background-color: #fbfbff0e;
+}
+
+.move-button:active {
+  background-color: #fbfbff48;
+}
+
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.score {
+  margin: 20px;
+}
+
+.reset-score-button {
+  background-color: #fbfbff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 180px;
+}
