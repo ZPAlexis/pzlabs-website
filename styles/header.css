@@ -54,3 +54,11 @@
   position: absolute;
   opacity: 0;
 }
+
+.version {
+  position: absolute;
+  right: 15px;
+  top: 55px;
+  display: flex;
+  font-size: x-small;
+}

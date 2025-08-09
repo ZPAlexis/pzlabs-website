@@ -30,6 +30,7 @@
   border-radius: 100%;
   margin: 0 4px;
   box-shadow: 6px 6px 0 0 #222;
+  transition: box-shadow 0.15s ease;
 }
 
 .move-button:hover, .reset-score-button:hover {
@@ -38,7 +39,7 @@
 
 .move-button:active, .reset-score-button:active {
   background-color: #fcfcfc60;
-  box-shadow: 2px 2px 0 0 #222;
+  box-shadow: 1px 1px 0 0 #222;
 }
 
 .moves {
