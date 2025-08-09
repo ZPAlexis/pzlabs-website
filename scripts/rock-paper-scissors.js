@@ -37,10 +37,20 @@ function resetScoreButtonCheck() {
   }
 }
 
-function fadeUpdate(element, newHTML) {
+function fadeUpdate(element, newHTML, skipFadeOut = false) {
+  if (skipFadeOut) {
+    element.innerHTML = newHTML;
+    element.classList.remove('hidden');
+    return;
+  }
+
+  element.classList.remove('hidden');
+  void element.offsetWidth;
   element.classList.add('hidden');
+
   element.addEventListener('transitionend', function handler() {
     element.innerHTML = newHTML;
+    void element.offsetWidth;
     element.classList.remove('hidden');
     element.removeEventListener('transitionend', handler);
   });
