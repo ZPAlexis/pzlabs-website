@@ -32,27 +32,15 @@
 }
 
 .dark-mode-toggle-button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
   width: 30px;
   height: 30px;
   position: absolute;
   right: 15px;
   top: 15px;
   display: flex;
-}
-
-body:has(#dark-mode-toggle:checked) .light-black-icon {
-  opacity: 0;
-}
-
-body:has(#dark-mode-toggle:checked) .light-white-icon {
-  opacity: 0.9;
-}
-
-.hidden-checkbox {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  opacity: 0;
 }
 
 .light-black-icon {

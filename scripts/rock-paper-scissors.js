@@ -7,31 +7,43 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 updateScoreText();
 
 function updateScoreText() {
-  if (score.wins !== 0 || score.losses !== 0 || score.ties !== 0) {
-    document.querySelector('.js-score')
-    .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+  const jsMoves = document.querySelector('.js-moves');
+  const jsResult = document.querySelector('.js-result');
+  const jsScore = document.querySelector('.js-score');
+  const jsResetScoreButton = document.querySelector('.js-reset-score-button');
 
-    document.querySelector('.js-reset-score-button')
-    .innerHTML = `<button onclick="
+  if (score.wins !== 0 || score.losses !== 0 || score.ties !== 0) {
+    fadeUpdate(jsScore, `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+    resetScoreButtonCheck();
+  } else if (score.wins === 0 && score.losses === 0 && score.ties === 0) {
+    fadeUpdate(jsMoves, `Make a move to play the game.`);
+    jsResult.innerHTML = '';
+    jsScore.innerHTML = '';
+    jsResetScoreButton.innerHTML = '';
+  }
+}
+
+function resetScoreButtonCheck() {
+  const jsResetScoreButton = document.querySelector('.js-reset-score-button');
+
+  if (jsResetScoreButton.innerHTML === ``) {
+    fadeUpdate(jsResetScoreButton, `<button onclick="
           score.wins = 0;
           score.losses = 0;
           score.ties = 0;
           localStorage.removeItem('score');
           updateScoreText();
-        " class="button-link reset-score-button">Reset Score</button>`;
-  } else if (score.wins === 0 && score.losses === 0 && score.ties === 0) {
-    document.querySelector('.js-score')
-    .innerHTML = '';
-
-    document.querySelector('.js-result').innerHTML = '';
-
-    document.querySelector('.js-moves')
-    .innerHTML = `Make a move to play the game.`;
-
-    document.querySelector('.js-reset-score-button')
-    .innerHTML = '';
+        " class="button-link reset-score-button">Reset Score</button>`);
   }
-  
+}
+
+function fadeUpdate(element, newHTML) {
+  element.classList.add('hidden');
+  element.addEventListener('transitionend', function handler() {
+    element.innerHTML = newHTML;
+    element.classList.remove('hidden');
+    element.removeEventListener('transitionend', handler);
+  });
 }
 /*
 if (!score) {
@@ -53,14 +65,14 @@ function playGame(playerMove) {
     if (computerMove === 'rock') {
       result = 'You lose.';
     } else if (computerMove === 'paper') {
-      result = 'You win.';
+      result = 'You win!';
     } else if (computerMove === 'scissors') {
       result = 'Tie.';
     }
 
   } else if (playerMove === 'paper') {
     if (computerMove === 'rock') {
-      result = 'You win.';
+      result = 'You win!';
     } else if (computerMove === 'paper') {
       result = 'Tie.';
     } else if (computerMove === 'scissors') {
@@ -73,11 +85,11 @@ function playGame(playerMove) {
     } else if (computerMove === 'paper') {
       result = 'You lose.';
     } else if (computerMove === 'scissors') {
-      result = 'You win.';
+      result = 'You win!';
     }
   }
 
-  if (result === 'You win.') {
+  if (result === 'You win!') {
     score.wins++;
   } else if (result === 'You lose.') {
     score.losses++;
@@ -89,9 +101,9 @@ function playGame(playerMove) {
 
   updateScoreText();
 
-  document.querySelector('.js-result').innerHTML = result;
+  fadeUpdate(document.querySelector('.js-result'), result);
 
-  document.querySelector('.js-moves').innerHTML = `<img src="icons/${playerMove}-emoji.png" class="move-icon"> VS <img src="icons/${computerMove}-emoji.png" class="move-icon">`;
+  fadeUpdate(document.querySelector('.js-moves'), `<img src="icons/${playerMove}-emoji.png" class="move-icon"> VS <img src="icons/${computerMove}-emoji.png" class="move-icon">`);
 
 }
 

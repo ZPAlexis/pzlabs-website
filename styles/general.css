@@ -11,19 +11,44 @@ body {
   transition: background-color 0.15s;
 }
 
-body:has(#dark-mode-toggle:checked) {
+body.dark-mode {
   background-color: #1a202c;
   color: #e2e8f0;
-  .link {
-    color: #e2e8f0;
-  }
-  .button-link {
-    color: #e2e8f0;
-    box-shadow: 6px 6px 0 0 #e2e8f0;
-    border: #e2e8f0;
-    border-style: solid;
-    border-width: 2px;
-  }
+}
+
+body.dark-mode .link {
+  color: #e2e8f0;
+}
+
+body.dark-mode .button-link {
+  color: #e2e8f0;
+  box-shadow: 6px 6px 0 0 #e2e8f0;
+  border: 2px solid #e2e8f0;
+}
+
+body.dark-mode .move-button {
+  background-color: #1a202c;
+  border-color: #e2e8f0;
+  box-shadow: 6px 6px 0 0 #e2e8f0;
+}
+
+body.dark-mode .move-button:hover,
+body.dark-mode .reset-score-button:hover {
+  background-color: #fcfcfc20;
+}
+
+body.dark-mode .move-button:active,
+body.dark-mode .reset-score-button:active {
+  background-color: #fcfcfc60;
+  box-shadow: 2px 2px 0 0 #e2e8f0;
+}
+
+body.dark-mode .light-black-icon {
+  opacity: 0;
+}
+
+body.dark-mode .light-white-icon {
+  opacity: 0.9;
 }
 
 .main-container {

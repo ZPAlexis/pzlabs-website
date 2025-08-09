@@ -26,8 +26,7 @@
       <a class="homepage-link" style="font-weight: bold;" href="index.html">Home</a>
       <a class="about-link" href="about.html">About</a>
     </nav>
-    <input type="checkbox" id="dark-mode-toggle" class="hidden-checkbox">
-    <label for="dark-mode-toggle" class="dark-mode-toggle-button"><img class="light-black-icon" src="icons/light-black-icon.png"><img class="light-white-icon" src="icons/light-white-icon.png"></label >
+    <button id="dark-mode-toggle" class="dark-mode-toggle-button"><img class="light-black-icon" src="icons/light-black-icon.png"><img class="light-white-icon" src="icons/light-white-icon.png"></button>
   </header>
 
   <main class="main-container">
@@ -55,7 +54,6 @@
 
     <section class="rock-paper-scissors-project">
       <div class="rock-paper-scissors-container">
-        <h1 class="about-projects-title">Rock Paper Scissors</h1>
         <div class="rock-paper-scissors-buttons-container">
           <button onclick="
             playGame('rock');
@@ -67,10 +65,10 @@
             playGame('scissors');
           " class="move-button"><img src="icons/scissors-emoji.png" class="move-icon"></button>
         </div>
-        <p class="js-moves moves"></p>
-        <p class="js-result result"></p>
-        <p class="js-score score"></p>
-        <p class="js-reset-score-button"></p>
+        <p class="js-moves moves fade-1s"></p>
+        <p class="js-result result fade-2s"></p>
+        <p class="js-score score fade-2s"></p>
+        <p class="js-reset-score-button fade-2s"></p>
       </div>
     </section>
 
@@ -220,6 +218,7 @@
     </div>
   </footer>
 
-  <script src="scripts/index.js"></script>
+  <script src="scripts/dark-mode.js"></script>
+  <script src="scripts/rock-paper-scissors.js"></script>
 </body>
 </html>
