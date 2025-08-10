@@ -15,7 +15,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
   flex: 1;
 }
 
@@ -25,6 +24,14 @@
   color: inherit;
   text-align: center;
   width: 100px;
+}
+
+.projects-link {
+  text-align: right;
+}
+
+.about-link {
+  text-align: left;
 }
 
 .projects-link:hover, .homepage-link:hover, .about-link:hover {
@@ -57,7 +64,7 @@
 
 .version {
   position: absolute;
-  right: 15px;
+  right: 10px;
   top: 55px;
   display: flex;
   font-size: x-small;
