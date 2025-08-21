@@ -27,18 +27,16 @@
       <a class="about-link" href="about.html">About</a>
     </nav>
     <button id="dark-mode-toggle" class="dark-mode-toggle-button"><img class="light-black-icon" src="icons/light-black-icon.png"><img class="light-white-icon" src="icons/light-white-icon.png"></button>
-    <p class="version">v0.201</p>
+    <p class="version">v0.202</p>
   </header>
 
   <main class="main-container">
     <section class="intro-section">
       <div class="intro-container">
           <div class="intro-left-container">
-            <h1 class="intro-title">Hey! This is an Intro Title.</h1>
-            <p class="intro-description">And here is the intro description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <div class="intro-cta">
-              Learn more <a class="link" href="about.html">About Us &gt;</a>
-            </div>
+            <h1 class="intro-title js-intro-title"></h1>
+            <p class="intro-description js-intro-description"></p>
+            <div class="intro-cta js-intro-cta"></div>
           </div>
           <div class="intro-right-container">
             <img class="intro-image" src="images/intro-image.png" style="border-radius: 100%; width: 50%;">
@@ -219,6 +217,7 @@
     </div>
   </footer>
 
+  <script src="scripts/index.js"></script>
   <script src="scripts/dark-mode.js" defer></script>
   <script src="scripts/rock-paper-scissors.js" defer></script>
 </body>
