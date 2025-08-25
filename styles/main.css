@@ -29,6 +29,11 @@
   margin: 0;
 }
 
+.auto-text-container {
+  display: flex;
+  justify-content: center;
+}
+
 .intro-description {
   padding: 10px 0;
 }
