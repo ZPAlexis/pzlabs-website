@@ -9,7 +9,6 @@ body {
   justify-content: center;
   background-color: #e2e8f0;
   transition: background-color 0.15s;
-  cursor: pointer;
   touch-action: manipulation;/* Disables double-tap zoom & delays */
   -webkit-tap-highlight-color: transparent; /* Prevents weird highlight */
   -webkit-user-select: none;/* Prevents accidental text selection */

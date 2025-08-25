@@ -48,6 +48,22 @@
 
 .intro-image {
   width: 80%;
+  cursor: pointer;
+}
+
+.intro-image.spin {
+  animation: coinSpin 0.5s ease forwards;
+}
+
+@keyframes coinSpin {
+  50% {
+    scale: 1.08;
+    transform: translateY(-10px) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
+  }
+  to {
+    transform: translateY(0) rotateX(0) rotateY(360deg) rotateZ(0);
+    scale: 1;
+  }
 }
 
 .social-links-section {
