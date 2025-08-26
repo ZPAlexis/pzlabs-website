@@ -31,8 +31,9 @@
 
 .auto-text-container {
   display: flex;
-  justify-content: center;
-  margin-left: 8px;
+  justify-content: end;
+  margin-right: -4px;
+  line-height: 44px;
 }
 
 .auto-text {
@@ -315,7 +316,7 @@
 
   .intro-title, .intro-description, .intro-cta {
     text-align: center;
-    width: 100%;
+    width: 80%;
   }
 
   .intro-right-container {
@@ -337,5 +338,10 @@
 
   .project-description-container {
     max-width: 420px;
+  }
+
+  .auto-text-container {
+    justify-content: center;
+    margin-left: 8px;
   }
 }

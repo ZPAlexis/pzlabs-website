@@ -8,33 +8,59 @@ img.addEventListener('click', () => {
 const autoTextHTML = document.querySelector('.auto-text');
 const verticalBarBlinkHTML = document.querySelector('.vertical-bar-blink');
 
-const autoText = "Creating";
-let i = 0;
+const autoTextOptions = [
+  'Engineering',
+  'Designing',
+  'Coding',
+  'Developing',
+  'Researching',
+  'Scoping',
+  'Reviewing',
+  'Creating',
+  'Enhancing',
+  'Ideating',
+  'Implementing',
+  'Workshopping'
+]
+let autoText = '';
+let i1 = 0;
+let i2 = 0;
 
 //add letter up to the last letter of the word, each at a time, with a quick delay between them
 //blink dash | at the end for a few seconds
 //delete each letter of the word, even quicker delay between deletes
 //repeat for each word
 //then loop through list again
+function chooseAutoText() {
+  if (i1 < autoTextOptions.length) {
+    autoText = autoTextOptions[i1];
+    i1++;
+  } else {
+    i1 = 0;
+    autoText = autoTextOptions[i1];
+    i1++;
+  }
+}
 
 async function typeAutoText() {
 //vertical bar blink
 //blink dash out and in once, control delay
 //start first letter of the first word
-  if (i < autoText.length) {
-    autoTextHTML.innerHTML += autoText[i];
-    i++;
+  if (i2 < autoText.length) {
+    autoTextHTML.innerHTML += autoText[i2];
+    i2++;
     setTimeout(typeAutoText, 80);
   } else {
-    i = 0;
-    setTimeout(eraseAutoText, 3000);
+    i2 = 0;
+    chooseAutoText();
+    setTimeout(eraseAutoText, 2000);
   }
 }
 
 async function eraseAutoText() {
   if (autoTextHTML.innerHTML.length != 0) {
     autoTextHTML.innerHTML = autoTextHTML.innerHTML.slice(0, -1);
-    setTimeout(eraseAutoText, 80);
+    setTimeout(eraseAutoText, 60);
   } else {
     setTimeout(typeAutoText, 300);
   }
@@ -53,4 +79,5 @@ async function verticalBarBlink() {
 }
 
 verticalBarBlink();
+chooseAutoText();
 typeAutoText();
