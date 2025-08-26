@@ -32,6 +32,15 @@
 .auto-text-container {
   display: flex;
   justify-content: center;
+  margin-left: 8px;
+}
+
+.auto-text {
+ margin-right: -2px;
+}
+
+.vertical-bar-blink {
+  margin: 0 -2px;
 }
 
 .intro-description {
@@ -63,7 +72,7 @@
 @keyframes coinSpin {
   50% {
     scale: 1.08;
-    transform: translateY(-10px) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
+    transform: translateY(-20px) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
   }
   to {
     transform: translateY(0) rotateX(0) rotateY(360deg) rotateZ(0);
