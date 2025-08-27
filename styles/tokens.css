@@ -1,0 +1,45 @@
+:root {
+  /* Colors */
+  --color-text: #e2e8f0;
+  --color-text-accent: #e2e8f0;
+  --color-background: #1a202c;
+  --color-link: #e2e8f0;
+  --color-shadow: #e2e8f0;
+  --color-border: #e2e8f0;
+  --color-overlay: rgba(2, 2, 2, 0.637);
+  --color-overlay-hover: rgba(0, 0, 0, 0.801);
+  --color-button-hover: #fcfcfc20;
+  --color-button-active: #fcfcfc60;
+
+  /* Typography */
+  --font-family-base: "Fira Code", monospace, 'Courier New', Courier, monospace, Roboto, Arial;
+  --font-size-xl: 2rem;
+  --font-size-lg: 1.125rem;
+  --font-size-base: 1rem;
+  --font-size-small: 0.8rem;
+
+  /* Layout */
+  --max-width-container: 1200px;
+  --min-width-container: 320px;
+
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 20px;
+  --space-lg: 40px;
+
+  /* Borders & radius */
+  --radius-md: 14px;
+
+  /* Shadows */
+  --shadow-sm: 2px 2px 0 0;
+  --shadow-md: 4px 4px 0 0;
+  --shadow-lg: 6px 6px 0 0;
+
+  /* Breakpoints */
+  --bp-mobile: 720px;
+
+  /* Icons */
+  --icon-light-white: 1;
+  --icon-light-black: 0;
+}

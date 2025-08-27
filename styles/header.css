@@ -53,13 +53,13 @@
 .light-black-icon {
   width: 100%;
   position: absolute;
-  opacity: 0.9
+  opacity: var(--icon-light-black);
 }
 
 .light-white-icon {
   width: 100%;
   position: absolute;
-  opacity: 0;
+  opacity: var(--icon-light-white);
 }
 
 .version {

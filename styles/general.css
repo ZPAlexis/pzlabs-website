@@ -1,62 +1,25 @@
 body {
-  font-family: "Fira Code", monospace, 'Courier New', Courier, monospace, Roboto, Arial;
-  color: rgb(0, 0, 0);
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+
   margin: 0;
   padding-top: 60px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #e2e8f0;
+
   transition: background-color 0.15s;
   touch-action: manipulation;/* Disables double-tap zoom & delays */
   -webkit-tap-highlight-color: transparent; /* Prevents weird highlight */
   -webkit-user-select: none;/* Prevents accidental text selection */
 }
 
-body.dark-mode {
-  background-color: #1a202c;
-  color: #e2e8f0;
-}
-
-body.dark-mode .link {
-  color: #e2e8f0;
-}
-
-body.dark-mode .button-link {
-  color: #e2e8f0;
-  box-shadow: 6px 6px 0 0 #e2e8f0;
-  border: 2px solid #e2e8f0;
-}
-
-body.dark-mode .move-button {
-  background-color: #1a202c;
-  border-color: #e2e8f0;
-  box-shadow: 6px 6px 0 0 #e2e8f0;
-}
-
-body.dark-mode .move-button:hover,
-body.dark-mode .reset-score-button:hover {
-  background-color: #fcfcfc20;
-}
-
-body.dark-mode .move-button:active,
-body.dark-mode .reset-score-button:active {
-  background-color: #fcfcfc60;
-  box-shadow: 2px 2px 0 0 #e2e8f0;
-}
-
-body.dark-mode .light-black-icon {
-  opacity: 0;
-}
-
-body.dark-mode .light-white-icon {
-  opacity: 0.9;
-}
-
 .main-container {
-  max-width: 1200px;
-  min-width: 320px;
+  max-width: var(--max-width-container);
+  min-width: var(--min-width-container);
   width: 100%;
 }
 
@@ -66,14 +29,15 @@ p {
 
 .link {
   font-weight: bold;
-  color: black;
+  color: var(--color-link);
 }
 
 .button-link {
   font-weight: 400;
-  color: black;
-  box-shadow: 6px 6px 0 0 #222;
-  border: #000000;
+  color: var(--color-link);
+  box-shadow: var(--shadow-lg)  var(--color-shadow);
+  border: var(--color-border);
+
   border-style: solid;
   border-width: 2px;
   border-radius: 14px;

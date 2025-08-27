@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/themes.css">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -27,24 +30,24 @@
       <a class="about-link" href="about.html">About</a>
     </nav>
     <button id="dark-mode-toggle" class="dark-mode-toggle-button"><img class="light-black-icon" src="icons/light-black-icon.png"><img class="light-white-icon" src="icons/light-white-icon.png"></button>
-    <p class="version">v0.22</p>
+    <p class="version">v0.23</p>
   </header>
 
   <main class="main-container">
     <section class="intro-section">
       <div class="intro-container">
-          <div class="intro-left-container fade-in">
+          <div class="intro-left-container fade-up">
             <h1 class="intro-title"><div class="auto-text-container"><div class="auto-text"></div><div class="vertical-bar-blink">|</div></div>Gamified<br>Experiences</h1>
             <p class="intro-description">We believe anything can be gamified. This is my laboratory of gamification studies and home to future gamification tools.</p>
             <div class="intro-cta">Learn more <a class="link" href="about.html">About Us &gt;</a></div>
           </div>
-          <div class="intro-right-container">
+          <div class="intro-right-container fade-up">
             <img class="intro-image" src="images/intro-coin.png" style="border-radius: 100%; width: 50%;">
           </div>
       </div>
     </section>
 
-    <section class="social-links-section fade-in">
+    <section class="social-links-section fade-up">
         <a class="button-link" href="">Github</a>
         <a class="button-link" href="">LinkedIn</a>
         <a class="button-link" href="">Behance</a>
@@ -205,11 +208,15 @@
   </main>
 
   <footer>
-    <div class="footer-container js-footer fade-up"></div>
+    <div class="footer-container">
+      <p class="footer-small-font">Thank you for checking out this project!</p>
+      <p>Developed by</p>
+      <p><a class="link" href="https://github.com/ZPAlexis">Alexis Coelho // .zero</a></p>
+      <p class="footer-small-font">CC-BY-SA-4.0 2025</p></div>
   </footer>
 
   <script src="scripts/index.js"></script>
-  <script src="scripts/footer.js"></script>
+  <script src="scripts/animations.js"></script>
   <script src="scripts/dark-mode.js" defer></script>
   <script src="scripts/rock-paper-scissors.js" defer></script>
 </body>

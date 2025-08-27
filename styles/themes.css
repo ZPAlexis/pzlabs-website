@@ -1,0 +1,10 @@
+[data-theme="light"] {
+  --color-background: #e2e8f0;
+  --color-text: #000;
+  --color-link: #000;
+  --color-shadow: #222;
+  --color-border: #222;
+
+  --icon-light-white: 0;
+  --icon-light-black: 1;
+}
