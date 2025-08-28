@@ -17,14 +17,14 @@ body {
   -webkit-user-select: none;/* Prevents accidental text selection */
 }
 
+p {
+  margin: 0;
+}
+
 .main-container {
   max-width: var(--max-width-container);
   min-width: var(--min-width-container);
   width: 100%;
-}
-
-p {
-  margin: 0;
 }
 
 .link {
