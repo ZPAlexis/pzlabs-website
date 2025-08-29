@@ -4,7 +4,7 @@ img.addEventListener('click', () => {
   void img.offsetWidth;
   img.classList.add('spin');
 });
-
+/*
 const autoTextHTML = document.querySelector('.auto-text');
 const verticalBarBlinkHTML = document.querySelector('.vertical-bar-blink');
 
@@ -26,11 +26,18 @@ let autoText = '';
 let i1 = 0;
 let i2 = 0;
 
-//add letter up to the last letter of the word, each at a time, with a quick delay between them
-//blink dash | at the end for a few seconds
-//delete each letter of the word, even quicker delay between deletes
-//repeat for each word
-//then loop through list again
+//startAutoText
+//chooseAutoText < loop start
+//short delay
+//stop vertical blinking
+//typeAutoText
+//resume vertical blinking
+//short delay
+//stop vertical blinking
+//eraseAutoText
+//resume vertical blinking
+//chooseAutoText < loop start
+
 function chooseAutoText() {
   if (i1 < autoTextOptions.length) {
     autoText = autoTextOptions[i1];
@@ -43,9 +50,6 @@ function chooseAutoText() {
 }
 
 async function typeAutoText() {
-//vertical bar blink
-//blink dash out and in once, control delay
-//start first letter of the first word
   if (i2 < autoText.length) {
     autoTextHTML.innerHTML += autoText[i2];
     i2++;
@@ -81,3 +85,4 @@ async function verticalBarBlink() {
 verticalBarBlink();
 chooseAutoText();
 typeAutoText();
+*/
