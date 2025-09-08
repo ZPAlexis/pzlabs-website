@@ -41,7 +41,6 @@ async function verticalBarBlink() {
       verticalBarBlinkHTML.innerHTML = '&nbsp;';
       await sleep(400);
     } else {
-      // while disabled, just ensure bar is visible and check again
       verticalBarBlinkHTML.innerHTML = '|';
       await sleep(300);
     }
