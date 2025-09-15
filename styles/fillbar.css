@@ -75,6 +75,7 @@
 
 .play-button-text {
   font-size: 50px;
+  line-height: 1;
   color: transparent;
   text-shadow: 0 2px 0 var(--color-text);
   -webkit-background-clip: text;
