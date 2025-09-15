@@ -82,6 +82,7 @@
   background-color: var(--color-button-text-shadow);
   position: relative;
   top: -2px;
+  align-self: flex-start;
 }
 
 .play-button-base {
