@@ -99,8 +99,7 @@
 }
 
 @supports (-webkit-touch-callout: none) {
-  /* This block runs only on iOS Safari */
   .play-button-text {
-    transform: translateY(-0.1em);
+    transform: translateY(-0.05em);
   }
 }
