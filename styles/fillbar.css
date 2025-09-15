@@ -80,8 +80,8 @@
   -webkit-background-clip: text;
   background-clip: text;
   background-color: var(--color-button-text-shadow);
-  position: relative;
-  top: -2px;
+  position: absolute;
+  top: -1px;
   align-self: flex-start;
 }
 
