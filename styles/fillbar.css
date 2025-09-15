@@ -23,11 +23,11 @@
 
 .fill-bar-text {
   display: flex;
-  padding: 0 20px;
+  padding: 0 0 0 20px;
   align-items: center;
   flex: 1;
   gap: 10px;
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-medium);
   font-family: var(--font-family-accent);
 }
 
