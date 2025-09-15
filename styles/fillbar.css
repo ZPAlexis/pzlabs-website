@@ -81,9 +81,8 @@
   background-clip: text;
   background-color: var(--color-button-text-shadow);
   position: absolute;
-  top: -2px;
   align-self: flex-start;
-  font-family: var(--font-family-accent);
+  font-family: var(--font-family-basic);
 }
 
 .play-button-base {

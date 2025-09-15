@@ -22,6 +22,7 @@
   /* Typography */
   --font-family-base: "Fira Code", monospace, 'Courier New', Courier, monospace;
   --font-family-accent: "Roboto", sans-serif;
+  --font-family-basic: Arial, Helvetica, sans-serif;;
   --font-size-h1: 2.25rem;
   --font-size-h2: 1.75rem;
   --font-size-h3: 1.25rem;
