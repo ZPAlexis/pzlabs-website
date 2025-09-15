@@ -61,11 +61,3 @@
   position: absolute;
   opacity: var(--icon-light-white);
 }
-
-.version {
-  position: absolute;
-  right: 10px;
-  top: 55px;
-  display: flex;
-  font-size: x-small;
-}

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/fillbar.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/rock-paper-scissors.css">
 </head>
@@ -30,16 +31,14 @@
       <a class="about-link" href="about.html">About</a>
     </nav>
     <button id="dark-mode-toggle" class="dark-mode-toggle-button"><img class="light-black-icon" src="icons/light-black-icon.png"><img class="light-white-icon" src="icons/light-white-icon.png"></button>
-    <p class="version">v0.24</p>
   </header>
 
   <main class="main-container">
     <section class="intro-section">
       <div class="intro-container">
           <div class="intro-left-container fade-up">
-            <h1 class="intro-title"><div class="auto-text-container"><div class="auto-text"></div><div class="vertical-bar-blink">|</div></div>Gamified<br>Experiences</h1>
-            <p class="intro-description">Game-like applications to engage and delight users and customers</p>
-            <div class="intro-cta">Learn more <a class="link" href="about.html">About Us &gt;</a></div>
+            <h1 class="intro-title"><div class="auto-text-container"><div class="auto-text"></div><div class="vertical-bar-blink">|</div></div>Gamified<br>Experiences.</h1>
+            <p class="intro-description">Game-like solutions to inspire and motivate user engagement.</p>
           </div>
           <div class="intro-right-container fade-in">
             <img class="intro-image" src="images/intro-coin.png" style="border-radius: 100%; width: 50%;">
@@ -47,38 +46,24 @@
       </div>
     </section>
 
-    <section class="social-links-section fade-up">
-        <a class="button-link" href="">Github</a>
-        <a class="button-link" href="">LinkedIn</a>
-        <a class="button-link" href="">Behance</a>
-        <a class="button-link" href="">Instagram</a>
-    </section>
+    <section class="fill-bar-section fade-up">
+      <div class="fill-bar-container">
+        <div class="fill-bar-text">Fill this bar to get a coin <img src="icons/arrow-fill-right.svg"></div>
+        <div class="fill-bar-coin"><img class="fill-bar-coin-image" src="icons/coin-gray.svg"></div>
+      </div>
 
-    <section class="rock-paper-scissors-project fade-up">
-      <div class="rock-paper-scissors-container">
-        <div class="rock-paper-scissors-buttons-container">
-          <button onclick="
-            playGame('rock');
-          " class="move-button"><img src="icons/rock-emoji.png" class="move-icon"></button>
-          <button onclick="
-            playGame('paper');
-          " class="move-button"><img src="icons/paper-emoji.png" class="move-icon"></button>
-          <button onclick="
-            playGame('scissors');
-          " class="move-button"><img src="icons/scissors-emoji.png" class="move-icon"></button>
-        </div>
-        <p class="js-moves moves fade-1s"></p>
-        <p class="js-result result fade-2s"></p>
-        <p class="js-score score fade-2s"></p>
-        <p class="js-reset-score-button fade-2s"></p>
+      <div class="play-button">
+        <button class="play-button-top">
+          <div class="play-button-text">+</div>
+        </button>
+        <div class="play-button-base"></div>
       </div>
     </section>
 
     <section class="about-projects-section fade-up">
       <div class="about-projects-container">
-        <h1 class="about-projects-title">Projects</h1>
-        <p class="about-projects-description">These are some of the experiments we’ve explored so far, but it’s just the start.</p>
-        <div class="about-projects-cta">Check out all <a class="link" href="projects.html">Projects &gt;</a></div>
+        <h1 class="about-projects-title">Projects.</h1>
+        <p class="about-projects-description">These are some of the experiments we’ve explored so far, this is just the start!</p>
       </div>      
     </section>
 
@@ -134,82 +119,32 @@
       </div>
     </section>
 
-    <section class="about-projects-section fade-up">
-      <div class="about-projects-container">
-        <h1 class="about-projects-title">Our Blog</h1>
-        <p class="about-projects-description">Explain the focus of your blog posts. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <div class="about-projects-cta">Check our <a class="link" href="projects.html">Blog Posts &gt;</a></div>
-      </div>      
-    </section>
-
-    <section class="blog-list-section">
-      <div class="blog-list-container">
-        <div class="blog-post fade-up">
-          <a href="post.html" class="blog-post-link">
-          <img class="blog-image" src="images/example-image-4.webp" alt="Blog Image">
-          <div class="blog-overlay">
-            <h1 class="blog-title">This is a short title for blog post or portifolio item</h1>
-            <p class="blog-author">by Author</p>
-          </div>
-          </a>
+    <section class="rock-paper-scissors-project fade-up">
+      <div class="rock-paper-scissors-container">
+        <div class="rock-paper-scissors-buttons-container">
+          <button onclick="
+            playGame('rock');
+          " class="move-button"><img src="icons/rock-emoji.png" class="move-icon"></button>
+          <button onclick="
+            playGame('paper');
+          " class="move-button"><img src="icons/paper-emoji.png" class="move-icon"></button>
+          <button onclick="
+            playGame('scissors');
+          " class="move-button"><img src="icons/scissors-emoji.png" class="move-icon"></button>
         </div>
-
-        <div class="blog-post fade-up">
-          <a href="post.html" class="blog-post-link">
-          <img class="blog-image" src="images/example-image-5.jpg" alt="Blog Image">
-          <div class="blog-overlay">
-            <h1 class="blog-title">This is a short title for blog post or portifolio item</h1>
-            <p class="blog-author">by Author</p>
-          </div>
-          </a>
-        </div>
-
-        <div class="blog-post fade-up">
-          <a href="post.html" class="blog-post-link">
-          <img class="blog-image" src="images/example-image-6.jpg" alt="Blog Image">
-          <div class="blog-overlay">
-            <h1 class="blog-title">This is a short title for blog post or portifolio item</h1>
-            <p class="blog-author">by Author</p>
-          </div>
-          </a>
-        </div>
-
-        <div class="blog-post fade-up">
-          <a href="post.html" class="blog-post-link">
-          <img class="blog-image" src="images/example-image-7.webp" alt="Blog Image">
-          <div class="blog-overlay">
-            <h1 class="blog-title">This is a short title for blog post or portifolio item</h1>
-            <p class="blog-author">by Author</p>
-          </div>
-          </a>
-        </div>
-
-        <div class="blog-post fade-up">
-          <a href="post.html" class="blog-post-link">
-          <img class="blog-image" src="images/example-image-8.webp" alt="Blog Image">
-          <div class="blog-overlay">
-            <h1 class="blog-title">This is a short title for blog post or portifolio item</h1>
-            <p class="blog-author">by Author</p>
-          </div>
-          </a>
-        </div>
-
-        <div class="blog-post fade-up">
-          <a href="post.html" class="blog-post-link">
-          <img class="blog-image" src="images/example-image-9.webp" alt="Blog Image">
-          <div class="blog-overlay">
-            <h1 class="blog-title">This is a short title for blog post or portifolio item</h1>
-            <p class="blog-author">by Author</p>
-          </div>
-          </a>
-        </div>
+        <p class="js-moves moves fade-1s"></p>
+        <p class="js-result result fade-2s"></p>
+        <p class="js-score score fade-2s"></p>
+        <p class="js-reset-score-button fade-2s"></p>
       </div>
     </section>
+
   </main>
 
   <footer>
     <div class="footer-container">
       <div class="footer-small-font">
+        <p class="version">v0.30</p>
         <p>Developed by</p>
         <p><a class="link" href="https://github.com/ZPAlexis">Alexis Coelho // .zero</a></p>
         <p class="footer-small-font">CC-BY-SA-4.0 2025</p>

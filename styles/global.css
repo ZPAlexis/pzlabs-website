@@ -22,7 +22,6 @@ p {
 }
 
 .main-container {
-  max-width: var(--max-width-container);
   min-width: var(--min-width-container);
   width: 100%;
 }

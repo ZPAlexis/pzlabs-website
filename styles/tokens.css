@@ -4,22 +4,31 @@
   --color-text-accent: #e2e8f0;
   --color-background: #1a202c;
   --color-link: #e2e8f0;
-  --color-shadow: #e2e8f0;
+  --color-shadow: #02154050;
+  --color-primary: #3670FA;
+  --color-primary-shade: #114ec0;
+  --color-primary-dark: #07307d;
+  --color-primary-darker: #021540;
   --color-border: #e2e8f0;
   --color-overlay: rgba(2, 2, 2, 0.637);
   --color-overlay-hover: rgba(0, 0, 0, 0.801);
   --color-button-hover: #fcfcfc20;
   --color-button-active: #fcfcfc60;
+  --color-button-gold: #FAC036;
+  --color-button-gold-shadow: #CA9B2A;
+  --color-button-base-shadow: #C1C6CC;
+  --color-button-text-shadow: #00000025;
 
   /* Typography */
   --font-family-base: "Fira Code", monospace, 'Courier New', Courier, monospace, Roboto, Arial;
-  --font-size-xl: 2rem;
-  --font-size-lg: 1.125rem;
-  --font-size-base: 1rem;
+  --font-size-h1: 2.25rem;
+  --font-size-h2: 1.75rem;
+  --font-size-h3: 1.25rem;
+  --font-size-body: 1.125rem;
   --font-size-small: 0.8rem;
 
   /* Layout */
-  --max-width-container: 1200px;
+  --max-width-container: 800px;
   --min-width-container: 320px;
 
   /* Spacing scale */
@@ -32,9 +41,10 @@
   --radius-md: 14px;
 
   /* Shadows */
-  --shadow-sm: 2px 2px 0 0;
-  --shadow-md: 4px 4px 0 0;
-  --shadow-lg: 6px 6px 0 0;
+  --shadow-sm: 0 2px 0 0;
+  --shadow-md: 0 4px 0 0;
+  --shadow-lg: 0 6px 0 0;
+  --shadow-button: 0 8px 0 0;
 
   /* Breakpoints */
   --bp-mobile: 720px;
