@@ -97,3 +97,10 @@
   z-index: 1;
   align-self: flex-end;
 }
+
+@supports (-webkit-touch-callout: none) {
+  /* This block runs only on iOS Safari */
+  .play-button-text {
+    transform: translateY(-0.1em);
+  }
+}
