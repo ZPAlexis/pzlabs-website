@@ -80,10 +80,8 @@
   -webkit-background-clip: text;
   background-clip: text;
   background-color: var(--color-button-text-shadow);
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  top: -2px;
 }
 
 .play-button-base {
