@@ -20,7 +20,8 @@
   --color-button-text-shadow: #00000025;
 
   /* Typography */
-  --font-family-base: "Fira Code", monospace, 'Courier New', Courier, monospace, Roboto, Arial;
+  --font-family-base: "Fira Code", monospace, 'Courier New', Courier, monospace;
+  --font-family-accent: Roboto, Arial;
   --font-size-h1: 2.25rem;
   --font-size-h2: 1.75rem;
   --font-size-h3: 1.25rem;

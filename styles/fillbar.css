@@ -1,22 +1,19 @@
 .fill-bar-section {
-  max-width: none;
   height: 315px;
   background-color: var(--color-primary-shade);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 80px 0;
   box-shadow: var(--shadow-md) var(--color-shadow);
   gap: 20px;
+  padding: 0 40px;
 }
 
 .fill-bar-container {
-  max-width: 680px;
-  width: 100%;
-  margin: 0 40px;
   background-color: var(--color-primary-dark);
   height: 58px;
+  width: 100%;
   border-radius: 29px;
   box-shadow: inset var(--shadow-md) var(--color-shadow);
   display: flex;
@@ -30,6 +27,12 @@
   min-width: 200px;
   flex-grow: 1;
   gap: 10px;
+  font-size: var(--font-size-body);
+  font-family: var(--font-family-accent);
+}
+
+.fill-bar-arrow {
+  width: 20px;
 }
 
 .fill-bar-coin {
