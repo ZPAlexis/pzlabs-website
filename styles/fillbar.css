@@ -14,6 +14,7 @@
   background-color: var(--color-primary-dark);
   height: 58px;
   width: 100%;
+  max-width: 680px;
   border-radius: 29px;
   box-shadow: inset var(--shadow-md) var(--color-shadow);
   display: flex;
@@ -22,12 +23,11 @@
 
 .fill-bar-text {
   display: flex;
-  padding: 0 30px;
+  padding: 0 20px;
   align-items: center;
-  min-width: 200px;
-  flex-grow: 1;
+  flex: 1;
   gap: 10px;
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-small);
   font-family: var(--font-family-accent);
 }
 
