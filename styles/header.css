@@ -65,18 +65,19 @@
 .coin-summary {
   background-color: var(--color-primary-shade);
   cursor: pointer;
-  width: 100px;
   height: 40px;
   position: fixed;
   right: 15px;
   top: 15px;
   display: flex;
   flex-direction: row;
-  box-shadow: var(--shadow-md) var(--color-primary-darker);
+  box-shadow: var(--shadow-sm) var(--color-primary-darker);
   border-radius: 20px;
   border-style: solid;
   border-width: 1px;
   border-color: var(--color-primary-darker);
+  gap: 4px;
+  padding: 0 12px 0 4px;
 }
 
 .gold-coin-container {
