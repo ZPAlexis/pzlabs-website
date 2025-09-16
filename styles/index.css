@@ -29,20 +29,26 @@
 .intro-title {
   font-size: var(--font-size-h1);
   margin: 0;
+  line-height: 52px;
 }
 
 .auto-text-container {
   display: flex;
   justify-content: end;
   margin-right: -4px;
-  line-height: 56px;
 }
 
-.auto-text {
- margin-right: -2px;
+.auto-text-container-simple {
+  display: flex;
+  justify-content: center;
+  margin-right: -4px;
 }
 
-.vertical-bar-blink {
+.auto-text, .auto-text-simple {
+  margin-right: -2px;
+}
+
+.vertical-bar-blink, .vertical-bar-blink-simple {
   margin: 0 -2px;
 }
 
@@ -86,29 +92,32 @@
 
 .about-section {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: brown;
-  height: 600px;
+  justify-content: center;
 }
 
 .about-list-container {
   display: flex;
-  flex-direction: column;
-  background-color: rgb(47, 70, 70);
   margin: 60px 20px;
-  height: 600px;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .about-container {
   display: flex;
   flex-direction: column;
-  background-color: bisque;
-  width: 320px;
+  width: 300px;
+}
+
+.about-title {
+  font-size: var(--font-size-body);
+  margin: 0;
+  line-height: 30px;
 }
 
 .about-description {
   text-align: center;
+  line-height: 24px;
 }
 
 .about-projects-section {
@@ -268,5 +277,10 @@
   .auto-text-container {
     justify-content: center;
     margin-left: 8px;
+  }
+
+  .about-list-container {
+    flex-direction: column;
+    gap: 80px;
   }
 }
