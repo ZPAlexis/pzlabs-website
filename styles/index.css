@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: row;
   flex: 1;
-  margin: 60px 0 80px 0;
+  margin: 60px 0;
   max-width: var(--max-width-container);
 }
 
@@ -48,6 +48,7 @@
 
 .intro-description {
   padding: 10px 0;
+  max-width: 280px;
 }
 
 .intro-cta {
@@ -83,6 +84,33 @@
   }
 }
 
+.about-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: brown;
+  height: 600px;
+}
+
+.about-list-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(47, 70, 70);
+  margin: 60px 20px;
+  height: 600px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  background-color: bisque;
+  width: 320px;
+}
+
+.about-description {
+  text-align: center;
+}
+
 .about-projects-section {
   display: flex;
   align-items: center;
@@ -97,7 +125,7 @@
   max-width: var(--max-width-container);
 
   flex: 1;
-  margin: 120px 0;
+  margin: 60px 0;
   padding: 0 20px;
 }
 
@@ -218,7 +246,6 @@
 
   .intro-title, .intro-description, .intro-cta {
     text-align: center;
-    width: 240px;
   }
 
   .intro-right-container {
