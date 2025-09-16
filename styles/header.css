@@ -65,7 +65,6 @@
 .coin-summary {
   background-color: var(--color-primary-shade);
   cursor: pointer;
-  height: 44px;
   position: fixed;
   right: 8px;
   top: 8px;
@@ -74,8 +73,7 @@
   box-shadow: var(--shadow-sm) var(--color-primary-darker);
   border-radius: 9999px;
   border: 1px solid var(--color-primary-darker);
-  gap: 4px;
-  padding: 0 12px 0 4px;
+  padding: 0 16px 0 4px;
   align-items: center;
   justify-content: center;
 }
