@@ -12,12 +12,14 @@
   --color-border: #e2e8f0;
   --color-overlay: rgba(2, 2, 2, 0.637);
   --color-overlay-hover: rgba(0, 0, 0, 0.801);
+  --color-button: #e2e8f0;
   --color-button-hover: #fcfcfc20;
   --color-button-active: #fcfcfc60;
   --color-button-gold: #FAC036;
   --color-button-gold-shadow: #CA9B2A;
   --color-button-base-shadow: #C1C6CC;
   --color-button-text-shadow: #00000025;
+  --color-button-border: #FFFFFF60;
 
   /* Typography */
   --font-family-base: "Fira Code", monospace, 'Courier New', Courier, monospace;
