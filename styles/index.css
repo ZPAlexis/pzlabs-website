@@ -55,6 +55,7 @@
 .intro-description {
   padding: 10px 0;
   max-width: 280px;
+  line-height: 26px;
 }
 
 .intro-cta {
@@ -172,6 +173,7 @@
 
 .about-me-description {
   width: 220px;
+  line-height: 26px;
 }
 
 .about-me-cta-button {
@@ -210,6 +212,7 @@
 .about-projects-description {
   width: 300px;
   padding: 10px 0;
+  line-height: 26px;
 }
 
 .projects-section {
@@ -296,6 +299,7 @@
 
 .project-description-text {
   margin: 0;
+  line-height: 26px;
 }
 
 @media (max-width: 720px) {
