@@ -1,4 +1,4 @@
-.rock-paper-scissors-project {
+.rock-paper-scissors-section {
   display: flex;
 }
 
@@ -6,24 +6,90 @@
   display: flex;
   flex-direction: column;
   margin: 80px 0;
-  padding: 0 20px;
+  padding: 80px 20px;
   justify-content: center;
   align-items: center;
   flex: 1;
   height: 620px;
   background-color: var(--color-primary-shade);
   box-shadow: var(--shadow-md) var(--color-shadow);
+  gap: 28px;
+}
+
+.rps-names-container {
+  display: flex;
+  flex-direction: row;
+  width: 360px;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.rps-name, .rps-versus {
+  font-family: var(--font-family-accent);
+  color: var(--color-text);
+  text-shadow: var(--text-shadow-sm) var(--color-shadow);
+  font-weight: bold;
+}
+
+.rps-name {
+  font-size: var(--font-size-h2);
+  line-height: 100%;
+}
+
+.rps-versus {
+  font-size: var(--font-size-h1);
+  line-height: 40%;
+}
+
+.rps-avatars-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 360px;
+  gap: 20px;
+}
+
+.rps-avatar {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 150px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  border: 4px solid var(--color-border);
+  box-shadow: var(--shadow-md) var(--color-shadow);
+  background-color: transparent;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.rps-avatar-image {
+  height: 90%;
+  position: absolute;
+  bottom: -2px;
+  object-fit: fill;
+  z-index: 0;
+}
+
+.rps-fill-bar {
+  max-width: 320px;
 }
 
 .rock-paper-scissors-buttons-container {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
   gap: 10px;
 }
 
 .move-icon {
-  height: 50px;
+  height: 46px;
+  position: absolute;
+  align-self: center;
+}
+
+.rock-icon {
+  height: 40px;
 }
 
 .move-button {
@@ -37,18 +103,7 @@
   transition: box-shadow 0.15s ease;
 }
 
-.move-button:hover, .reset-score-button:hover {
-  background-color: var(--color-button-hover);
-  box-shadow: var(--shadow-md) var(--color-shadow);
-}
-
-.move-button:active, .reset-score-button:active {
-  background-color: var(--color-button-active);
-  box-shadow: var(--shadow-sm) var(--color-shadow);
-}
-
 .moves {
-  margin-top: 20px;
   transition: opacity 0.4s ease;
   opacity: 1;
 }
@@ -70,7 +125,6 @@
 .reset-score-button {
   font-size: var(--font-size-body);
   padding: 4px 10px;
-  margin-top: 10px;
   border-radius: 30px;
   background-color: transparent;
 }
