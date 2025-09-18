@@ -228,7 +228,7 @@
   flex: 1;
   margin: 40px 0 80px 0;
   padding: 0 20px;
-  gap: 40px;
+  gap: 80px;
 }
 
 .project-container {
@@ -265,8 +265,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
+  max-width: 200px;
   height: 100%;
+  justify-content: space-between;
 }
 
 .project-title-text {
@@ -274,6 +275,7 @@
   position: relative;
   display: inline-block;
   margin: 0 0 -4px 0;
+  line-height: 120%;
 }
 
 .project-summary-tags {
@@ -281,7 +283,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 5px;
-  width: 60%;
+  width: 80%;
 }
 
 .stack-tag {
@@ -295,10 +297,35 @@
 .project-cta {
   height: 30px;
   width: 80%;
+  margin-bottom: 4px;
 }
 
 .project-description-text {
   margin: 0;
+  line-height: 26px;
+  width: 80%;
+}
+
+.cta-section {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-container {
+  display: flex;
+  flex-direction: column;
+  margin: 80px 20px;
+  gap: 20px;
+  width: 220px;
+}
+
+.cta-message {
+  line-height: 26px;
+}
+
+.cta-link {
+  font-family: var(--font-family-accent);
+  color: #FAC036;
   line-height: 26px;
 }
 

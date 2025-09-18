@@ -5,10 +5,14 @@
 .rock-paper-scissors-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 80px 0;
+  padding: 0 20px;
   justify-content: center;
   align-items: center;
   flex: 1;
+  height: 620px;
+  background-color: var(--color-primary-shade);
+  box-shadow: var(--shadow-md) var(--color-shadow);
 }
 
 .rock-paper-scissors-buttons-container {

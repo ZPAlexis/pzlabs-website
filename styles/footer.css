@@ -10,10 +10,12 @@ footer {
 
 .footer-container {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: end;
   align-items: center;
   padding: 20px 20px 0 20px;
+  gap: 10px;
 }
 
 .footer-small-font {
@@ -21,4 +23,12 @@ footer {
   padding-bottom: 14px;
   width: 200px;
   text-align: center;
+  line-height: 26px;
+}
+
+.footer-line {
+  width: 100%;
+  max-width: 600px;
+  border: none;
+  border-top: 1px solid var(--color-text);
 }
