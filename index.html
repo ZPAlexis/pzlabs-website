@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>PZLabs</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
 </head>
 <body>
   <header class="header">
-    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.35</p>
+    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.35a</p>
     <button class="coin-summary">
       <div class="gold-coin-container">
         <img class="cover-image" src="icons/coin-gold.svg">
@@ -194,8 +194,18 @@ Survivor</h1>
           <p class="rps-name">A.I.</p>
         </div>
         <div class="rps-avatars-container">
-          <div class="rps-avatar"><img class="rps-avatar-image" src="icons/avatar-player.svg"></div>
-          <div class="rps-avatar"><img class="rps-avatar-image" src="icons/avatar-ai.svg"></div>
+          <div class="rps-avatar-wrapper">
+            <div class="rps-avatar">
+              <img class="rps-avatar-image" src="icons/avatar-player.svg">
+            </div>
+            <div class="rps-avatar-move rps-player-move">-</div>
+          </div>
+          <div class="rps-avatar-wrapper">
+            <div class="rps-avatar">
+              <img class="rps-avatar-image" src="icons/avatar-ai.svg">
+            </div>
+            <div class="rps-avatar-move rps-ai-move">-</div>
+          </div>
         </div>
         <p class="js-moves moves fade-1s"></p>
         <p class="js-result result fade-2s"></p>

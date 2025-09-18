@@ -10,7 +10,6 @@
   justify-content: center;
   align-items: center;
   flex: 1;
-  height: 620px;
   background-color: var(--color-primary-shade);
   box-shadow: var(--shadow-md) var(--color-shadow);
   gap: 28px;
@@ -19,7 +18,8 @@
 .rps-names-container {
   display: flex;
   flex-direction: row;
-  width: 360px;
+  max-width: 360px;
+  width: 100%;
   justify-content: space-evenly;
   align-items: flex-end;
 }
@@ -45,23 +45,30 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 360px;
+  max-width: 360px;
   gap: 20px;
+  padding-bottom: 20px;
+}
+
+.rps-avatar-wrapper {
+  position: relative;
+  height: 150px;
+  aspect-ratio: 1 / 1;
 }
 
 .rps-avatar {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 150px;
-  aspect-ratio: 1/1;
   border-radius: 100%;
   border: 4px solid var(--color-border);
   box-shadow: var(--shadow-md) var(--color-shadow);
   background-color: transparent;
   z-index: 1;
-  overflow: hidden;
+  background-color: var(--color-primary-dark);
 }
 
 .rps-avatar-image {
@@ -72,6 +79,29 @@
   z-index: 0;
 }
 
+.rps-avatar-move {
+  position: absolute;
+  bottom: -20px;
+  width: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  aspect-ratio: 1/1;
+  background-color: var(--color-primary-shade);
+  border-radius: 100%;
+  border: 4px solid var(--color-border);
+  box-shadow: var(--shadow-md) var(--color-shadow);
+}
+
+.rps-player-move {
+  right: -4px;
+}
+
+.rps-ai-move {
+  left: -4px;
+}
+
 .rps-fill-bar {
   max-width: 320px;
 }
@@ -79,13 +109,13 @@
 .rock-paper-scissors-buttons-container {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 20px;
 }
 
 .move-icon {
   height: 46px;
-  position: absolute;
   align-self: center;
+  vertical-align: middle;
 }
 
 .rock-icon {
@@ -106,14 +136,16 @@
 .moves {
   transition: opacity 0.4s ease;
   opacity: 1;
+  text-align: center;
+  margin: 0;
 }
 
 .result {
   font-size: var(--font-size-h1);
   font-weight: bold;
-  margin: 10px 0;
   transition: opacity 0.4s ease;
   opacity: 1;
+  margin: 0;
 }
 
 .score {

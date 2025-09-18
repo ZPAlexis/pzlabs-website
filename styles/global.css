@@ -3,6 +3,7 @@ body {
   color: var(--color-text);
   background-color: var(--color-background);
 
+  overflow-x: hidden;
   margin: 0;
   padding-top: 60px;
 
