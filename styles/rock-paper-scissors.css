@@ -98,8 +98,18 @@
   right: -4px;
 }
 
+.rps-player-move-content {
+  transform: scaleY(-1) rotate(90deg);
+  transform-origin: center;
+}
+
 .rps-ai-move {
   left: -4px;
+}
+
+.rps-ai-move-content {
+  transform: rotate(-90deg);
+  transform-origin: center;
 }
 
 .rps-fill-bar {
@@ -113,7 +123,8 @@
 }
 
 .move-icon {
-  height: 46px;
+  aspect-ratio: 1/1;
+  height: 40px;
   align-self: center;
   vertical-align: middle;
 }
