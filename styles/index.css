@@ -193,7 +193,6 @@
   justify-content: baseline;
 
   max-width: var(--max-width-container);
-
   flex: 1;
   margin: 60px 0 40px 0;
   padding: 0 20px;
@@ -201,7 +200,7 @@
 
 .about-projects-title, .about-projects-description {
   text-align: left;
-  max-width: 600px;
+  max-width: 720px;
 }
 
 .about-projects-title {
@@ -222,13 +221,15 @@
 
 .projects-container {
   display: flex;
-  flex-direction: column ;
-  justify-content: baseline;
-  align-items: center;
-  flex: 1;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+
+
+  max-width: var(--max-width-container);
+  width: 100%;
   margin: 40px 0 80px 0;
   padding: 0 20px;
-  gap: 80px;
 }
 
 .project-container {
