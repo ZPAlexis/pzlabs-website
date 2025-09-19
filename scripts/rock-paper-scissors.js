@@ -10,6 +10,9 @@ function updateScoreText() {
   const jsResult = document.querySelector('.js-result');
   const jsScore = document.querySelector('.js-score');
   const jsResetScoreButton = document.querySelector('.js-reset-score-button');
+  const jsPlayerMove = document.querySelector('.js-player-move');
+  const jsAiMove = document.querySelector('.js-ai-move');
+  const jsAvatarMove = document.querySelectorAll('.js-avatar-move');
 
   if (score.wins !== 0 || score.losses !== 0 || score.ties !== 0) {
     fadeUpdate(jsScore, `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
@@ -18,6 +21,13 @@ function updateScoreText() {
     fadeUpdate(jsResult, `Make a move to play the game.`);
     jsScore.innerHTML = '';
     jsResetScoreButton.innerHTML = '';
+    jsPlayerMove.innerHTML = '';
+    jsAiMove.innerHTML = '';
+    jsAvatarMove.forEach(el => {
+      if (!el.classList.contains('hidden')) {
+        el.classList.add('hidden');
+      }
+    });
   }
 }
 
@@ -107,13 +117,19 @@ function playGame(playerMove) {
 
   localStorage.setItem('score', JSON.stringify(score));
 
+  document.querySelectorAll('.js-avatar-move').forEach(el => {
+    if (el.classList.contains('hidden')) {
+      el.classList.remove('hidden');
+    }
+  });
+
   updateScoreText();
 
-  fadeUpdate(document.querySelector('.js-result'), result);
+  fadeUpdate(document.querySelector('.js-result'), `<p class="result-highlight">${result}</p>`);
 
-  document.querySelector('.js-player-move').innerHTML = `<img src="icons/${playerMove}-emoji.png" class="move-icon">`;
+  fadeUpdate(document.querySelector('.js-player-move'), `<img src="icons/${playerMove}-emoji.png" class="move-icon">`);
 
-  document.querySelector('.js-ai-move').innerHTML = `<img src="icons/${computerMove}-emoji.png" class="move-icon">`;
+  fadeUpdate(document.querySelector('.js-ai-move'), `<img src="icons/${computerMove}-emoji.png" class="move-icon">`);
 }
 
 function pickComputerMove() {

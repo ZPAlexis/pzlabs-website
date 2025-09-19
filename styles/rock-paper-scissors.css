@@ -152,11 +152,17 @@
 }
 
 .result {
-  font-size: var(--font-size-h1);
-  font-weight: bold;
+  font-size: var(--font-size-body);
+  font-weight: regular;
   transition: opacity 0.4s ease;
   opacity: 1;
   margin: 0;
+  line-height: 20px;
+}
+
+.result-highlight {
+  font-size: var(--font-size-h1);
+  font-weight: bold;
 }
 
 .score {

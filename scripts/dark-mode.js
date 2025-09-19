@@ -5,11 +5,11 @@ const toggleBtn = document.getElementById('dark-mode-toggle');
 
 applyMode();
 
-toggleBtn.addEventListener('click', () => {
+/*toggleBtn.addEventListener('click', () => {
   darkMode = !darkMode;
   localStorage.setItem('lightMode', JSON.stringify(darkMode));
   applyMode();
-});
+});*/
 
 function applyMode() {
   if (darkMode) {
