@@ -1,7 +1,15 @@
-const autoTextHTML = document.querySelector('.auto-text');
-const verticalBarBlinkHTML = document.querySelector('.vertical-bar-blink');
+const coverTextHTML = document.querySelector('.js-cover-text');
+const coverBarBlinkHTML = document.querySelector('.js-cover-bar-blink');
 
-const autoTextOptions = [
+const listText1HTML = document.querySelector('.js-list-text-1');
+const listText2HTML = document.querySelector('.js-list-text-2');
+const listText3HTML = document.querySelector('.js-list-text-3');
+const listBarBlinkHTML = document.querySelectorAll('.js-list-bar-blink');
+
+const target = document.querySelector('.about-focus-list-container');
+
+const coverTextOptions = [
+  'Creating',
   'Engineering',
   'Designing',
   'Coding',
@@ -9,19 +17,16 @@ const autoTextOptions = [
   'Researching',
   'Scoping',
   'Reviewing',
-  'Creating',
   'Enhancing',
-  'Ideating',
-  'Implementing',
-  'Workshopping'
+  'Implementing'
 ];
 
-let autoText = '';
+let coverText = '';
 let i1 = 0;
 
-function chooseAutoText() {
-  autoText = autoTextOptions[i1];
-  i1 = (i1 + 1) % autoTextOptions.length;
+function chooseCoverText() {
+  coverText = coverTextOptions[i1];
+  i1 = (i1 + 1) % coverTextOptions.length;
 }
 
 function sleep(ms) {
@@ -31,35 +36,44 @@ function sleep(ms) {
 // ----------------
 // Blink Controller
 // ----------------
-let blinkActive = true;
+let coverBlinkActive = true;
 
-async function verticalBarBlink() {
+async function startCoverBarBlink() {
   while (true) {
-    if (blinkActive) {
-      verticalBarBlinkHTML.innerHTML = '|';
-      await sleep(600);
-      verticalBarBlinkHTML.innerHTML = '&nbsp;';
+    if (coverBlinkActive) {
+      coverBarBlinkHTML.innerHTML = '|';
+      await sleep(800);
+      coverBarBlinkHTML.innerHTML = '&nbsp;';
       await sleep(400);
     } else {
-      verticalBarBlinkHTML.innerHTML = '|';
-      await sleep(300);
+      coverBarBlinkHTML.innerHTML = '|';
+      await sleep(400);
     }
+  }
+}
+
+async function startListBarBlink() {
+  while (true) {
+    listBarBlinkHTML.forEach(el => el.innerHTML = '|');
+    await sleep(800);
+    listBarBlinkHTML.forEach(el => el.innerHTML = '&nbsp;');
+    await sleep(400);
   }
 }
 
 // ----------------
 // Typing Logic
 // ----------------
-async function typeAutoText() {
-  for (let i = 0; i < autoText.length; i++) {
-    autoTextHTML.innerHTML += autoText[i];
-    await sleep(80);
+async function typeText(textString, html, ms) {
+  for (let i = 0; i < textString.length; i++) {
+    html.innerHTML += textString[i];
+    await sleep(ms);
   }
 }
 
-async function eraseAutoText() {
-  while (autoTextHTML.innerHTML.length > 0) {
-    autoTextHTML.innerHTML = autoTextHTML.innerHTML.slice(0, -1);
+async function eraseCoverText() {
+  while (coverTextHTML.innerHTML.length > 0) {
+    coverTextHTML.innerHTML = coverTextHTML.innerHTML.slice(0, -1);
     await sleep(60);
   }
 }
@@ -67,34 +81,51 @@ async function eraseAutoText() {
 // ----------------
 // Main Orchestrator
 // ----------------
-async function startAutoText() {
-  chooseAutoText();
+async function startCoverText() {
+  chooseCoverText();
 
   while (true) {
-    await sleep(1000); // short delay before typing
+    await sleep(1000);
 
-    blinkActive = false;        // stop blinking while typing
-    await typeAutoText();
-    blinkActive = true;         // resume blinking
+    blinkActive = false;
+    await typeText(coverText, coverTextHTML, 80);
+    blinkActive = true;
 
-    await sleep(2200);          // pause with word visible
+    await sleep(2200);
 
-    blinkActive = false;        // stop blinking while erasing
-    await eraseAutoText();
-    blinkActive = true;         // resume blinking
+    blinkActive = false;
+    await eraseCoverText();
+    blinkActive = true;
     
-    chooseAutoText();           // pick next word
+    chooseCoverText();
 
   }
 }
 
-// ----------------
-// Start Everything
-// ----------------
-verticalBarBlink();
-startAutoText();
+function startListText() {
+  typeText('Gamification', listText1HTML, 60);
+  typeText('Game elements', listText2HTML, 60);
+  typeText('Our focus', listText3HTML, 60);
+}
 
-// PROMPT
-/*
-I have a typewriter effect logic in JS for my website that I'd like to improve. Currently, it runs with setTimeout callbacks on the typeAutoText and verticalBarBlink functions. Howevever, I would like to stop the blinking "animation" while the word is being typed and while it is being erased. One way I thought of doing that was to control the whole logic with a single function that goes step by step. //startAutoText //chooseAutoText < loop start //short delay //stop vertical blinking //typeAutoText //resume vertical blinking //short delay //stop vertical blinking //eraseAutoText //resume vertical blinking //chooseAutoText < loop start How can I do that?
-*/
+startCoverBarBlink();
+startCoverText();
+startListBarBlink();
+
+// Intersection Observer setup
+const autoTextObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Element is now visible in the viewport
+      startListText();
+      autoTextObserver.unobserve(entry.target); // run only once
+    }
+  });
+}, {
+  threshold: 0.5 // 50% of the element must be visible (tweak as needed)
+});
+
+// Attach observer
+if (target) {
+  autoTextObserver.observe(target);
+}

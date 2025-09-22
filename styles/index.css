@@ -44,11 +44,11 @@
   margin-right: -4px;
 }
 
-.auto-text, .auto-text-simple {
+.cover-text, .auto-list-text {
   margin-right: -2px;
 }
 
-.vertical-bar-blink, .vertical-bar-blink-simple {
+.cover-bar-blink, .list-bar-blink {
   margin: 0 -2px;
 }
 
