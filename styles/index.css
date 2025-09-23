@@ -76,11 +76,14 @@
 
 .cover-box, .cover-coin {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
 }
 
 .cover-box {
@@ -93,22 +96,23 @@
 }
 
 @keyframes hoverIdle {
-  50%, 100% { transform: translateY(0) scale(1);}
-  90%      { transform: translateY(-8px) scale(1.01);}
-  80%      { transform: translateY(0px) scale(1);}
-  70%      { transform: translateY(-8px) scale(1.01); }
+  50%, 100% { transform: translate(-50%, -50%) translateY(0) scale(1);}
+  90%      { transform: translate(-50%, -50%) translateY(-8px) scale(1.01);}
+  80%      { transform: translate(-50%, -50%) translateY(0px) scale(1);}
+  70%      { transform: translate(-50%, -50%) translateY(-8px) scale(1.01); }
 }
 
 .cover-coin {
   opacity: 0.01;
-  transform: scale(0.01) translateZ(0);
+  
+  transform: translateZ(0);
   z-index: 1;
 
   backface-visibility: visible;
   transform-style: preserve-3d;
   will-change: transform, opacity;
 
-  -webkit-transform: translateZ(0)
+  -webkit-transform: translateZ(0);
 }
 
 .cover-coin.visible {
@@ -121,49 +125,58 @@
 
 .cover-coin.spin {
   opacity: 1;
-  transform: scale(1);
   animation: coinSpin 0.5s ease forwards;
 }
 
 @keyframes boxOpen {
   0% {
-    scale: 1;
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
-  10% {
-    scale: 0.9;
+  20% {
+    transform: translate(-50%, -50%) scale(0.8);
     opacity: 1;
   }
   50% {
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
   100% {
-    scale: 1.1;
+    transform: translate(-50%, -50%) scale(1.2);
     opacity: 0;
   }
 }
 
 @keyframes coinSpin {
-  50% {
-    transform: scale(1.08) translateY(-20px) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
+  0% {
+    transform: translate(-50%, -50%) scale(1) translateY(0)
+               rotateX(0) rotateY(0) rotateZ(0);
   }
-  to {
-    transform: scale(1) translateY(0) rotateX(0) rotateY(360deg) rotateZ(0);
+  50% {
+    transform: translate(-50%, -50%) scale(1.08) translateY(-20px)
+               rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1) translateY(0)
+               rotateX(0) rotateY(360deg) rotateZ(0);
   }
 }
 
 @keyframes coinCollect {
   0% {
     opacity: 0.01;
-    transform: scale(0.01) translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(0);
+    transform: translate(-50%, -50%) scale(0.01) translate3d(0,0,0)
+               rotateX(0) rotateY(0) rotateZ(0);
   }
   50% {
     opacity: 1;
-    transform: scale(1.08) translate3d(0,-10px,0) rotateX(10deg) rotateY(360deg) rotateZ(-10deg);
+    transform: translate(-50%, -50%) scale(1.08) translate3d(0,-10px,0)
+               rotateX(10deg) rotateY(360deg) rotateZ(-10deg);
   }
   100% {
     opacity: 1;
-    transform: scale(1) translate3d(0,0,0) rotateX(0) rotateY(1080deg) rotateZ(0);
+    transform: translate(-50%, -50%) scale(1) translate3d(0,0,0)
+               rotateX(0) rotateY(1080deg) rotateZ(0);
   }
 }
 
