@@ -101,12 +101,14 @@
 
 .cover-coin {
   opacity: 0.01;
-  transform: scale(0.01);
+  transform: scale(0.01) translateZ(0);
   z-index: 1;
 
   backface-visibility: visible;
   transform-style: preserve-3d;
   will-change: transform, opacity;
+
+  -webkit-transform: translateZ(0)
 }
 
 .cover-coin.visible {
@@ -152,16 +154,16 @@
 
 @keyframes coinCollect {
   0% {
-    opacity: 0;
-    transform: scale(0) translateY(0) rotateX(0) rotateY(0) rotateZ(0);
+    opacity: 0.01;
+    transform: scale(0.01) translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(0);
   }
   50% {
     opacity: 1;
-    transform: scale(1.08) translateY(-20px) rotateX(10deg) rotateY(540deg) rotateZ(-10deg);
+    transform: scale(1.08) translate3d(0,-10px,0) rotateX(10deg) rotateY(360deg) rotateZ(-10deg);
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateY(0) rotateX(0) rotateY(1080deg) rotateZ(0);
+    transform: scale(1) translate3d(0,0,0) rotateX(0) rotateY(1080deg) rotateZ(0);
   }
 }
 
