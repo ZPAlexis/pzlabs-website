@@ -16,6 +16,7 @@
 .intro-left-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: end;
   padding: 20px 20px 0 20px;
   max-width: 420px;
@@ -105,7 +106,7 @@
 
 .cover-coin.visible {
   transform: scale(0);
-  animation: fadeIn 1.4s ease forwards, coinCollect 1.4s ease forwards;
+  animation: coinCollect 1.4s ease forwards;
 }
 
 .cover-box.open {
@@ -146,10 +147,16 @@
 }
 
 @keyframes coinCollect {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(0) rotateX(0) rotateY(0) rotateZ(0);
+  }
   50% {
+    opacity: 1;
     transform: scale(1.08) translateY(-20px) rotateX(10deg) rotateY(540deg) rotateZ(-10deg);
   }
-  to {
+  100% {
+    opacity: 1;
     transform: scale(1) translateY(0) rotateX(0) rotateY(1080deg) rotateZ(0);
   }
 }
