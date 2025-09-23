@@ -38,12 +38,6 @@
   margin-right: -4px;
 }
 
-.auto-text-container-simple {
-  display: flex;
-  justify-content: center;
-  margin-right: -4px;
-}
-
 .cover-text, .auto-list-text {
   margin-right: -2px;
 }
@@ -99,7 +93,7 @@
 .about-focus-list-container {
   display: flex;
   margin: 60px 20px;
-  gap: 60px;
+  gap: 80px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -116,8 +110,12 @@
   line-height: 30px;
 }
 
+.auto-text-list-container {
+  display: flex;
+  margin-right: -4px;
+}
+
 .about-focus-description {
-  text-align: center;
   line-height: 24px;
 }
 
@@ -194,7 +192,7 @@
 
   max-width: var(--max-width-container);
   flex: 1;
-  margin: 60px 0 40px 0;
+  margin: 60px 0 20px 0;
   padding: 0 20px;
 }
 
@@ -228,7 +226,7 @@
 
   max-width: var(--max-width-container);
   width: 100%;
-  margin: 40px 0 80px 0;
+  margin: 20px 0 80px 0;
   padding: 0 20px;
 }
 

@@ -1,6 +1,6 @@
 .fade-up {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(60px);
   transition: opacity .6s ease, transform .6s ease;
 }
 
@@ -17,7 +17,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(60px);
   }
   to {
     opacity: 1;

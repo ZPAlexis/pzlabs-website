@@ -6,7 +6,8 @@ const listText2HTML = document.querySelector('.js-list-text-2');
 const listText3HTML = document.querySelector('.js-list-text-3');
 const listBarBlinkHTML = document.querySelectorAll('.js-list-bar-blink');
 
-const target = document.querySelector('.about-focus-list-container');
+const targets = document.querySelectorAll('.js-list-text-1, .js-list-text-2, .js-list-text-3');
+
 
 const coverTextOptions = [
   'Creating',
@@ -102,30 +103,22 @@ async function startCoverText() {
   }
 }
 
-function startListText() {
-  typeText('Gamification', listText1HTML, 60);
-  typeText('Game elements', listText2HTML, 60);
-  typeText('Our focus', listText3HTML, 60);
+const autoTextObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      startListText(entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.8 });
+
+targets.forEach(target => autoTextObserver.observe(target));
+
+function startListText(element) {
+  const text = element.dataset.text;
+  typeText(text, element, 60);
 }
 
 startCoverBarBlink();
 startCoverText();
 startListBarBlink();
-
-// Intersection Observer setup
-const autoTextObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Element is now visible in the viewport
-      startListText();
-      autoTextObserver.unobserve(entry.target); // run only once
-    }
-  });
-}, {
-  threshold: 0.5 // 50% of the element must be visible (tweak as needed)
-});
-
-// Attach observer
-if (target) {
-  autoTextObserver.observe(target);
-}
