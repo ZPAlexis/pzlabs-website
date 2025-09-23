@@ -100,8 +100,8 @@
 }
 
 .cover-coin {
-  opacity: 0;
-  transform: scale(0);
+  opacity: 0.01;
+  transform: scale(0.01);
   z-index: 1;
 
   backface-visibility: visible;
