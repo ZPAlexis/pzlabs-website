@@ -101,11 +101,15 @@
 
 .cover-coin {
   opacity: 0;
+  transform: scale(0);
   z-index: 1;
+
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
 }
 
 .cover-coin.visible {
-  transform: scale(0);
   animation: coinCollect 1.4s ease forwards;
 }
 
