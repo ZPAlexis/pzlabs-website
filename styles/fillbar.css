@@ -42,7 +42,7 @@
   height: 50%;
   width: 100%;
   border-radius: inherit;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
   pointer-events: none;
 }
 
