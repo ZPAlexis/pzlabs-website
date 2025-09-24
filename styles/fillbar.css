@@ -26,10 +26,11 @@
 
 .fill-bar-fill {
   position: absolute;
-  width: 20%;
+  width: 0%;
   height: 98%;
   border-radius: 29px;
   background-color: var(--color-accent);
+  transition: width 0.5s linear;
 }
 
 .fill-bar-text {

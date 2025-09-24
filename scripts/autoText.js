@@ -99,7 +99,6 @@ async function startCoverText() {
     blinkActive = true;
     
     chooseCoverText();
-
   }
 }
 

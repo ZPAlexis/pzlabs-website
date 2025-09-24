@@ -26,7 +26,7 @@
 </head>
 <body>
   <header class="header">
-    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.39</p>
+    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.39a</p>
     <button class="coin-summary">
       <div class="gold-coin-container">
         <img class="cover-image" src="icons/coin-gold.svg">
@@ -58,13 +58,13 @@
 
     <section class="fill-bar-section">
       <div class="fill-bar-container">
-        <div class="fill-bar-fill">-</div>
+        <div class="js-fill-bar-fill fill-bar-fill"></div>
         <div class="fill-bar-text">Fill this bar to get a coin <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg"></div>
         <div class="fill-bar-coin"><img class="fill-bar-coin-image" src="icons/coin-gray.svg"></div>
       </div>
 
       <div class="play-button">
-        <button class="play-button-top gold-button">
+        <button onclick="fillBar(10);" class="play-button-top gold-button">
           <div class="play-button-text">+</div>
         </button>
         <div class="play-button-base"></div>
@@ -270,6 +270,7 @@ Survivor</h1>
 
   <script src="scripts/index.js"></script>
   <script src="scripts/autoText.js"></script>
+  <script src="scripts/fillBar.js"></script>
   <script src="scripts/animations.js"></script>
   <script src="scripts/dark-mode.js" defer></script>
   <script src="scripts/rock-paper-scissors.js" defer></script>
