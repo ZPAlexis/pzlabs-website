@@ -20,6 +20,16 @@
   box-shadow: inset var(--shadow-md) var(--color-shadow);
   display: flex;
   flex-direction: row;
+  position: relative;
+  overflow: hidden;
+}
+
+.fill-bar-fill {
+  position: absolute;
+  width: 20%;
+  height: 98%;
+  border-radius: 29px;
+  background-color: var(--color-accent);
 }
 
 .fill-bar-text {
