@@ -5,5 +5,5 @@ fillBarButton.onclick = function () {
   fillBarButton.classList.add('pressed');
   setTimeout(() => {
     fillBarButton.classList.remove('pressed');
-  }, 150);
+  }, 100);
 };
