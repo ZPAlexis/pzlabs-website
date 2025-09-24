@@ -15,6 +15,16 @@ function calculateCoinAmount() {
   coinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
 }
 
+coinImg.addEventListener('animationend', (e) => {
+  if (e.animationName === 'coinSpin') {
+    coinImg.classList.remove('spin');
+    coinImg.classList.add('idle');
+  }
+  if (e.animationName === 'coinCollect') {
+    coinImg.classList.add('idle');
+  }
+});
+
 button.addEventListener('click', () => {
   if (!coinsCollectedFlags.cover) {
     boxImg.classList.remove('idle');
@@ -24,6 +34,7 @@ button.addEventListener('click', () => {
     coinsCollectedFlags.cover = true;
     calculateCoinAmount();
   } else {
+    coinImg.classList.remove('idle');
     coinImg.classList.remove('spin');
     void coinImg.offsetWidth;
     coinImg.classList.add('spin');

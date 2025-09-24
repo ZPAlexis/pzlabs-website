@@ -29,6 +29,7 @@
   position: absolute;
   width: 0%;
   height: 100%;
+  border-radius: 4px;
   background-color: var(--color-accent);
   transition: width 0.3s linear;
   box-shadow: inset 0 -4px 4px rgba(0, 0, 0, 0.2);

@@ -93,10 +93,10 @@
 }
 
 @keyframes hoverIdle {
-  50%, 100% { transform: translateY(0) scale(1);}
+  68%, 100% { transform: translateY(0) scale(1);}
   90%      { transform: translateY(-8px) scale(1.01);}
-  80%      { transform: translateY(0px) scale(1);}
-  70%      { transform: translateY(-8px) scale(1.01); }
+  85%      { transform: translateY(0px) scale(1);}
+  75%      { transform: translateY(-12px) scale(1.02); }
 }
 
 .cover-coin {
@@ -110,6 +110,15 @@
 
 .cover-coin.visible {
   animation: coinCollect 1.4s ease forwards;
+}
+
+.cover-coin.idle {
+  animation: coinHoverIdle 6s ease-in-out infinite;
+}
+
+@keyframes coinHoverIdle {
+  0%, 100% { transform: scale(1);}
+  50%      { transform: scale(1.04);}
 }
 
 .cover-box.open {
@@ -153,7 +162,7 @@
   0% {
     transform: scale(0.01) translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(0);
   }
-  70% {
+  60% {
     transform: scale(1.08) translate3d(0,-10px,0) rotateX(10deg) rotateY(360deg) rotateZ(-10deg);
   }
   100% {
