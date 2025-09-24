@@ -13,13 +13,16 @@ function fillBar(amount) {
   if (currentWidth == 0) {
       startDecay();
   } 
+  if (newWidth == 100) {
+    collectFillBarCoin();
+  }
 }
 
 async function startDecay() {
   const fill = document.querySelector('.fill-bar-fill');
   fill.dataset.decaying = 'true';
   while (true) {
-    await new Promise(resolve => setTimeout(resolve, 500)); // wait 1 second
+    await new Promise(resolve => setTimeout(resolve, 300)); // wait
 
     const currentWidthStr = fill.style.width || '0%';
     let currentWidth = parseFloat(currentWidthStr);

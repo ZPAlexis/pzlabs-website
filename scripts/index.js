@@ -30,6 +30,13 @@ button.addEventListener('click', () => {
   }
 });
 
+function collectFillBarCoin() {
+  if (!coinsCollectedFlags.fillBar) {
+    coinsCollectedFlags.fillBar = true;
+    calculateCoinAmount();
+  }
+}
+
 calculateCoinAmount();
 
 /* AI PROMPT
