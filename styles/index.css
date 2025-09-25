@@ -118,7 +118,7 @@
 
 @keyframes coinHoverIdle {
   0%, 100% { transform: scale(1);}
-  50%      { transform: scale(1.04);}
+  40%      { transform: scale(1.08);}
 }
 
 .cover-box.open {
@@ -128,7 +128,7 @@
 .cover-coin.spin {
   opacity: 1;
   transform: scale(1);
-  animation: coinSpin 0.5s ease forwards;
+  animation: coinUpSpin 0.5s ease forwards;
 }
 
 @keyframes boxOpen {
@@ -149,12 +149,21 @@
   }
 }
 
-@keyframes coinSpin {
+@keyframes coinUpSpin {
   50% {
     transform: scale(1.08) translateY(-20px) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
   }
   to {
     transform: scale(1) translateY(0) rotateX(0) rotateY(360deg) rotateZ(0);
+  }
+}
+
+@keyframes coinSpin {
+  50% {
+    transform: scale(1.3) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
+  }
+  to {
+    transform: scale(1.15) rotateX(0) rotateY(360deg) rotateZ(0);
   }
 }
 

@@ -2,6 +2,10 @@ const button = document.querySelector('.cover-btn');
 const boxImg = button.querySelector('.js-cover-box');
 const coinImg = button.querySelector('.js-cover-coin');
 const coinAmount = document.querySelector('.js-coin-amount');
+const fillBarGoldCoin = document.querySelector('.js-fill-bar-collected-coin');
+const fillBarGrayCoin = document.querySelector('.js-fill-bar-gray-coin');
+const fillBarBorder = document.querySelector('.js-fill-bar-container');
+const fillBarText = document.querySelector('.fill-bar-text');
 
 const coinsCollectedFlags = {
   cover: false,
@@ -43,20 +47,31 @@ button.addEventListener('click', () => {
 
 function collectFillBarCoin() {
   if (!coinsCollectedFlags.fillBar) {
+    fillBarGrayCoin.classList.add('hidden');
+    fillBarGoldCoin.classList.remove('hidden');
     coinsCollectedFlags.fillBar = true;
     calculateCoinAmount();
+    triggerFillBarAnimations();
+  } else {
+    triggerFillBarAnimations();
   }
 }
 
-calculateCoinAmount();
+function triggerFillBarAnimations() {
+  fillBarBorder.classList.add('highlight');
+  fillBarGoldCoin.classList.remove('spin');
+  void fillBarGoldCoin.offsetWidth;
+  fillBarGoldCoin.classList.add('spin');
+    
+  fillBarText.classList.remove('show');
+  fillBarText.innerHTML = 'Coin Collected!';
+  void fillBarText.offsetWidth;
 
-/* AI PROMPT
-
-What is the best way to refactor this code and calculate the funcion calculateCoinAmount based on the steps provided? 
-
-function calculateCoinAmount { 
-  //calculate how many coins were collected (coinsCollected) based on true values from coverCoinCollected, fillBarCoinCollected, rpsCoinCollected 
-  //update innerHTML of coinAmount based on coinsCollected and total possible coins ´${coinsCollected} / 3´
+  setTimeout(() => {
+    fillBarText.classList.add('show');
+    fillBarBorder.classList.remove('highlight');
+  }, 300);
 }
 
-*/
+
+calculateCoinAmount();
