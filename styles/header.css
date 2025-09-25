@@ -79,6 +79,10 @@
   justify-content: center;
 }
 
+.coin-summary.highlight {
+  animation: borderHighlight 0.6s ease;
+}
+
 .gold-coin-container {
   display: flex;
   height: 100%;

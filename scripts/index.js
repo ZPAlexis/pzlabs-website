@@ -57,6 +57,10 @@ button.addEventListener('click', () => {
     coverCoinScrollText.classList.remove('collected');
     void coverCoinScrollText.offsetWidth;
     coverCoinScrollText.classList.add('collected');
+
+    summaryCoinBorder.classList.remove('highlight');
+    void summaryCoin.offsetWidth;
+    summaryCoinBorder.classList.add('highlight');
   }
 });
 
@@ -69,6 +73,9 @@ export function collectFillBarCoin() {
     triggerFillBarAnimations();
   } else {
     triggerFillBarAnimations();
+    summaryCoinBorder.classList.remove('highlight');
+    void summaryCoin.offsetWidth;
+    summaryCoinBorder.classList.add('highlight');
   }
 }
 
@@ -86,21 +93,21 @@ function triggerFillBarAnimations() {
   fillBarText.classList.remove('show');
   fillBarText.innerHTML = 'Coin Collected!';
   void fillBarText.offsetWidth;
+  fillBarText.classList.add('show');
 
   setTimeout(() => {
-    fillBarText.classList.add('show');
-  }, 100);
-
-  setTimeout(() => {
-    fillBarBorder.classList.remove('highlight');
     isAnimatingFillBar = false;
-  }, 600);
+  }, 300);
 }
 
 function triggerSummaryAnimations() {
   summaryCoin.classList.remove('spin');
   void summaryCoin.offsetWidth;
   summaryCoin.classList.add('spin');
+
+  summaryCoinBorder.classList.remove('highlight');
+  void summaryCoin.offsetWidth;
+  summaryCoinBorder.classList.add('highlight');
 }
 
 

@@ -10,13 +10,21 @@ export function fillBar(amount) {
   // Clamp between 0 and 100
   newWidth = Math.max(0, Math.min(100, newWidth));
 
+  const isReachingFull = newWidth === 100 && currentWidth < 100;
+
   fill.style.width = newWidth + '%';
 
   if (currentWidth == 0) {
       startDecay();
   } 
-  if (newWidth == 100) {
-    collectFillBarCoin();
+  if (isReachingFull) {
+    const onTransitionEnd = (e) => {
+      if (e.propertyName === 'width') {
+        fill.removeEventListener('transitionend', onTransitionEnd);
+        collectFillBarCoin();
+      }
+    };
+    fill.addEventListener('transitionend', onTransitionEnd);
   }
 }
 

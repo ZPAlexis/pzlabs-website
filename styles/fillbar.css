@@ -23,23 +23,18 @@
   position: relative;
   border: 2px solid var(--color-primary-dark80);
   overflow: hidden;
+  transition: border 0.3s ease;
 }
 
 .fill-bar-container.highlight {
-  animation: borderHighlight 0.6s ease;
+  border: 3px solid var(--color-button-gold-active);
 }
 
 @keyframes borderHighlight {
   0% {
     border-color: var(--color-primary-dark80);
   }
-  30% {
-    border: 3px solid var(--color-button-gold-active);
-  }
   50% {
-    border-color: var(--color-primary-dark80);
-  }
-  70% {
     border: 3px solid var(--color-button-gold-active);
   }
   100% {
@@ -79,7 +74,6 @@
   font-size: var(--font-size-medium);
   font-family: var(--font-family-accent);
   color: var(--color-text);
-  transition: font-size 0.3s ease;
 }
 
 .fill-bar-text.show {
@@ -87,6 +81,19 @@
   z-index: 2;
   font-weight: 500;
   font-size: var(--font-size-body);
+  animation: bumpRight 0.3s ease;
+}
+
+@keyframes bumpRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  90% {
+    transform: translateX(-2px);
+  }
 }
 
 .fill-bar-arrow {
