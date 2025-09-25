@@ -23,11 +23,28 @@
   position: relative;
   border: 2px solid var(--color-primary-dark80);
   overflow: hidden;
-  transition: border 0.3s ease;
 }
 
 .fill-bar-container.highlight {
-  border: 3px solid var(--color-button-gold-active);
+  animation: borderHighlight 0.6s ease;
+}
+
+@keyframes borderHighlight {
+  0% {
+    border-color: var(--color-primary-dark80);
+  }
+  30% {
+    border: 3px solid var(--color-button-gold-active);
+  }
+  50% {
+    border-color: var(--color-primary-dark80);
+  }
+  70% {
+    border: 3px solid var(--color-button-gold-active);
+  }
+  100% {
+    border-color: var(--color-primary-dark80);
+  }
 }
 
 .fill-bar-fill {
@@ -62,13 +79,14 @@
   font-size: var(--font-size-medium);
   font-family: var(--font-family-accent);
   color: var(--color-text);
-  transition: color 0.3s ease, z-index 0.3s ease;
+  transition: font-size 0.3s ease;
 }
 
 .fill-bar-text.show {
   color: var(--color-text-dark);
   z-index: 2;
   font-weight: 500;
+  font-size: var(--font-size-body);
 }
 
 .fill-bar-arrow {
@@ -81,6 +99,7 @@
   align-items: center;
   width: 58px;
   position: relative;
+  transition: opacity 0.2s ease;
 }
 
 .fill-bar-coin-image, .fill-bar-collected-coin-image {
@@ -92,9 +111,17 @@
 
 .fill-bar-collected-coin-image {
   z-index: 2;
+  height: 54px;
   transform: scale(0.5);
 }
 
 .fill-bar-collected-coin-image.spin {
   animation: coinSpin 0.5s ease forwards;
+}
+
+
+@media (max-width: 720px) {
+  .fill-bar-section {
+    margin: 20px 0 60px 0;
+  }
 }

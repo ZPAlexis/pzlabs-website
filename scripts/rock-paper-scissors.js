@@ -45,7 +45,7 @@ function resetScoreButtonCheck() {
   }
 }
 
-function fadeUpdate(element, newHTML, skipFadeOut = false) {
+export function fadeUpdate(element, newHTML, skipFadeOut = false) {
   if (skipFadeOut) {
     element.innerHTML = newHTML;
     element.classList.remove('hidden');

@@ -66,6 +66,8 @@
   background-color: var(--color-primary-shade);
   cursor: pointer;
   position: fixed;
+  width: 110px;
+  height: 50px;
   right: 8px;
   top: 8px;
   display: flex;
@@ -73,7 +75,7 @@
   box-shadow: var(--shadow-sm) var(--color-primary-darker);
   border-radius: 9999px;
   border: 1px solid var(--color-primary-darker);
-  padding: 0 16px 0 4px;
+  padding: 0 4px 0 4px;
   align-items: center;
   justify-content: center;
 }
@@ -85,11 +87,17 @@
   flex: 1;
 }
 
+.gold-coin-container.spin {
+  animation: coinSpin 0.6s ease forwards;
+}
+
 .coin-amount {
   flex: 2;
+  margin-left: -10px;
   font-size: var(--font-size-h3);
   font-family: var(--font-family-accent);
   font-weight: bold;
   color: var(--color-text);
   line-height: 1;
+  transition: opacity 0.2s ease;
 }

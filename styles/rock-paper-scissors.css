@@ -195,5 +195,6 @@
 
 .hidden {
   opacity: 0;
-  transition: opacity 0.2s ease;
+  visibility: hidden;
+  pointer-events: none;
 }

@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: border 0.1s ease-out, transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease-out;
+  transition: border 0.1s ease-out, transform 0.1s ease-out, box-shadow 0.1s ease-out, background-color 0.1s ease-out;
 }
 
 .play-button-text {

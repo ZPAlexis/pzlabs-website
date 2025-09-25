@@ -1,3 +1,5 @@
+import { fillBar } from './fillBar.js';
+
 const fillBarButton = document.querySelector('.js-fill-bar-play-button');
 
 fillBarButton.onclick = function () {

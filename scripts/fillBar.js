@@ -1,4 +1,6 @@
-function fillBar(amount) {
+import { collectFillBarCoin } from './index.js';
+
+export function fillBar(amount) {
   const fill = document.querySelector('.fill-bar-fill');
   const currentWidthStr = fill.style.width || '0%';
   let currentWidth = parseFloat(currentWidthStr);
@@ -24,8 +26,7 @@ async function startDecay() {
   while (true) {
     await new Promise(resolve => setTimeout(resolve, 300)); // wait
 
-    const currentWidthStr = fill.style.width || '0%';
-    let currentWidth = parseFloat(currentWidthStr);
+    let currentWidth = parseFloat(fill.style.width) || 0;
 
     if (currentWidth <= 0) {
       fill.style.width = '0%';
@@ -37,6 +38,6 @@ async function startDecay() {
       break;
     }
 
-    fill.style.width = (currentWidth - 2) + '%';
+    fill.style.width = Math.max(0, currentWidth - 2) + '%';
   }
 }
