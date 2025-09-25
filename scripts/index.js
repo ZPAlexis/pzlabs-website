@@ -21,9 +21,11 @@ const coinsCollectedFlags = {
 export function calculateCoinAmount() {
   const totalCoins = Object.keys(coinsCollectedFlags).length;
   const coinsCollected = Object.values(coinsCollectedFlags).filter(Boolean).length;
-  fadeUpdate(coinAmount, `${coinsCollected} / ${totalCoins}`);
+  coinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
+  
   if (coinsCollected != 0) {
     triggerSummaryAnimations();
+    fadeUpdate(coinAmount, `${coinsCollected} / ${totalCoins}`);
   }
 }
 
