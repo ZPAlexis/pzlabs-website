@@ -161,8 +161,8 @@
 }
 
 .result-highlight {
-  font-size: var(--font-size-h1);
-  font-weight: bold;
+  font-size: var(--font-size-h3);
+  font-weight: 400;
 }
 
 .score {

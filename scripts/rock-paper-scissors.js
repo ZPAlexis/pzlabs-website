@@ -35,14 +35,22 @@ function resetScoreButtonCheck() {
   const jsResetScoreButton = document.querySelector('.js-reset-score-button');
 
   if (jsResetScoreButton.innerHTML === ``) {
-    fadeUpdate(jsResetScoreButton, `<button onclick="
-          score.wins = 0;
-          score.losses = 0;
-          score.ties = 0;
-          localStorage.removeItem('score');
-          updateScoreText();
-        " class="button-link reset-score-button">Reset Score</button>`);
+    jsResetScoreButton.innerHTML = `
+      <button class="button-link reset-score-button">Reset Score</button>
+    `;
+
+    // Add event listener after inserting the button
+    const resetButton = jsResetScoreButton.querySelector('.reset-score-button');
+    resetButton.addEventListener('click', resetRPSScore);
   }
+}
+
+export function resetRPSScore() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem('score');
+  updateScoreText();
 }
 
 export function fadeUpdate(element, newHTML, skipFadeOut = false) {
@@ -63,15 +71,7 @@ export function fadeUpdate(element, newHTML, skipFadeOut = false) {
     element.removeEventListener('transitionend', handler);
   });
 }
-/*
-if (!score) {
-  score = {
-    wins: 0,
-    losses: 0,
-    ties: 0
-  }
-}
-*/
+
 console.log(score);
 
 export function playGame(playerMove) {

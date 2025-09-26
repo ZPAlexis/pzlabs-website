@@ -26,7 +26,7 @@
 </head>
 <body>
   <header class="header">
-    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.41a</p>
+    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.41b</p>
     <button class="js-coin-summary coin-summary">
       <div class="js-gold-coin-container gold-coin-container">
         <img class="cover-image" src="icons/coin-gold.svg">
@@ -69,7 +69,7 @@
 
       <div class="fill-bar-button-timer-container">
         <div class="play-button">
-          <button class="js-fill-bar-play-button play-button-top gold-button">
+          <button class="js-animated-button play-button-top gold-button" data-action="fillBar" data-value="6">
             <div class="play-button-text">+</div>
           </button>
           <div class="play-button-base"></div>
@@ -125,7 +125,7 @@
           </div>
         </div>
         <div class="about-me-description fade-up">I’m <b>Alexis Coelho</b>, a <b>product manager</b> and enthusiast of clever game mechanics that influences our decision-making.</div>
-        <button class="about-me-cta-button  cta-button fade-up">Learn more about me</button>
+        <button class="js-animated-button cta-button fade-up" data-action="navigate" data-target="/">Learn more about me</button>
       </div>
     </section>
 
@@ -152,7 +152,7 @@
                   <div class="stack-tag">iOS</div>
                   <div class="stack-tag">Android</div>
                 </div>
-                <button class="project-cta cta-button">Learn more</button>
+                <button class="js-animated-button project-cta cta-button"  data-action="navigate" data-target="/">Learn more</button>
               </div>
             </div>
           </div>
@@ -172,7 +172,7 @@ Survivor</h1>
                   <div class="stack-tag">C#</div>
                   <div class="stack-tag">Unity</div>
                 </div>
-                <button class="project-cta cta-button">Learn more</button>
+                <button class="js-animated-button project-cta cta-button"  data-action="navigate" data-target="/">Learn more</button>
               </div>
             </div>
           </div>
@@ -191,7 +191,7 @@ Survivor</h1>
                   <div class="stack-tag">C#</div>
                   <div class="stack-tag">Unity</div>
                 </div>
-                <button class="project-cta cta-button">Learn more</button>
+                <button class="js-animated-button project-cta cta-button"  data-action="navigate" data-target="/">Learn more</button>
               </div>
             </div>
           </div>
@@ -224,27 +224,21 @@ Survivor</h1>
         <p class="js-result result fade-2s">Make a move to play the game.</p>
         <div class="rock-paper-scissors-buttons-container">
           <div class="play-button">
-            <button onclick="
-            playGame('rock');
-            " class="play-button-top blue-button">
+            <button class="js-animated-button play-button-top blue-button" data-action="rps" data-value="rock">
               <img src="icons/rock-emoji.png" class="move-icon rock-icon">
             </button>
             <div class="play-button-base"></div>
           </div>
 
           <div class="play-button">
-            <button onclick="
-            playGame('paper');
-            " class="play-button-top blue-button">
+            <button class="js-animated-button play-button-top blue-button" data-action="rps" data-value="paper">
               <img src="icons/paper-emoji.png" class="move-icon">
             </button>
             <div class="play-button-base"></div>
           </div>
 
           <div class="play-button">
-            <button onclick="
-            playGame('scissors');
-            " class="play-button-top blue-button">
+            <button class="js-animated-button play-button-top blue-button" data-action="rps" data-value="scissors">
                 <img src="icons/scissors-emoji.png" class="move-icon">
             </button>
             <div class="play-button-base"></div>

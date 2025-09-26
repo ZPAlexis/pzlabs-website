@@ -1,13 +1,13 @@
 .fill-bar-section {
-  height: 315px;
+  height: 100%;
   background-color: var(--color-primary-shade);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: var(--shadow-md) var(--color-shadow);
-  gap: 20px;
-  padding: 0 40px;
+  gap: 40px;
+  padding: 120px 40px;
   margin: 60px 0;
 }
 
@@ -21,13 +21,13 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  border: 2px solid var(--color-primary-dark80);
+  outline: 2px solid var(--color-primary-dark80);
   overflow: hidden;
-  transition: border 0.3s ease;
+  transition: outline 0.3s linear;
 }
 
 .fill-bar-container.highlight {
-  border: 3px solid var(--color-button-gold-active);
+  outline: 3px solid var(--color-button-gold-active);
 }
 
 @keyframes outlineHighlight {

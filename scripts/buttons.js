@@ -1,36 +1,30 @@
-import { fillBar } from './fillBar.js';
+import { buttonActions } from './actions.js';
 
-const fillBarButton = document.querySelector('.js-fill-bar-play-button');
+const buttons = document.querySelectorAll('.js-animated-button');
 
-/*
-fillBarButton.onclick = function () {
-  fillBar(6);
-  fillBarButton.classList.add('pressed');
-  setTimeout(() => {
-    fillBarButton.classList.remove('pressed');
-  }, 100);
-};
-*/
+buttons.forEach((button) => {
+  function handlePressStart() {
+    button.style.setProperty('transition', 'none');
+    button.offsetHeight;
+    button.classList.add('pressed');
+  }
 
-// Apply .pressed immediately on touchstart or mousedown
-function handlePressStart() {
-  fillBar(6);
-  fillBarButton.style.setProperty('transition', 'none');
-  fillBarButton.offsetHeight;
-  fillBarButton.classList.add('pressed');
-}
+  function handlePressEnd() {
+    button.style.setProperty('transition', 'var(--btn-transition)');
+    button.classList.remove('pressed');
 
-// Remove .pressed after interaction ends
-function handlePressEnd() {
-  fillBarButton.style.setProperty('transition', 'var(--btn-transition)');
-  fillBarButton.classList.remove('pressed');
-}
+    // Perform action based on data-action
+    const actionType = button.dataset.action;
+    const action = buttonActions[actionType];
 
-// Touch (mobile)
-fillBarButton.addEventListener('touchstart', handlePressStart);
-fillBarButton.addEventListener('touchend', handlePressEnd);
-fillBarButton.addEventListener('touchcancel', handlePressEnd); // just in case
+    if (typeof action === 'function') {
+      action(button);
+    } else {
+      console.warn(`No action found for type "${actionType}"`);
+    }
+  }
 
-// Mouse (desktop)
-fillBarButton.addEventListener('mousedown', handlePressStart);
-fillBarButton.addEventListener('mouseup', handlePressEnd);
+  button.addEventListener('pointerdown', handlePressStart);
+  button.addEventListener('pointerup', handlePressEnd);
+  button.addEventListener('pointercancel', handlePressEnd);
+});

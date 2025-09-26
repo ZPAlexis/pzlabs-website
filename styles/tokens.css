@@ -17,8 +17,9 @@
   --color-overlay: rgba(2, 2, 2, 0.637);
   --color-overlay-hover: rgba(0, 0, 0, 0.801);
   --color-button: #e2e8f0;
+  --color-button-active: #FFFFFF;
   --color-button-hover: #fcfcfc20;
-  --color-button-active: #fcfcfc60;
+  --color-button-border-active: #fcfcfc60;
   --color-button-gold: #FAC036;
   --color-button-gold-shadow: #CA9B2A;
   --color-button-gold-active: #f5d282;

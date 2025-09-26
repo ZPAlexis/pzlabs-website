@@ -6,6 +6,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: end;
+  margin-top: 80px;
 }
 
 .footer-container {
@@ -31,4 +32,5 @@ footer {
   max-width: 600px;
   border: none;
   border-top: 1px solid var(--color-text);
+  margin-bottom: 40px;
 }
