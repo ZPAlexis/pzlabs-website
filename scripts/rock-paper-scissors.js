@@ -74,7 +74,7 @@ if (!score) {
 */
 console.log(score);
 
-function playGame(playerMove) {
+export function playGame(playerMove) {
   const computerMove = pickComputerMove();
 
   let result = '';
