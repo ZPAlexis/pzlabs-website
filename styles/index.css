@@ -160,7 +160,7 @@
 .cover-coin.spin {
   opacity: 1;
   transform: scale(1);
-  animation: coinUpSpin 0.5s ease forwards;
+  animation: coinUpSpin 0.5s ease;
 }
 
 @keyframes boxOpen {

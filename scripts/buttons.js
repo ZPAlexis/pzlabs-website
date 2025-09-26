@@ -15,11 +15,14 @@ fillBarButton.onclick = function () {
 // Apply .pressed immediately on touchstart or mousedown
 function handlePressStart() {
   fillBar(6);
+  fillBarButton.style.transition = 'none';
+  fillBarButton.offsetHeight;
   fillBarButton.classList.add('pressed');
 }
 
 // Remove .pressed after interaction ends
 function handlePressEnd() {
+  fillBarButton.style.transition = 'border 0.1s ease-out, transform 0.1s linear, box-shadow 0.1s linear, background-color 0.1s ease-out';
   fillBarButton.classList.remove('pressed');
 }
 
