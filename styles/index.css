@@ -94,7 +94,7 @@
 @keyframes fadeUpInOut {
   15% {
     transform: translateY(-5px);
-    opacity: 1;
+    opacity: 0.4;
   }
   80% {
     transform: translateY(-9px);

@@ -126,6 +126,33 @@
   animation: coinSpin 0.5s ease forwards;
 }
 
+.fill-bar-button-timer-container {
+  position: relative;
+}
+
+.fill-bar-timer-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-medium);
+  color: var(--color-primary-darker);
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: -75%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease;
+}
+
+.fill-bar-timer-icon {
+  object-fit: cover;
+  height: 30px;
+  transform: translateY(-2px);
+  opacity: 0.75;
+}
+
 
 @media (max-width: 720px) {
   .fill-bar-section {

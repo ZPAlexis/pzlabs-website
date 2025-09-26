@@ -15,7 +15,8 @@ export function fillBar(amount) {
   fill.style.width = newWidth + '%';
 
   if (currentWidth == 0) {
-      startDecay();
+    startDecay();
+    startTimer();
   } 
   if (isReachingFull) {
     const onTransitionEnd = (e) => {
@@ -25,6 +26,8 @@ export function fillBar(amount) {
       }
     };
     fill.addEventListener('transitionend', onTransitionEnd);
+  } else if (currentWidth == 100) {
+    collectFillBarCoin();
   }
 }
 
@@ -47,5 +50,43 @@ async function startDecay() {
     }
 
     fill.style.width = Math.max(0, currentWidth - 2) + '%';
+  }
+}
+
+let timerInterval = null;
+let timerStart = null;
+
+async function startTimer() {
+  const fill = document.querySelector('.js-fill-bar-fill');
+  const timerCont = document.querySelector('.js-fill-bar-timer-container');
+  const timerEl = document.querySelector('.js-fill-bar-timer');
+
+  timerStart = performance.now();
+
+  timerInterval = requestAnimationFrame(updateTimer);
+
+  timerCont.classList.remove('hidden');
+
+  async function updateTimer() {
+    const currentTime = performance.now();
+    const elapsed = currentTime - timerStart;
+    const seconds = (elapsed / 1000).toFixed(2);
+
+    timerEl.textContent = seconds;
+
+    const width = parseFloat(fill.style.width) || 0;
+
+    if (width >= 100) {
+      cancelAnimationFrame(timerInterval);
+      timerInterval = null;
+      return;
+    } else if (width <= 0) {
+      cancelAnimationFrame(timerInterval);
+      timerInterval = null;
+      timerCont.classList.add('hidden');
+      return;
+    }
+
+    timerInterval = requestAnimationFrame(updateTimer);
   }
 }

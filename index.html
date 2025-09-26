@@ -26,7 +26,7 @@
 </head>
 <body>
   <header class="header">
-    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.40c</p>
+    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.40d</p>
     <button class="js-coin-summary coin-summary">
       <div class="js-gold-coin-container gold-coin-container">
         <img class="cover-image" src="icons/coin-gold.svg">
@@ -67,11 +67,17 @@
         </div>
       </div>
 
-      <div class="play-button">
-        <button class="js-fill-bar-play-button play-button-top gold-button">
-          <div class="play-button-text">+</div>
-        </button>
-        <div class="play-button-base"></div>
+      <div class="fill-bar-button-timer-container">
+        <div class="play-button">
+          <button class="js-fill-bar-play-button play-button-top gold-button">
+            <div class="play-button-text">+</div>
+          </button>
+          <div class="play-button-base"></div>
+        </div>
+        <div class="js-fill-bar-timer-container fill-bar-timer-container hidden">
+          <img class="fill-bar-timer-icon" src="icons/timer-icon.png">
+          <div class="js-fill-bar-timer">0.00</div>
+        </div>
       </div>
     </section>
 
