@@ -30,15 +30,15 @@
   border: 3px solid var(--color-button-gold-active);
 }
 
-@keyframes borderHighlight {
+@keyframes outlineHighlight {
   0% {
-    border-color: var(--color-primary-dark80);
+    outline-color: var(--color-primary-dark80);
   }
   50% {
-    border: 3px solid var(--color-button-gold-active);
+    outline: 3px solid var(--color-button-gold-active);
   }
   100% {
-    border-color: var(--color-primary-dark80);
+    outline-color: var(--color-primary-dark80);
   }
 }
 
