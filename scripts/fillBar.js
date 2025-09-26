@@ -77,16 +77,27 @@ async function startTimer() {
     const width = parseFloat(fill.style.width) || 0;
 
     if (width >= 100) {
-      cancelAnimationFrame(timerInterval);
-      timerInterval = null;
-      return;
+      const onTransitionEnd = (e) => {
+        if (e.propertyName === 'width') {
+          fill.removeEventListener('transitionend', onTransitionEnd);
+          cancelAnimationFrame(timerInterval);
+          timerInterval = null;
+          return;
+        }
+      };
+      fill.addEventListener('transitionend', onTransitionEnd);
     } else if (width <= 0) {
-      cancelAnimationFrame(timerInterval);
-      timerInterval = null;
-      timerCont.classList.add('hidden');
-      return;
+      const onTransitionEnd = (e) => {
+        if (e.propertyName === 'width') {
+          fill.removeEventListener('transitionend', onTransitionEnd);
+          cancelAnimationFrame(timerInterval);
+          timerInterval = null;
+          timerCont.classList.add('hidden'); 
+          return;
+        }
+      };
+      fill.addEventListener('transitionend', onTransitionEnd);
     }
-
     timerInterval = requestAnimationFrame(updateTimer);
   }
 }
