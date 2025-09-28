@@ -14,7 +14,7 @@ const fillBarBorder = document.querySelector('.js-fill-bar-container');
 const fillBarText = document.querySelector('.fill-bar-text');
 
 //Summary Header
-const summaryCoinBorder = document.querySelector('.js-coin-summary');
+const summaryCoinContainer = document.querySelector('.js-coin-summary');
 const summaryCoin = document.querySelector('.js-gold-coin-container');
 
 const coinsCollectedFlags = {
@@ -29,6 +29,7 @@ export function calculateCoinAmount() {
   coinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
   
   if (coinsCollected != 0) {
+    summaryCoinContainer.classList.remove('hidden');
     triggerSummaryAnimations();
     fadeUpdate(coinAmount, `${coinsCollected} / ${totalCoins}`);
   }
@@ -65,7 +66,7 @@ coverButton.addEventListener('click', () => {
 
     restartAnimation(coverCoinScrollText, 'collected');
 
-    restartAnimation(summaryCoinBorder, 'highlight');
+    restartAnimation(summaryCoinContainer, 'highlight');
   }
 });
 
@@ -78,9 +79,9 @@ export function collectFillBarCoin() {
     triggerFillBarAnimations();
   } else {
     triggerFillBarAnimations();
-    summaryCoinBorder.classList.remove('highlight');
+    summaryCoinContainer.classList.remove('highlight');
     void summaryCoin.offsetWidth;
-    summaryCoinBorder.classList.add('highlight');
+    summaryCoinContainer.classList.add('highlight');
   }
 }
 
@@ -110,9 +111,9 @@ function triggerSummaryAnimations() {
   void summaryCoin.offsetWidth;
   summaryCoin.classList.add('spin');
 
-  summaryCoinBorder.classList.remove('highlight');
+  summaryCoinContainer.classList.remove('highlight');
   void summaryCoin.offsetWidth;
-  summaryCoinBorder.classList.add('highlight');
+  summaryCoinContainer.classList.add('highlight');
 }
 
 

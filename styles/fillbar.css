@@ -30,18 +30,6 @@
   outline: 3px solid var(--color-button-gold-active);
 }
 
-@keyframes outlineHighlight {
-  0% {
-    outline-color: var(--color-primary-dark80);
-  }
-  50% {
-    outline: 3px solid var(--color-button-gold-active);
-  }
-  100% {
-    outline-color: var(--color-primary-dark80);
-  }
-}
-
 .fill-bar-fill {
   position: absolute;
   width: 0%;
@@ -82,18 +70,6 @@
   font-weight: 500;
   font-size: var(--font-size-body);
   animation: bumpRight 0.3s ease;
-}
-
-@keyframes bumpRight {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(10px);
-  }
-  90% {
-    transform: translateX(-2px);
-  }
 }
 
 .fill-bar-arrow {
@@ -137,8 +113,8 @@
   gap: 6px;
   font-family: var(--font-family-accent);
   font-size: var(--font-size-medium);
-  color: var(--color-primary-darker);
-  font-weight: 600;
+  color: var(--color-text);
+  font-weight: 400;
   position: absolute;
   top: 50%;
   left: -75%;

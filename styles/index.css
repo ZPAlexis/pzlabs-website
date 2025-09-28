@@ -91,21 +91,6 @@
   animation: fadeUpInOut 2s linear;
 }
 
-@keyframes fadeUpInOut {
-  15% {
-    transform: translateY(-5px);
-    opacity: 0.4;
-  }
-  80% {
-    transform: translateY(-9px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10px);
-    opacity: 0;
-  }
-}
-
 .cover-box, .cover-coin {
   position: absolute;
   top: 0;
@@ -113,22 +98,21 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  filter: drop-shadow(0 0 26px var(--color-text-shadow));
 }
 
 .cover-box {
   opacity: 1;
   z-index: 2;
+  transition: filter 0.3s ease;
+}
+
+.cover-box:hover {
+  filter: drop-shadow(0 0 40px var(--color-text-shadow));
 }
 
 .cover-box.idle {
   animation: hoverIdle 3s ease-in-out infinite;
-}
-
-@keyframes hoverIdle {
-  68%, 100% { transform: translateY(0) scale(1);}
-  90%      { transform: translateY(-8px) scale(1.01);}
-  85%      { transform: translateY(0px) scale(1);}
-  75%      { transform: translateY(-12px) scale(1.02); }
 }
 
 .cover-coin {
@@ -148,67 +132,14 @@
   animation: coinHoverIdle 6s ease-in-out infinite;
 }
 
-@keyframes coinHoverIdle {
-  0%, 100% { transform: scale(1) rotateX(0) rotateY(0) rotateZ(0);}
-  40%      { transform: scale(1.08) rotateX(-8deg) rotateY(8deg) rotateZ(0);}
-}
-
 .cover-box.open {
-  animation: boxOpen 0.4s ease forwards;
+  animation: boxOpen 0.3s ease forwards;
 }
 
 .cover-coin.spin {
   opacity: 1;
   transform: scale(1);
   animation: coinUpSpin 0.5s ease;
-}
-
-@keyframes boxOpen {
-  0% {
-    scale: 1;
-    opacity: 1;
-  }
-  10% {
-    scale: 0.9;
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    scale: 1.1;
-    opacity: 0;
-  }
-}
-
-@keyframes coinUpSpin {
-  50% {
-    transform: scale(1.08) translateY(-20px) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
-  }
-  to {
-    transform: scale(1) translateY(0) rotateX(0) rotateY(360deg) rotateZ(0);
-  }
-}
-
-@keyframes coinSpin {
-  50% {
-    transform: scale(1.3) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
-  }
-  to {
-    transform: scale(1) rotateX(0) rotateY(360deg) rotateZ(0);
-  }
-}
-
-@keyframes coinCollect {
-  0% {
-    transform: scale(0.01) translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(0);
-  }
-  60% {
-    transform: scale(1.08) translate3d(0,-10px,0) rotateX(10deg) rotateY(360deg) rotateZ(-10deg);
-  }
-  100% {
-    transform: scale(1) translate3d(0,0,0) rotateX(0) rotateY(1080deg) rotateZ(0);
-  }
 }
 
 .about-focus-section {
