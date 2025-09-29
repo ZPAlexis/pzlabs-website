@@ -1,12 +1,23 @@
-.fade-up {
+.fade-up, .fade-right, .fade-left {
   opacity: 0;
-  transform: translateY(60px);
   transition: opacity .6s ease, transform .6s ease;
 }
 
-.fade-up.visible {
+.fade-up {
+  transform: translateY(60px);
+}
+
+.fade-right {
+  transform: translateX(-160px);
+}
+
+.fade-left {
+  transform: translateX(160px);
+}
+
+.fade-up.visible, .fade-right.visible, .fade-left.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateX(0);
 }
 
 .fade-in {

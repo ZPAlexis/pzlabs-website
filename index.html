@@ -26,7 +26,7 @@
 </head>
 <body>
   <header class="header">
-    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.42</p>
+    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.43</p>
     <button class="js-coin-summary coin-summary hidden">
       <div class="js-gold-coin-container gold-coin-container">
         <img class="cover-image" src="icons/coin-gold.svg">
@@ -58,16 +58,18 @@
     </section>
 
     <section class="fill-bar-section">
-      <div class="js-fill-bar-container fill-bar-container">
-        <div class="js-fill-bar-fill fill-bar-fill"></div>
-        <div class="js-fill-bar-text fill-bar-text">Fill this bar to get a coin <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg"></div>
-        <div class="fill-bar-coin">
-          <img class="js-fill-bar-gray-coin fill-bar-coin-image" src="icons/coin-gray.svg">
-          <img class="js-fill-bar-collected-coin fill-bar-collected-coin-image hidden" src="icons/coin-gold.svg">
+      <div class="fill-bar-container-wrapper fade-right">
+        <div class="js-fill-bar-container fill-bar-container">
+          <div class="js-fill-bar-fill fill-bar-fill"></div>
+          <div class="js-fill-bar-text fill-bar-text">Fill this bar to get a coin <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg"></div>
+          <div class="fill-bar-coin">
+            <img class="js-fill-bar-gray-coin fill-bar-coin-image" src="icons/coin-gray.svg">
+            <img class="js-fill-bar-collected-coin fill-bar-collected-coin-image hidden" src="icons/coin-gold.svg">
+          </div>
         </div>
       </div>
 
-      <div class="fill-bar-button-timer-container">
+      <div class="fill-bar-button-timer-container fade-left">
         <div class="play-button">
           <button class="js-animated-button play-button-top gold-button" data-action="fillBar" data-value="6">
             <div class="play-button-text">+</div>
@@ -103,7 +105,7 @@
           <p class="about-focus-description">can range from well-designed user interfaces to complex loyalty reward programs.</p>
         </div>
 
-        <div class="about-focus-container fade-up js-trigger-coin-summary">
+        <div class="about-focus-container fade-up">
           <h1 class="about-focus-title">
             <div class="auto-text-list-container">
               <div class="js-list-text-3 auto-list-text" data-text="Our focus"></div>
@@ -138,7 +140,7 @@
 
     <section class="projects-section">
       <div class="projects-container">
-        <div class="project-container fade-up">
+        <div class="project-container fade-right">
           <div class="project-container-top">
             <div class="project-image-container">
               <img class="project-image" src="images/trofy_app_icon.png">
@@ -159,7 +161,7 @@
           <p class="project-description-text">A “To-Do like” app to gamify personal goals and reinforce the creation of good habits.</p> 
         </div>
 
-        <div class="project-container fade-up">
+        <div class="project-container fade-right">
           <div class="project-container-top">
             <div class="project-image-container">
               <img class="project-image" src="images/born_survivor_square_cover.png">
@@ -179,7 +181,7 @@ Survivor</h1>
           <p class="project-description-text">A demo Unity game inspired by Vampire  Survivors rogue-like mechanics.</p> 
         </div>
 
-        <div class="project-container fade-up">
+        <div class="project-container fade-right">
           <div class="project-container-top">
             <div class="project-image-container">
               <img class="project-image" src="images/flappy_astronaut_square_cover.png">
@@ -200,22 +202,22 @@ Survivor</h1>
       </div>
     </section>
 
-    <section class="rock-paper-scissors-section">
+    <section class="rock-paper-scissors-section js-trigger-coin-summary">
       <div class="rock-paper-scissors-container">
         <div class="rps-names-container">
-          <p class="rps-name">YOU</p>
+          <p class="rps-name fade-right">YOU</p>
           <p class="rps-versus">VS</p>
-          <p class="rps-name">A.I.</p>
+          <p class="rps-name fade-left">A.I.</p>
         </div>
         <div class="rps-avatars-container">
           <div class="rps-avatar-wrapper">
-            <div class="rps-avatar">
+            <div class="rps-avatar fade-right">
               <img class="rps-avatar-image" src="icons/avatar-player.svg">
             </div>
             <div class="js-avatar-move rps-avatar-move rps-player-move hidden fade-1s"><div class="js-player-move rps-player-move-content fade-1s"></div></div>
           </div>
           <div class="rps-avatar-wrapper">
-            <div class="rps-avatar">
+            <div class="rps-avatar fade-left">
               <img class="rps-avatar-image" src="icons/avatar-ai.svg">
             </div>
             <div class="js-avatar-move rps-avatar-move rps-ai-move hidden fade-1s"><div class="js-ai-move rps-ai-move-content fade-1s"></div></div>

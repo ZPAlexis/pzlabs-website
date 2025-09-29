@@ -11,6 +11,10 @@
   margin: 60px 0;
 }
 
+.fill-bar-container-wrapper {
+  width: 100%;
+}
+
 .fill-bar-container {
   background-color: var(--color-primary-dark);
   height: 58px;
