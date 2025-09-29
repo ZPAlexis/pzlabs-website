@@ -13,6 +13,8 @@
 
 .fill-bar-container-wrapper {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .fill-bar-container {
@@ -25,7 +27,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  outline: 2px solid var(--color-primary-dark80);
+  outline: 3px solid var(--color-primary);
   overflow: hidden;
   transition: outline 0.3s linear;
 }

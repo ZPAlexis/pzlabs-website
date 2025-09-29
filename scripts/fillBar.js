@@ -1,7 +1,7 @@
 import { collectFillBarCoin } from './index.js';
 
 export function fillBar(amount) {
-  const fill = document.querySelector('.fill-bar-fill');
+  const fill = document.querySelector('.js-fill-bar-fill');
   const currentWidthStr = fill.style.width || '0%';
   let currentWidth = parseFloat(currentWidthStr);
   
@@ -32,7 +32,7 @@ export function fillBar(amount) {
 }
 
 async function startDecay() {
-  const fill = document.querySelector('.fill-bar-fill');
+  const fill = document.querySelector('.js-fill-bar-fill');
   fill.dataset.decaying = 'true';
   while (true) {
     await new Promise(resolve => setTimeout(resolve, 300)); // wait

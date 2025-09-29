@@ -1,10 +1,15 @@
+import { collectRPSCoin } from './index.js';
+
 let score = JSON.parse(localStorage.getItem('score')) || {
     wins: 0,
     losses: 0,
     ties: 0
   };
 
-updateScoreText();
+document.addEventListener('DOMContentLoaded', () => {
+  updateScoreText();
+  updateRPSFillBar();
+});
 
 function updateScoreText() {
   const jsResult = document.querySelector('.js-result');
@@ -17,8 +22,11 @@ function updateScoreText() {
   if (score.wins !== 0 || score.losses !== 0 || score.ties !== 0) {
     fadeUpdate(jsScore, `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
     resetScoreButtonCheck();
+    if (jsResult.innerHTML.trim() === '') {
+      jsResult.innerHTML = 'Make a move to play the game.';
+    }
   } else if (score.wins === 0 && score.losses === 0 && score.ties === 0) {
-    fadeUpdate(jsResult, `Make a move to play the game.`);
+    jsResult.innerHTML = `Make a move to play the game.`;
     jsScore.innerHTML = '';
     jsResetScoreButton.innerHTML = '';
     jsPlayerMove.innerHTML = '';
@@ -51,6 +59,7 @@ export function resetRPSScore() {
   score.ties = 0;
   localStorage.removeItem('score');
   updateScoreText();
+  updateRPSFillBar();
 }
 
 export function fadeUpdate(element, newHTML, skipFadeOut = false) {
@@ -70,6 +79,57 @@ export function fadeUpdate(element, newHTML, skipFadeOut = false) {
     element.classList.remove('hidden');
     element.removeEventListener('transitionend', handler);
   });
+}
+
+function updateRPSFillBar() {
+  const fill = document.querySelector('.js-rps-bar-fill');
+  if (score.wins >= 3) {
+    fill.style.width = '100%';
+    collectRPSCoin();
+  } else if (score.wins == 2) {
+    fill.style.width = '66%';
+  } else if (score.wins == 1) {
+    fill.style.width = '33%';
+  } else if (score.wins == 0) {
+    fill.style.width = '0%';
+  }
+
+  //update bar text, coins, and border
+  //remove these from index.js (do the same for others)
+  /*
+  rpsGrayCoin.classList.add('hidden');
+  rpsGoldCoin.classList.remove('hidden');
+
+  summaryCoinContainer.classList.remove('highlight');
+  void summaryCoinContainer.offsetWidth;
+  summaryCoinContainer.classList.add('highlight');
+
+  rpsBarBorder.classList.add('highlight');
+  rpsGoldCoin.classList.remove('spin');
+  void rpsGoldCoin.offsetWidth;
+  rpsGoldCoin.classList.add('spin');
+    
+  rpsBarText.classList.remove('show');
+  rpsBarText.innerHTML = 'Coin Collected!';
+  void rpsBarText.offsetWidth;
+  rpsBarText.classList.add('show');
+  */
+}
+
+function pickComputerMove() {
+  const randomNumber = Math.random();
+
+  let computerMove = '';
+
+  if (randomNumber >= 0 && randomNumber < 1 / 3) {
+    computerMove = 'rock';
+  } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+    computerMove = 'paper';
+  } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+    computerMove = 'scissors';
+  }
+
+  return computerMove;
 }
 
 console.log(score);
@@ -109,6 +169,7 @@ export function playGame(playerMove) {
 
   if (result === 'You win!') {
     score.wins++;
+    updateRPSFillBar();
   } else if (result === 'You lose.') {
     score.losses++;
   } else if (result === 'Tie.') {
@@ -130,20 +191,4 @@ export function playGame(playerMove) {
   fadeUpdate(document.querySelector('.js-player-move'), `<img src="icons/${playerMove}-emoji.png" class="move-icon">`);
 
   fadeUpdate(document.querySelector('.js-ai-move'), `<img src="icons/${computerMove}-emoji.png" class="move-icon">`);
-}
-
-function pickComputerMove() {
-  const randomNumber = Math.random();
-
-  let computerMove = '';
-
-  if (randomNumber >= 0 && randomNumber < 1 / 3) {
-    computerMove = 'rock';
-  } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-    computerMove = 'paper';
-  } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-    computerMove = 'scissors';
-  }
-
-  return computerMove;
 }

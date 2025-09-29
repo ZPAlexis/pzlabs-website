@@ -11,7 +11,13 @@ const coverCoinScrollText = document.querySelector('.js-cover-coin-collected-tex
 const fillBarGoldCoin = document.querySelector('.js-fill-bar-collected-coin');
 const fillBarGrayCoin = document.querySelector('.js-fill-bar-gray-coin');
 const fillBarBorder = document.querySelector('.js-fill-bar-container');
-const fillBarText = document.querySelector('.fill-bar-text');
+const fillBarText = document.querySelector('.js-fill-bar-text');
+
+//Rock Paper Scissors
+const rpsGoldCoin = document.querySelector('.js-rps-collected-coin');
+const rpsGrayCoin = document.querySelector('.js-rps-gray-coin');
+const rpsBarBorder = document.querySelector('.js-rps-bar-container');
+const rpsBarText = document.querySelector('.js-rps-bar-text');
 
 //Summary Header
 const summaryCoinContainer = document.querySelector('.js-coin-summary');
@@ -106,6 +112,33 @@ function triggerFillBarAnimations() {
   }, 300);
 }
 
+export function collectRPSCoin() {
+  if (!coinsCollectedFlags.rps) {
+    rpsGrayCoin.classList.add('hidden');
+    rpsGoldCoin.classList.remove('hidden');
+    coinsCollectedFlags.rps = true;
+    calculateCoinAmount();
+    triggerRPSBarAnimations();
+  } else {
+    triggerRPSBarAnimations();
+    summaryCoinContainer.classList.remove('highlight');
+    void summaryCoin.offsetWidth;
+    summaryCoinContainer.classList.add('highlight');
+  }
+}
+
+function triggerRPSBarAnimations() {
+  rpsBarBorder.classList.add('highlight');
+  rpsGoldCoin.classList.remove('spin');
+  void rpsGoldCoin.offsetWidth;
+  rpsGoldCoin.classList.add('spin');
+    
+  rpsBarText.classList.remove('show');
+  rpsBarText.innerHTML = 'Coin Collected!';
+  void rpsBarText.offsetWidth;
+  rpsBarText.classList.add('show');
+}
+
 function triggerSummaryAnimations() {
   summaryCoin.classList.remove('spin');
   void summaryCoin.offsetWidth;
@@ -115,6 +148,5 @@ function triggerSummaryAnimations() {
   void summaryCoin.offsetWidth;
   summaryCoinContainer.classList.add('highlight');
 }
-
 
 calculateCoinAmount();

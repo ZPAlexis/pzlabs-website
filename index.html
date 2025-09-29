@@ -26,7 +26,7 @@
 </head>
 <body>
   <header class="header">
-    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.43</p>
+    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.43a</p>
     <button class="js-coin-summary coin-summary hidden">
       <div class="js-gold-coin-container gold-coin-container">
         <img class="cover-image" src="icons/coin-gold.svg">
@@ -223,7 +223,7 @@ Survivor</h1>
             <div class="js-avatar-move rps-avatar-move rps-ai-move hidden fade-1s"><div class="js-ai-move rps-ai-move-content fade-1s"></div></div>
           </div>
         </div>
-        <p class="js-result result fade-2s">Make a move to play the game.</p>
+        <p class="js-result result fade-2s"></p>
         <div class="rock-paper-scissors-buttons-container">
           <div class="play-button">
             <button class="js-animated-button play-button-top blue-button" data-action="rps" data-value="rock">
@@ -246,10 +246,18 @@ Survivor</h1>
             <div class="play-button-base"></div>
           </div>
         </div>
-        <div class="fill-bar-container rps-fill-bar">
-          <div class="fill-bar-text">Win 3 times to get a coin</div>
-          <div class="fill-bar-coin"><img class="fill-bar-coin-image" src="icons/coin-gray.svg"></div>
+
+        <div class="fill-bar-container-wrapper fade-right">
+          <div class="js-rps-bar-container fill-bar-container rps-fill-bar-container">
+            <div class="js-rps-bar-fill fill-bar-fill rps-fill-bar-fill"></div>
+            <div class="js-rps-bar-text fill-bar-text">Win 3 times to get a coin</div>
+            <div class="fill-bar-coin">
+              <img class="js-rps-gray-coin fill-bar-coin-image" src="icons/coin-gray.svg">
+              <img class="js-rps-collected-coin fill-bar-collected-coin-image hidden" src="icons/coin-gold.svg">
+            </div>
+          </div>
         </div>
+
         <p class="js-score score fade-2s"></p>
         <p class="js-reset-score-button fade-2s"></p>
       </div>
@@ -280,6 +288,6 @@ Survivor</h1>
   <script src="scripts/animations.js"></script>
   <script type="module" src="scripts/buttons.js"></script>
   <script src="scripts/dark-mode.js" defer></script>
-  <script type="module" src="scripts/rock-paper-scissors.js" defer></script>
+  <script type="module" src="scripts/rock-paper-scissors.js"></script>
 </body>
 </html>

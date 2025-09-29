@@ -75,7 +75,7 @@
 
 .blue-button {
   background-color: var(--color-primary);
-  box-shadow: var(--shadow-button) var(--color-primary-dark);
+  box-shadow: var(--shadow-button) var(--color-primary-shadow);
 }
 
 .pressed {
