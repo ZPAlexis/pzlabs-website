@@ -18,9 +18,10 @@
 .rps-names-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   max-width: 360px;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: flex-end;
 }
 
@@ -29,23 +30,28 @@
   color: var(--color-text);
   text-shadow: var(--text-shadow-sm) var(--color-shadow);
   font-weight: bold;
+  justify-content: center;
+  text-align: center;
 }
 
 .rps-name {
   font-size: var(--font-size-h2);
   line-height: 100%;
+  width: 80px;
 }
 
 .rps-versus {
   font-size: var(--font-size-h1);
   line-height: 40%;
+  width: 100px;
 }
 
 .rps-avatars-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 360px;
+  width: 100%;
   gap: 20px;
   padding-bottom: 20px;
 }
@@ -117,7 +123,7 @@
 }
 
 .rps-fill-bar-fill {
-  transition: width 0.6s ease;
+  transition: width 0.3s ease;
 }
 
 .rock-paper-scissors-buttons-container {

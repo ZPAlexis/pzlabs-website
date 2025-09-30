@@ -51,10 +51,14 @@ coverCoinImg.addEventListener('animationend', (e) => {
   }
 });
 
-function restartAnimation(el, className) {
+export function restartAnimation(el, className) {
   el.classList.remove(className);
   void el.offsetWidth;
   el.classList.add(className);
+}
+
+export function highlightSummaryCoinContainer() {
+  restartAnimation(summaryCoinContainer, 'highlight');
 }
 
 coverButton.addEventListener('click', () => {
@@ -69,10 +73,8 @@ coverButton.addEventListener('click', () => {
   } else {
     coverCoinImg.classList.remove('idle');
     restartAnimation(coverCoinImg, 'spin');
-
     restartAnimation(coverCoinScrollText, 'collected');
-
-    restartAnimation(summaryCoinContainer, 'highlight');
+    highlightSummaryCoinContainer();
   }
 });
 
@@ -85,9 +87,7 @@ export function collectFillBarCoin() {
     triggerFillBarAnimations();
   } else {
     triggerFillBarAnimations();
-    summaryCoinContainer.classList.remove('highlight');
-    void summaryCoin.offsetWidth;
-    summaryCoinContainer.classList.add('highlight');
+    highlightSummaryCoinContainer();
   }
 }
 
@@ -98,9 +98,7 @@ function triggerFillBarAnimations() {
   isAnimatingFillBar = true;
 
   fillBarBorder.classList.add('highlight');
-  fillBarGoldCoin.classList.remove('spin');
-  void fillBarGoldCoin.offsetWidth;
-  fillBarGoldCoin.classList.add('spin');
+  restartAnimation(fillBarGoldCoin, 'spin');
     
   fillBarText.classList.remove('show');
   fillBarText.innerHTML = 'Coin Collected!';
@@ -113,40 +111,16 @@ function triggerFillBarAnimations() {
 }
 
 export function collectRPSCoin() {
+  highlightSummaryCoinContainer();
   if (!coinsCollectedFlags.rps) {
-    rpsGrayCoin.classList.add('hidden');
-    rpsGoldCoin.classList.remove('hidden');
     coinsCollectedFlags.rps = true;
     calculateCoinAmount();
-    triggerRPSBarAnimations();
-  } else {
-    triggerRPSBarAnimations();
-    summaryCoinContainer.classList.remove('highlight');
-    void summaryCoin.offsetWidth;
-    summaryCoinContainer.classList.add('highlight');
   }
 }
 
-function triggerRPSBarAnimations() {
-  rpsBarBorder.classList.add('highlight');
-  rpsGoldCoin.classList.remove('spin');
-  void rpsGoldCoin.offsetWidth;
-  rpsGoldCoin.classList.add('spin');
-    
-  rpsBarText.classList.remove('show');
-  rpsBarText.innerHTML = 'Coin Collected!';
-  void rpsBarText.offsetWidth;
-  rpsBarText.classList.add('show');
-}
-
 function triggerSummaryAnimations() {
-  summaryCoin.classList.remove('spin');
-  void summaryCoin.offsetWidth;
-  summaryCoin.classList.add('spin');
-
-  summaryCoinContainer.classList.remove('highlight');
-  void summaryCoin.offsetWidth;
-  summaryCoinContainer.classList.add('highlight');
+  restartAnimation(summaryCoin, 'spin');
+  highlightSummaryCoinContainer();
 }
 
 calculateCoinAmount();

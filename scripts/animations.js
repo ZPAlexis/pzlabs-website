@@ -71,7 +71,7 @@ const fadeLeftObserver = new IntersectionObserver(entries => {
     }
   });
 }, {
-  threshold: [1]
+  threshold: [0.5]
 });
 
 fadeLeft.forEach(el => fadeLeftObserver.observe(el));

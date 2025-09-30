@@ -1,4 +1,4 @@
-import { collectRPSCoin } from './index.js';
+import { collectRPSCoin, restartAnimation } from './index.js';
 
 let score = JSON.parse(localStorage.getItem('score')) || {
     wins: 0,
@@ -89,37 +89,42 @@ export function fadeUpdate(element, newHTML, skipFadeOut = false) {
 
 function updateRPSFillBar() {
   const fill = document.querySelector('.js-rps-bar-fill');
+  const rpsGoldCoin = document.querySelector('.js-rps-collected-coin');
+  const rpsGrayCoin = document.querySelector('.js-rps-gray-coin');
+  const rpsBarBorder = document.querySelector('.js-rps-bar-container');
+  const rpsBarText = document.querySelector('.js-rps-bar-text');
+
   if (score.wins >= 3) {
     fill.style.width = '100%';
     collectRPSCoin();
+
+    rpsGrayCoin.classList.add('hidden');
+    rpsGoldCoin.classList.remove('hidden');
+    restartAnimation(rpsBarBorder, 'highlight');
+    restartAnimation(rpsGoldCoin, 'spin');
+
+    rpsBarText.classList.remove('show');
+    rpsBarText.innerHTML = 'Coin Collected!';
+    void rpsBarText.offsetWidth;
+    rpsBarText.classList.add('show');
   } else if (score.wins == 2) {
     fill.style.width = '66%';
+    rpsBarText.classList.remove('show');
+    rpsBarText.innerHTML = '2/3';
+    void rpsBarText.offsetWidth;
+    rpsBarText.classList.add('show');
   } else if (score.wins == 1) {
     fill.style.width = '33%';
+    rpsBarText.classList.remove('show');
+    rpsBarText.innerHTML = '1/3';
+    void rpsBarText.offsetWidth;
+    rpsBarText.classList.add('show');
   } else if (score.wins == 0) {
     fill.style.width = '0%';
+    rpsBarText.innerHTML = 'Win 3 times to get a coin';
+    rpsBarText.classList.remove('show');
+    rpsBarBorder.classList.remove('highlight');
   }
-
-  //update bar text, coins, and border
-  //remove these from index.js (do the same for others)
-  /*
-  rpsGrayCoin.classList.add('hidden');
-  rpsGoldCoin.classList.remove('hidden');
-
-  summaryCoinContainer.classList.remove('highlight');
-  void summaryCoinContainer.offsetWidth;
-  summaryCoinContainer.classList.add('highlight');
-
-  rpsBarBorder.classList.add('highlight');
-  rpsGoldCoin.classList.remove('spin');
-  void rpsGoldCoin.offsetWidth;
-  rpsGoldCoin.classList.add('spin');
-    
-  rpsBarText.classList.remove('show');
-  rpsBarText.innerHTML = 'Coin Collected!';
-  void rpsBarText.offsetWidth;
-  rpsBarText.classList.add('show');
-  */
 }
 
 function pickComputerMove() {
