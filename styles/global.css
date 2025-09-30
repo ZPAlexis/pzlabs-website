@@ -18,6 +18,10 @@ body {
   -webkit-user-select: none;/* Prevents accidental text selection */
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 p {
   margin: 0;
 }

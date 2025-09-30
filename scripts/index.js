@@ -22,6 +22,8 @@ const rpsBarText = document.querySelector('.js-rps-bar-text');
 //Summary Header
 const summaryCoinContainer = document.querySelector('.js-coin-summary');
 const summaryCoin = document.querySelector('.js-gold-coin-container');
+const summaryOverlay = document.querySelector('.js-summary-menu-overlay');
+const summaryCloseButton = document.querySelector('.js-summary-close-btn');
 
 const coinsCollectedFlags = {
   cover: false,
@@ -76,6 +78,16 @@ coverButton.addEventListener('click', () => {
     restartAnimation(coverCoinScrollText, 'collected');
     highlightSummaryCoinContainer();
   }
+});
+
+summaryCoinContainer.addEventListener('click', () => {
+  summaryOverlay.classList.toggle('hidden');
+  document.body.classList.toggle('no-scroll');
+});
+
+summaryCloseButton.addEventListener('click', () => {
+  summaryOverlay.classList.toggle('hidden');
+  document.body.classList.toggle('no-scroll');
 });
 
 export function collectFillBarCoin() {

@@ -105,7 +105,7 @@
 }
 
 .rps-player-move-content {
-  transform: scaleY(-1) rotate(90deg);
+  transform: scaleY(-1) rotate(90deg) translateY(0);
   transform-origin: center;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .rps-ai-move-content {
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) translateY(0);
   transform-origin: center;
 }
 
@@ -179,7 +179,7 @@
 }
 
 .fade-1s {
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, margin 0.4s ease;
   opacity: 1;
 }
 
@@ -195,4 +195,9 @@
 
 .hidden {
   opacity: 0;
+}
+
+.hidden-translate {
+  opacity: 0;
+  margin-top: -5px;
 }

@@ -62,25 +62,25 @@ export function resetRPSScore() {
   updateRPSFillBar();
 }
 
-export function fadeUpdate(element, newHTML, skipFadeOut = false) {
+export function fadeUpdate(element, newHTML, skipFadeOut = false, method = 'hidden') {
   return new Promise((resolve) => {
     if (skipFadeOut) {
       element.innerHTML = newHTML;
-      element.classList.remove('hidden');
+      element.classList.remove(method);
       resolve();
       return;
     }
-
-    element.classList.remove('hidden');
+    
+    element.classList.remove(method);
     void element.offsetWidth;
-    element.classList.add('hidden');
+    element.classList.add(method);
 
     element.addEventListener('transitionend', function handler(e) {
       if (e.target !== element) return;
 
       element.innerHTML = newHTML;
       void element.offsetWidth;
-      element.classList.remove('hidden');
+      element.classList.remove(method);
       element.removeEventListener('transitionend', handler);
       resolve();
     });
@@ -145,7 +145,12 @@ function pickComputerMove() {
 
 console.log(score);
 
+let isRPSPlaying = false;
+
 export async function playGame(playerMove) {
+  if (isRPSPlaying) return;
+  isRPSPlaying = true;
+
   const computerMove = pickComputerMove();
 
   let result = '';
@@ -194,15 +199,28 @@ export async function playGame(playerMove) {
     }
   });
 
-  updateScoreText();
+  animatePlay(document.querySelector('.js-player-move'), playerMove);
 
-  fadeUpdate(document.querySelector('.js-player-move'), `<img src="icons/${playerMove}-emoji.png" class="move-icon">`);
-  
-  fadeUpdate(document.querySelector('.js-ai-move'), `<img src="icons/${computerMove}-emoji.png" class="move-icon">`);
+  await animatePlay(document.querySelector('.js-ai-move'), computerMove);
 
   await fadeUpdate(document.querySelector('.js-result'), `<p class="result-highlight">${result}</p>`);
+
+  updateScoreText();
+
+  isRPSPlaying = false;
 
   if (result === 'You win!') {
     updateRPSFillBar();
   }
+}
+
+async function animatePlay(el, move) {
+  const playHTML = `<img src="icons/rock-emoji.png" class="move-icon">`;
+  const resultHTML = `<img src="icons/${move}-emoji.png" class="move-icon">`;
+  
+  for (let i = 0; i < 2; i++) {
+    await fadeUpdate(el, playHTML, false, 'hidden-translate');
+    await sleep(220);
+  }
+  await fadeUpdate(el, resultHTML, false, 'hidden-translate');
 }
