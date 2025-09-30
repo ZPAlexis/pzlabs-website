@@ -63,21 +63,27 @@ export function resetRPSScore() {
 }
 
 export function fadeUpdate(element, newHTML, skipFadeOut = false) {
-  if (skipFadeOut) {
-    element.innerHTML = newHTML;
+  return new Promise((resolve) => {
+    if (skipFadeOut) {
+      element.innerHTML = newHTML;
+      element.classList.remove('hidden');
+      resolve();
+      return;
+    }
+
     element.classList.remove('hidden');
-    return;
-  }
-
-  element.classList.remove('hidden');
-  void element.offsetWidth;
-  element.classList.add('hidden');
-
-  element.addEventListener('transitionend', function handler() {
-    element.innerHTML = newHTML;
     void element.offsetWidth;
-    element.classList.remove('hidden');
-    element.removeEventListener('transitionend', handler);
+    element.classList.add('hidden');
+
+    element.addEventListener('transitionend', function handler(e) {
+      if (e.target !== element) return;
+
+      element.innerHTML = newHTML;
+      void element.offsetWidth;
+      element.classList.remove('hidden');
+      element.removeEventListener('transitionend', handler);
+      resolve();
+    });
   });
 }
 
@@ -134,7 +140,7 @@ function pickComputerMove() {
 
 console.log(score);
 
-export function playGame(playerMove) {
+export async function playGame(playerMove) {
   const computerMove = pickComputerMove();
 
   let result = '';
@@ -169,7 +175,6 @@ export function playGame(playerMove) {
 
   if (result === 'You win!') {
     score.wins++;
-    updateRPSFillBar();
   } else if (result === 'You lose.') {
     score.losses++;
   } else if (result === 'Tie.') {
@@ -186,9 +191,13 @@ export function playGame(playerMove) {
 
   updateScoreText();
 
-  fadeUpdate(document.querySelector('.js-result'), `<p class="result-highlight">${result}</p>`);
-
   fadeUpdate(document.querySelector('.js-player-move'), `<img src="icons/${playerMove}-emoji.png" class="move-icon">`);
-
+  
   fadeUpdate(document.querySelector('.js-ai-move'), `<img src="icons/${computerMove}-emoji.png" class="move-icon">`);
+
+  await fadeUpdate(document.querySelector('.js-result'), `<p class="result-highlight">${result}</p>`);
+
+  if (result === 'You win!') {
+    updateRPSFillBar();
+  }
 }

@@ -8,11 +8,11 @@
 }
 
 .fade-right {
-  transform: translateX(-100px);
+  transform: translateX(-20px);
 }
 
 .fade-left {
-  transform: translateX(60px);
+  transform: translateX(20px);
 }
 
 .fade-up.visible, .fade-right.visible, .fade-left.visible {

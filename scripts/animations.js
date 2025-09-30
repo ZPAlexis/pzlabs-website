@@ -70,6 +70,8 @@ const fadeLeftObserver = new IntersectionObserver(entries => {
       fadeLeftObserver.unobserve(el);
     }
   });
+}, {
+  threshold: [1]
 });
 
 fadeLeft.forEach(el => fadeLeftObserver.observe(el));
@@ -95,6 +97,8 @@ const fadeRightObserver = new IntersectionObserver(entries => {
       fadeRightObserver.unobserve(el);
     }
   });
+}, {
+  threshold: [0.5]
 });
 
 fadeRight.forEach(el => fadeRightObserver.observe(el));
