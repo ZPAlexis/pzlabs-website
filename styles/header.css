@@ -246,9 +246,38 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  gap: 20px;
+  padding: 4px 0;
   
   align-items: center;
   justify-content: center;
   
   min-height: 100px;
+}
+
+.summary-reset-score-button {
+  display: flex;
+  gap: 4px;
+  width: 80%;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-menu-unlock-text {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  font-size: var(--font-size-small);
+  font-family: var(--font-family-basic);
+  font-weight: 400;
+}
+
+.summary-lock-icon {
+  object-fit: cover;
+  height: 28px;
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
