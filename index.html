@@ -26,7 +26,7 @@
 </head>
 <body>
   <header class="header">
-    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.45a</p>
+    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.45b</p>
     <button class="js-coin-summary coin-summary hidden">
       <div class="js-gold-coin-container gold-coin-container">
         <img class="cover-image" src="icons/coin-gold.svg">
@@ -38,17 +38,58 @@
   <nav class="js-summary-menu-overlay summary-menu-section hidden">
     <div class="summary-menu-container">
       <div class="summary-menu-top-container">
-        <div class="summary-coin-total-summary">0 / 3</div>
+        <div class="summary-coin-total-summary"></div>
         <div class="summary-title">COINS COLLECTED</div>
         <div class="summary-menu-close-btn-container"><button class="js-animated-button js-summary-close-btn summary-menu-close-btn"><span>x</span></button></div>
       </div>
       <div class="summary-menu-stats-container">
-        <div class="summary-menu-stats-coin-1">1</div>
-        <div class="summary-menu-stats-coin-2">2</div>
-        <div class="summary-menu-stats-coin-3">3</div>
+        <div class="summary-menu-stats-coin-1">
+          <div class="summary-menu-coin-collect-container">
+            <img class="summary-menu-coin-collect-gray" src="icons/coin-gray.svg">
+            <img class="summary-menu-coin-collect-gold" src="icons/coin-gold.svg">
+          </div>
+          <div class="summary-menu-stat-text-container">
+            <div class="summary-menu-stat-title"><span>#1. </span>Hidden in box</div>
+          </div>
+        </div>
+        <div class="summary-menu-stats-coin-2">
+          <div class="summary-menu-coin-collect-container">
+            <img class="summary-menu-coin-collect-gray" src="icons/coin-gray.svg">
+            <img class="summary-menu-coin-collect-gold" src="icons/coin-gold.svg">
+          </div>
+          <div class="summary-menu-stat-text-container">
+            <div class="summary-menu-stat-title"><span>#2. </span>Fill the bar</div>
+            <div class="summary-menu-stat-timer-container">
+              <img class="summary-timer-icon" src="icons/timer-icon.png">Best:<div class="summary-timer-text">3.21s</div>
+            </div>
+          </div>
+        </div>
+        <div class="summary-menu-stats-coin-3">
+          <div class="summary-menu-coin-collect-container">
+            <img class="summary-menu-coin-collect-gray" src="icons/coin-gray.svg">
+            <img class="summary-menu-coin-collect-gold" src="icons/coin-gold.svg">
+          </div>
+          <div class="summary-menu-stat-text-container">
+            <div class="summary-menu-stat-title"><span>#3. </span>Rock Paper Scissors Game</div>
+          </div>
+          <div class="summary-menu-rps-stats-container">
+            <div class="summary-rps-stat-container">
+              <div class="summary-rps-stat-title">Wins</div>
+              <div class="summary-rps-stat-number">3</div>
+            </div>
+            <div class="summary-rps-stat-container">
+              <div class="summary-rps-stat-title">Ties</div>
+              <div class="summary-rps-stat-number">5</div>
+            </div>
+            <div class="summary-rps-stat-container">
+              <div class="summary-rps-stat-title">Losses</div>
+              <div class="summary-rps-stat-number">7</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="summary-menu-options-container">
-        <button class="js-animated-button cta-button summary-reset-score-button"><img class="summary-lock-icon" src="icons/lock-icon-blue.png">Reset Score & Progress</button>
+        <button class="js-animated-button cta-button summary-reset-score-button"><img class="summary-lock-icon" src="icons/lock-icon-blue.png">RESET SCORE & PROGRESS</button>
         <div class="summary-menu-unlock-text"><img class="summary-lock-icon" src="icons/lock-icon-blue.png">Collect all coins to unlock.</div>
       </div>
     </div>
@@ -146,7 +187,7 @@
           </div>
         </div>
         <div class="about-me-description fade-up">I’m <b>Alexis Coelho</b>, a <b>product manager</b> and enthusiast of clever game mechanics that influences our decision-making.</div>
-        <button class="js-animated-button cta-button about-me-button fade-up" data-action="navigate" data-target="/">Learn more about me</button>
+        <button class="js-animated-button cta-button about-me-button fade-up" data-action="navigate" data-target="/">LEARN MORE ABOUT ME</button>
       </div>
     </section>
 

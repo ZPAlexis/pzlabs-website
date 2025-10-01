@@ -131,8 +131,8 @@
 .fill-bar-timer-icon {
   object-fit: cover;
   height: 30px;
-  transform: translateY(-2px);
-  opacity: 0.75;
+  transform: translateY(-1px);
+  opacity: 1;
 }
 
 

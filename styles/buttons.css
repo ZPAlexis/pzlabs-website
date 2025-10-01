@@ -52,7 +52,7 @@
 
 .cta-button {
   cursor: pointer;
-  height: 40px;
+  min-height: 30px;
   max-width: 100%;
   background-color: var(--color-button);
   box-shadow: var(--shadow-md) var(--color-button-base-shadow);
@@ -62,6 +62,8 @@
   font-family: var(--font-family-accent);
   font-weight: bold;
   color: var(--color-background);
+
+  text-transform: uppercase;
 
   --btn-transition: border 0.1s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.1s ease-out;
   transition: var(--btn-transition);
