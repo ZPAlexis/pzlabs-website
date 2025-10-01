@@ -118,6 +118,10 @@
   transform-origin: center;
 }
 
+.rps-player-move-content.hidden, .rps-ai-move-content.hidden {
+  margin-top: -5px;
+}
+
 .rps-fill-bar-container {
   width: 320px;
 }
@@ -195,9 +199,4 @@
 
 .hidden {
   opacity: 0;
-}
-
-.hidden-translate {
-  opacity: 0;
-  margin-top: -5px;
 }

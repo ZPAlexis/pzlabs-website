@@ -53,7 +53,7 @@
 .cta-button {
   cursor: pointer;
   height: 40px;
-  width: 100%;
+  max-width: 100%;
   background-color: var(--color-button);
   box-shadow: var(--shadow-md) var(--color-button-base-shadow);
   border-radius: 9999px;

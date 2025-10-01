@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  outline: 3px solid var(--color-primary);
+  outline: 3px solid var(--color-border);
   overflow: hidden;
   transition: outline 0.3s linear;
 }

@@ -62,25 +62,25 @@ export function resetRPSScore() {
   updateRPSFillBar();
 }
 
-export function fadeUpdate(element, newHTML, skipFadeOut = false, method = 'hidden') {
+export function fadeUpdate(element, newHTML, skipFadeOut = false) {
   return new Promise((resolve) => {
     if (skipFadeOut) {
       element.innerHTML = newHTML;
-      element.classList.remove(method);
+      element.classList.remove('hidden');
       resolve();
       return;
     }
     
-    element.classList.remove(method);
+    element.classList.remove('hidden');
     void element.offsetWidth;
-    element.classList.add(method);
+    element.classList.add('hidden');
 
     element.addEventListener('transitionend', function handler(e) {
       if (e.target !== element) return;
 
       element.innerHTML = newHTML;
       void element.offsetWidth;
-      element.classList.remove(method);
+      element.classList.remove('hidden');
       element.removeEventListener('transitionend', handler);
       resolve();
     });
@@ -199,9 +199,9 @@ export async function playGame(playerMove) {
     }
   });
 
-  animatePlay(document.querySelector('.js-player-move'), playerMove);
+  fadeUpdate(document.querySelector('.js-player-move'), `<img src="icons/${playerMove}-emoji.png" class="move-icon">`);
 
-  await animatePlay(document.querySelector('.js-ai-move'), computerMove);
+  await fadeUpdate(document.querySelector('.js-ai-move'), `<img src="icons/${computerMove}-emoji.png" class="move-icon">`);
 
   await fadeUpdate(document.querySelector('.js-result'), `<p class="result-highlight">${result}</p>`);
 
@@ -212,15 +212,4 @@ export async function playGame(playerMove) {
   if (result === 'You win!') {
     updateRPSFillBar();
   }
-}
-
-async function animatePlay(el, move) {
-  const playHTML = `<img src="icons/rock-emoji.png" class="move-icon">`;
-  const resultHTML = `<img src="icons/${move}-emoji.png" class="move-icon">`;
-  
-  for (let i = 0; i < 2; i++) {
-    await fadeUpdate(el, playHTML, false, 'hidden-translate');
-    await sleep(220);
-  }
-  await fadeUpdate(el, resultHTML, false, 'hidden-translate');
 }

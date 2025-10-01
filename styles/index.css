@@ -232,6 +232,10 @@
   line-height: 26px;
 }
 
+.about-me-button {
+  width: 100%;
+}
+
 .about-projects-section {
   display: flex;
   align-items: center;
