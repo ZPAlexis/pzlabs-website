@@ -155,48 +155,23 @@
 }
 
 .result {
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-body);
+  font-family: var(--font-family-accent);
   font-weight: regular;
-  transition: opacity 0.4s ease;
-  opacity: 1;
   margin: 0;
   line-height: 20px;
   height: 20px;
+
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.result.hidden {
+  opacity: 0;
 }
 
 .result-highlight {
   font-size: var(--font-size-h3);
   font-weight: 500;
-}
-
-.score {
-  font-size: var(--font-size-small);
-  transition: opacity 0.4s ease;
-  opacity: 1;
-}
-
-.reset-score-button {
-  font-size: var(--font-size-body);
-  padding: 4px 10px;
-  border-radius: 30px;
-  background-color: transparent;
-}
-
-.fade-1s {
-  transition: opacity 0.4s ease, margin 0.4s ease;
-  opacity: 1;
-}
-
-.fade-2s {
-  transition: opacity 0.8s ease;
-  opacity: 1;
-}
-
-.fade-3s {
-  transition: opacity 1.2s ease;
-  opacity: 1;
-}
-
-.hidden {
-  opacity: 0;
+  text-shadow: var(--text-shadow-sm) var(--color-shadow);
 }

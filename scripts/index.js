@@ -1,4 +1,4 @@
-import { fadeUpdate } from './rock-paper-scissors.js';
+import { fadeUpdate, resetRPSScore } from './rock-paper-scissors.js';
 
 //Cover Coin
 const coverButton = document.querySelector('.cover-btn');
@@ -30,20 +30,26 @@ const summaryMenuCoinAmount = document.querySelector('.js-coin-summary-amount');
 const summaryMenuCoinCollectedCover = document.querySelector('.js-summary-menu-cover-gold-coin'); 
 const summaryMenuCoinCollectedFillbar = document.querySelector('.js-summary-menu-fillbar-gold-coin'); 
 const summaryMenuCoinCollectedRPS = document.querySelector('.js-summary-menu-rps-gold-coin'); 
-const summaryMenuResetScoreButton = document.querySelector('.js-summary-reset-score-button'); 
-const summaryMenuLockIcons = document.querySelectorAll('.js-summary-lock-icon');
-const summaryMenuUnlockText = document.querySelector('.js-summary-unlock-text');
-
 const summaryMenuCoverText = document.querySelector('.js-summary-menu-cover-text');
 const summaryMenuFillbarText = document.querySelector('.js-summary-menu-fillbar-text');
 const summaryMenuRPSText = document.querySelector('.js-summary-menu-rps-text');
 const summaryMenuRPSStats = document.querySelector('.js-summary-menu-rps-stats');
+const summaryMenuResetScoreButton = document.querySelector('.js-summary-reset-score-button'); 
+const summaryMenuLockIcons = document.querySelectorAll('.js-summary-lock-icon');
+const summaryMenuUnlockText = document.querySelector('.js-summary-unlock-text');
 
-const coinsCollectedFlags = {
+const defaultCoinFlags = {
   cover: false,
   fillBar: false,
   rps: false
 };
+
+const coinsCollectedFlags = { ...defaultCoinFlags };
+
+const saved = localStorage.getItem('coinFlags');
+if (saved) {
+  Object.assign(coinsCollectedFlags, JSON.parse(saved));
+}
 
 export function calculateCoinAmount() {
   const totalCoins = Object.keys(coinsCollectedFlags).length;
@@ -130,6 +136,7 @@ coverButton.addEventListener('click', () => {
     coverCoinScrollText.classList.add('collected');
 
     coinsCollectedFlags.cover = true;
+    localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
   } else {
     coverCoinImg.classList.remove('idle');
@@ -151,11 +158,20 @@ summaryCloseButton.addEventListener('click', () => {
   summaryCoinContainer.classList.toggle('hidden');
 });
 
+summaryMenuResetScoreButton.addEventListener('click', () => {
+  summaryOverlay.classList.toggle('hidden');
+  document.body.classList.toggle('no-scroll');
+  summaryCoinContainer.classList.toggle('hidden');
+  resetCoins();
+});
+
+
 export function collectFillBarCoin() {
   if (!coinsCollectedFlags.fillBar) {
     fillBarGrayCoin.classList.add('hidden');
     fillBarGoldCoin.classList.remove('hidden');
     coinsCollectedFlags.fillBar = true;
+    localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
     triggerFillBarAnimations();
   } else {
@@ -184,11 +200,25 @@ function triggerFillBarAnimations() {
 }
 
 export function collectRPSCoin() {
-  highlightSummaryCoinContainer();
   if (!coinsCollectedFlags.rps) {
     coinsCollectedFlags.rps = true;
+    localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
   }
+}
+
+function saveCoinFlags() {
+  localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
+}
+
+export function resetCoins() {
+  Object.assign(coinsCollectedFlags, defaultCoinFlags);
+  saveCoinFlags();
+
+  resetRPSScore();
+  calculateCoinAmount();
+  
+  //reset cover and fillbar status
 }
 
 function triggerSummaryAnimations() {

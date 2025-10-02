@@ -13,22 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function updateScoreText() {
   const jsResult = document.querySelector('.js-result');
-  const jsScore = document.querySelector('.js-score');
-  const jsResetScoreButton = document.querySelector('.js-reset-score-button');
   const jsPlayerMove = document.querySelector('.js-player-move');
   const jsAiMove = document.querySelector('.js-ai-move');
   const jsAvatarMove = document.querySelectorAll('.js-avatar-move');
 
   if (score.wins !== 0 || score.losses !== 0 || score.ties !== 0) {
-    fadeUpdate(jsScore, `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
-    resetScoreButtonCheck();
     if (jsResult.innerHTML.trim() === '') {
       jsResult.innerHTML = 'Make a move to play the game.';
     }
   } else if (score.wins === 0 && score.losses === 0 && score.ties === 0) {
     jsResult.innerHTML = `Make a move to play the game.`;
-    jsScore.innerHTML = '';
-    jsResetScoreButton.innerHTML = '';
     jsPlayerMove.innerHTML = '';
     jsAiMove.innerHTML = '';
     jsAvatarMove.forEach(el => {
@@ -37,20 +31,20 @@ function updateScoreText() {
       }
     });
   }
+
+  if (score.wins >= 3) {
+    updateSummaryScore();
+  }
 }
 
-function resetScoreButtonCheck() {
-  const jsResetScoreButton = document.querySelector('.js-reset-score-button');
+function updateSummaryScore() {
+  document.querySelector('.js-rps-wins').innerHTML = score.wins;
+  document.querySelector('.js-rps-losses').innerHTML = score.losses;
+  document.querySelector('.js-rps-ties').innerHTML = score.ties;
+}
 
-  if (jsResetScoreButton.innerHTML === ``) {
-    jsResetScoreButton.innerHTML = `
-      <button class="button-link reset-score-button">Reset Score</button>
-    `;
-
-    // Add event listener after inserting the button
-    const resetButton = jsResetScoreButton.querySelector('.reset-score-button');
-    resetButton.addEventListener('click', resetRPSScore);
-  }
+function completeRPSGame() {
+  collectRPSCoin();
 }
 
 export function resetRPSScore() {
@@ -60,6 +54,7 @@ export function resetRPSScore() {
   localStorage.removeItem('score');
   updateScoreText();
   updateRPSFillBar();
+  updateSummaryScore();
 }
 
 export function fadeUpdate(element, newHTML, skipFadeOut = false) {
@@ -96,7 +91,6 @@ function updateRPSFillBar() {
 
   if (score.wins >= 3) {
     fill.style.width = '100%';
-    collectRPSCoin();
 
     rpsGrayCoin.classList.add('hidden');
     rpsGoldCoin.classList.remove('hidden');
@@ -124,6 +118,8 @@ function updateRPSFillBar() {
     rpsBarText.innerHTML = 'Win 3 times to get a coin';
     rpsBarText.classList.remove('show');
     rpsBarBorder.classList.remove('highlight');
+    rpsGrayCoin.classList.remove('hidden');
+    rpsGoldCoin.classList.add('hidden');
   }
 }
 
@@ -211,5 +207,8 @@ export async function playGame(playerMove) {
 
   if (result === 'You win!') {
     updateRPSFillBar();
+  }
+  if (score.wins >= 3) {
+    completeRPSGame();
   }
 }
