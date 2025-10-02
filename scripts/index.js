@@ -83,11 +83,13 @@ coverButton.addEventListener('click', () => {
 summaryCoinContainer.addEventListener('click', () => {
   summaryOverlay.classList.toggle('hidden');
   document.body.classList.toggle('no-scroll');
+  summaryCoinContainer.classList.toggle('hidden');
 });
 
 summaryCloseButton.addEventListener('click', () => {
   summaryOverlay.classList.toggle('hidden');
   document.body.classList.toggle('no-scroll');
+  summaryCoinContainer.classList.toggle('hidden');
 });
 
 export function collectFillBarCoin() {
