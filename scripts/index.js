@@ -60,28 +60,46 @@ export function calculateCoinAmount() {
   updateSummaryMenu(coinsCollected, totalCoins);
 }
 
-function setVisibility(element, isVisible, classAdd) {
-  element.classList.toggle(classAdd, !isVisible);
+function setClassByCondition(element, condition, className) {
+  element.classList.toggle(className, condition);
 }
 
 function updateSummaryMenu(coinsCollected, totalCoins) {
-  setVisibility(summaryMenuCoinAmount, coinsCollected !== totalCoins, 'textHighlight');
+  setClassByCondition(summaryMenuCoinAmount, coinsCollected === totalCoins, 'textHighlight');
 
-  setVisibility(summaryMenuCoinCollectedCover, coinsCollectedFlags.cover, 'hidden');
-  setVisibility(summaryMenuCoinCollectedFillbar, coinsCollectedFlags.fillBar, 'hidden');
-  setVisibility(summaryMenuCoinCollectedRPS, coinsCollectedFlags.rps, 'hidden');
+  // Map of flags → elements that should be hidden when false
+  const flagMapping = {
+    cover: [
+      summaryMenuCoinCollectedCover,
+      summaryMenuCoverText,
+    ],
+    fillBar: [
+      summaryMenuCoinCollectedFillbar,
+      summaryMenuFillbarText,
+    ],
+    rps: [
+      summaryMenuCoinCollectedRPS,
+      summaryMenuRPSText,
+      summaryMenuRPSStats,
+    ],
+  };
 
-  setVisibility(summaryMenuCoverText, coinsCollectedFlags.cover, 'hidden');
-  setVisibility(summaryMenuFillbarText, coinsCollectedFlags.fillBar, 'hidden');
-  setVisibility(summaryMenuRPSText, coinsCollectedFlags.rps, 'hidden');
-  setVisibility(summaryMenuRPSStats, coinsCollectedFlags.rps, 'hidden');
-
-  summaryMenuResetScoreButton.disabled = coinsCollected !== totalCoins;
-  setVisibility(summaryMenuResetScoreButton, coinsCollected === totalCoins, 'locked');
-  summaryMenuLockIcons.forEach(el => {
-    setVisibility(el, coinsCollected !== totalCoins, 'hidden');
+  Object.entries(flagMapping).forEach(([flag, elements]) => {
+    elements.forEach(el =>
+      setClassByCondition(el, !coinsCollectedFlags[flag], 'hidden')
+    );
   });
-  setVisibility(summaryMenuUnlockText, coinsCollected !== totalCoins, 'hidden');
+
+  // Reset button
+  const allCoinsCollected = coinsCollected === totalCoins;
+  summaryMenuResetScoreButton.disabled = !allCoinsCollected;
+  setClassByCondition(summaryMenuResetScoreButton, !allCoinsCollected, 'locked');
+
+  // Lock icons + unlock text
+  summaryMenuLockIcons.forEach(el =>
+    setClassByCondition(el, coinsCollected === totalCoins, 'hidden')
+  );
+  setClassByCondition(summaryMenuUnlockText, coinsCollected === totalCoins, 'hidden');
 }
 
 coverCoinImg.addEventListener('animationend', (e) => {
