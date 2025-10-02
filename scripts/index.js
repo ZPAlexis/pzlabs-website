@@ -34,6 +34,11 @@ const summaryMenuResetScoreButton = document.querySelector('.js-summary-reset-sc
 const summaryMenuLockIcons = document.querySelectorAll('.js-summary-lock-icon');
 const summaryMenuUnlockText = document.querySelector('.js-summary-unlock-text');
 
+const summaryMenuCoverText = document.querySelector('.js-summary-menu-cover-text');
+const summaryMenuFillbarText = document.querySelector('.js-summary-menu-fillbar-text');
+const summaryMenuRPSText = document.querySelector('.js-summary-menu-rps-text');
+const summaryMenuRPSStats = document.querySelector('.js-summary-menu-rps-stats');
+
 const coinsCollectedFlags = {
   cover: false,
   fillBar: false,
@@ -66,15 +71,16 @@ function updateSummaryMenu(coinsCollected, totalCoins) {
   setVisibility(summaryMenuCoinCollectedFillbar, coinsCollectedFlags.fillBar, 'hidden');
   setVisibility(summaryMenuCoinCollectedRPS, coinsCollectedFlags.rps, 'hidden');
 
-  //lock and button update
+  setVisibility(summaryMenuCoverText, coinsCollectedFlags.cover, 'hidden');
+  setVisibility(summaryMenuFillbarText, coinsCollectedFlags.fillBar, 'hidden');
+  setVisibility(summaryMenuRPSText, coinsCollectedFlags.rps, 'hidden');
+  setVisibility(summaryMenuRPSStats, coinsCollectedFlags.rps, 'hidden');
+
   summaryMenuResetScoreButton.disabled = coinsCollected !== totalCoins;
-  //button color darker
   setVisibility(summaryMenuResetScoreButton, coinsCollected === totalCoins, 'locked');
-  //hide locks
   summaryMenuLockIcons.forEach(el => {
     setVisibility(el, coinsCollected !== totalCoins, 'hidden');
   });
-  //hide unlock-text + .hidden remove line height
   setVisibility(summaryMenuUnlockText, coinsCollected !== totalCoins, 'hidden');
 }
 
