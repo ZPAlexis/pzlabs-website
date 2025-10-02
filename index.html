@@ -26,8 +26,8 @@
 </head>
 <body>
   <header class="header">
-    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.45c</p>
-    <button class="js-coin-summary coin-summary hidden">
+    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.46</p>
+    <button class="js-coin-summary js-animated-button coin-summary hidden">
       <div class="js-gold-coin-container gold-coin-container">
         <img class="cover-image" src="icons/coin-gold.svg">
       </div>
@@ -40,7 +40,7 @@
       <div class="summary-menu-top-container">
         <div class="summary-coin-total-summary">
           <img class="summary-coin-total-summary-icon" src="icons/coin-gold.svg">
-          <div class="summary-coin-total-text">2 / 3</div>
+          <div class="js-coin-summary-amount summary-coin-total-text"></div>
         </div>
         <div class="summary-title">COINS COLLECTED</div>
         <div class="summary-menu-close-btn-container"><button class="js-animated-button js-summary-close-btn summary-menu-close-btn"><span>x</span></button></div>
@@ -49,7 +49,7 @@
         <div class="summary-menu-stats-coin-1">
           <div class="summary-menu-coin-collect-container">
             <img class="summary-menu-coin-collect-gray" src="icons/coin-gray.svg">
-            <img class="summary-menu-coin-collect-gold" src="icons/coin-gold.svg">
+            <img class="js-summary-menu-cover-gold-coin summary-menu-coin-collect-gold hidden" src="icons/coin-gold.svg">
           </div>
           <div class="summary-menu-stat-text-container">
             <div class="summary-menu-stat-title"><span>#1. </span>Hidden in box</div>
@@ -58,7 +58,7 @@
         <div class="summary-menu-stats-coin-2">
           <div class="summary-menu-coin-collect-container">
             <img class="summary-menu-coin-collect-gray" src="icons/coin-gray.svg">
-            <img class="summary-menu-coin-collect-gold" src="icons/coin-gold.svg">
+            <img class="js-summary-menu-fillbar-gold-coin summary-menu-coin-collect-gold hidden" src="icons/coin-gold.svg">
           </div>
           <div class="summary-menu-stat-text-container">
             <div class="summary-menu-stat-title"><span>#2. </span>Fill the bar</div>
@@ -70,7 +70,7 @@
         <div class="summary-menu-stats-coin-3">
           <div class="summary-menu-coin-collect-container">
             <img class="summary-menu-coin-collect-gray" src="icons/coin-gray.svg">
-            <img class="summary-menu-coin-collect-gold" src="icons/coin-gold.svg">
+            <img class="js-summary-menu-rps-gold-coin summary-menu-coin-collect-gold hidden" src="icons/coin-gold.svg">
           </div>
           <div class="summary-menu-stat-text-container">
             <div class="summary-menu-stat-title"><span>#3. </span>Rock Paper Scissors Game</div>
@@ -92,8 +92,8 @@
         </div>
       </div>
       <div class="summary-menu-options-container">
-        <button class="js-animated-button cta-button summary-reset-score-button"><img class="summary-lock-icon" src="icons/lock-icon-blue.png">RESET SCORE & PROGRESS</button>
-        <div class="summary-menu-unlock-text"><img class="summary-lock-icon" src="icons/lock-icon-blue.png">Collect all coins to unlock.</div>
+        <button class="js-animated-button js-summary-reset-score-button cta-button summary-reset-score-button"><img class="js-summary-lock-icon summary-lock-icon" src="icons/lock-icon-blue.png">RESET SCORE & PROGRESS</button>
+        <div class="js-summary-unlock-text summary-menu-unlock-text"><img class="js-summary-lock-icon summary-lock-icon" src="icons/lock-icon-blue.png">Collect all coins to unlock.</div>
       </div>
     </div>
   </nav>

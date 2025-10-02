@@ -16,11 +16,14 @@
   --color-primary-dark80: #07307d80;
   --color-primary-dark99: #07307df6;
   --color-primary-darker: #021540;
+  --color-primary-darker99: #021540e3;
   --color-border: #e2e8f0;
+  --color-border-shadow: #d0d7df;
   --color-overlay: rgba(2, 2, 2, 0.637);
   --color-overlay-hover: rgba(0, 0, 0, 0.801);
   --color-button: #e2e8f0;
   --color-button-active: #FFFFFF;
+  --color-button-locked: #C1C6CC;
   --color-button-hover: #fcfcfc20;
   --color-button-border-active: #fcfcfc60;
   --color-button-gold: #FAC036;

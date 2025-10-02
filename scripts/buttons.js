@@ -4,12 +4,16 @@ const buttons = document.querySelectorAll('.js-animated-button');
 
 buttons.forEach((button) => {
   function handlePressStart() {
+    if (button.disabled) return;
+
     button.style.setProperty('transition', 'none');
     button.offsetHeight;
     button.classList.add('pressed');
   }
 
   function handlePressEnd() {
+    if (button.disabled) return;
+
     button.style.setProperty('transition', 'var(--btn-transition)');
     button.classList.remove('pressed');
 

@@ -76,8 +76,10 @@
   padding: 0 4px 0 4px;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 0 2px 0 var(--color-primary-dark99);
+  box-shadow: 2px 2px 0 0 var(--color-border-shadow);
+  
   transition: opacity 0.3s ease;
+  /*box-shadow: inset 0 0 2px 0 var(--color-primary-dark99);*/
 }
 
 .coin-summary.highlight {
@@ -111,7 +113,7 @@
 }
 
 .summary-menu-section {
-  background-color: var(--color-primary-dark99);
+  background-color: var(--color-primary-darker99);
   position: fixed;
   top: 0; bottom: 0; left: 0; right: 0;
   z-index: 101;
@@ -132,7 +134,8 @@
   width: clamp(300px, 100%, 700px);
   border-radius: 20px;
   border: 3px solid var(--color-border);
-  box-shadow: inset 0 0 2px 0 var(--color-primary-dark99);
+  
+  box-shadow: 4px 4px 0 0 var(--color-border-shadow);
 
   margin: 20px;
 
@@ -142,7 +145,6 @@
 
   overflow: hidden;
 }
-/* have max-height: 480px*/
 
 .summary-menu-top-container {
   display: flex;
@@ -178,6 +180,11 @@
 .summary-coin-total-text {
   text-align: center;
   width: 44px;
+}
+
+.summary-coin-total-text.textHighlight {
+  color: var(--color-text);
+  text-shadow: var(--text-shadow-sm) var(--color-shadow);
 }
 
 .summary-title {
@@ -217,7 +224,9 @@
   height: 40px;
   border-radius: 100%;
   border: 3px solid var(--color-text);
-  box-shadow: var(--shadow-sm) var(--color-button-base-shadow);
+
+  box-shadow: 2px 2px 0 0 var(--color-border-shadow);
+  /*box-shadow: var(--shadow-sm) var(--color-button-base-shadow);*/
 
   font-family: var(--font-family-basic);
   font-weight: bold;
@@ -282,8 +291,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 70px;
-  width: 100px;
+  height: 60px;
+  width: 50px;
 }
 
 .summary-menu-coin-collect-gray, .summary-menu-coin-collect-gold {
@@ -369,7 +378,7 @@
   flex-direction: column;
   width: 100%;
   gap: 14px;
-  padding: 14px 0;
+  padding: 10px 0 18px 0;
   
   align-items: center;
   justify-content: center;
@@ -385,6 +394,10 @@
   justify-content: center;
 }
 
+.summary-reset-score-button.locked {
+  background-color: var(--color-button-locked);
+}
+
 .summary-menu-unlock-text {
   display: flex;
   gap: 4px;
@@ -393,6 +406,10 @@
   font-family: var(--font-family-accent);
   font-size: var(--font-size-small);
   font-weight: 400;
+}
+
+.summary-menu-unlock-text.hidden {
+  display: none;
 }
 
 .summary-lock-icon {

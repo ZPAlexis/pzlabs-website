@@ -25,6 +25,15 @@ const summaryCoin = document.querySelector('.js-gold-coin-container');
 const summaryOverlay = document.querySelector('.js-summary-menu-overlay');
 const summaryCloseButton = document.querySelector('.js-summary-close-btn');
 
+//Summary Menu
+const summaryMenuCoinAmount = document.querySelector('.js-coin-summary-amount');
+const summaryMenuCoinCollectedCover = document.querySelector('.js-summary-menu-cover-gold-coin'); 
+const summaryMenuCoinCollectedFillbar = document.querySelector('.js-summary-menu-fillbar-gold-coin'); 
+const summaryMenuCoinCollectedRPS = document.querySelector('.js-summary-menu-rps-gold-coin'); 
+const summaryMenuResetScoreButton = document.querySelector('.js-summary-reset-score-button'); 
+const summaryMenuLockIcons = document.querySelectorAll('.js-summary-lock-icon');
+const summaryMenuUnlockText = document.querySelector('.js-summary-unlock-text');
+
 const coinsCollectedFlags = {
   cover: false,
   fillBar: false,
@@ -35,12 +44,38 @@ export function calculateCoinAmount() {
   const totalCoins = Object.keys(coinsCollectedFlags).length;
   const coinsCollected = Object.values(coinsCollectedFlags).filter(Boolean).length;
   coinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
+  summaryMenuCoinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
   
   if (coinsCollected != 0) {
     summaryCoinContainer.classList.remove('hidden');
     triggerSummaryAnimations();
     fadeUpdate(coinAmount, `${coinsCollected} / ${totalCoins}`);
   }
+
+  updateSummaryMenu(coinsCollected, totalCoins);
+}
+
+function setVisibility(element, isVisible, classAdd) {
+  element.classList.toggle(classAdd, !isVisible);
+}
+
+function updateSummaryMenu(coinsCollected, totalCoins) {
+  setVisibility(summaryMenuCoinAmount, coinsCollected !== totalCoins, 'textHighlight');
+
+  setVisibility(summaryMenuCoinCollectedCover, coinsCollectedFlags.cover, 'hidden');
+  setVisibility(summaryMenuCoinCollectedFillbar, coinsCollectedFlags.fillBar, 'hidden');
+  setVisibility(summaryMenuCoinCollectedRPS, coinsCollectedFlags.rps, 'hidden');
+
+  //lock and button update
+  summaryMenuResetScoreButton.disabled = coinsCollected !== totalCoins;
+  //button color darker
+  setVisibility(summaryMenuResetScoreButton, coinsCollected === totalCoins, 'locked');
+  //hide locks
+  summaryMenuLockIcons.forEach(el => {
+    setVisibility(el, coinsCollected !== totalCoins, 'hidden');
+  });
+  //hide unlock-text + .hidden remove line height
+  setVisibility(summaryMenuUnlockText, coinsCollected !== totalCoins, 'hidden');
 }
 
 coverCoinImg.addEventListener('animationend', (e) => {
