@@ -1,4 +1,5 @@
 import { fadeUpdate, resetRPSScore } from './rock-paper-scissors.js';
+import { bestTimer, lastTimer, resetFillBarTimers } from './fillBar.js';
 
 //Cover Coin
 const coverButton = document.querySelector('.cover-btn');
@@ -8,6 +9,7 @@ const coinAmount = document.querySelector('.js-coin-amount');
 const coverCoinScrollText = document.querySelector('.js-cover-coin-collected-text');
 
 //Fill Bar
+const fillBarFill = document.querySelector('.js-fill-bar-fill');
 const fillBarGoldCoin = document.querySelector('.js-fill-bar-collected-coin');
 const fillBarGrayCoin = document.querySelector('.js-fill-bar-gray-coin');
 const fillBarBorder = document.querySelector('.js-fill-bar-container');
@@ -32,6 +34,7 @@ const summaryMenuCoinCollectedFillbar = document.querySelector('.js-summary-menu
 const summaryMenuCoinCollectedRPS = document.querySelector('.js-summary-menu-rps-gold-coin'); 
 const summaryMenuCoverText = document.querySelector('.js-summary-menu-cover-text');
 const summaryMenuFillbarText = document.querySelector('.js-summary-menu-fillbar-text');
+const summaryMenuBestTimer = document.querySelector('.js-fill-bar-best-timer');
 const summaryMenuRPSText = document.querySelector('.js-summary-menu-rps-text');
 const summaryMenuRPSStats = document.querySelector('.js-summary-menu-rps-stats');
 const summaryMenuResetScoreButton = document.querySelector('.js-summary-reset-score-button'); 
@@ -95,6 +98,8 @@ function updateSummaryMenu(coinsCollected, totalCoins) {
     );
   });
 
+  summaryMenuBestTimer.textContent = bestTimer !== null ? `${bestTimer}s` : '---';
+
   const allCoinsCollected = coinsCollected === totalCoins;
   summaryMenuResetScoreButton.disabled = !allCoinsCollected;
   setClassByCondition(summaryMenuResetScoreButton, !allCoinsCollected, 'locked');
@@ -115,6 +120,8 @@ function refreshIndex() {
   if (!coinsCollectedFlags.cover) {
     coverBoxImg.classList.remove('open');
   }
+
+  triggerFillBarAnimations();
 }
 
 coverCoinImg.addEventListener('animationend', (e) => {
@@ -177,8 +184,6 @@ summaryMenuResetScoreButton.addEventListener('click', () => {
 
 export function collectFillBarCoin() {
   if (!coinsCollectedFlags.fillBar) {
-    fillBarGrayCoin.classList.add('hidden');
-    fillBarGoldCoin.classList.remove('hidden');
     coinsCollectedFlags.fillBar = true;
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
@@ -195,13 +200,30 @@ function triggerFillBarAnimations() {
   if (isAnimatingFillBar) return;
   isAnimatingFillBar = true;
 
-  fillBarBorder.classList.add('highlight');
-  restartAnimation(fillBarGoldCoin, 'spin');
+  if (coinsCollectedFlags.fillBar) {
+    fillBarFill.style.width = '100%';
     
-  fillBarText.classList.remove('show');
-  fillBarText.innerHTML = 'Coin Collected!';
-  void fillBarText.offsetWidth;
-  fillBarText.classList.add('show');
+    fillBarGrayCoin.classList.add('hidden');
+    fillBarGoldCoin.classList.remove('hidden');
+    
+    fillBarBorder.classList.add('highlight');
+    restartAnimation(fillBarGoldCoin, 'spin');
+      
+    fillBarText.classList.remove('show');
+    fillBarText.innerHTML = 'Coin Collected!';
+    void fillBarText.offsetWidth;
+    fillBarText.classList.add('show');
+  } else if (!coinsCollectedFlags.fillBar) {
+    fillBarFill.style.width = '0%';
+    
+    fillBarGrayCoin.classList.remove('hidden');
+    fillBarGoldCoin.classList.add('hidden');
+    
+    fillBarBorder.classList.remove('highlight');
+      
+    fillBarText.innerHTML = 'Fill this bar to get a coin <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
+    fillBarText.classList.remove('show');
+  }
 
   setTimeout(() => {
     isAnimatingFillBar = false;
@@ -224,11 +246,10 @@ export function resetCoins() {
   Object.assign(coinsCollectedFlags, defaultCoinFlags);
   saveCoinFlags();
 
+  resetFillBarTimers();
   resetRPSScore();
   refreshIndex();
   calculateCoinAmount();
-  
-  //reset fillbar status
 }
 
 function triggerSummaryAnimations() {

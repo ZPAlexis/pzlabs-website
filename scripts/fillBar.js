@@ -55,10 +55,8 @@ async function startDecay() {
 
 let timerInterval = null;
 let timerStart = null;
-let bestTimer = null;
-let lastTimer = null;
-//let bestTimer = parseFloat(localStorage.getItem('bestTimer')) || null;
-//let lastTimer = parseFloat(localStorage.getItem('lastTimer')) || null;
+export let bestTimer = parseFloat(localStorage.getItem('bestTimer')) || null;
+export let lastTimer = parseFloat(localStorage.getItem('lastTimer')) || null;
 
 async function startTimer() {
   const fill = document.querySelector('.js-fill-bar-fill');
@@ -95,13 +93,12 @@ async function startTimer() {
       timerInterval = null;
 
       lastTimer = currentSeconds;
-      //localStorage.setItem('lastTimer', lastTimer);
+      localStorage.setItem('lastTimer', lastTimer);
 
       if (bestTimer === null || parseFloat(currentSeconds) < parseFloat(bestTimer)) {
         bestTimer = currentSeconds;
-        //localStorage.setItem('bestTimer', bestTimer);
+        localStorage.setItem('bestTimer', bestTimer);
         bestTimerEl.textContent = `${bestTimer}s`;
-        console.log(`New best score: ${bestTimer}`);
       }
 
       fill.removeEventListener('transitionend', handleEnd);
@@ -113,4 +110,11 @@ async function startTimer() {
       fill.removeEventListener('transitionend', handleEnd);
     }
   });
+}
+
+export function resetFillBarTimers() {
+  bestTimer = null;
+  lastTimer = null;
+  localStorage.removeItem('bestTimer');
+  localStorage.removeItem('lastTimer');
 }
