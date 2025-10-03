@@ -1,4 +1,11 @@
-import { collectFillBarCoin } from './index.js';
+import { collectFillBarCoin, restartAnimation } from './index.js';
+
+export function resetFillBarTimers() {
+  bestTimer = null;
+  lastTimer = null;
+  localStorage.removeItem('bestTimer');
+  localStorage.removeItem('lastTimer');
+}
 
 export function fillBar(amount) {
   const fill = document.querySelector('.js-fill-bar-fill');
@@ -112,9 +119,74 @@ async function startTimer() {
   });
 }
 
-export function resetFillBarTimers() {
-  bestTimer = null;
-  lastTimer = null;
-  localStorage.removeItem('bestTimer');
-  localStorage.removeItem('lastTimer');
+let isAnimatingFillBar = false;
+
+export function triggerFillBarAnimations(collected) {
+  if (isAnimatingFillBar) return;
+  isAnimatingFillBar = true;
+
+  const fillBarFill = document.querySelector('.js-fill-bar-fill');
+  const fillBarGoldCoin = document.querySelector('.js-fill-bar-collected-coin');
+  const fillBarGrayCoin = document.querySelector('.js-fill-bar-gray-coin');
+  const fillBarBorder = document.querySelector('.js-fill-bar-container');
+  const fillBarText = document.querySelector('.js-fill-bar-text');
+  const fillTimerCont = document.querySelector('.js-fill-bar-timer-container');
+  const fillTimerEl = document.querySelector('.js-fill-bar-timer');
+
+  if (collected) {
+    fillBarFill.style.width = '100%';
+    
+    fillBarGrayCoin.classList.add('hidden');
+    fillBarGoldCoin.classList.remove('hidden');
+    
+    fillBarBorder.classList.add('highlight');
+    restartAnimation(fillBarGoldCoin, 'spin');
+      
+    fillBarText.classList.remove('show');
+    fillBarText.innerHTML = 'Coin Collected!';
+    void fillBarText.offsetWidth;
+    fillBarText.classList.add('show');
+
+    fillTimerEl.innerHTML = lastTimer;
+    fillTimerCont.classList.remove('hidden');
+
+    resetFillBarButton.classList.remove('hidden');
+  } else if (!collected) {
+    fillBarFill.style.width = '0%';
+    
+    fillBarGrayCoin.classList.remove('hidden');
+    fillBarGoldCoin.classList.add('hidden');
+    
+    fillBarBorder.classList.remove('highlight');
+      
+    fillBarText.innerHTML = 'Fill this bar to get a coin <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
+    fillBarText.classList.remove('show');
+    
+    fillTimerCont.classList.add('hidden');
+
+    resetFillBarButton.classList.add('hidden');
+  }
+
+  setTimeout(() => {
+    isAnimatingFillBar = false;
+  }, 300);
 }
+
+function resetFillBar() {
+  const fillBarFill = document.querySelector('.js-fill-bar-fill');
+  const fillBarBorder = document.querySelector('.js-fill-bar-container');
+  const fillBarText = document.querySelector('.js-fill-bar-text');
+  const fillTimerCont = document.querySelector('.js-fill-bar-timer-container');
+
+  fillBarFill.style.width = '0%';
+  fillBarBorder.classList.remove('highlight');
+  fillBarText.innerHTML = 'Fill this bar <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
+  fillBarText.classList.remove('show');
+  fillTimerCont.classList.add('hidden');
+}
+
+const resetFillBarButton = document.querySelector('.js-fill-bar-reset-button');
+
+resetFillBarButton.addEventListener('click', () => {
+  resetFillBar();
+});

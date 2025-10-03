@@ -1,5 +1,5 @@
 import { fadeUpdate, resetRPSScore } from './rock-paper-scissors.js';
-import { bestTimer, lastTimer, resetFillBarTimers } from './fillBar.js';
+import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
 
 //Cover Coin
 const coverButton = document.querySelector('.cover-btn');
@@ -7,13 +7,6 @@ const coverBoxImg = coverButton.querySelector('.js-cover-box');
 const coverCoinImg = coverButton.querySelector('.js-cover-coin');
 const coinAmount = document.querySelector('.js-coin-amount');
 const coverCoinScrollText = document.querySelector('.js-cover-coin-collected-text');
-
-//Fill Bar
-const fillBarFill = document.querySelector('.js-fill-bar-fill');
-const fillBarGoldCoin = document.querySelector('.js-fill-bar-collected-coin');
-const fillBarGrayCoin = document.querySelector('.js-fill-bar-gray-coin');
-const fillBarBorder = document.querySelector('.js-fill-bar-container');
-const fillBarText = document.querySelector('.js-fill-bar-text');
 
 //Rock Paper Scissors
 const rpsGoldCoin = document.querySelector('.js-rps-collected-coin');
@@ -121,7 +114,7 @@ function refreshIndex() {
     coverBoxImg.classList.remove('open');
   }
 
-  triggerFillBarAnimations();
+  triggerFillBarAnimations(coinsCollectedFlags.fillBar);
 }
 
 coverCoinImg.addEventListener('animationend', (e) => {
@@ -187,47 +180,10 @@ export function collectFillBarCoin() {
     coinsCollectedFlags.fillBar = true;
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
-    triggerFillBarAnimations();
   } else {
-    triggerFillBarAnimations();
     highlightSummaryCoinContainer();
   }
-}
-
-let isAnimatingFillBar = false;
-
-function triggerFillBarAnimations() {
-  if (isAnimatingFillBar) return;
-  isAnimatingFillBar = true;
-
-  if (coinsCollectedFlags.fillBar) {
-    fillBarFill.style.width = '100%';
-    
-    fillBarGrayCoin.classList.add('hidden');
-    fillBarGoldCoin.classList.remove('hidden');
-    
-    fillBarBorder.classList.add('highlight');
-    restartAnimation(fillBarGoldCoin, 'spin');
-      
-    fillBarText.classList.remove('show');
-    fillBarText.innerHTML = 'Coin Collected!';
-    void fillBarText.offsetWidth;
-    fillBarText.classList.add('show');
-  } else if (!coinsCollectedFlags.fillBar) {
-    fillBarFill.style.width = '0%';
-    
-    fillBarGrayCoin.classList.remove('hidden');
-    fillBarGoldCoin.classList.add('hidden');
-    
-    fillBarBorder.classList.remove('highlight');
-      
-    fillBarText.innerHTML = 'Fill this bar to get a coin <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
-    fillBarText.classList.remove('show');
-  }
-
-  setTimeout(() => {
-    isAnimatingFillBar = false;
-  }, 300);
+  triggerFillBarAnimations(coinsCollectedFlags.fillBar);
 }
 
 export function collectRPSCoin() {

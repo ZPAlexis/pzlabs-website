@@ -135,6 +135,33 @@
   opacity: 1;
 }
 
+.fill-bar-reset-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 3px solid var(--color-text);
+  box-shadow: var(--shadow-sm) var(--color-border-shadow);
+
+  position: absolute;
+  top: 50%;
+  left: 165%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease;
+}
+
+.fill-bar-reset-button {
+  object-fit: cover;
+  height: 30px;
+  opacity: 0.5;
+  transform: translateY(-1px);
+}
+
 
 @media (max-width: 720px) {
   .fill-bar-section {

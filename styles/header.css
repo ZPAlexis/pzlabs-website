@@ -350,7 +350,7 @@
   object-fit: cover;
   height: 30px;
   transform: translateY(-1px);
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .summary-menu-rps-stats-container {
