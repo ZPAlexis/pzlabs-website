@@ -109,6 +109,7 @@ function refreshIndex() {
   setClassByCondition(coverBoxImg, !coinsCollectedFlags.cover, 'idle');
   setClassByCondition(coverBoxImg, coinsCollectedFlags.cover, 'hidden');
   setClassByCondition(coverCoinImg, coinsCollectedFlags.cover, 'collect');
+  setClassByCondition(coverCoinImg, coinsCollectedFlags.cover, 'idle');
   setClassByCondition(coverCoinScrollText, coinsCollectedFlags.cover, 'collected');
 
   if (!coinsCollectedFlags.cover) {

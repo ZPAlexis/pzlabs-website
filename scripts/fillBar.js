@@ -55,49 +55,62 @@ async function startDecay() {
 
 let timerInterval = null;
 let timerStart = null;
+let bestTimer = null;
+let lastTimer = null;
+//let bestTimer = parseFloat(localStorage.getItem('bestTimer')) || null;
+//let lastTimer = parseFloat(localStorage.getItem('lastTimer')) || null;
 
 async function startTimer() {
   const fill = document.querySelector('.js-fill-bar-fill');
   const timerCont = document.querySelector('.js-fill-bar-timer-container');
   const timerEl = document.querySelector('.js-fill-bar-timer');
+  const bestTimerEl = document.querySelector('.js-fill-bar-best-timer');
 
-  timerStart = performance.now();
+  let currentSeconds = "0.00";
 
-  timerInterval = requestAnimationFrame(updateTimer);
-
-  timerCont.classList.remove('hidden');
-
-  async function updateTimer() {
-    const currentTime = performance.now();
-    const elapsed = currentTime - timerStart;
-    const seconds = (elapsed / 1000).toFixed(2);
-
-    timerEl.textContent = seconds;
-
-    const width = parseFloat(fill.style.width) || 0;
-
-    if (width >= 100) {
-      const onTransitionEnd = (e) => {
-        if (e.propertyName === 'width') {
-          fill.removeEventListener('transitionend', onTransitionEnd);
-          cancelAnimationFrame(timerInterval);
-          timerInterval = null;
-          return;
-        }
-      };
-      fill.addEventListener('transitionend', onTransitionEnd);
-    } else if (width <= 0) {
-      const onTransitionEnd = (e) => {
-        if (e.propertyName === 'width') {
-          fill.removeEventListener('transitionend', onTransitionEnd);
-          cancelAnimationFrame(timerInterval);
-          timerInterval = null;
-          timerCont.classList.add('hidden'); 
-          return;
-        }
-      };
-      fill.addEventListener('transitionend', onTransitionEnd);
+  // Wait until transition actually begins
+  fill.addEventListener('transitionstart', function handleStart(e) {
+    if (e.propertyName === 'width') {
+      timerStart = performance.now();
+      timerInterval = requestAnimationFrame(updateTimer);
+      timerCont.classList.remove('hidden');
+      fill.removeEventListener('transitionstart', handleStart);
     }
+  });
+
+  function updateTimer() {
+    const elapsed = performance.now() - timerStart;
+    currentSeconds = (elapsed / 1000).toFixed(2);
+    timerEl.textContent = currentSeconds;
     timerInterval = requestAnimationFrame(updateTimer);
   }
+
+  fill.addEventListener('transitionend', function handleEnd(e) {
+    if (e.propertyName !== 'width') return;
+
+    const width = parseFloat(fill.style.width);
+
+    if (width >= 100) {
+      cancelAnimationFrame(timerInterval);
+      timerInterval = null;
+
+      lastTimer = currentSeconds;
+      //localStorage.setItem('lastTimer', lastTimer);
+
+      if (bestTimer === null || parseFloat(currentSeconds) < parseFloat(bestTimer)) {
+        bestTimer = currentSeconds;
+        //localStorage.setItem('bestTimer', bestTimer);
+        bestTimerEl.textContent = `${bestTimer}s`;
+        console.log(`New best score: ${bestTimer}`);
+      }
+
+      fill.removeEventListener('transitionend', handleEnd);
+    } else if (width <= 0) {
+      cancelAnimationFrame(timerInterval);
+      timerInterval = null;
+      timerCont.classList.add('hidden');
+
+      fill.removeEventListener('transitionend', handleEnd);
+    }
+  });
 }
