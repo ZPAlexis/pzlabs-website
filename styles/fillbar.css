@@ -128,6 +128,24 @@
   transition: opacity 0.5s ease;
 }
 
+.fill-bar-best-text {
+  position: absolute;
+  text-align: center;
+  top: 0%;
+  left: -110%;
+
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-medium);
+  color: var(--color-text);
+  font-weight: 400;
+
+  opacity: 0;
+}
+
+.fill-bar-best-text.best {
+  animation: fadeUpIn 1s linear forwards;
+}
+
 .fill-bar-timer-icon {
   object-fit: cover;
   height: 30px;

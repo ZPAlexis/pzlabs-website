@@ -1,5 +1,8 @@
 import { collectFillBarCoin, restartAnimation } from './index.js';
 
+const resetFillBarButton = document.querySelector('.js-fill-bar-reset-button');
+const bestTimerText = document.querySelector('.js-fill-bar-best-text');
+
 export function resetFillBarTimers() {
   bestTimer = null;
   lastTimer = null;
@@ -106,6 +109,7 @@ async function startTimer() {
         bestTimer = currentSeconds;
         localStorage.setItem('bestTimer', bestTimer);
         bestTimerEl.textContent = `${bestTimer}s`;
+        bestTimerText.classList.add('best');
       }
 
       fill.removeEventListener('transitionend', handleEnd);
@@ -151,6 +155,10 @@ export function triggerFillBarAnimations(collected) {
     fillTimerCont.classList.remove('hidden');
 
     resetFillBarButton.classList.remove('hidden');
+
+    if (lastTimer === bestTimer) {
+      bestTimerText.classList.add('best');
+    }
   } else if (!collected) {
     fillBarFill.style.width = '0%';
     
@@ -165,6 +173,8 @@ export function triggerFillBarAnimations(collected) {
     fillTimerCont.classList.add('hidden');
 
     resetFillBarButton.classList.add('hidden');
+
+    bestTimerText.classList.remove('best');
   }
 
   setTimeout(() => {
@@ -183,9 +193,8 @@ function resetFillBar() {
   fillBarText.innerHTML = 'Fill this bar <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
   fillBarText.classList.remove('show');
   fillTimerCont.classList.add('hidden');
+  bestTimerText.classList.remove('best');
 }
-
-const resetFillBarButton = document.querySelector('.js-fill-bar-reset-button');
 
 resetFillBarButton.addEventListener('click', () => {
   resetFillBar();
