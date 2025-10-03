@@ -73,7 +73,6 @@ function setClassByCondition(element, condition, className) {
 function updateSummaryMenu(coinsCollected, totalCoins) {
   setClassByCondition(summaryMenuCoinAmount, coinsCollected === totalCoins, 'textHighlight');
 
-  // Map of flags → elements that should be hidden when false
   const flagMapping = {
     cover: [
       summaryMenuCoinCollectedCover,
@@ -96,16 +95,25 @@ function updateSummaryMenu(coinsCollected, totalCoins) {
     );
   });
 
-  // Reset button
   const allCoinsCollected = coinsCollected === totalCoins;
   summaryMenuResetScoreButton.disabled = !allCoinsCollected;
   setClassByCondition(summaryMenuResetScoreButton, !allCoinsCollected, 'locked');
 
-  // Lock icons + unlock text
   summaryMenuLockIcons.forEach(el =>
     setClassByCondition(el, coinsCollected === totalCoins, 'hidden')
   );
   setClassByCondition(summaryMenuUnlockText, coinsCollected === totalCoins, 'hidden');
+}
+
+function refreshIndex() {
+  setClassByCondition(coverBoxImg, !coinsCollectedFlags.cover, 'idle');
+  setClassByCondition(coverBoxImg, coinsCollectedFlags.cover, 'hidden');
+  setClassByCondition(coverCoinImg, coinsCollectedFlags.cover, 'collect');
+  setClassByCondition(coverCoinScrollText, coinsCollectedFlags.cover, 'collected');
+
+  if (!coinsCollectedFlags.cover) {
+    coverBoxImg.classList.remove('open');
+  }
 }
 
 coverCoinImg.addEventListener('animationend', (e) => {
@@ -132,7 +140,7 @@ coverButton.addEventListener('click', () => {
   if (!coinsCollectedFlags.cover) {
     coverBoxImg.classList.remove('idle');
     coverBoxImg.classList.add('open');
-    coverCoinImg.classList.add('visible');
+    coverCoinImg.classList.add('collect');
     coverCoinScrollText.classList.add('collected');
 
     coinsCollectedFlags.cover = true;
@@ -216,9 +224,10 @@ export function resetCoins() {
   saveCoinFlags();
 
   resetRPSScore();
+  refreshIndex();
   calculateCoinAmount();
   
-  //reset cover and fillbar status
+  //reset fillbar status
 }
 
 function triggerSummaryAnimations() {
@@ -226,4 +235,5 @@ function triggerSummaryAnimations() {
   highlightSummaryCoinContainer();
 }
 
+refreshIndex();
 calculateCoinAmount();

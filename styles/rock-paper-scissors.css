@@ -70,8 +70,7 @@
   align-items: flex-end;
   justify-content: center;
   border-radius: 100%;
-  border: 3px solid var(--color-border);
-  box-shadow: var(--shadow-md) var(--color-shadow);
+  box-shadow: 0 0 8px 0 var(--color-shadow);
   background-color: transparent;
   z-index: 1;
   background-color: var(--color-primary-dark);
@@ -97,7 +96,7 @@
   background-color: var(--color-primary-shade);
   border-radius: 100%;
   border: 3px solid var(--color-border);
-  box-shadow: var(--shadow-md) var(--color-shadow);
+  box-shadow: 0 0 4px 0 var(--color-shadow);
 }
 
 .rps-player-move {

@@ -104,7 +104,7 @@
 .cover-box {
   opacity: 1;
   z-index: 2;
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, opacity 0.3s ease,;
 }
 
 .cover-box:hover {
@@ -113,6 +113,15 @@
 
 .cover-box.idle {
   animation: hoverIdle 3s ease-in-out infinite;
+}
+
+.cover-box.open {
+  animation: boxOpen 0.3s ease forwards;
+}
+
+.cover-box.hidden {
+  opacity: 0;
+  display: none;
 }
 
 .cover-coin {
@@ -124,16 +133,12 @@
   will-change: transform, opacity;
 }
 
-.cover-coin.visible {
+.cover-coin.collect {
   animation: coinCollect 1.4s ease forwards;
 }
 
 .cover-coin.idle {
   animation: coinHoverIdle 6s ease-in-out infinite;
-}
-
-.cover-box.open {
-  animation: boxOpen 0.3s ease forwards;
 }
 
 .cover-coin.spin {
