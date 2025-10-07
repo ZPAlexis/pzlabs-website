@@ -15,7 +15,7 @@ body {
   transition: background-color 0.15s;
   touch-action: manipulation;/* Disables double-tap zoom & delays */
   -webkit-tap-highlight-color: transparent; /* Prevents weird highlight */
-  -webkit-user-select: none;/* Prevents accidental text selection */
+  -webkit-user-select: text;/* None prevents accidental text selection */
 }
 
 body.no-scroll {

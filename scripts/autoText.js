@@ -13,13 +13,13 @@ const coverTextOptions = [
   'Creating',
   'Engineering',
   'Designing',
-  'Coding',
-  'Developing',
-  'Researching',
   'Scoping',
-  'Reviewing',
-  'Enhancing',
-  'Implementing'
+  'Researching',
+  'Mapping',
+  'Coding',
+  'Implementing',
+  'Testing',
+  'Iterating'
 ];
 
 let coverText = '';

@@ -11,6 +11,8 @@
   justify-content: center;
   flex: 1;
   margin: 20px;
+
+  max-width: var(--max-width-container);
 }
 
 .about-hero-image-container {
@@ -83,13 +85,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex: 1;
   gap: 20px;
   padding: 0 20px;
 }
 
 .about-text-container {
+  justify-content: center;
 
+  max-width: var(--max-width-container);
 }
 
 .about-text-title {
@@ -98,6 +103,7 @@
 
 .about-skills-section {
   display: flex;
+  justify-content: center;
 }
 
 .about-skills-container {
@@ -106,6 +112,8 @@
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
+
+  max-width: var(--max-width-container);
 }
 
 .about-skills-cards-container {
