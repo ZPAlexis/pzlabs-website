@@ -26,7 +26,10 @@
 </head>
 <body>
   <header class="header">
-    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.50</p>
+    <p class="footer-small-font" style="padding: 20px 20px; text-align: left; flex: 1;">v0.50a
+      <button class="js-en-locale locale-change-button">EN</button>
+      <button class="js-pt-locale locale-change-button">PT</button>
+    </p>
     <button class="js-coin-summary coin-summary hidden">
       <div class="js-gold-coin-container gold-coin-container">
         <img class="cover-image" src="icons/coin-gold.svg">
@@ -106,9 +109,10 @@
             <div class="auto-text-container">
               <div class="js-cover-text cover-text"></div>
               <div class="js-cover-bar-blink cover-bar-blink">|</div>
-            </div>Gamified<br>Experiences.
+            </div>
+            <div data-i18n-html="intro-cover"></div>
           </h1>
-          <p class="intro-description">Game-like solutions to inspire and motivate user engagement.</p>
+          <p class="intro-description" data-i18n="intro-description"></p>
         </div>
         <div class="intro-right-container fade-in">
           <button class="cover-btn">
@@ -346,22 +350,23 @@ Survivor</h1>
     </div>
   </footer>
 
-  <script type="module" src="scripts/index.js"></script>
-  <script src="scripts/autoText.js"></script>
-  <script type="module" src="scripts/fillBar.js"></script>
-  <script src="scripts/animations.js"></script>
-  <script type="module" src="scripts/buttons.js"></script>
-  <script type="module" src="scripts/rock-paper-scissors.js"></script>
-
   <!-- i18next -->
   <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
-
+  
   <!-- i18next optionals -->
   <!-- i18next-http-backend (to load translation files) -->
   <script src="https://unpkg.com/i18next-http-backend@2.2.2/i18nextHttpBackend.min.js"></script>
   <!-- i18next-browser-languagedetector (to auto-detect the user’s language) -->
   <script src="https://unpkg.com/i18next-browser-languagedetector@7.0.1/i18nextBrowserLanguageDetector.min.js"></script>
+  
+  <script src="scripts/i18n.js"></script>
 
+  <script type="module" src="scripts/index.js"></script>
+  <script src="scripts/autoText.js" defer></script>
+  <script type="module" src="scripts/fillBar.js"></script>
+  <script src="scripts/animations.js"></script>
+  <script type="module" src="scripts/buttons.js"></script>
+  <script type="module" src="scripts/rock-paper-scissors.js"></script>
 
 </body>
 </html>

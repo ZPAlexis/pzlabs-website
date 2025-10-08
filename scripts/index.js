@@ -1,6 +1,10 @@
 import { fadeUpdate, resetRPSScore } from './rock-paper-scissors.js';
 import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
 
+//Language Change
+const languageBtnPT = document.querySelector('.js-pt-locale');
+const languageBtnEN = document.querySelector('.js-en-locale');
+
 //Cover Coin
 const coverButton = document.querySelector('.cover-btn');
 const coverBoxImg = coverButton.querySelector('.js-cover-box');
@@ -212,6 +216,21 @@ function triggerSummaryAnimations() {
   restartAnimation(summaryCoin, 'spin');
   highlightSummaryCoinContainer();
 }
+
+function changeLanguage(lng) {
+  i18next.changeLanguage(lng, () => {
+    updateContent();
+  });
+}
+
+languageBtnEN.addEventListener('click', () => {
+  changeLanguage('en');
+});
+
+languageBtnPT.addEventListener('click', () => {
+  changeLanguage('pt');
+});
+
 
 refreshIndex();
 calculateCoinAmount();

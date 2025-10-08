@@ -18,48 +18,18 @@
   flex: 1;
 }
 
-.projects-link, .homepage-link, .about-link {
-  font-size: 16px;
-  text-transform: uppercase;
-  color: inherit;
-  text-align: center;
-  width: 100px;
-}
-
-.projects-link {
-  text-align: right;
-}
-
-.about-link {
-  text-align: left;
-}
-
-.projects-link:hover, .homepage-link:hover, .about-link:hover {
-  font-weight: bold;
-}
-
-.dark-mode-toggle-button {
-  background-color: transparent;
+.locale-change-button {
   cursor: pointer;
-  border: none;
-  width: 30px;
   height: 30px;
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  display: flex;
+  width: 45px;
+  border-radius: 9999px;
+  border: 2px solid var(--color-border);
+  background-color: #ffffff20;
+  color: var(--color-text);
 }
 
-.light-black-icon {
-  width: 100%;
-  position: absolute;
-  opacity: var(--icon-light-black);
-}
-
-.light-white-icon {
-  width: 100%;
-  position: absolute;
-  opacity: var(--icon-light-white);
+.locale-change-button:hover {
+  background-color: #ffffff50;
 }
 
 .coin-summary {

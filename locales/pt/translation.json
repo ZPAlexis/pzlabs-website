@@ -1,4 +1,16 @@
 {
-  "welcome": "Bem-vindo ao site!",
-  "description": "Este é um exemplo multilíngue."
+  "intro-cover": "Experiências<br>Gamificadas",
+  "intro-description": "Soluções semelhantes a jogos para inspirar e motivar engajamento de usuários.",
+  "intro-cover-options": [
+    "Criando",
+    "Engenhando",
+    "Desenhando",
+    "Definindo",
+    "Pesquisando",
+    "Mapeando",
+    "Programando",
+    "Implementando",
+    "Testando",
+    "Iterando"
+  ]
 }

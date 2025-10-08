@@ -1,4 +1,16 @@
 {
-  "welcome": "Welcome to the site!",
-  "description": "This is a multilingual demo."
+  "intro-cover": "Gamified<br>Experiences",
+  "intro-description": "Game-like solutions to inspire and motivate user engagement.",
+  "intro-cover-options": [
+    "Creating",
+    "Engineering",
+    "Designing",
+    "Scoping",
+    "Researching",
+    "Mapping",
+    "Coding",
+    "Implementing",
+    "Testing",
+    "Iterating"
+  ]
 }
