@@ -8,6 +8,8 @@ i18next
     load: 'languageOnly',
     backend: {
       loadPath: '/locales/{{lng}}/translation.json'
+    }, interpolation: {
+    escapeValue: false
     }
   }, function(err, t) {
     if (err) return console.error(err);
