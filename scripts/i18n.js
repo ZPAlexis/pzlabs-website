@@ -4,6 +4,8 @@ i18next
   .init({
     debug: true, // Turn off in production
     fallbackLng: 'en',
+    supportedLngs: ['en', 'pt'],
+    load: 'languageOnly',
     backend: {
       loadPath: '/locales/{{lng}}/translation.json'
     }
