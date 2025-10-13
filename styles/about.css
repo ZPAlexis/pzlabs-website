@@ -118,7 +118,6 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin: 20px;
 
   max-width: var(--max-width-container);
 }
@@ -126,28 +125,27 @@
 .about-skills-cards-container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  justify-content: center;
   align-items: flex-start;
-  flex: 1;
-  margin: 20px 0 0 0;
-  gap: 14px;
+  gap: 20px;
   max-width: 840px;
 }
 
 .about-skills-card {
-  background-color: rgb(252, 252, 252);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  box-shadow: 6px 6px 0 0 #222;
-  transition: box-shadow 0.15s;
-  width: 128px;
   padding: 14px;
   gap: 4px;
-  max-height: 140px;
-  border: #000000;
-  border-style: solid;
-  border-width: 2px;
+  box-sizing: border-box;
+
+  background-color: var(--color-button);
+  box-shadow: 0 0 10px 2px var(--color-shadow);
+  color: var(--color-background);
+
+  flex: 1 1 0;
+  min-width: 140px;
+  max-width: 220px;
 }
 
 .about-skills-card-icon{
@@ -156,15 +154,17 @@
 }
 
 .about-skills-card-title {
+  font-size: var(--font-size-body);
   text-transform: uppercase;
   font-weight: bold;
+  width: 100%;
 }
 
 .about-skills-card-description {
-  font-size: small;
-  overflow: hidden;
-  max-height: 70px;
-  line-height: 0.9;
+  font-size: var(--font-size-small);
+  white-space: normal;
+  width: 100%;
+  min-height: 60px;
 }
 
 @media (max-width: 720px) {
