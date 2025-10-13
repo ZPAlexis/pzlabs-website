@@ -1,7 +1,7 @@
 .about-hero-section {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   flex: 1;
 }
 
@@ -11,16 +11,14 @@
   justify-content: center;
   flex: 1;
   margin: 20px;
+  gap: 40px;
 
   max-width: var(--max-width-container);
 }
 
 .about-hero-image-container {
   display: flex;
-  flex: 1;
-  min-width: 120px;
-  max-width: 220px;
-  max-height: 260px;
+  width: 220px;
   padding-top: 20px;
   align-items: baseline;
   justify-content: center;
@@ -36,8 +34,7 @@
 .about-hero-bio-container {
   display: flex;
   flex-direction: column;
-  flex: 2;
-  min-width: 320px;
+  width: 320px;
   min-height: 200px;
   padding: 20px;
   justify-content: baseline;
@@ -66,19 +63,20 @@
 
 .about-hero-socials-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex: 1;
   min-width: 130px;
   min-height: 60px;
-  gap: 10px;
+  gap: 80px;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
 }
 
 .social-link-container {
   height: 48px;
   width: 48px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-text-section {
@@ -106,6 +104,7 @@
 }
 
 .about-text-title {
+  font-size: var(--font-size-h1);
   margin: 0;
 }
 
@@ -143,9 +142,13 @@
   box-shadow: 0 0 10px 2px var(--color-shadow);
   color: var(--color-background);
 
-  flex: 1 1 0;
+  flex: 1 1 220px;
   min-width: 140px;
-  max-width: 220px;
+}
+
+.about-skills-card.about-quote {
+  font-family: var(--font-family-accent);
+  flex: none;
 }
 
 .about-skills-card-icon{
@@ -160,25 +163,19 @@
   width: 100%;
 }
 
+.about-skills-card-title.about-quote {
+  text-transform: none;
+}
+
 .about-skills-card-description {
   font-size: var(--font-size-small);
   white-space: normal;
-  width: 100%;
+  max-width: 300px;
   min-height: 60px;
 }
 
-@media (max-width: 720px) {
-  .about-hero-container {
-    flex-wrap: wrap;
-  }
-  
-  .about-hero-socials-container {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .social-link-container {
-    margin-left: auto;
-    margin-right: auto;
-  }
+.about-skills-card-description.about-quote {
+  font-size: var(--font-size-body);
+  max-width: 100%;
+  min-height: 0;
 }

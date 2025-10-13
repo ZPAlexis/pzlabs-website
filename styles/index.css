@@ -381,6 +381,11 @@
   width: 220px;
 }
 
+.cta-container.center {
+  text-align: center;
+  margin: 80px 20px;
+}
+
 .cta-message {
   line-height: 26px;
 }
