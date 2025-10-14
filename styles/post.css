@@ -7,7 +7,6 @@
 .post-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex: 1;
   margin: 0 20px;
   gap: 20px;
@@ -19,6 +18,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  align-self: center;
   max-width: var(--max-width-mobile-container);
 }
 
@@ -28,8 +28,8 @@
 
 .post-banner-image {
   width: 100%;
+  aspect-ratio: 16/9;
   display: flex;
-  flex: 1;
   justify-content: left;
   align-items: center;
   box-shadow: var(--shadow-spread) var(--color-shadow);
@@ -37,6 +37,8 @@
 
 .post-banner-image.cover {
   margin: 20px 0;
+  min-height: 280px;
+  object-fit: cover;
 }
 
 .post-heading {
@@ -49,13 +51,14 @@
 }
 
 .post-heading.title {
-  padding-top: 0;
+  padding-top: 10px;
   font-size: 44px;
   margin-bottom: 20px;
 }
 
 .post-heading.center {
   justify-content: center;
+  text-align: center;
 }
 
 .post-text {
@@ -64,6 +67,29 @@
   font-size: var(--font-size-h3);
   line-height: 150%;
   letter-spacing: 1px;
+
+  padding: 0;
+  list-style-position: inside;
+}
+
+.post-text.half {
+  width: 200px;
+}
+
+.post-text.center {
+  text-align: center;
+  align-self: center;
+}
+
+.post-text li::marker {
+  font-weight: bold;
+  font-size: var(--font-size-h3);
+  font-family: var(--font-family-accent);
+
+}
+
+.post-text li {
+  margin-bottom: 40px;
 }
 
 .post-list-item {
@@ -73,8 +99,28 @@
 }
 
 .post-image {
+  display: block;
   width: 100%;
   box-shadow: var(--shadow-spread) var(--color-shadow);
+}
+
+.post-image.half {
+  max-width: 280px;
+}
+
+.post-image.center {
+  margin: 0 auto;
+}
+
+.post-logo-link {
+  align-self: baseline;
+  flex: 0 0 auto;
+  display: inline-block;
+}
+
+.post-logo {
+  display: block;
+  height: 40px;
 }
 
 .post-video {
@@ -96,23 +142,50 @@
   border: 0;
 }
 
+.post-cta-button {
+  min-width: 220px;
+  width: 50%;
+  height: 44px;
+  align-self: center;
+}
+
 .text-highlight {
   font-size: var(--font-size-h3);
   font-family: var(--font-family-base);
   font-weight: bold;
   width: 100%;
   margin: 0;
+  line-height: 200%;
 }
 
 .post-spacing {
-  margin: 0;
+  margin-top: 10px;
 }
 
 .post-line {
   width: 80%;
+  align-self: center;
   max-width: var(--max-width-container);
   border: none;
   border-top: 1px solid var(--color-text);
   margin: 40px 0 20px 0;
   opacity: 0.2;
+}
+
+.post-references-section {
+  display: flex;
+  justify-content: center;
+}
+
+.post-references-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  justify-content: center;
+  align-items: center;
+
+
+  max-width: var(--max-width-container);
+  width: 100%;
+  margin: 60px 20px 20px 20px;
 }

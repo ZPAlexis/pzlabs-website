@@ -30,5 +30,4 @@ buttons.forEach((button) => {
 
   button.addEventListener('pointerdown', handlePressStart);
   button.addEventListener('pointerup', handlePressEnd);
-  button.addEventListener('pointercancel', handlePressEnd);
 });

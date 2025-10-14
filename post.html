@@ -19,11 +19,12 @@
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/post.css">
 </head>
 <body>
-  <header class="header">
+  <header class="header" id="top">
     <a class="footer-small-font" style="color: var(--color-text); padding: 20px 20px; text-align: left; flex: 1;" href="/"> < Back to Home</a>
   </header>
 
@@ -32,7 +33,7 @@
       <a href="images/projects/flappy_astronaut/Portfolio_Flying_FlappyAstronaut.jpg"><img class="post-banner-image cover" src="images/projects/flappy_astronaut/Portfolio_Flying_FlappyAstronaut.jpg"></a>
       <div class="post-container">
         <h1 class="post-heading title center">Flappy Astronaut</h1>
-        <div class="post-list-container">
+        <div class="post-list-container center">
           <p class="post-text"><span class="text-highlight">Category: </span>Demo Unity Game</p>
           <p class="post-text"><span class="text-highlight">Tech Stack: </span>C#, Unity</p>
           <p class="post-text"><span class="text-highlight">Inspiration: </span>Flappy Bird</p>
@@ -71,12 +72,12 @@
         <div class="post-line"></div>
 
         <h2 class="post-heading" id="stack">Tech Stack</h2>
-        <p class="post-text"><strong>Unity</strong></p>
+        <a class="post-logo-link" href="https://unity.com/"><img class="post-logo" src="images/unity_logo_white.png"></a>
         <p class="post-text">This was my first time using a game engine platform. Unity provided the best and most scalable learning platform for this project given it’s initial objectives.</p>
         <p class="post-text">Unreal Engine and Godot were other two great options I could have used as alternatives, with each using a different architecture and programming language. However, Unity was the only that provided but the decision came down to the C# programming language used specifically in Unity.</p>
-        <p class="post-text"><strong>C#</strong></p>
+        <a class="post-logo-link" href="https://www.w3schools.com/cs/index.php"><img class="post-logo" src="images/csharp_logo_white.png"></a>
         <p class="post-text">The primary programming language used in Unity. This was the perfect opportunity to further develop skills in scripting game logic. C# was a great way to build proper foundations learning the principles of modularity, abstraction, and clean code.</p>
-        <p class="post-text"><strong>Aseprite</strong></p>
+        <a class="post-logo-link" href="https://www.aseprite.org/"><img class="post-logo" src="images/aseprite_logo_white.png"></a>
         <p class="post-text">Used to create the pixel art presented in the project’s visual design system. The software is the best alternative to Photoshop when it comes to pixel art, and provides great support for animation with layers & frames as separated concepts.</p>
 
         <div class="post-line"></div>
@@ -85,7 +86,7 @@
         <a href="images/projects/flappy_astronaut/PZLabs_Portfolio_FlappyAstronaut_4_GameLogic.png"><img class="post-image" src="images/projects/flappy_astronaut/PZLabs_Portfolio_FlappyAstronaut_4_GameLogic.png"></a>
         <p class="post-text">The logic diagram is a summarized representation of the controlling scripts attached to Unity’s game objects. The simplicity of the game’s scope helped keep the scripts independent and easy to manage. The main complexity of this project was learning how to put it all together in Unity.</p>
         <p class="post-text">Given the learning objective of this project there was no further efforts to organize or condense the project’s files. This is how the assets structure ended up looking like.</p>
-        <a href="images/projects/flappy_astronaut/Portfolio_FlappyAstronaut_FolderStructure.png"><img class="post-image" src="images/projects/flappy_astronaut/Portfolio_FlappyAstronaut_FolderStructure.png"></a>
+        <a href="images/projects/flappy_astronaut/Portfolio_FlappyAstronaut_FolderStructure.png"><img class="post-image half center" src="images/projects/flappy_astronaut/Portfolio_FlappyAstronaut_FolderStructure.png"></a>
         <p class="post-text">Here is a simple snippet from the AsteroidScript.cs with the Update function that Unity runs on every frame. It controls a set of asteroid’s horizontal movement and its destruction when reaching the off-screen threshold (deadZone).</p>
 
         <div class="post-line"></div>
@@ -100,7 +101,7 @@
         <h2 class="post-heading" id="demo">Demo & Download</h2>
         <div class="post-video">
           <iframe 
-            src="https://www.youtube.com/embed/EHW0vRHUnHc?si=0fKeWdo6ZkSsoUWa"
+            src="https://www.youtube-nocookie.com/embed/EHW0vRHUnHc?si=0fKeWdo6ZkSsoUWa"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -108,8 +109,9 @@
             allowfullscreen>
           </iframe>
         </div>
-        <p class="post-text">Download the demo and try it yourself!</p>
-        <p class="post-text"><a class="link" href="https://github.com/ZPAlexis/FlappyAstronaut-V1.0.0-PC-Demo">Flappy Astronaut Demo</a></p>
+        <div class="post-spacing"></div>
+        <p class="post-text half center">Download the demo and try it yourself!</p>
+        <button class="js-animated-button cta-button post-cta-button" data-action="navigate" data-target="https://github.com/ZPAlexis/FlappyAstronaut-V1.0.0-PC-Demo">Download Flappy Astronaut Demo</button>
 
         <div class="post-line"></div>
 
@@ -118,14 +120,63 @@
         <p class="post-text"></p>
         <p class="post-text">This project was the perfect starting point to uncover the potential paths ahead for game development. It showed the possibilities of an engine like Unity, and highlighted the complexities involved in planning, building, and delivering a game experience.</p>
         <p class="post-text">Here are the most significant learnings and insights from this project:</p>
-        <ol type="a">
-          <li>Game development is hard - I knew this before starting, but it’s only with practice that we really understand the implication of those words. A quick demo game can be easy to put together, but delivering a properly polished experience can be extremely complex and takes time.</li>
-          <li>Unity Engine is really flexible - My biggest surprise was on how easy-to-use and versatile this engine is. I could easily convert the application into an HTML element or a mobile app for both iOS and Android if the project were to evolve in that direction.</li>
-          <li>Visual identity goes a long way - Giving the project a design theme really helped to add quality to the end result without much further complexity. The next steps would have been to add better animations and variety to the stage and player interactions.</li>
-          <li>Depth and variety of mechanics - Flappy Astronaut had clear boundaries with simple game mechanics and objectives. However, if this project were to evolve beyond just a prototype demo, it would need a variety of additional player challenges, a clearer and more rewarding end-goal, better feedback animations, more stage variations, and difficulty customizations.</li>
-          <li>Coding fundamentals - C# provided a great opportunity to revisit and build better coding foundations. Being a Object-Oriented Programming (OOP) language, it provided a good refresher on the principles of modularity, abstraction, and clean code.</li>
+        <ol type="1" class="post-text">
+          <li><span class="text-highlight">Game development is hard.</span><p>I knew this before starting, but it’s only with practice that we really understand the implication of those words. A quick demo game can be easy to put together, but delivering a properly polished experience can be extremely complex and takes time.</p></li>
+          <li><span class="text-highlight">Unity Engine is really flexible.</span><p>My biggest surprise was on how easy-to-use and versatile this engine is. I could easily convert the application into an HTML element or a mobile app for both iOS and Android if the project were to evolve in that direction.</p></li>
+          <li><span class="text-highlight">Visual identity goes a long way.</span><p>Giving the project a design theme really helped to add quality to the end result without much further complexity. The next steps would have been to add better animations and variety to the stage and player interactions.</p></li>
+          <li><span class="text-highlight">Depth and variety of mechanics.</span><p>Flappy Astronaut had clear boundaries with simple game mechanics and objectives. However, if this project were to evolve beyond just a prototype demo, it would need a variety of additional player challenges, a clearer and more rewarding end-goal, better feedback animations, more stage variations, and difficulty customizations.</p></li>
+          <li><span class="text-highlight">Coding fundamentals.</span><p>C# provided a great opportunity to revisit and build better coding foundations. Being a Object-Oriented Programming (OOP) language, it provided a good refresher on the principles of modularity, abstraction, and clean code.</p></li>
         </ol>
         <p class="post-text">Thank you for checking out this project!</p>
+        <div class="post-spacing"></div>
+        <button class="js-animated-button cta-button post-cta-button" data-action="navigate" data-target="#top"> Return to Top</button>
+        <div class="post-line"></div>
+      </div>
+    </section>
+
+    <section class="post-references-section">
+      <div class="post-references-container">
+        <p class="post-text center text-highlight">Check out some of our other projects:</p>
+        <div class="project-container">
+          <div class="project-container-top">
+            <div class="project-image-container">
+              <img class="project-image" src="images/trofy_app_icon.png">
+            </div>
+            <div class="project-summary">
+              <div class="project-summary-container">
+                <h1 class="project-title-text">Trofy</h1>
+                <div class="project-summary-tags">
+                  <div class="stack-tag">C#</div>
+                  <div class="stack-tag">Unity</div>
+                  <div class="stack-tag">iOS</div>
+                  <div class="stack-tag">Android</div>
+                </div>
+                <button class="js-animated-button cta-button project-cta"  data-action="navigate" data-target="/post.html">Learn more</button>
+              </div>
+            </div>
+          </div>
+          <p class="project-description-text">A “To-Do like” app to gamify personal goals and reinforce the creation of good habits.</p> 
+        </div>
+
+        <div class="project-container">
+          <div class="project-container-top">
+            <div class="project-image-container">
+              <img class="project-image" src="images/born_survivor_square_cover.png">
+            </div>
+            <div class="project-summary">
+              <div class="project-summary-container">
+                <h1 class="project-title-text">Born
+Survivor</h1>
+                <div class="project-summary-tags">
+                  <div class="stack-tag">C#</div>
+                  <div class="stack-tag">Unity</div>
+                </div>
+                <button class="js-animated-button project-cta cta-button"  data-action="navigate" data-target="/post.html">Learn more</button>
+              </div>
+            </div>
+          </div>
+          <p class="project-description-text">A demo Unity game inspired by Vampire  Survivors rogue-like mechanics.</p> 
+        </div>
       </div>
     </section>
   </main>
@@ -140,5 +191,6 @@
       </div>
     </div>
   </footer>
+  <script type="module" src="scripts/buttons.js"></script>
 </body>
 </html>
