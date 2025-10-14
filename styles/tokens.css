@@ -56,6 +56,7 @@
 
   /* Layout */
   --max-width-container: 800px;
+  --max-width-mobile-container: 320px;
   --min-width-container: 320px;
 
   /* Spacing scale */
@@ -74,12 +75,14 @@
   --shadow-md: 0 4px 0 0;
   --shadow-lg: 0 6px 0 0;
   --shadow-button: 0 8px 0 0;
+  --shadow-spread: 0 0 10px 0;
 
   /* Text Shadows */
   --text-shadow-sm: 0 2px 0;
   --text-shadow-md: 0 4px 0;
   --text-shadow-lg: 0 6px 0;
   --text-shadow-button: 0 8px 0;
+  --text-shadow-spread: 0 2px 4px;
 
   /* Breakpoints */
   --bp-mobile: 720px;

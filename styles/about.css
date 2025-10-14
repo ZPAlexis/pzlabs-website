@@ -139,7 +139,7 @@
   box-sizing: border-box;
 
   background-color: var(--color-button);
-  box-shadow: 0 0 10px 2px var(--color-shadow);
+  box-shadow: var(--shadow-spread) var(--color-shadow);
   color: var(--color-background);
 
   flex: 1 1 220px;
