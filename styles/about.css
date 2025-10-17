@@ -89,6 +89,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex: 1;
   margin: 20px;
   gap: 20px;
@@ -105,6 +106,8 @@
 
 .about-text-title {
   font-size: var(--font-size-h1);
+  text-align: start;
+  width: 100%;
   margin: 0;
 }
 
