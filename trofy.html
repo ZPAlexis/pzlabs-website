@@ -152,13 +152,24 @@ public void GenerateDayList() {
         <a href="images/projects/trofy/Trofy_character.png"><img class="post-image half center" src="images/projects/trofy/Trofy_character.png"></a>
 
         <div class="post-line"></div>
+
+        <h2 class="post-heading" id="wireframe">Wireframe</h2>
+        <a href="images/projects/trofy/Trofy_8_Ideation_PZLabs_Portfolio.png"><img class="post-image shadow" src="images/projects/trofy/Trofy_8_Ideation_PZLabs_Portfolio.png"></a>
+        <p class="post-text">This is a simple wireframe that helped kick-start the project. The end result is far different than this example, but this process helped organize the information structure required for a better user experience.</p>
+        <a href="images/projects/trofy/Trofy_8_1_MVP_PZLabs_Portfolio.png"><img class="post-image shadow" src="images/projects/trofy/Trofy_8_1_MVP_PZLabs_Portfolio.png"></a>
+
         <div class="post-line"></div>
+
+        <h2 class="post-heading" id="roadmap">MVP Roadmap Structure</h2>
+        <a href="images/projects/trofy/Trofy_9_MVPRoadmap_PZLabs_Portfolio.png"><img class="post-image shadow" src="images/projects/trofy/Trofy_9_MVPRoadmap_PZLabs_Portfolio.png"></a>
+        <p class="post-text">While this project was built as a test experiement on gamified experiences, the project’s roadmap was structured the same was as if this was a client’s project. The initial v0.1 MVP for Trofy was released for testing in six weeks, but the project stayed in development for a couple more months receiving updates up to v0.4 with the additions of the notification controller and fixes to issues found from user testing.</p>
+
         <div class="post-line"></div>
 
         <h2 class="post-heading" id="demo">Demo & Download</h2>
         <div class="post-video">
           <iframe 
-            src="https://www.youtube-nocookie.com/embed/D0cnr842wTY?si=epOZK1sm1zW1oUrX"
+            src="https://www.youtube-nocookie.com/embed/5UU06yBFbc8"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -167,24 +178,26 @@ public void GenerateDayList() {
           </iframe>
         </div>
         <div class="post-spacing"></div>
-        <p class="post-text half center">Download Born Survivor on GitHub and give it a try!</p>
-        <img class="post-image half center" src="images/projects/born_survivor/Born_Survivor_exe_icon.png">
-        <button class="js-animated-button cta-button post-cta-button" data-action="navigate" data-target="https://github.com/ZPAlexis/BornSurvivor-V0.1.0-PC-Demo">Download Demo</button>
+        <p class="post-text half center">The app is available only on Android devices through an .apk file.</p>
+        <img class="post-image half center" src="images/projects/trofy/Trofy_AppIcon_Portfolio.png">
+        <button class="js-animated-button cta-button post-cta-button" data-action="navigate" data-target="https://github.com/ZPAlexis/BornSurvivor-V0.1.0-PC-Demo">Download .APK File</button>
+        <p class="post-text">Unfortunately we couldn’t keep the app running on both the iOS and Android stores, as both platforms require frequent updates to keep test apps available.</p>
 
         <div class="post-line"></div>
 
         <h2 class="post-heading" id="learnings">Learnings</h2>
-        <a href="images/projects/born_survivor/Portfolio_Death_BornSurvivor.jpg"><img class="post-image shadow" src="images/projects/born_survivor/Portfolio_Death_BornSurvivor.jpg"></a>
-        <p class="post-text">This project had a much narrower focus than our first venture into game dev with Flappy Astronaut. While our first foray was aimed at understanding the complexities of the whole process, this time we wanted to zoom in on the specific complexities involved in developing interesting game mechanics.</p>
+        <a href="images/projects/trofy/Trofy_TwoCompletes_GIF.gif"><img class="post-image shadow half center" src="images/projects/trofy/Trofy_TwoCompletes_GIF.gif"></a>
+        <p class="post-text">This project was the perfect first experiement on gamified applications. It covered all steps from ideation to release of an MVP test version for user testing on both iOS and Android devices. It also highlighted the possibilities of gamified applications through an engine like Unity, and further clarified the effort that would be needed to take this project all the way to a v1.0 release.</p>
         <p class="post-text">Here are the most significant learnings and insights from this project:</p>
         <ol type="1" class="post-text">
-          <li><span class="text-highlight">Interesting game mechanics take time polish.</span><p>Creating a simple game mechanic can be quick and easy to implement, however, getting it to a point that is engaging and truly rewarding takes time and polish. With Born Survival we included several game mechanics to highlight the main focus with the powerups, but getting other fundamental pillars like combat, enemy behaviour, and variety would have taken a much longer time to refine and reach an acceptable quality level for an end product.</p></li>
-          <li><span class="text-highlight">“Pick 1 of 3” is a great way to add replayability.</span><p>Our main objective proved the hypothesis that even a very simple implementation of a “Pick 1 of 3” mechanic can have notable impacts on user experience. The promise of variety creates a sense of possibilities and drives experimentation and increased engagement by the end user. In Born Survivor this potential was kept purposefuly limited, but with the proper investment on a complete experience this mechanic could have impressive positive results.</p></li>
-          <li><span class="text-highlight">Unity’s limitations.</span><p>Unity runs an Update function on every frame for each game object that has a script attached to it. This means that the number of elements on screen can have a significant impact on performance if not handled correctly. Instead of instantiating and destroying scripted game objects (like enemies), the best practice would have been to Pool these objects and reuse them as needed instead of fully destroying them after use.</p></li>
-          <li id="ai"><span class="text-highlight">AI</span><p>AI</p></li>
+          <li><span class="text-highlight">Gamified experience potential.</span><p>The experience crafted with the visuals and features of Trofy were a great first step to create a fully gamified experience, but it wasn’t enough. To fully achieve that goal we would need to add support for user-driven competitions and community features for competing and sharing in-app objectives. This would require a significant time investment in structuring backend server structure that would go beyond the initial timeframe allocated for this project.</p></li>
+          <li><span class="text-highlight">Bridging the gap for a full release.</span><p>This project had a limited scope to ensure we delivered a working MVP that could properly communicate the value proposition envisioned with Trofy. Creating a sense of community with in-app competitions and leaderboards would be the next major pillar of focus before a full app release.</p></li>
+          <li><span class="text-highlight">Remote backend server support.</span><p>Trofy was developed to run fully locally and had no online functionality, which meant that our backend support was limited to the device’s local storage to function. Proper backend setup with a Node.js server for user authentication, user data storage, and future community features would be the required next steps for a potential full release.</p></li>
+          <li><span class="text-highlight">Mobile apps with Unity Engine.</span><p>Unity provides one of the best solutions to easily port an application as a native mobile app with iOS Xcode and Android Gradle projects. The process is so smooth that there’s very little code customization required to get the same application from one platform to the other. The only major difference we had to customize in Trofy was the notification system for different trigger structures in each platform.</p></li>
+          <li id="ai"><span class="text-highlight">Coding with AI</span><p>This was the first time I started to use Artificial Intelligence tools for my code and it was quite an eye-opening experience. While these tools were great for quickly building more complex code, it quickly became a detriment to how I was able to retain information and re-apply it again in other similar situations. Since then I’ve scaled back the usage of the tool so it is purely educational and for situations that I’m truly stuck for longer periods of time. There’s a full statement on my usage of AI on our <a class="link" href="/about.html#ai">about page.</a></p></li>
         </ol>
-        <img class="post-image half center" src="images/projects/born_survivor/Born_Survivor_demo_cutout.png">
-        <p class="post-text">Thank you for checking out this project!</p>
+        <img class="post-image half center" src="images/projects/trofy/Trofy_Closing_Portfolio.png">
+        <p class="post-text center">Thank you for checking out this project!</p>
         <div class="post-spacing"></div>
         <button class="js-animated-button cta-button post-cta-button" data-action="navigate" data-target="#top">Return to Top</button>
         <div class="post-line"></div>
@@ -197,22 +210,21 @@ public void GenerateDayList() {
         <div class="project-container">
           <div class="project-container-top">
             <div class="project-image-container">
-              <img class="project-image" src="images/trofy_app_icon.png">
+              <img class="project-image" src="images/projects/born_survivor/born_survivor_square_cover.png">
             </div>
             <div class="project-summary">
               <div class="project-summary-container">
-                <h1 class="project-title-text">Trofy</h1>
+                <h1 class="project-title-text">Born
+Survivor</h1>
                 <div class="project-summary-tags">
                   <div class="stack-tag">C#</div>
                   <div class="stack-tag">Unity</div>
-                  <div class="stack-tag">iOS</div>
-                  <div class="stack-tag">Android</div>
                 </div>
-                <button class="js-animated-button cta-button project-cta"  data-action="navigate" data-target="/post.html">Learn more</button>
+                <button class="js-animated-button project-cta cta-button"  data-action="navigate" data-target="/born_survivor.html">Learn more</button>
               </div>
             </div>
           </div>
-          <p class="project-description-text">A “To-Do like” app to gamify personal goals and reinforce the creation of good habits.</p> 
+          <p class="project-description-text">A demo Unity game inspired by Vampire  Survivors rogue-like mechanics.</p> 
         </div>
 
         <div class="project-container">
