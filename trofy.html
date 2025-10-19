@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trofy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/themes.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/post.css">
+</head>
+<body>
+  <header class="header" id="top">
+    <a class="footer-small-font" style="color: var(--color-text); padding: 20px 20px; text-align: left; flex: 1;" href="/"> < Back to Home</a>
+  </header>
+
+  <main class="main-container">
+    <section class="post-section">
+      <img class="post-banner-image cover" src="images/projects/trofy/Cover_Trofy.jpg">
+      <div class="post-container">
+        <h1 class="post-heading title center">Trofy</h1>
+        <div class="post-list-container center gap">
+          <p class="post-text"><span class="text-highlight">Category:<br></span>Productivity Mobile App</p>
+          <p class="post-text"><span class="text-highlight">Tech Stack:<br></span>C#, Unity, iOS and Android</p>
+          <p class="post-text"><span class="text-highlight">Inspiration:<br></span>Duolingo</p>
+        </div>
+        <div class="post-spacing"></div>
+        <div class="post-list-container">
+          <h3 class="post-text text-highlight">Index:</h3>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#objective">Objective</a></p>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#concepts">Core Concepts</a></p>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#user">User Map</a></p>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#stack">Tech Stack</a></p>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#logic">Information Architecture</a></p>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#design">Visual Design System</a></p>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#wireframe">Wireframe</a></p>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#roadmap">MVP Roadmap Structure</a></p>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#demo">Demo & Download</a></p>
+          <p class="post-list-item post-text">.<a class="post-list-item post-text" href="#learnings">Learnings</a></p>
+        </div>
+
+        <div class="post-line"></div>
+
+        <h2 class="post-heading" id="objective">Objective</h2>
+        <p class="post-text">Trofy is a mobile app with the objective to help you achieve your goals by gamifying personal objectives to reinforce the creation of good habits. The name refers to the act of receiving a trophy given to yourself by yourself.</p>
+        <a href="images/projects/trofy/Trofy_IntroScreen_GIF.gif"><img class="post-image shadow half center" src="images/projects/trofy/Trofy_IntroScreen_GIF.gif"></a>
+        <p class="post-text">After years of struggling with procrastination in my youth, it slowly became clear that the best way to motivate myself and maintain new habits was to document and review my progress over time. Seeing historical trends of even slightly improvements motivated me to keep going. My goal with Trofy was to transform that metodology into a game that would inspire others to approach consistant personal improvement in the same way.</p>
+        <p class="post-text">The app’s idea was inspired by Duolingo’s gamified education methodology, where users have clear progression goals, get points to spend on extra lives, and can easily opt-in to compete with other users in in-app ladders with multiple levels of difficulty ranks.</p>
+
+        <div class="post-line"></div>
+        
+        <h2 class="post-heading" id="concepts">Core Concepts</h2>
+        <a href="images/projects/trofy/Trofy_3_CoreConcepts_PZLabs_Portfolio.png"><img class="post-image shadow" src="images/projects/trofy/Trofy_3_CoreConcepts_PZLabs_Portfolio.png"></a>
+        <p class="post-text">The app’s structure is divided in a few core pillars:</p>
+        <h2 class="post-heading">Gamified experience</h2>
+        <p class="post-text">While Trofy is a “to-do like” app in it’s core, it’s main aspect is to resemble a game. Users should feel like playing a game by receiving in-app rewards and clear visual feedback.</p>
+        <a href="images/projects/trofy/Trofy_Completing_GIF.gif"><img class="post-image shadow half center" src="images/projects/trofy/Trofy_Completing_GIF.gif"></a>
+        <p class="post-text">The gamification system was designed to motivate users with two positive feedback loops on Challenge completion. One by receiving a Trophy on challenge completion, and the other with a Challenge level-up system. </p>
+        <a href="images/projects/trofy/Trofy_3_1_Gamification_PZLabs_Portfolio.png"><img class="post-image shadow" src="images/projects/trofy/Trofy_3_1_Gamification_PZLabs_Portfolio.png"></a>
+        <p class="post-text">A challenge in Trofy is defined by an activity that must be completed at least once a week. This means that a user can earn a Trophy every week, and a level on that challenge every month. </p>
+        <a href="images/projects/trofy/Trofy_Objective_Portfolio.jpg"><img class="post-image shadow half center" src="images/projects/trofy/Trofy_Objective_Portfolio.jpg"></a>
+        <p class="post-text">Trofy’s MVP focused on building the core gamified experience, including the user interface and visual feedback. Community features like competitions, objective sharing, and account systems were kept out of scope as they would require significant backend development beyond the project’s allocated timeframe. However, these features would be essential to make the app truly gamified and ready for a full v1.0 release.</p>
+        <h2 class="post-heading">Personal improvement goal setting</h2>
+        <p class="post-text">The main drive for using the app is to be able to quickly create, update, and review important personal objectives.</p>
+        <p class="post-text">A challenge in Trofy is defined by a task that must be completed at least once a week. When creating a challenge, a user has the ability to customize two main properties:</p>
+        <a href="images/projects/trofy/Trofy_ChallengeCustomize_Portfolio.png"><img class="post-image shadow half center" src="images/projects/trofy/Trofy_ChallengeCustomize_Portfolio.png"></a>
+        <ol type="a" class="post-text">
+          <li><span class="text-highlight">Frequency (Difficulty):</span><p class="indent">Defines the number of days in a week that the task needs to be completed. A challenge can be a single weekly task, or something that needs to be completed everyday.</p></li>
+          <li><span class="text-highlight">Weekly Start Date (Start):</span><p class="indent">Defines when the challenge starts and the day of the week that it restarts. If you define an objective to start on a Wednesday, it means the weekly challenge always starts on Wednesdays and ends on Tuesdays at the end of the day.</p></li>
+        </ol>
+        <h2 class="post-heading">Progress tracking & performance review</h2>
+        <p class="post-text">Each objective clearly displays their progress so the user can have a general idea of how they are doing in a quick glance. Since each objective can have a different amount of days required to be completed in a week, each objective will have their own percentage progression for that week and history since it was created.</p>
+        <a href="images/projects/trofy/Trofy_TwoObjectives_Portfolio.png"><img class="post-image shadow half center" src="images/projects/trofy/Trofy_TwoObjectives_Portfolio.png"></a>
+        <p class="post-text">The user can also leave a short written note and rate from 1 to 5 stars each day of the week. This very simple feature can give the user some additional context when reviewing their progress at a later date.</p>
+        <a href="images/projects/trofy/Trofy_Drawer_Portfolio.png"><img class="post-image shadow half center" src="images/projects/trofy/Trofy_Drawer_Portfolio.png"></a>
+        <p class="post-text">The progress tab is where it all comes together to quickly show how much the user has improved since they started using the app. Being able to review overall progression in a quick glance should be the main motivating factor to bring users back to the app and to continue focusing on their personal priorities.</p>
+        <a href="images/projects/trofy/Trofy_ProgressTutorial_Portfolio.jpg"><img class="post-image shadow half center" src="images/projects/trofy/Trofy_ProgressTutorial_Portfolio.jpg"></a>
+
+        <div class="post-line"></div>
+
+        <h2 class="post-heading" id="user">User Map</h2>
+        <a href="images/projects/trofy/Trofy_4_GameLogic_PZLabs_Portfolio.png"><img class="post-image shadow" src="images/projects/trofy/Trofy_4_GameLogic_PZLabs_Portfolio.png"></a>
+        <p class="post-text">Trofy’s goal of encouraging good habits guided the structure of the user journey. The experience was designed as a positive feedback loop—motivating users to go beyond their goals and return regularly to continue improving.</p>
+        <p class="post-text">At its core, the app functions like a to-do list, similar to the ones you may have used or created yourself. The biggest difference is the opportunity to fully track past progress, check trends, and provide opportunities for the user to reflect and reprioritize their objectives.</p>
+
+        <div class="post-line"></div>
+
+        <h2 class="post-heading" id="stack">Tech Stack</h2>
+        <a class="post-logo-link" href="https://unity.com/"><img class="post-logo" src="images/unity_logo_white.png"></a>
+        <p class="post-text">Developing a few demo games previously in Unity provided a solid foundation for a gamified app. Unity provided a solid way to develop logic behind constantly animated objects and a seamless solution to port the application to iOS and Android mobile devices.</p>
+        <a class="post-logo-link" href="https://www.w3schools.com/cs/index.php"><img class="post-logo" src="images/csharp_logo_white.png"></a>
+        <p class="post-text">Csharp is the programming language used in Unity. After learning the foundations of the language, it was refreshing to implement more challenging logic with the notifications controller, save and load systems, and day list managers.</p>
+        <p class="post-text">This was also my first time working with AI tools to improve on the code I was writing and to help with more complex logic that was beyond my realm of knowledge. I wrote more details on my use of these tools on the <a class="link" href="#ai">learnings section</a> and on our <a class="link" href="/about.html">about page</a>.</p>
+
+        <div class="post-line"></div>
+
+        <h2 class="post-heading" id="logic">Information Architecture</h2>
+        <a href="images/projects/trofy/Trofy_5_Logic_PZLabs_Portfolio.png"><img class="post-image shadow" src="images/projects/trofy/Trofy_5_Logic_PZLabs_Portfolio.png"></a>
+        <p class="post-text">The core component of  Trofy’s logic system is focused on the Day List objects, it is used and referenced by all main components of the app. </p>
+        <p class="post-text">Every objective generates a list of days in a week’s period. This list is then updated by the User Controller through user input, and then accessed by the Date Controller to display today’s applicable objectives and any history of completion on the progress tab.</p>
+        <p class="post-text">This is the code that controls the initial generation of a week’s day list from the Objective Controller. Once the initial generated week is completed, the code automatically triggers the generation of additional weeks for the next objective periods.</p>
+        <pre><code class="language-javascript">
+//Objective Controller Code Snippet
+public void GenerateDayList() {
+  dayList = new List<DayInfo>();
+  int startDayOfWeek = (int)startDate.DayOfWeek;
+
+  for (int i = startDayOfWeek; i < startDayOfWeek + 7; i++)
+  {
+      DateTime currentDay = startDate.AddDays(i - startDayOfWeek);
+      DayInfo dayInfo = new DayInfo(currentDay, (i) % 7, 1, difficulty);
+      dayList.Add(dayInfo);
+  }
+
+  DateTime currentDate = DateTime.Now;
+  CheckDayList(currentDate);
+}
+        </code></pre>
+        <p class="post-text">Another notable area from Trofy’s design is the logic behind the notifications sent by the app. Push notifications are one of the biggest benefits of working with mobile devices. In order to have an engaging and effective experience, it would be crucial to implement a system that provided periodic reminders to the user and motivational messages to bring them back after periods of inactivity.</p>
+        <a href="images/projects/trofy/Trofy_6_NotificationSystem_PZLabs_Portfolio.png"><img class="post-image shadow" src="images/projects/trofy/Trofy_6_NotificationSystem_PZLabs_Portfolio.png"></a>
+        <p class="post-text">Trofy’s notifications system was structured with three types of notification schedules:</p>
+        <ol type="1" class="post-text">
+          <li><span class="text-highlight">Priority notifications</span><p class="indent">Reminders on how many days left in a objective that still isn’t complete this week — “This is your last chance to get a 🏆 this week!”.</p></li>
+          <li><span class="text-highlight">Restart notifications</span><p class="indent">Reminders on new week starts — “Exercise starts again today, start strong 💪”.</p></li>
+          <li><span class="text-highlight">Callback notifications</span><p class="indent">Motivational reminders to bring back the user to the app after many days of inactivity — “Your struggles make you stronger. Your obstacles pave the way for success 💯”.</p></li>
+        </ol>
+        <p class="post-text">Another feature worth a highligh was the localization system built for the language switcher. With a simple tap, users can change the app’s language instantly. </p>
+        <a href="images/projects/trofy/Trofy_LanguageChange_Portfolio_GIF.gif"><img class="post-image shadow half center" src="images/projects/trofy/Trofy_LanguageChange_Portfolio_GIF.gif"></a>
+        <p class="post-text">The localization system works by replacing text strings based on spreadsheet-style tables that map each interface element to its translation.</p>
+
+        <div class="post-line"></div>
+
+        <h2 class="post-heading" id="design">Visual Design System</h2>
+        <a href="images/projects/trofy/Trofy_7_Design_PZLabs_Portfolio.png"><img class="post-image shadow" src="images/projects/trofy/Trofy_7_Design_PZLabs_Portfolio.png"></a>
+        <p class="post-text">The goal with the visuals of Trofy was to make the whole experience feel like the user is playing a game. A “To-do” list is something you go back to checkmark what has been done, in Trofy you return to earn rewards on a game for completing those tasks. All elements used were purposefully choosen to resemble mobile games like Clash of Clans and designs from gamified apps like Duolingo.</p>
+        <p class="post-text">Trofy’s main character was custom designed and created with Photoshop, while the rest of the UI elements were paid assets acquired from <a class="link" href="https://assetstore.unity.com/packages/2d/gui/gui-pro-casual-game-176695">Unity’s Asset Store</a>.</p>
+        <a href="images/projects/trofy/Trofy_character.png"><img class="post-image half center" src="images/projects/trofy/Trofy_character.png"></a>
+
+        <div class="post-line"></div>
+        <div class="post-line"></div>
+        <div class="post-line"></div>
+
+        <h2 class="post-heading" id="demo">Demo & Download</h2>
+        <div class="post-video">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/D0cnr842wTY?si=epOZK1sm1zW1oUrX"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="post-spacing"></div>
+        <p class="post-text half center">Download Born Survivor on GitHub and give it a try!</p>
+        <img class="post-image half center" src="images/projects/born_survivor/Born_Survivor_exe_icon.png">
+        <button class="js-animated-button cta-button post-cta-button" data-action="navigate" data-target="https://github.com/ZPAlexis/BornSurvivor-V0.1.0-PC-Demo">Download Demo</button>
+
+        <div class="post-line"></div>
+
+        <h2 class="post-heading" id="learnings">Learnings</h2>
+        <a href="images/projects/born_survivor/Portfolio_Death_BornSurvivor.jpg"><img class="post-image shadow" src="images/projects/born_survivor/Portfolio_Death_BornSurvivor.jpg"></a>
+        <p class="post-text">This project had a much narrower focus than our first venture into game dev with Flappy Astronaut. While our first foray was aimed at understanding the complexities of the whole process, this time we wanted to zoom in on the specific complexities involved in developing interesting game mechanics.</p>
+        <p class="post-text">Here are the most significant learnings and insights from this project:</p>
+        <ol type="1" class="post-text">
+          <li><span class="text-highlight">Interesting game mechanics take time polish.</span><p>Creating a simple game mechanic can be quick and easy to implement, however, getting it to a point that is engaging and truly rewarding takes time and polish. With Born Survival we included several game mechanics to highlight the main focus with the powerups, but getting other fundamental pillars like combat, enemy behaviour, and variety would have taken a much longer time to refine and reach an acceptable quality level for an end product.</p></li>
+          <li><span class="text-highlight">“Pick 1 of 3” is a great way to add replayability.</span><p>Our main objective proved the hypothesis that even a very simple implementation of a “Pick 1 of 3” mechanic can have notable impacts on user experience. The promise of variety creates a sense of possibilities and drives experimentation and increased engagement by the end user. In Born Survivor this potential was kept purposefuly limited, but with the proper investment on a complete experience this mechanic could have impressive positive results.</p></li>
+          <li><span class="text-highlight">Unity’s limitations.</span><p>Unity runs an Update function on every frame for each game object that has a script attached to it. This means that the number of elements on screen can have a significant impact on performance if not handled correctly. Instead of instantiating and destroying scripted game objects (like enemies), the best practice would have been to Pool these objects and reuse them as needed instead of fully destroying them after use.</p></li>
+          <li id="ai"><span class="text-highlight">AI</span><p>AI</p></li>
+        </ol>
+        <img class="post-image half center" src="images/projects/born_survivor/Born_Survivor_demo_cutout.png">
+        <p class="post-text">Thank you for checking out this project!</p>
+        <div class="post-spacing"></div>
+        <button class="js-animated-button cta-button post-cta-button" data-action="navigate" data-target="#top">Return to Top</button>
+        <div class="post-line"></div>
+      </div>
+    </section>
+
+    <section class="post-references-section">
+      <div class="post-references-container">
+        <p class="post-text center half text-highlight">Check out some of our other projects:</p>
+        <div class="project-container">
+          <div class="project-container-top">
+            <div class="project-image-container">
+              <img class="project-image" src="images/trofy_app_icon.png">
+            </div>
+            <div class="project-summary">
+              <div class="project-summary-container">
+                <h1 class="project-title-text">Trofy</h1>
+                <div class="project-summary-tags">
+                  <div class="stack-tag">C#</div>
+                  <div class="stack-tag">Unity</div>
+                  <div class="stack-tag">iOS</div>
+                  <div class="stack-tag">Android</div>
+                </div>
+                <button class="js-animated-button cta-button project-cta"  data-action="navigate" data-target="/post.html">Learn more</button>
+              </div>
+            </div>
+          </div>
+          <p class="project-description-text">A “To-Do like” app to gamify personal goals and reinforce the creation of good habits.</p> 
+        </div>
+
+        <div class="project-container">
+          <div class="project-container-top">
+            <div class="project-image-container">
+              <img class="project-image" src="images/projects/flappy_astronaut/flappy_astronaut_square_cover.png">
+            </div>
+            <div class="project-summary">
+              <div class="project-summary-container">
+                <h1 class="project-title-text">Flappy Astronaut</h1>
+                <div class="project-summary-tags">
+                  <div class="stack-tag">C#</div>
+                  <div class="stack-tag">Unity</div>
+                </div>
+                <button class="js-animated-button project-cta cta-button"  data-action="navigate" data-target="/flappy_astronaut.html">Learn more</button>
+              </div>
+            </div>
+          </div>
+          <p class="project-description-text">A demo Unity game inspired by Flappy Birds simple, yet satisfying mechanics.</p> 
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-line"></div>
+      <div class="footer-small-font">
+        <p>Developed by</p>
+        <p><a class="link" href="https://github.com/ZPAlexis">Alexis Coelho // .zero</a></p>
+        <p class="footer-small-font">CC-BY-SA-4.0 2025</p>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="scripts/buttons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+</body>
+</html>

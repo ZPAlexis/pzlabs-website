@@ -76,3 +76,7 @@ p {
 .hidden {
   opacity: 0;
 }
+
+.indent {
+  padding-left: 20px;
+}
