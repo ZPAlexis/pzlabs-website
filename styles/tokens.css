@@ -1,6 +1,7 @@
 :root {
   /* Colors */
   --color-text: #e2e8f0;
+  --color-text-dark: #1a202c;
   --color-text-shadow: #e2e8f020;
   --color-text-accent: #e2e8f0;
   --color-text-dark: #07307d;

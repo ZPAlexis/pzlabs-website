@@ -87,6 +87,18 @@
   background-color: var(--color-button-active)
 }
 
+.button-icon {
+  object-fit: cover;
+  height: 25px;
+  transform: translateY(-1px);
+}
+
+.button-icon.small {
+  height: 18px;
+  transform: translateY(0);
+}
+
+
 @supports (-webkit-touch-callout: none) {
   .play-button-text {
     transform: translateY(-0.05em);
