@@ -318,7 +318,7 @@
   aspect-ratio: 1/1;
   object-fit: cover;
   display: block;
-  box-shadow: var(--shadow-md) var(--color-shadow);
+  box-shadow: var(--shadow-spread) var(--color-shadow);
   border-radius: 20%;
 }
 
