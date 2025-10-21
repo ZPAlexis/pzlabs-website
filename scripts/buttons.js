@@ -9,6 +9,9 @@ buttons.forEach((button) => {
     button.style.setProperty('transition', 'none');
     button.offsetHeight;
     button.classList.add('pressed');
+
+    window.addEventListener('pointerup', handlePressEnd);
+    window.addEventListener('pointercancel', handlePressEnd);
   }
 
   function handlePressEnd() {
@@ -16,6 +19,9 @@ buttons.forEach((button) => {
 
     button.style.setProperty('transition', 'var(--btn-transition)');
     button.classList.remove('pressed');
+
+    window.removeEventListener('pointerup', handlePressEnd);
+    window.removeEventListener('pointercancel', handlePressEnd);
 
     const actionType = button.dataset.action;
     const action = buttonActions[actionType];
@@ -28,7 +34,6 @@ buttons.forEach((button) => {
   }
 
   button.addEventListener('pointerdown', handlePressStart);
-  button.addEventListener('pointerup', handlePressEnd);
 });
 
 const menuContainers = document.querySelectorAll('.js-header-menu');

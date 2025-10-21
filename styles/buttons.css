@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
 
   --btn-transition: border 0.1s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.1s ease-out;
   transition: var(--btn-transition);
@@ -64,6 +65,7 @@
   color: var(--color-background);
 
   text-transform: uppercase;
+  user-select: none;
 
   --btn-transition: border 0.1s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.1s ease-out, opacity 0.3s ease;
   transition: var(--btn-transition);
