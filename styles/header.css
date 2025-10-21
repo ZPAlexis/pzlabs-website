@@ -49,7 +49,7 @@
 .header-button {
   cursor: pointer;
   height: 44px;
-  aspect-ratio: 1/1;
+  min-width: 44px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -60,20 +60,6 @@
   padding: 0 14px;
   justify-content: baseline;
   gap: 10px;
-}
-
-.locale-change-button {
-  cursor: pointer;
-  height: 30px;
-  width: 45px;
-  border-radius: 9999px;
-  border: 2px solid var(--color-border);
-  background-color: #ffffff20;
-  color: var(--color-text);
-}
-
-.locale-change-button:hover {
-  background-color: #ffffff50;
 }
 
 .coin-summary {
