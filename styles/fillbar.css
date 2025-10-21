@@ -127,6 +127,7 @@
   color: var(--color-text);
   font-weight: 400;
   transition: opacity 0.5s ease;
+  width: 80px;
 }
 
 .fill-bar-best-text {

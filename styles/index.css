@@ -99,7 +99,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 0 20px var(--color-text-shadow));
+
 }
 
 .cover-box {
@@ -109,7 +109,7 @@
 }
 
 .cover-box:hover {
-  filter: drop-shadow(0 0 50px var(--color-text-shadow));
+  filter: drop-shadow(0 0 30px var(--color-text-shadow));
 }
 
 .cover-box.idle {
