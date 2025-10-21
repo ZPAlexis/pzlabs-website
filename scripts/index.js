@@ -20,6 +20,7 @@ const rpsBarText = document.querySelector('.js-rps-bar-text');
 
 //Summary Header
 const summaryCoinContainer = document.querySelector('.js-coin-summary');
+const coinSummaryTrigger = document.querySelectorAll('.js-trigger-coin-summary');
 const summaryCoin = document.querySelector('.js-gold-coin-container');
 const summaryOverlay = document.querySelector('.js-summary-menu-overlay');
 const summaryCloseButton = document.querySelector('.js-summary-close-btn');
@@ -178,6 +179,27 @@ summaryMenuResetScoreButton.addEventListener('click', () => {
   resetCoins();
 });
 
+const triggerCoinSummaryObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      summaryCoinContainer.classList.remove('hidden');
+    
+      const handleTransitionEnd = (e) => {
+        if (e.target === el && (e.propertyName === 'transform' || e.propertyName === 'opacity')) {
+          el.classList.remove('js-trigger-coin-summary');
+          el.removeEventListener('transitionend', handleTransitionEnd);
+        }
+      };
+
+      el.addEventListener('transitionend', handleTransitionEnd);
+
+      triggerCoinSummaryObserver.unobserve(el);
+    }
+  });
+});
+
+coinSummaryTrigger.forEach(el => triggerCoinSummaryObserver.observe(el));
 
 export function collectFillBarCoin() {
   if (!coinsCollectedFlags.fillBar) {

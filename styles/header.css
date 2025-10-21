@@ -1,6 +1,6 @@
 .header {
   position: fixed;
-  height: 60px;
+  height: 80px;
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -46,22 +46,6 @@
   transform: translate(0, 0);
 }
 
-.header-button {
-  cursor: pointer;
-  height: 44px;
-  min-width: 44px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4px;
-}
-
-.header-button.text {
-  padding: 0 14px;
-  justify-content: baseline;
-  gap: 10px;
-}
-
 .coin-summary {
   cursor: pointer;
   height: 44px;
@@ -71,8 +55,7 @@
   padding: 0 4px 0 4px;
   align-items: center;
   justify-content: center;
-
-  transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
 .coin-summary.highlight {
@@ -80,8 +63,8 @@
 }
 
 .coin-summary.hidden {
+  opacity: 0;
   pointer-events: none;
-  visibility: hidden;
 }
 
 .gold-coin-container {

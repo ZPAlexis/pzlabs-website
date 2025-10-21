@@ -65,9 +65,13 @@
 
   text-transform: uppercase;
 
-  --btn-transition: border 0.1s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.1s ease-out;
+  --btn-transition: border 0.1s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.1s ease-out, opacity 0.3s ease;
   transition: var(--btn-transition);
   will-change: transform, box-shadow;
+}
+
+.cta-button:hover {
+  background-color: var(--color-button-active);
 }
 
 .gold-button {
@@ -98,6 +102,41 @@
   transform: translateY(0);
 }
 
+.nav-button {
+  cursor: pointer;
+  height: 44px;
+  min-width: 44px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-button.text {
+  padding: 0 14px;
+  justify-content: baseline;
+  gap: 10px;
+}
+
+.return-to-top-container {
+  position: fixed;
+  bottom: 20px;
+  right: 8px;
+  z-index: 100;
+}
+
+.return-to-top {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.return-to-top.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100px);
+}
 
 @supports (-webkit-touch-callout: none) {
   .play-button-text {

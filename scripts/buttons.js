@@ -17,7 +17,6 @@ buttons.forEach((button) => {
     button.style.setProperty('transition', 'var(--btn-transition)');
     button.classList.remove('pressed');
 
-    // Perform action based on data-action
     const actionType = button.dataset.action;
     const action = buttonActions[actionType];
 
@@ -78,5 +77,24 @@ menuContainers.forEach(container => {
       closeAllDrawers();
       document.removeEventListener('click', handleOutsideClick);
     }
+  });
+});
+
+const returnToTopBtn = document.querySelector('.js-return-to-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 600) {
+    returnToTopBtn.classList.remove('hidden');
+  } else {
+    requestAnimationFrame(() => {
+      returnToTopBtn.classList.add('hidden');
+    });
+  }
+});
+
+returnToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
   });
 });

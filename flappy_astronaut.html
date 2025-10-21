@@ -26,8 +26,45 @@
 
 </head>
 <body>
-  <header class="header" id="top">
-    <a class="footer-small-font" style="color: var(--color-text); padding: 20px 20px; text-align: left; flex: 1;" href="/"> < Back to Home</a>
+  <header class="header">
+    <nav class="header-nav">
+      <div class="header-menu-container">
+        <div class="js-header-menu">
+          <button class="js-animated-button js-menu-toggle cta-button nav-button">
+            <img class="button-icon" src="icons/icon_menu_dark.png">
+          </button>
+
+          <div class="js-header-drawer header-menu-nav-drawer">
+            <button class="js-animated-button cta-button nav-button text" data-action="navigate" data-target="/">
+              HOME
+              <img class="button-icon small" src="icons/icon_right_dark.png">
+            </button>
+
+            <button class="js-animated-button cta-button nav-button text" data-action="navigate" data-target="/about.html">
+              ABOUT
+              <img class="button-icon small" src="icons/icon_right_dark.png">
+            </button>
+
+            <button class="js-animated-button cta-button nav-button text" data-action="navigate" data-target="/#projects">
+              PROJECTS
+              <img class="button-icon small" src="icons/icon_right_dark.png">
+            </button>
+          </div>
+        </div>
+        <div class="js-header-menu">
+          <button class="js-animated-button js-menu-toggle cta-button nav-button">
+            <img class="button-icon" src="icons/icon_language_dark.png">
+            <img class="button-icon small" src="icons/icon_down_dark.png">
+          </button>
+
+          <div class="js-header-drawer header-menu-nav-drawer">
+            <button class="js-pt-locale js-animated-button cta-button nav-button text">PT</button>
+
+            <button class="js-en-locale js-animated-button cta-button nav-button text">EN</button>
+          </div>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <main class="main-container">
@@ -145,7 +182,6 @@ void Update() {
         <img class="post-image half center" src="images/projects/flappy_astronaut/Flappy_Astronaut_Asteroid_art.png">
         <p class="post-text center">Thank you for checking out this project!</p>
         <div class="post-spacing"></div>
-        <button class="js-animated-button cta-button post-cta-button" data-action="navigate" data-target="#top"> Return to Top</button>
         <div class="post-line"></div>
       </div>
     </section>
@@ -207,6 +243,13 @@ Survivor</h1>
       </div>
     </div>
   </footer>
+
+  <nav class="return-to-top-container">
+    <button class="js-animated-button  js-return-to-top cta-button nav-button return-to-top hidden">
+      <img class="button-icon" src="icons/icon_up_dark.png">
+    </button>
+  </nav>
+
   <script type="module" src="scripts/buttons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>

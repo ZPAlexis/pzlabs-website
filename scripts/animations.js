@@ -23,32 +23,6 @@ const fadeUpObserver = new IntersectionObserver(entries => {
 
 fadeUp.forEach(el => fadeUpObserver.observe(el));
 
-//Trigger Coin Summary Observer
-const coinSummaryTrigger = document.querySelectorAll('.js-trigger-coin-summary');
-const summaryCoinContainer = document.querySelector('.js-coin-summary');
-
-const triggerCoinSummaryObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      summaryCoinContainer.classList.remove('hidden');
-    
-      const handleTransitionEnd = (e) => {
-        if (e.target === el && (e.propertyName === 'transform' || e.propertyName === 'opacity')) {
-          el.classList.remove('js-trigger-coin-summary');
-          el.removeEventListener('transitionend', handleTransitionEnd);
-        }
-      };
-
-      el.addEventListener('transitionend', handleTransitionEnd);
-
-      triggerCoinSummaryObserver.unobserve(el);
-    }
-  });
-});
-
-coinSummaryTrigger.forEach(el => triggerCoinSummaryObserver.observe(el));
-
 //Fade Left Observer
 const fadeLeft = document.querySelectorAll('.fade-left');
 
