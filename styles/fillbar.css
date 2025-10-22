@@ -112,9 +112,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 320px;
-  gap: 40px;
 }
 
 .fill-bar-timer-container {
@@ -127,7 +126,7 @@
   color: var(--color-text);
   font-weight: 400;
   transition: opacity 0.5s ease;
-  width: 80px;
+  width: 40px;
 }
 
 .fill-bar-best-text {
