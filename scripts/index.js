@@ -26,7 +26,6 @@ const summaryOverlay = document.querySelector('.js-summary-menu-overlay');
 const summaryCloseButton = document.querySelector('.js-summary-close-btn');
 
 //Summary Menu
-const summaryMenuCoinAmount = document.querySelector('.js-coin-summary-amount');
 const summaryMenuCoinCollectedCover = document.querySelector('.js-summary-menu-cover-gold-coin'); 
 const summaryMenuCoinCollectedFillbar = document.querySelector('.js-summary-menu-fillbar-gold-coin'); 
 const summaryMenuCoinCollectedRPS = document.querySelector('.js-summary-menu-rps-gold-coin'); 
@@ -56,7 +55,6 @@ export function calculateCoinAmount() {
   const totalCoins = Object.keys(coinsCollectedFlags).length;
   const coinsCollected = Object.values(coinsCollectedFlags).filter(Boolean).length;
   coinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
-  summaryMenuCoinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
   
   if (coinsCollected != 0) {
     summaryCoinContainer.classList.remove('hidden');
@@ -72,8 +70,6 @@ function setClassByCondition(element, condition, className) {
 }
 
 function updateSummaryMenu(coinsCollected, totalCoins) {
-  setClassByCondition(summaryMenuCoinAmount, coinsCollected === totalCoins, 'textHighlight');
-
   const flagMapping = {
     cover: [
       summaryMenuCoinCollectedCover,

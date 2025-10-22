@@ -34,32 +34,32 @@
           </button>
 
           <div class="js-header-drawer header-menu-nav-drawer">
-            <button class="js-animated-button cta-button nav-button text" data-action="navigate" data-target="/about.html">
+            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/about.html">
               ABOUT
               <img class="button-icon small" src="icons/icon_right_dark.png">
             </button>
 
-            <button class="js-animated-button cta-button nav-button text" data-action="navigate" data-target="#projects">
+            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="#projects">
               PROJECTS
               <img class="button-icon small" src="icons/icon_right_dark.png">
             </button>
           </div>
         </div>
         <div class="js-header-menu">
-          <button class="js-animated-button js-menu-toggle cta-button nav-button">
+          <button class="js-animated-button js-menu-toggle cta-button language-fix-width nav-button">
             <img class="button-icon" src="icons/icon_language_dark.png">
             <img class="button-icon small" src="icons/icon_down_dark.png">
           </button>
 
           <div class="js-header-drawer header-menu-nav-drawer">
-            <button class="js-pt-locale js-animated-button cta-button nav-button text">PT</button>
+            <button class="js-pt-locale js-animated-button cta-button nav-button language-fix-width text">PT</button>
 
-            <button class="js-en-locale js-animated-button cta-button nav-button text">EN</button>
+            <button class="js-en-locale js-animated-button cta-button nav-button language-fix-width text">EN</button>
           </div>
         </div>
       </div>
 
-      <p style="font-size: var(--font-size-xsmall);">v0.56c
+      <p style="font-size: var(--font-size-xsmall);">v0.57
       </p>
 
       <button class="js-animated-button js-coin-summary coin-summary cta-button hidden">
@@ -74,12 +74,8 @@
   <nav class="js-summary-menu-overlay summary-menu-section hidden">
     <div class="summary-menu-container">
       <div class="summary-menu-top-container">
-        <div class="summary-coin-total-summary">
-          <img class="summary-coin-total-summary-icon" src="icons/coin-gold.svg">
-          <div class="js-coin-summary-amount summary-coin-total-text"></div>
-        </div>
-        <div class="summary-title">COINS COLLECTED</div>
-        <div class="summary-menu-close-btn-container"><button class="js-animated-button js-summary-close-btn summary-menu-close-btn"><span>x</span></button></div>
+        <div class="summary-title">COINS<br>COLLECTED</div>
+        <div class="summary-menu-close-btn-container"><button class="js-animated-button js-summary-close-btn summary-menu-close-btn"><img class="button-icon" src="icons/icon_x_dark.png"></button></div>
       </div>
       <div class="summary-menu-stats-container">
         <div class="summary-menu-stats-coin-1">
@@ -181,10 +177,11 @@
           </button>
           <div class="play-button-base"></div>
         </div>
-        <button class="js-animated-button js-fill-bar-reset-button fill-bar-reset-button-container hidden">
-          <img class="fill-bar-reset-button" src="icons/reset-icon-blue.png">
-        </button>
-        
+        <div class="fill-bar-reset-button-wrapper">
+          <button class="js-animated-button js-fill-bar-reset-button fill-bar-reset-button-container hidden">
+            <img class="fill-bar-reset-button" src="icons/reset-icon-blue.png">
+          </button>
+        </div>
       </div>
     </section>
 

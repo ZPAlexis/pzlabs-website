@@ -20,7 +20,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 
   --btn-transition: border 0.1s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.1s ease-out;
   transition: var(--btn-transition);
@@ -63,9 +66,11 @@
   font-family: var(--font-family-accent);
   font-weight: bold;
   color: var(--color-background);
-
   text-transform: uppercase;
+
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 
   --btn-transition: border 0.1s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.1s ease-out, opacity 0.3s ease;
   transition: var(--btn-transition);
@@ -116,14 +121,23 @@
 
 .nav-button.text {
   padding: 0 14px;
-  justify-content: baseline;
+  justify-content: space-between;
   gap: 10px;
+}
+
+.nav-button.menu-fix-width {
+  min-width: 140px;
+}
+
+.nav-button.language-fix-width {
+  min-width: 78px;
+  justify-content: center;
 }
 
 .return-to-top-container {
   position: fixed;
   bottom: 20px;
-  right: 8px;
+  right: 14px;
   z-index: 100;
 }
 
