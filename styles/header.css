@@ -49,6 +49,7 @@
 .coin-summary {
   cursor: pointer;
   height: 44px;
+  gap: 4px;
 
   display: flex;
   flex-direction: row;
@@ -69,7 +70,7 @@
 
 .gold-coin-container {
   display: flex;
-  height: 40px;
+  height: 38px;
   justify-content: center;
   flex: 1;
 }
