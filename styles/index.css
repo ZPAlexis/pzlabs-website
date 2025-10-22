@@ -148,6 +148,11 @@
   animation: coinUpSpin 0.5s ease;
 }
 
+.cover-image {
+  flex: 1;
+  object-fit: cover;
+}
+
 .about-focus-section {
   display: flex;
   justify-content: center;

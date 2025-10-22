@@ -68,10 +68,19 @@
   pointer-events: none;
 }
 
+.summary-icon {
+  object-fit: cover;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 .gold-coin-container {
   display: flex;
-  height: 38px;
+  height: 40px;
+  aspect-ratio: 1/1;
   justify-content: center;
+  align-items: center;
   flex: 1;
 }
 
@@ -249,7 +258,11 @@
 }
 
 .summary-menu-coin-collect-gray {
-  opacity: 0.3;
+  opacity: 0.5;
+}
+
+.summary-menu-coin-collect-gold {
+  filter: drop-shadow(0 0 4px var(--color-shadow));
 }
 
 .summary-menu-stat-text-container {
