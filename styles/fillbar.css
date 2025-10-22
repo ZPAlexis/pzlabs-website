@@ -93,6 +93,7 @@
 
 .fill-bar-coin-image, .fill-bar-collected-coin-image {
   flex: 1;
+  height: 50px;
   object-fit: cover;
   position: absolute;
   z-index: 0;
@@ -100,7 +101,6 @@
 
 .fill-bar-collected-coin-image {
   z-index: 2;
-  height: 54px;
   transform: scale(0.5);
 }
 
