@@ -149,32 +149,44 @@ coverButton.addEventListener('click', () => {
 
 let coinIsSpinning = false;
 
+const idleUrl = 'icons/coin_idle.gif';
+const spinUrl = 'icons/coin_spin.gif';
+
+const idleImage = new Image();
+idleImage.src = idleUrl;
+
+const spinImage = new Image();
+spinImage.src = spinUrl;
+
 function playCoinSpinAnimation() {
   if (coinIsSpinning) return;
   coinIsSpinning = true;
 
-  const idleUrl = 'icons/coin_idle.gif';
-  const spinUrl = 'icons/coin_spin.gif';
   const FADE_DURATION = 100;
-  const SPIN_DURATION = 2900;
+  const SPIN_DURATION = 3000;
 
-  coverCoinSpinGif.style.opacity = '1';
-  coverCoinSpinGif.src = spinUrl;
-  coverCoinIdleGif.style.opacity = '0';
+  Promise.all([
+    idleImage.complete ? Promise.resolve() : new Promise(res => idleImage.onload = res),
+    spinImage.complete ? Promise.resolve() : new Promise(res => spinImage.onload = res)
+  ]).then(() => {
+    coverCoinSpinGif.style.opacity = '1';
+    coverCoinSpinGif.src = spinUrl;
+    coverCoinIdleGif.style.opacity = '0';
 
-  setTimeout(() => {
-    coverCoinIdleGif.src = '';
-  }, FADE_DURATION);
+    setTimeout(() => {
+      coverCoinIdleGif.src = '';
+    }, FADE_DURATION);
 
-  setTimeout(() => {
-    coverCoinSpinGif.style.opacity = '0';
+    setTimeout(() => {
       setTimeout(() => {
         coverCoinIdleGif.src = idleUrl;
         coverCoinIdleGif.style.opacity = '1';
         coverCoinSpinGif.src = '';
       }, FADE_DURATION);
-    coinIsSpinning = false;
-  }, SPIN_DURATION);
+      coverCoinSpinGif.style.opacity = '0';
+      coinIsSpinning = false;
+    }, SPIN_DURATION);
+  });
 }
 
 summaryCoinContainer.addEventListener('click', () => {
