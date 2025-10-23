@@ -179,10 +179,10 @@ function playCoinSpinAnimation() {
 
     setTimeout(() => {
       setTimeout(() => {
-        coverCoinIdleGif.src = idleUrl;
-        coverCoinIdleGif.style.opacity = '1';
         coverCoinSpinGif.src = '';
       }, FADE_DURATION);
+      coverCoinIdleGif.src = idleUrl;
+      coverCoinIdleGif.style.opacity = '1';
       coverCoinSpinGif.style.opacity = '0';
       coinIsSpinning = false;
     }, SPIN_DURATION);
