@@ -158,8 +158,8 @@ function playCoinSpinAnimation() {
   const FADE_DURATION = 100;
   const SPIN_DURATION = 2900;
 
-  coverCoinSpinGif.src = spinUrl;
   coverCoinSpinGif.style.opacity = '1';
+  coverCoinSpinGif.src = spinUrl;
   coverCoinIdleGif.style.opacity = '0';
 
   setTimeout(() => {
