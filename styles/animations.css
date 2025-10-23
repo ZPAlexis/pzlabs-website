@@ -112,32 +112,11 @@
   }
 }
 
-@keyframes coinUpSpin {
-  50% {
-    transform: scale(1.08) translateY(-20px) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
-  }
-  to {
-    transform: scale(1) translateY(0) rotateX(0) rotateY(360deg) rotateZ(0);
-  }
-}
-
 @keyframes coinSpin {
   50% {
     transform: scale(1.3) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
   }
   to {
     transform: scale(1) rotateX(0) rotateY(360deg) rotateZ(0);
-  }
-}
-
-@keyframes coinCollect {
-  0% {
-    transform: scale(0.01) translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(0);
-  }
-  60% {
-    transform: scale(1.08) translate3d(0,-10px,0) rotateX(10deg) rotateY(360deg) rotateZ(-10deg);
-  }
-  100% {
-    transform: scale(1) translate3d(0,0,0) rotateX(0) rotateY(1080deg) rotateZ(0);
   }
 }

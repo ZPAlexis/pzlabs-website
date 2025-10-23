@@ -8,7 +8,8 @@ const languageBtnEN = document.querySelector('.js-en-locale');
 //Cover Coin
 const coverButton = document.querySelector('.cover-btn');
 const coverBoxImg = coverButton.querySelector('.js-cover-box');
-const coverCoinImg = coverButton.querySelector('.js-cover-coin');
+const coverCoinIdleGif = coverButton.querySelector('.js-coin-idle');
+const coverCoinSpinGif = coverButton.querySelector('.js-coin-spin');
 const coinAmount = document.querySelector('.js-coin-amount');
 const coverCoinScrollText = document.querySelector('.js-cover-coin-collected-text');
 
@@ -107,8 +108,6 @@ function updateSummaryMenu(coinsCollected, totalCoins) {
 function refreshIndex() {
   setClassByCondition(coverBoxImg, !coinsCollectedFlags.cover, 'idle');
   setClassByCondition(coverBoxImg, coinsCollectedFlags.cover, 'hidden');
-  setClassByCondition(coverCoinImg, coinsCollectedFlags.cover, 'collect');
-  setClassByCondition(coverCoinImg, coinsCollectedFlags.cover, 'idle');
   setClassByCondition(coverCoinScrollText, coinsCollectedFlags.cover, 'collected');
 
   if (!coinsCollectedFlags.cover) {
@@ -117,16 +116,6 @@ function refreshIndex() {
 
   triggerFillBarAnimations(coinsCollectedFlags.fillBar);
 }
-
-coverCoinImg.addEventListener('animationend', (e) => {
-  if (e.animationName === 'coinUpSpin' || e.animationName === 'coinCollect') {
-    coverCoinImg.classList.remove('spin');
-    coverCoinImg.style.transform = '';
-    requestAnimationFrame(() => {
-      restartAnimation(coverCoinImg, 'idle');
-    });
-  }
-});
 
 export function restartAnimation(el, className) {
   el.classList.remove(className);
@@ -142,19 +131,53 @@ coverButton.addEventListener('click', () => {
   if (!coinsCollectedFlags.cover) {
     coverBoxImg.classList.remove('idle');
     coverBoxImg.classList.add('open');
-    coverCoinImg.classList.add('collect');
+    playCoinSpinAnimation();
     coverCoinScrollText.classList.add('collected');
 
     coinsCollectedFlags.cover = true;
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
   } else {
-    coverCoinImg.classList.remove('idle');
-    restartAnimation(coverCoinImg, 'spin');
+    playCoinSpinAnimation();
     restartAnimation(coverCoinScrollText, 'collected');
     highlightSummaryCoinContainer();
   }
 });
+
+let coinTimeouts = [];
+
+function clearCoinTimeouts() {
+  coinTimeouts.forEach(id => clearTimeout(id));
+  coinTimeouts = [];
+}
+
+async function playCoinSpinAnimation() {
+  clearCoinTimeouts();
+
+  const idleUrl = 'icons/coin_idle.gif';
+  const spinUrl = 'icons/coin_spin.gif';
+
+  coverCoinIdleGif.style.opacity = '0';
+  coverCoinSpinGif.style.opacity = '1';
+
+  coverCoinSpinGif.src = spinUrl;
+
+  coinTimeouts.push(setTimeout(() => {
+    coverCoinIdleGif.src = '';
+  }, 200));
+
+  coinTimeouts.push(setTimeout(() => {
+    coverCoinIdleGif.src = idleUrl;
+
+    coinTimeouts.push(setTimeout(() => {
+      coverCoinSpinGif.src = '';
+    }, 200));
+
+    coverCoinSpinGif.style.opacity = '0';
+    coverCoinIdleGif.style.opacity = '1';
+  }, 5800));
+}
+
 
 summaryCoinContainer.addEventListener('click', () => {
   summaryOverlay.classList.toggle('hidden');
