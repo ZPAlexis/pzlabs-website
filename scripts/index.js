@@ -171,7 +171,8 @@ function playCoinSpinAnimation() {
       setTimeout(() => {
         coverCoinIdleGif.src = idleUrl;
         coverCoinIdleGif.style.opacity = '1';
-      }, FADE_DURATION / 2);
+        coverCoinSpinGif.src = '';
+      }, FADE_DURATION);
     coinIsSpinning = false;
   }, SPIN_DURATION);
 }
