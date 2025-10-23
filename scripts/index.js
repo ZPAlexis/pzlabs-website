@@ -140,49 +140,39 @@ coverButton.addEventListener('click', () => {
     coinsCollectedFlags.cover = true;
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
-  } else {
+  } else if (!coinIsSpinning) {
     playCoinSpinAnimation();
     restartAnimation(coverCoinScrollText, 'collected');
     highlightSummaryCoinContainer();
   }
 });
 
-let coinSpinController = null;
+let coinIsSpinning = false;
 
 function playCoinSpinAnimation() {
+  if (coinIsSpinning) return;
+  coinIsSpinning = true;
+
   const idleUrl = 'icons/coin_idle.gif';
   const spinUrl = 'icons/coin_spin.gif';
   const FADE_DURATION = 100;
-  const SPIN_DURATION = 5800;
-
-  if (coinSpinController) {
-    if (coinSpinController.fadeTimeout) clearTimeout(coinSpinController.fadeTimeout);
-    if (coinSpinController.cleanupTimeout) clearTimeout(coinSpinController.cleanupTimeout);
-    coinSpinController = null;
-  }
-
-  coinSpinController = {};
+  const SPIN_DURATION = 2900;
 
   coverCoinSpinGif.src = spinUrl;
   coverCoinSpinGif.style.opacity = '1';
   coverCoinIdleGif.style.opacity = '0';
 
-  coinSpinController.fadeTimeout = setTimeout(() => {
+  setTimeout(() => {
     coverCoinIdleGif.src = '';
   }, FADE_DURATION);
 
-  coinSpinController.cleanupTimeout = setTimeout(() => {
-    const newIdle = new Image();
-    newIdle.src = idleUrl;
-    newIdle.onload = () => {
-      coverCoinSpinGif.style.opacity = '0';
-
+  setTimeout(() => {
+    coverCoinSpinGif.style.opacity = '0';
       setTimeout(() => {
-        coverCoinIdleGif.src = newIdle.src;
+        coverCoinIdleGif.src = idleUrl;
         coverCoinIdleGif.style.opacity = '1';
       }, FADE_DURATION / 2);
-    };
-    coinSpinController = null;
+    coinIsSpinning = false;
   }, SPIN_DURATION);
 }
 

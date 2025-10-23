@@ -141,6 +141,10 @@
   color: var(--color-text);
   font-weight: 400;
 
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+
   opacity: 0;
 }
 
