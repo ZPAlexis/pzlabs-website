@@ -12,9 +12,11 @@ body {
   justify-content: center;
 
   transition: background-color 0.15s;
-  touch-action: manipulation;/* Disables double-tap zoom & delays */
-  -webkit-tap-highlight-color: transparent; /* Prevents weird highlight */
-  -webkit-user-select: text;/* None prevents accidental text selection */
+  
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
 }
 
 body.no-scroll {

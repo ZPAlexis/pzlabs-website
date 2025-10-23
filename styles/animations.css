@@ -114,7 +114,7 @@
 
 @keyframes coinSpin {
   50% {
-    transform: scale(1.3) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
+    transform: scale(1.1) rotateX(10deg) rotateY(180deg) rotateZ(-10deg);
   }
   to {
     transform: scale(1) rotateX(0) rotateY(360deg) rotateZ(0);
