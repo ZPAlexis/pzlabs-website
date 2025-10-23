@@ -152,16 +152,11 @@ let coinSpinController = null;
 function playCoinSpinAnimation() {
   const idleUrl = 'icons/coin_idle.gif';
   const spinUrl = 'icons/coin_spin.gif';
-  const SPIN_DURATION = 5800;
-  const FADE_DELAY = 100;
-  const FADE_BACK_DELAY = 0;
-  const CLEANUP_DELAY = 300;
+  const FADE_DURATION = 200;
 
   if (coinSpinController) {
     clearTimeout(coinSpinController.fadeTimeout);
-    clearTimeout(coinSpinController.endTimeout);
     clearTimeout(coinSpinController.cleanupTimeout);
-    cancelAnimationFrame(coinSpinController.frameId);
     coinSpinController = null;
   }
 
@@ -173,27 +168,20 @@ function playCoinSpinAnimation() {
 
   coinSpinController.fadeTimeout = setTimeout(() => {
     coverCoinIdleGif.src = '';
-  }, FADE_DELAY);
+  }, FADE_DURATION / 2);
 
-  coinSpinController.endTimeout = setTimeout(() => {
-    const newIdleUrl = idleUrl;
-    const img = new Image();
-    img.src = newIdleUrl;
-
-    img.onload = () => {
+  coinSpinController.cleanupTimeout = setTimeout(() => {
+    const newIdle = new Image();
+    newIdle.src = idleUrl;
+    newIdle.onload = () => {
       coverCoinSpinGif.style.opacity = '0';
 
       setTimeout(() => {
-        coverCoinIdleGif.src = newIdleUrl;
+        coverCoinIdleGif.src = newIdle.src;
         coverCoinIdleGif.style.opacity = '1';
-      }, FADE_BACK_DELAY);
-
-      coinSpinController.cleanupTimeout = setTimeout(() => {
-        coverCoinSpinGif.src = '';
-        coinSpinController = null;
-      }, CLEANUP_DELAY);
+      }, 50);
     };
-  }, SPIN_DURATION);
+  }, 5800);
 }
 
 summaryCoinContainer.addEventListener('click', () => {
