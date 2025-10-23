@@ -162,7 +162,7 @@ function playCoinSpinAnimation() {
   if (coinIsSpinning) return;
   coinIsSpinning = true;
 
-  const FADE_DURATION = 100;
+  const FADE_DURATION = 400;
   const SPIN_DURATION = 3000;
 
   Promise.all([
@@ -175,7 +175,7 @@ function playCoinSpinAnimation() {
 
     setTimeout(() => {
       coverCoinIdleGif.src = '';
-    }, FADE_DURATION);
+    }, FADE_DURATION / 4);
 
     setTimeout(() => {
       setTimeout(() => {
