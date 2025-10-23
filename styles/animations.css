@@ -36,15 +36,15 @@
 
 @keyframes fadeUpInOut {
   15% {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     opacity: 0.4;
   }
   80% {
-    transform: translateY(-9px);
+    transform: translateY(-10px);
     opacity: 1;
   }
   100% {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
     opacity: 0;
   }
 }
@@ -91,7 +91,7 @@
 
 @keyframes coinHoverIdle {
   0%, 100% { transform: scale(1) rotateX(0) rotateY(0) rotateZ(0);}
-  40%      { transform: scale(1.14) rotateX(-8deg) rotateY(8deg) rotateZ(0);}
+  40%      { transform: scale(1.1) rotateX(-8deg) rotateY(8deg) rotateZ(0);}
 }
 
 @keyframes boxOpen {
