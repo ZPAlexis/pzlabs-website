@@ -152,11 +152,12 @@ let coinSpinController = null;
 function playCoinSpinAnimation() {
   const idleUrl = 'icons/coin_idle.gif';
   const spinUrl = 'icons/coin_spin.gif';
-  const FADE_DURATION = 200;
+  const FADE_DURATION = 100;
+  const SPIN_DURATION = 5800;
 
   if (coinSpinController) {
-    clearTimeout(coinSpinController.fadeTimeout);
-    clearTimeout(coinSpinController.cleanupTimeout);
+    if (coinSpinController.fadeTimeout) clearTimeout(coinSpinController.fadeTimeout);
+    if (coinSpinController.cleanupTimeout) clearTimeout(coinSpinController.cleanupTimeout);
     coinSpinController = null;
   }
 
@@ -168,7 +169,7 @@ function playCoinSpinAnimation() {
 
   coinSpinController.fadeTimeout = setTimeout(() => {
     coverCoinIdleGif.src = '';
-  }, FADE_DURATION / 2);
+  }, FADE_DURATION);
 
   coinSpinController.cleanupTimeout = setTimeout(() => {
     const newIdle = new Image();
@@ -179,9 +180,10 @@ function playCoinSpinAnimation() {
       setTimeout(() => {
         coverCoinIdleGif.src = newIdle.src;
         coverCoinIdleGif.style.opacity = '1';
-      }, 50);
+      }, FADE_DURATION / 2);
     };
-  }, 5800);
+    coinSpinController = null;
+  }, SPIN_DURATION);
 }
 
 summaryCoinContainer.addEventListener('click', () => {
