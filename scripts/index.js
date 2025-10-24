@@ -157,7 +157,7 @@ function playCoinSpinAnimation() {
   if (coinIsSpinning) return;
   coinIsSpinning = true;
   const SPIN_DURATION = 3000;
-  coverCoinSpinGif.src = `${spinUrl}?t=${Date.now()}`;
+  coverCoinSpinGif.src = spinUrl;
   coverCoinSpinGif.style.opacity = '1';
   coverCoinIdleGif.style.opacity = '0';
   setTimeout(() => {

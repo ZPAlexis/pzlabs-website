@@ -118,8 +118,8 @@
 .summary-menu-container {
   background-color: var(--color-primary-shade);
   width: clamp(300px, 100%, 480px);
-  border-radius: 20px;
-  border: 10px solid var(--color-border);
+  border-radius: 40px;
+  border: 14px solid var(--color-text);
   
   box-shadow: inset 0 0 4px 0 var(--color-primary-dark99);
 
@@ -234,7 +234,7 @@
   left: 50%;
   width: 100%;
   height: 1px;
-  background: var(--color-text); 
+  background: var(--color-primary-shade); 
   transform: translateX(-50%);
   box-shadow: var(--shadow-sm) var(--color-shadow);
 }
