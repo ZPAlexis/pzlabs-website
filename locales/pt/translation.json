@@ -1,16 +1,40 @@
 {
-  "intro-cover": "Experiências<br>Gamificadas",
-  "intro-description": "Soluções semelhantes a jogos para inspirar e motivar engajamento de usuários.",
-  "intro-cover-options": [
-    "Criando",
-    "Engenhando",
-    "Desenhando",
-    "Definindo",
-    "Pesquisando",
-    "Mapeando",
-    "Programando",
-    "Implementando",
-    "Testando",
-    "Iterando"
-  ]
+  "header": {
+    "about": "SOBRE",
+    "projects": "PROJETOS",
+    "home": "INÍCIO"
+  },
+
+  "summary": {
+    "title": "MOEDAS<br>COLETADAS",
+    "text-coin-1": "<span>#1. </span>Escondido na caixa",
+    "text-coin-2": "<span>#2. </span>Encha a barra",
+    "best-coin-2": "Melhor:",
+    "text-coin-3": "<span>#3. </span>Pedra Papel Tesoura",
+    "text-wins": "Vitórias",
+    "text-ties": "Empates",
+    "text-losses": "Derrotas",
+    "reset-text-btn": "RESETAR PROGRESSO",
+    "reset-text": "Colete todas as moedas"
+  },
+  
+  "index": {
+    "intro-cover": "Experiências<br>Gamificadas",
+    "intro-coin-collected-text": "Moeda Coletada!",
+    "intro-description": "Soluções semelhantes a jogos para inspirar e motivar engajamento de usuários.",
+    "intro-cover-options": [
+      "Criando",
+      "Engenhando",
+      "Desenhando",
+      "Definindo",
+      "Pesquisando",
+      "Mapeando",
+      "Programando",
+      "Implementando",
+      "Testando",
+      "Iterando"
+    ],
+    "fill-bar-test-guide": "Encha a barra",
+    "fill-bar-best-text": "Melhor Tempo!"
+  }
 }

@@ -240,8 +240,7 @@
 }
 
 .summary-menu-coin-collect-container {
-  width: 100px;
-  flex: 0 0 100px; 
+  flex: 0 0 60px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -272,7 +271,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   font-family: var(--font-family-accent);
-  gap: 8px 50px;
+  gap: 10px;
   min-width: 140px;
   padding-right: 10px;
   color: var(--color-text);
@@ -284,7 +283,7 @@
 }
 
 .summary-menu-stat-title {
-  font-size: var(--font-size-h3);
+  font-size: var(--font-size-body);
 }
 
 .summary-menu-stat-title span {
@@ -341,7 +340,7 @@
 }
 
 .summary-rps-stat-title {
-  font-size: var(--font-size-h3);
+  font-size: var(--font-size-small);
   font-family: var(--font-family-body);
   font-weight: 400;
 

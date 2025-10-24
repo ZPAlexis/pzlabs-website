@@ -5,7 +5,7 @@ function runAutoText() {
 
   const targets = document.querySelectorAll('.js-list-text-1, .js-list-text-2, .js-list-text-3');
 
-  let coverTextOptions = i18next.t('intro-cover-options', { returnObjects: true });
+  let coverTextOptions = i18next.t('index.intro-cover-options', { returnObjects: true });
 
   let coverText = '';
   let i1 = 0;
@@ -108,7 +108,7 @@ function runAutoText() {
   startListBarBlink();
 
   i18next.on('languageChanged', () => {
-    coverTextOptions = i18next.t('intro-cover-options', { returnObjects: true });
+    coverTextOptions = i18next.t('index.intro-cover-options', { returnObjects: true });
   });
 }
 

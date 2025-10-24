@@ -106,7 +106,7 @@ function updateSummaryMenu(coinsCollected, totalCoins) {
   setClassByCondition(summaryMenuUnlockText, coinsCollected === totalCoins, 'hidden');
 }
 
-function refreshIndex() {
+export function refreshIndex() {
   setClassByCondition(coverBoxImg, !coinsCollectedFlags.cover, 'idle');
   setClassByCondition(coverBoxImg, coinsCollectedFlags.cover, 'hidden');
   setClassByCondition(coverCoinContainer, coinsCollectedFlags.cover, 'idle');
@@ -256,12 +256,20 @@ function changeLanguage(lng) {
 
 languageBtnEN.addEventListener('click', () => {
   changeLanguage('en');
+  refreshIndex();
 });
 
 languageBtnPT.addEventListener('click', () => {
   changeLanguage('pt');
+  refreshIndex();
 });
 
-
-refreshIndex();
-calculateCoinAmount();
+if (i18next.isInitialized) {
+  refreshIndex();
+  calculateCoinAmount();
+} else {
+  i18next.on('initialized', () => {
+    refreshIndex();
+    calculateCoinAmount();
+  });
+}

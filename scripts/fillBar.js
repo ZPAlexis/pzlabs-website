@@ -167,7 +167,7 @@ export function triggerFillBarAnimations(collected) {
     
     fillBarBorder.classList.remove('highlight');
       
-    fillBarText.innerHTML = 'Fill this bar to get a coin <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
+    fillBarText.innerHTML = i18next.t('index.fill-bar-test-guide') + ' <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
     fillBarText.classList.remove('show');
     
     fillTimerCont.classList.add('hidden');

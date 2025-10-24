@@ -1,16 +1,40 @@
 {
-  "intro-cover": "Gamified<br>Experiences",
-  "intro-description": "Game-like solutions to inspire and motivate user engagement.",
-  "intro-cover-options": [
-    "Creating",
-    "Engineering",
-    "Designing",
-    "Scoping",
-    "Researching",
-    "Mapping",
-    "Coding",
-    "Implementing",
-    "Testing",
-    "Iterating"
-  ]
+  "header": {
+    "about": "ABOUT",
+    "projects": "PROJECTS",
+    "home": "HOME"
+  },
+
+  "summary": {
+    "title": "COINS<br>COLLECTED",
+    "text-coin-1": "<span>#1. </span>Hidden in box",
+    "text-coin-2": "<span>#2. </span>Fill the bar",
+    "best-coin-2": "Best:",
+    "text-coin-3": "<span>#3. </span>Rock Paper Scissors",
+    "text-wins": "Wins",
+    "text-ties": "Ties",
+    "text-losses": "Losses",
+    "reset-text-btn": "RESET PROGRESS",
+    "reset-text": "Collect all coins"
+  },
+  
+  "index": {
+    "intro-cover": "Gamified<br>Experiences",
+    "intro-coin-collected-text": "Coin Collected!",
+    "intro-description": "Game-like solutions to inspire and motivate user engagement.",
+    "intro-cover-options": [
+      "Creating",
+      "Engineering",
+      "Designing",
+      "Scoping",
+      "Researching",
+      "Mapping",
+      "Coding",
+      "Implementing",
+      "Testing",
+      "Iterating"
+    ],
+    "fill-bar-test-guide": "Fill this bar",
+    "fill-bar-best-text": "Best Time!"
+  }
 }
