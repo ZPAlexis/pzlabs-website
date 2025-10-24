@@ -147,7 +147,7 @@ export function triggerFillBarAnimations(collected) {
     restartAnimation(fillBarGoldCoin, 'spin');
       
     fillBarText.classList.remove('show');
-    fillBarText.innerHTML = 'Coin Collected!';
+    fillBarText.innerHTML = i18next.t('index.coin-collected-text');
     void fillBarText.offsetWidth;
     fillBarText.classList.add('show');
 
@@ -167,7 +167,7 @@ export function triggerFillBarAnimations(collected) {
     
     fillBarBorder.classList.remove('highlight');
       
-    fillBarText.innerHTML = i18next.t('index.fill-bar-test-guide') + ' <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
+    fillBarText.innerHTML = i18next.t('index.fill-bar-text-guide') + ' <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
     fillBarText.classList.remove('show');
     
     fillTimerCont.classList.add('hidden');
@@ -190,7 +190,7 @@ function resetFillBar() {
 
   fillBarFill.style.width = '0%';
   fillBarBorder.classList.remove('highlight');
-  fillBarText.innerHTML = 'Fill this bar <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
+  fillBarText.innerHTML = i18next.t('index.fill-bar-text-guide') + ' <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
   fillBarText.classList.remove('show');
   fillTimerCont.classList.add('hidden');
   bestTimerText.classList.remove('best');

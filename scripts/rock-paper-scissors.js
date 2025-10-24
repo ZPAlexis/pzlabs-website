@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateRPSFillBar();
 });
 
-function updateScoreText() {
+export function updateScoreText() {
   const jsResult = document.querySelector('.js-result');
   const jsPlayerMove = document.querySelector('.js-player-move');
   const jsAiMove = document.querySelector('.js-ai-move');
@@ -19,10 +19,10 @@ function updateScoreText() {
 
   if (score.wins !== 0 || score.losses !== 0 || score.ties !== 0) {
     if (jsResult.innerHTML.trim() === '') {
-      jsResult.innerHTML = 'Make a move to play the game.';
+      jsResult.innerHTML = i18next.t('index.rps-make-a-move');
     }
   } else if (score.wins === 0 && score.losses === 0 && score.ties === 0) {
-    jsResult.innerHTML = `Make a move to play the game.`;
+    jsResult.innerHTML = i18next.t('index.rps-make-a-move');
     jsPlayerMove.innerHTML = '';
     jsAiMove.innerHTML = '';
     jsAvatarMove.forEach(el => {
@@ -82,7 +82,7 @@ export function fadeUpdate(element, newHTML, skipFadeOut = false) {
   });
 }
 
-function updateRPSFillBar() {
+export function updateRPSFillBar() {
   const fill = document.querySelector('.js-rps-bar-fill');
   const rpsGoldCoin = document.querySelector('.js-rps-collected-coin');
   const rpsGrayCoin = document.querySelector('.js-rps-gray-coin');
@@ -98,7 +98,7 @@ function updateRPSFillBar() {
     restartAnimation(rpsGoldCoin, 'spin');
 
     rpsBarText.classList.remove('show');
-    rpsBarText.innerHTML = 'Coin Collected!';
+    rpsBarText.innerHTML = i18next.t('index.coin-collected-text');
     void rpsBarText.offsetWidth;
     rpsBarText.classList.add('show');
   } else if (score.wins == 2) {
@@ -115,7 +115,7 @@ function updateRPSFillBar() {
     rpsBarText.classList.add('show');
   } else if (score.wins == 0) {
     fill.style.width = '0%';
-    rpsBarText.innerHTML = 'Win 3 times to get a coin';
+    rpsBarText.innerHTML = i18next.t('index.rps-win-3-times');
     rpsBarText.classList.remove('show');
     rpsBarBorder.classList.remove('highlight');
     rpsGrayCoin.classList.remove('hidden');

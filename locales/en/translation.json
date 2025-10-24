@@ -20,7 +20,7 @@
   
   "index": {
     "intro-cover": "Gamified<br>Experiences",
-    "intro-coin-collected-text": "Coin Collected!",
+    "coin-collected-text": "Coin Collected!",
     "intro-description": "Game-like solutions to inspire and motivate user engagement.",
     "intro-cover-options": [
       "Creating",
@@ -34,7 +34,32 @@
       "Testing",
       "Iterating"
     ],
-    "fill-bar-test-guide": "Fill this bar",
-    "fill-bar-best-text": "Best Time!"
-  }
+    "fill-bar-text-guide": "Fill this bar",
+    "fill-bar-best-text": "Best Time!",
+    "focus-auto-text-1": "Gamification",
+    "focus-text-1": "is the application of game elements to increase user engagement.",
+    "focus-auto-text-2": "Game elements",
+    "focus-text-2": "can range from well-designed user interfaces to complex loyalty reward programs.",
+    "focus-auto-text-3": "Our focus",
+    "focus-text-3": "is to apply the perfect elements to the right situation.",
+    "about-text-bubble": "Hi!",
+    "about-text": "I’m <b>Alexis Coelho</b>, a <b>product manager</b> and enthusiast of clever game mechanics that influences our decision-making.",
+    "about-learn-more-btn": "LEARN MORE ABOUT ME",
+    "about-projects-title": "Projects.",
+    "about-projects-description": "These are some of the experiments we’ve experimented with so far, more to come!",
+    "learn-more-btn": "LEARN MORE",
+    "rps-you": "YOU",
+    "rps-ai": "A.I.",
+    "rps-make-a-move": "Make a move to play the game.",
+    "rps-win-3-times": "Win 3 times",
+    "rps-win": "You win!",
+    "rps-lose": "You lose.",
+    "rps-tie": "Tie."
+  },
+
+  "projects": {
+    "trofy-project-description": "A “To-Do like” mobile app that gamifies personal objectives to reinforce the creation of good habits.",
+    "bs-project-description": "A demo Unity game with a “Pick 1 of 3” rogue-like style mechanic inspired by the game Vampire Survivors.",
+    "fa-project-description": "Our first Unity demo game to learn the basics of game development inspired by the game Flappy Birds."
+  } 
 }

@@ -99,7 +99,8 @@ function runAutoText() {
   targets.forEach(target => autoTextObserver.observe(target));
 
   function startListText(element) {
-    const text = element.dataset.text;
+    const key = element.dataset.text;
+    const text = i18next.t(key);
     typeText(text, element, 60);
   }
 
@@ -109,7 +110,19 @@ function runAutoText() {
 
   i18next.on('languageChanged', () => {
     coverTextOptions = i18next.t('index.intro-cover-options', { returnObjects: true });
+    restartListTexts();
   });
+
+  function restartListTexts() {
+    targets.forEach ((element) => {
+      if (element.innerHTML != '') {
+        element.innerHTML = '';
+        const key = element.dataset.text;
+        const text = i18next.t(key);
+        typeText(text, element, 60);
+      }
+    });
+  }
 }
 
 if (i18next.isInitialized) {

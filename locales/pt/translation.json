@@ -20,7 +20,7 @@
   
   "index": {
     "intro-cover": "Experiências<br>Gamificadas",
-    "intro-coin-collected-text": "Moeda Coletada!",
+    "coin-collected-text": "Moeda Coletada!",
     "intro-description": "Soluções semelhantes a jogos para inspirar e motivar engajamento de usuários.",
     "intro-cover-options": [
       "Criando",
@@ -34,7 +34,32 @@
       "Testando",
       "Iterando"
     ],
-    "fill-bar-test-guide": "Encha a barra",
-    "fill-bar-best-text": "Melhor Tempo!"
-  }
+    "fill-bar-text-guide": "Encha a barra",
+    "fill-bar-best-text": "Melhor Tempo!",
+    "focus-auto-text-1": "Gamificação",
+    "focus-text-1": "é a aplicação de elementos de jogos para aumentar engajamento de usuários.",
+    "focus-auto-text-2": "Elementos de jogos",
+    "focus-text-2": "incluem desde interfaces de usuário atraentes até sistemas complexos de fidelidade.",
+    "focus-auto-text-3": "Nosso foco",
+    "focus-text-3": "é identificar e aplicar os elementos perfeitos para cada situação!",
+    "about-text-bubble": "Oi!",
+    "about-text": "Meu nome é <b>Alexis Coelho</b>, sou um <b>desenvolvedor de produtos</b> e entusiasta de mecânicas de jogos que influenciam nossa tomada de decisão.",
+    "about-learn-more-btn": "MAIS SOBRE MIM",
+    "about-projects-title": "Projetos.",
+    "about-projects-description": "Aqui estão alguns dos nossos experimentos até agora — esse é só o começo!",
+    "learn-more-btn": "SAIBA MAIS",
+    "rps-you": "VOCÊ",
+    "rps-ai": "I.A.",
+    "rps-make-a-move": "Escolha um movimento para jogar.",
+    "rps-win-3-times": "Ganhe 3 vezes",
+    "rps-win": "Você ganhou!",
+    "rps-lose": "Você perdeu.",
+    "rps-tie": "Empate."
+  },
+
+  "projects": {
+    "trofy-project-description": "Um app de tarefas que transforma seus objetivos pessoais em um jogo para ajudar na criação de bons hábitos.",
+    "bs-project-description": "Um jogo demo feito em Unity com uma mecânica no estilo “escolha 1 entre 3”, inspirada em Vampire Survivors.",
+    "fa-project-description": "Nosso primeiro jogo demo em Unity, feito para aprender os fundamentos de desenvolvimento de jogos, inspirado em Flappy Bird."
+  } 
 }
