@@ -148,45 +148,24 @@ coverButton.addEventListener('click', () => {
 });
 
 let coinIsSpinning = false;
-
 const idleUrl = 'icons/coin_idle.gif';
 const spinUrl = 'icons/coin_spin.gif';
-
-const idleImage = new Image();
-idleImage.src = idleUrl;
-
-const spinImage = new Image();
-spinImage.src = spinUrl;
+const idleImage = new Image(); idleImage.src = idleUrl;
+const spinImage = new Image(); spinImage.src = spinUrl;
 
 function playCoinSpinAnimation() {
   if (coinIsSpinning) return;
   coinIsSpinning = true;
-
-  const FADE_DURATION = 400;
   const SPIN_DURATION = 3000;
-
-  Promise.all([
-    idleImage.complete ? Promise.resolve() : new Promise(res => idleImage.onload = res),
-    spinImage.complete ? Promise.resolve() : new Promise(res => spinImage.onload = res)
-  ]).then(() => {
-    coverCoinSpinGif.style.opacity = '1';
-    coverCoinSpinGif.src = spinUrl;
-    coverCoinIdleGif.style.opacity = '0';
-
-    setTimeout(() => {
-      coverCoinIdleGif.src = '';
-    }, FADE_DURATION / 4);
-
-    setTimeout(() => {
-      setTimeout(() => {
-        coverCoinSpinGif.src = '';
-      }, FADE_DURATION);
-      coverCoinIdleGif.src = idleUrl;
-      coverCoinIdleGif.style.opacity = '1';
-      coverCoinSpinGif.style.opacity = '0';
-      coinIsSpinning = false;
-    }, SPIN_DURATION);
-  });
+  coverCoinSpinGif.src = `${spinUrl}?t=${Date.now()}`;
+  coverCoinSpinGif.style.opacity = '1';
+  coverCoinIdleGif.style.opacity = '0';
+  setTimeout(() => {
+    coverCoinIdleGif.src = idleUrl;
+    coverCoinIdleGif.style.opacity = '1';
+    coverCoinSpinGif.style.opacity = '0';
+    coinIsSpinning = false;
+  }, SPIN_DURATION);
 }
 
 summaryCoinContainer.addEventListener('click', () => {
