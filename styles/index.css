@@ -408,6 +408,13 @@
   line-height: 26px;
 }
 
+.cta-icon {
+  object-fit: cover;
+  height: 25px;
+  margin-right: 10px;
+  transform: translateY(6px);
+}
+
 @media (max-width: 720px) {
   .intro-container {
     flex-direction: column-reverse;

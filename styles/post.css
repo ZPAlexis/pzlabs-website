@@ -40,7 +40,7 @@
 }
 
 .post-banner-image.cover {
-  min-height: 280px;
+  min-height: 340px;
   max-height: 640px;
   object-fit: cover;
 }

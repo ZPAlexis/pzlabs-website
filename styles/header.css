@@ -22,7 +22,7 @@
 .header-menu-container {
   position: relative;
   display: flex;
-  gap: 14px;
+  gap: 20px;
 }
 
 .header-menu-nav-drawer {

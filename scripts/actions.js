@@ -13,6 +13,12 @@ export const buttonActions = {
 
   navigate: (el) => {
     const target = el.dataset.target;
-    window.location.href = target;
+    const newTab = el.dataset.newTab === 'true' || el.dataset.blank === 'true';
+
+    if (newTab) {
+      window.open(target, '_blank');
+    } else {
+      window.location.href = target;
+    }
   }
 };

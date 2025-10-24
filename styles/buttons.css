@@ -106,6 +106,7 @@
 
 .button-icon.small {
   height: 18px;
+  width: 18px;
   transform: translateY(0);
 }
 
@@ -126,11 +127,11 @@
 }
 
 .nav-button.menu-fix-width {
-  min-width: 140px;
+  min-width: 134px;
 }
 
 .nav-button.language-fix-width {
-  min-width: 78px;
+  min-width: 68px;
   justify-content: center;
 }
 
@@ -144,7 +145,6 @@
 .return-to-top {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
