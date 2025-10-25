@@ -1,4 +1,4 @@
-import { fadeUpdate, resetRPSScore, updateRPSFillBar, updateScoreText } from './rock-paper-scissors.js';
+import { fadeUpdate, resetRPSScore, updateRPSFillBar, updateScoreText, resetResult } from './rock-paper-scissors.js';
 import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
 
 //Language Change
@@ -258,14 +258,16 @@ languageBtnEN.addEventListener('click', () => {
   changeLanguage('en');
   refreshIndex();
   updateRPSFillBar();
-  updateScoreText()
+  updateScoreText();
+  resetResult()
 });
 
 languageBtnPT.addEventListener('click', () => {
   changeLanguage('pt');
   refreshIndex();
   updateRPSFillBar();
-  updateScoreText()
+  updateScoreText();
+  resetResult()
 });
 
 if (i18next.isInitialized) {

@@ -1,5 +1,7 @@
 import { collectRPSCoin, restartAnimation } from './index.js';
 
+const jsResult = document.querySelector('.js-result');
+
 let score = JSON.parse(localStorage.getItem('score')) || {
     wins: 0,
     losses: 0,
@@ -12,17 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 export function updateScoreText() {
-  const jsResult = document.querySelector('.js-result');
   const jsPlayerMove = document.querySelector('.js-player-move');
   const jsAiMove = document.querySelector('.js-ai-move');
   const jsAvatarMove = document.querySelectorAll('.js-avatar-move');
 
   if (score.wins !== 0 || score.losses !== 0 || score.ties !== 0) {
     if (jsResult.innerHTML.trim() === '') {
-      jsResult.innerHTML = i18next.t('index.rps-make-a-move');
+      resetResult();
     }
   } else if (score.wins === 0 && score.losses === 0 && score.ties === 0) {
-    jsResult.innerHTML = i18next.t('index.rps-make-a-move');
+    resetResult();
     jsPlayerMove.innerHTML = '';
     jsAiMove.innerHTML = '';
     jsAvatarMove.forEach(el => {
@@ -35,6 +36,10 @@ export function updateScoreText() {
   if (score.wins >= 3) {
     updateSummaryScore();
   }
+}
+
+export function resetResult() {
+  jsResult.innerHTML = i18next.t('index.rps-make-a-move');
 }
 
 function updateSummaryScore() {
@@ -179,12 +184,17 @@ export async function playGame(playerMove) {
     }
   }
 
+  let resultText = '';
+
   if (result === 'You win!') {
     score.wins++;
+    resultText = 'win';
   } else if (result === 'You lose.') {
     score.losses++;
+    resultText = 'lose';
   } else if (result === 'Tie.') {
     score.ties++;
+    resultText = 'tie';
   }
 
   localStorage.setItem('score', JSON.stringify(score));
@@ -199,7 +209,9 @@ export async function playGame(playerMove) {
 
   await fadeUpdate(document.querySelector('.js-ai-move'), `<img src="icons/${computerMove}-emoji.png" class="move-icon">`);
 
-  await fadeUpdate(document.querySelector('.js-result'), `<p class="result-highlight">${result}</p>`);
+  let i18nResult = i18next.t(`index.rps-${resultText}`);
+
+  await fadeUpdate(document.querySelector('.js-result'), `<p class="result-highlight">${i18nResult}</p>`);
 
   updateScoreText();
 

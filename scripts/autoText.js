@@ -50,8 +50,11 @@ function runAutoText() {
   // ----------------
   // Typing Logic
   // ----------------
-  async function typeText(textString, html, ms) {
+  const controller = { stopped: false };
+  async function typeText(textString, html, ms, signal) {
+    controller.stopped = false;
     for (let i = 0; i < textString.length; i++) {
+      if (controller?.stopped) break;
       html.innerHTML += textString[i];
       await sleep(ms);
     }
@@ -74,7 +77,7 @@ function runAutoText() {
       await sleep(1000);
 
       blinkActive = false;
-      await typeText(coverText, coverTextHTML, 80);
+      await typeText(coverText, coverTextHTML, 80, controller);
       blinkActive = true;
 
       await sleep(2200);
@@ -103,16 +106,7 @@ function runAutoText() {
     const text = i18next.t(key);
     typeText(text, element, 60);
   }
-
-  startCoverBarBlink();
-  startCoverText();
-  startListBarBlink();
-
-  i18next.on('languageChanged', () => {
-    coverTextOptions = i18next.t('index.intro-cover-options', { returnObjects: true });
-    restartListTexts();
-  });
-
+  
   function restartListTexts() {
     targets.forEach ((element) => {
       if (element.innerHTML != '') {
@@ -123,6 +117,18 @@ function runAutoText() {
       }
     });
   }
+  
+  i18next.on('languageChanged', () => {
+    coverTextOptions = i18next.t('index.intro-cover-options', { returnObjects: true });
+    controller.stopped = true;
+    coverTextHTML.innerHTML = '';
+    i1 = 0;
+    restartListTexts()
+  });
+  
+    startCoverBarBlink();
+    startCoverText();
+    startListBarBlink();
 }
 
 if (i18next.isInitialized) {

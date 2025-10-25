@@ -4,6 +4,10 @@
     "projects": "PROJETOS",
     "home": "INÍCIO"
   },
+  
+  "footer":{
+    "credits": "Desenvolvido por"
+  },
 
   "summary": {
     "title": "MOEDAS<br>COLETADAS",
@@ -54,7 +58,8 @@
     "rps-win-3-times": "Ganhe 3 vezes",
     "rps-win": "Você ganhou!",
     "rps-lose": "Você perdeu.",
-    "rps-tie": "Empate."
+    "rps-tie": "Empate.",
+    "cta-text": "Tem uma dúvida ou ideia sobre gamificação?<br>Me mande uma mensagem!"
   },
 
   "projects": {

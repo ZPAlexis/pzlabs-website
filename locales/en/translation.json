@@ -5,6 +5,10 @@
     "home": "HOME"
   },
 
+  "footer":{
+    "credits": "Developed by"
+  },
+
   "summary": {
     "title": "COINS<br>COLLECTED",
     "text-coin-1": "<span>#1. </span>Hidden in box",
@@ -54,7 +58,8 @@
     "rps-win-3-times": "Win 3 times",
     "rps-win": "You win!",
     "rps-lose": "You lose.",
-    "rps-tie": "Tie."
+    "rps-tie": "Tie.",
+    "cta-text": "Have a gamification question or idea?<br>Send me a message!"
   },
 
   "projects": {
