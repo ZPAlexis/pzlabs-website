@@ -8,11 +8,6 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     ties: 0
   };
 
-document.addEventListener('DOMContentLoaded', () => {
-  updateScoreText();
-  updateRPSFillBar();
-});
-
 export function updateScoreText() {
   const jsPlayerMove = document.querySelector('.js-player-move');
   const jsAiMove = document.querySelector('.js-ai-move');
@@ -223,4 +218,18 @@ export async function playGame(playerMove) {
   if (score.wins >= 3) {
     completeRPSGame();
   }
+}
+
+if (i18next.isInitialized) {
+  document.addEventListener('DOMContentLoaded', () => {
+    updateScoreText();
+    updateRPSFillBar();
+  });
+} else {
+  i18next.on('initialized', () => {
+    document.addEventListener('DOMContentLoaded', () => {
+      updateScoreText();
+      updateRPSFillBar();
+    });
+  });
 }
