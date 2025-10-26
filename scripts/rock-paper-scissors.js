@@ -8,6 +8,10 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     ties: 0
   };
 
+export function resetResult() {
+  jsResult.innerHTML = i18next.t('index.rps-make-a-move');
+}
+
 export function updateScoreText() {
   const jsPlayerMove = document.querySelector('.js-player-move');
   const jsAiMove = document.querySelector('.js-ai-move');
@@ -31,10 +35,6 @@ export function updateScoreText() {
   if (score.wins >= 3) {
     updateSummaryScore();
   }
-}
-
-export function resetResult() {
-  jsResult.innerHTML = i18next.t('index.rps-make-a-move');
 }
 
 function updateSummaryScore() {
@@ -220,16 +220,15 @@ export async function playGame(playerMove) {
   }
 }
 
+function initRPS() {
+  updateScoreText();
+  updateRPSFillBar();
+}
+
 if (i18next.isInitialized) {
-  document.addEventListener('DOMContentLoaded', () => {
-    updateScoreText();
-    updateRPSFillBar();
-  });
+  initRPS();
 } else {
   i18next.on('initialized', () => {
-    document.addEventListener('DOMContentLoaded', () => {
-      updateScoreText();
-      updateRPSFillBar();
-    });
+    initRPS();
   });
 }
