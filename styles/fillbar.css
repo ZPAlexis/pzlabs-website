@@ -98,12 +98,12 @@
   object-fit: cover;
   position: absolute;
   z-index: 0;
-  top: 2px;
 }
 
 .fill-bar-collected-coin-image {
   z-index: 2;
   transform: scale(0.5);
+  top: 2px;
 }
 
 .fill-bar-collected-coin-image.spin {

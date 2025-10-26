@@ -135,6 +135,12 @@
   justify-content: center;
 }
 
+.nav-button.social {
+  text-transform: none;
+  gap: 10px;
+  padding: 10px 14px;
+}
+
 .return-to-top-container {
   position: fixed;
   bottom: 20px;
