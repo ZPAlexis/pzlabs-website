@@ -16,7 +16,7 @@ i18next
     updateContent();
   });
 
-function updateContent() {
+export function updateContent() {
   // Regular text-only translations
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');

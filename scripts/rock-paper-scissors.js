@@ -1,6 +1,14 @@
 import { collectRPSCoin, restartAnimation } from './index.js';
 
 const jsResult = document.querySelector('.js-result');
+const jsPlayerMove = document.querySelector('.js-player-move');
+const jsAiMove = document.querySelector('.js-ai-move');
+const jsAvatarMove = document.querySelectorAll('.js-avatar-move');
+const fill = document.querySelector('.js-rps-bar-fill');
+const rpsGoldCoin = document.querySelector('.js-rps-collected-coin');
+const rpsGrayCoin = document.querySelector('.js-rps-gray-coin');
+const rpsBarBorder = document.querySelector('.js-rps-bar-container');
+const rpsBarText = document.querySelector('.js-rps-bar-text');
 
 let score = JSON.parse(localStorage.getItem('score')) || {
     wins: 0,
@@ -13,10 +21,6 @@ export function resetResult() {
 }
 
 export function updateScoreText() {
-  const jsPlayerMove = document.querySelector('.js-player-move');
-  const jsAiMove = document.querySelector('.js-ai-move');
-  const jsAvatarMove = document.querySelectorAll('.js-avatar-move');
-
   if (score.wins !== 0 || score.losses !== 0 || score.ties !== 0) {
     if (jsResult.innerHTML.trim() === '') {
       resetResult();
@@ -83,12 +87,6 @@ export function fadeUpdate(element, newHTML, skipFadeOut = false) {
 }
 
 export function updateRPSFillBar() {
-  const fill = document.querySelector('.js-rps-bar-fill');
-  const rpsGoldCoin = document.querySelector('.js-rps-collected-coin');
-  const rpsGrayCoin = document.querySelector('.js-rps-gray-coin');
-  const rpsBarBorder = document.querySelector('.js-rps-bar-container');
-  const rpsBarText = document.querySelector('.js-rps-bar-text');
-
   if (score.wins >= 3) {
     fill.style.width = '100%';
 

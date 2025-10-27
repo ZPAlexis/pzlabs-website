@@ -3,6 +3,14 @@ import { collectFillBarCoin, restartAnimation } from './index.js';
 const resetFillBarButton = document.querySelector('.js-fill-bar-reset-button');
 const bestTimerText = document.querySelector('.js-fill-bar-best-text');
 
+const fillBarFill = document.querySelector('.js-fill-bar-fill');
+const fillBarGoldCoin = document.querySelector('.js-fill-bar-collected-coin');
+const fillBarGrayCoin = document.querySelector('.js-fill-bar-gray-coin');
+const fillBarBorder = document.querySelector('.js-fill-bar-container');
+const fillBarText = document.querySelector('.js-fill-bar-text');
+const fillTimerCont = document.querySelector('.js-fill-bar-timer-container');
+const fillTimerEl = document.querySelector('.js-fill-bar-timer');
+
 export function resetFillBarTimers() {
   bestTimer = null;
   lastTimer = null;
@@ -128,14 +136,6 @@ let isAnimatingFillBar = false;
 export function triggerFillBarAnimations(collected) {
   if (isAnimatingFillBar) return;
   isAnimatingFillBar = true;
-
-  const fillBarFill = document.querySelector('.js-fill-bar-fill');
-  const fillBarGoldCoin = document.querySelector('.js-fill-bar-collected-coin');
-  const fillBarGrayCoin = document.querySelector('.js-fill-bar-gray-coin');
-  const fillBarBorder = document.querySelector('.js-fill-bar-container');
-  const fillBarText = document.querySelector('.js-fill-bar-text');
-  const fillTimerCont = document.querySelector('.js-fill-bar-timer-container');
-  const fillTimerEl = document.querySelector('.js-fill-bar-timer');
 
   if (collected) {
     fillBarFill.style.width = '100%';
