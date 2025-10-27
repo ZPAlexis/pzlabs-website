@@ -1,6 +1,6 @@
 import { fadeUpdate, resetRPSScore, updateRPSFillBar, updateScoreText, resetResult } from './rock-paper-scissors.js';
 import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
-import { updateContent } from './i18n.js';
+import { changeLanguage } from './i18n.js';
 
 //Language Change
 const languageBtnPT = document.querySelector('.js-pt-locale');
@@ -247,15 +247,6 @@ export function resetCoins() {
 function triggerSummaryAnimations() {
   restartAnimation(summaryCoin, 'spin');
   highlightSummaryCoinContainer();
-}
-
-function changeLanguage(lng) {
-  return new Promise(resolve => {
-    i18next.changeLanguage(lng, () => {
-      updateContent();
-      resolve();
-    });
-  });
 }
 
 languageBtnEN.addEventListener('click', async () => {

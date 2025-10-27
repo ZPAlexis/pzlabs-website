@@ -15,17 +15,49 @@ i18next
     if (err) return console.error(err);
     updateContent();
   });
-
-export function updateContent() {
+  
+function updateContent() {
   // Regular text-only translations
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     el.textContent = i18next.t(key);
   });
-
+  
   // HTML translations (safe only if you trust your translation source)
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
     el.innerHTML = i18next.t(key);
   });
+
+  // Images (src)
+  document.querySelectorAll('[data-i18n-img]').forEach(el => {
+    const key = el.getAttribute('data-i18n-img');
+    el.src = i18next.t(key);
+  });
+
+  // Links (href)
+  document.querySelectorAll('[data-i18n-href]').forEach(el => {
+    const key = el.getAttribute('data-i18n-href');
+    el.href = i18next.t(key);
+  });
 }
+
+const languageBtnPT = document.querySelector('.js-pt-locale');
+const languageBtnEN = document.querySelector('.js-en-locale');
+  
+export function changeLanguage(lng) {
+  return new Promise(resolve => {
+    i18next.changeLanguage(lng, () => {
+      updateContent();
+      resolve();
+    });
+  });
+}
+
+languageBtnEN.addEventListener('click', async () => {
+  await changeLanguage('en');
+});
+
+languageBtnPT.addEventListener('click', async () => {
+  await changeLanguage('pt');
+});

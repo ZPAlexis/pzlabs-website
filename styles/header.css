@@ -9,6 +9,7 @@
   left: 0;
   right: 0;
   z-index: 100;
+  pointer-events: none;
 }
 
 .header-nav {
@@ -23,6 +24,7 @@
   position: relative;
   display: flex;
   gap: 20px;
+  pointer-events: auto;
 }
 
 .header-menu-nav-drawer {
