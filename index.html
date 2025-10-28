@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <p style="font-size: var(--font-size-xsmall);">v0.61
+      <p style="font-size: var(--font-size-xsmall);">v0.61a
       </p>
 
       <button class="js-animated-button js-coin-summary coin-summary cta-button hidden">
@@ -310,9 +310,15 @@ Survivor</h1>
 
     <section class="rock-paper-scissors-section js-trigger-coin-summary">
       <div class="rock-paper-scissors-container">
+        <div class="rps-title-container">
+          <div class="rps-title-wrapper">
+            <p class="rps-title fade-up" data-i18n="index.rps-title"></p>
+            <button class="js-animated-button cta-button info-button rps-info fade-up" data-action="navigate" data-i18n-attr='{"data-target": "buttons.rps_info_url"}' data-new-tab="true">i</button>
+          </div> 
+        </div>
         <div class="rps-names-container">
           <p class="rps-name fade-right" data-i18n="index.rps-you"></p>
-          <p class="rps-versus">VS</p>
+          <img class="rps-vs-icon fade-up" src="icons/icon_vs_gold.png">
           <p class="rps-name fade-left" data-i18n="index.rps-ai"></p>
         </div>
         <div class="rps-avatars-container">
@@ -352,7 +358,6 @@ Survivor</h1>
             <div class="play-button-base"></div>
           </div>
         </div>
-
         <div class="fill-bar-container-wrapper fade-right">
           <div class="js-rps-bar-container fill-bar-container rps-fill-bar-container">
             <div class="js-rps-bar-fill fill-bar-fill rps-fill-bar-fill"></div>

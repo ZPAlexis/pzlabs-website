@@ -1,4 +1,8 @@
 {
+  "buttons": {
+    "rps_info_url": "https://pt.wikipedia.org/wiki/Rock_paper_scissors"
+  },
+
   "header": {
     "about": "SOBRE",
     "projects": "PROJETOS",
@@ -52,6 +56,7 @@
     "about-projects-title": "Projetos.",
     "about-projects-description": "Aqui estão alguns dos nossos experimentos até agora — esse é só o começo!",
     "learn-more-btn": "SAIBA MAIS",
+    "rps-title": "PEDRA PAPEL TESOURA",
     "rps-you": "VOCÊ",
     "rps-ai": "I.A.",
     "rps-make-a-move": "Escolha um movimento para jogar.",

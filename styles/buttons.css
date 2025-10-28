@@ -141,6 +141,15 @@
   padding: 10px 14px;
 }
 
+.info-button {
+  cursor: pointer;
+  height: 34px;
+  width: 34px;
+  align-items: center;
+  font-family: var(--font-family-base);
+  text-transform: lowercase;
+}
+
 .return-to-top-container {
   position: fixed;
   bottom: 20px;

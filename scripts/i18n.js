@@ -17,13 +17,13 @@ i18next
   });
   
 function updateContent() {
-  // Regular text-only translations
+  // Text
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     el.textContent = i18next.t(key);
   });
   
-  // HTML translations (safe only if you trust your translation source)
+  // HTML
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
     el.innerHTML = i18next.t(key);
@@ -39,6 +39,14 @@ function updateContent() {
   document.querySelectorAll('[data-i18n-href]').forEach(el => {
     const key = el.getAttribute('data-i18n-href');
     el.href = i18next.t(key);
+  });
+
+  // Links / any attribute
+  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+    const attrs = JSON.parse(el.getAttribute('data-i18n-attr'));
+    for (const [attrName, key] of Object.entries(attrs)) {
+      el.setAttribute(attrName, i18next.t(key));
+    }
   });
 }
 

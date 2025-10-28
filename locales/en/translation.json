@@ -1,4 +1,8 @@
 {
+  "buttons": {
+    "rps_info_url": "https://en.wikipedia.org/wiki/Rock_paper_scissors"
+  },
+
   "header": {
     "about": "ABOUT",
     "projects": "PROJECTS",
@@ -52,6 +56,7 @@
     "about-projects-title": "Projects.",
     "about-projects-description": "These are some of the experiments we’ve experimented with so far, more to come!",
     "learn-more-btn": "LEARN MORE",
+    "rps-title": "ROCK PAPER SCISSORS",
     "rps-you": "YOU",
     "rps-ai": "A.I.",
     "rps-make-a-move": "Make a move to play the game.",

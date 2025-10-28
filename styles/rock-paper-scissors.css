@@ -12,20 +12,46 @@
   flex: 1;
   background-color: var(--color-primary-shade);
   box-shadow: var(--shadow-md) var(--color-shadow);
-  gap: 28px;
+  gap: 10px;
+}
+
+.rps-title-container {
+  display: flex;
+  max-width: 360px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.rps-title-wrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.rps-title {
+  font-size: var(--font-size-h1);
+  line-height: 100%;
+  width: 70%;
+}
+
+.rps-info {
+  position: absolute;
+  right: 0;
 }
 
 .rps-names-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   max-width: 360px;
   width: 100%;
   justify-content: center;
-  align-items: flex-end;
+  gap: 90px;
+  align-items: start;
 }
 
-.rps-name, .rps-versus {
+.rps-name, .rps-versus, .rps-title {
   font-family: var(--font-family-accent);
   color: var(--color-text);
   text-shadow: var(--text-shadow-sm) var(--color-shadow);
@@ -35,15 +61,14 @@
 }
 
 .rps-name {
-  font-size: var(--font-size-h2);
+  font-size: var(--font-size-h3);
   line-height: 100%;
   width: 80px;
 }
 
-.rps-versus {
-  font-size: var(--font-size-h1);
-  line-height: 40%;
-  width: 100px;
+.rps-vs-icon {
+  width: 44px;
+  position: absolute;
 }
 
 .rps-avatars-container {
@@ -53,7 +78,7 @@
   max-width: 360px;
   width: 100%;
   gap: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .rps-avatar-wrapper {
@@ -132,6 +157,7 @@
   display: flex;
   flex-direction: row;
   gap: 20px;
+  padding-bottom: 20px;
 }
 
 .move-icon {
@@ -157,6 +183,7 @@
   font-family: var(--font-family-accent);
   font-weight: regular;
   margin: 0;
+  padding-bottom: 20px;
   line-height: 20px;
   height: 20px;
 
