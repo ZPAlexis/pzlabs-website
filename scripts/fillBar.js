@@ -143,8 +143,15 @@ export function triggerFillBarAnimations(collected) {
     fillBarGrayCoin.classList.add('hidden');
     fillBarGoldCoin.classList.remove('hidden');
     
+    const originalSrc = 'icons/coin-gold.svg';
+    const gifSrc = 'icons/coin_spin.gif';
+    const gifDuration = 3000;
+    fillBarGoldCoin.src = gifSrc;
+    setTimeout(() => {
+      fillBarGoldCoin.src = originalSrc;
+    }, gifDuration);
+
     fillBarBorder.classList.add('highlight');
-    restartAnimation(fillBarGoldCoin, 'spin');
       
     fillBarText.classList.remove('show');
     fillBarText.innerHTML = i18next.t('index.coin-collected-text');

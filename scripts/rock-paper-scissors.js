@@ -93,7 +93,14 @@ export function updateRPSFillBar() {
     rpsGrayCoin.classList.add('hidden');
     rpsGoldCoin.classList.remove('hidden');
     restartAnimation(rpsBarBorder, 'highlight');
-    restartAnimation(rpsGoldCoin, 'spin');
+
+    const originalSrc = 'icons/coin-gold.svg';
+    const gifSrc = 'icons/coin_spin.gif';
+    const gifDuration = 3000;
+    rpsGoldCoin.src = gifSrc;
+    setTimeout(() => {
+      rpsGoldCoin.src = originalSrc;
+    }, gifDuration);
 
     rpsBarText.classList.remove('show');
     rpsBarText.innerHTML = i18next.t('index.coin-collected-text');

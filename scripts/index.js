@@ -1,6 +1,5 @@
 import { fadeUpdate, resetRPSScore, updateRPSFillBar, updateScoreText, resetResult } from './rock-paper-scissors.js';
 import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
-import { changeLanguage } from './i18n.js';
 
 //Language Change
 const languageBtnPT = document.querySelector('.js-pt-locale');
@@ -24,7 +23,7 @@ const rpsBarText = document.querySelector('.js-rps-bar-text');
 //Summary Header
 const summaryCoinContainer = document.querySelector('.js-coin-summary');
 const coinSummaryTrigger = document.querySelectorAll('.js-trigger-coin-summary');
-const summaryCoin = document.querySelector('.js-gold-coin-container');
+const summaryCoin = document.querySelector('.js-gold-coin');
 const summaryOverlay = document.querySelector('.js-summary-menu-overlay');
 const summaryCloseButton = document.querySelector('.js-summary-close-btn');
 
@@ -61,10 +60,8 @@ export function calculateCoinAmount() {
   
   if (coinsCollected != 0) {
     summaryCoinContainer.classList.remove('hidden');
-    triggerSummaryAnimations();
     fadeUpdate(coinAmount, `${coinsCollected} / ${totalCoins}`);
   }
-
   updateSummaryMenu(coinsCollected, totalCoins);
 }
 
@@ -111,6 +108,7 @@ export function refreshIndex() {
   setClassByCondition(coverBoxImg, !coinsCollectedFlags.cover, 'idle');
   setClassByCondition(coverBoxImg, coinsCollectedFlags.cover, 'hidden');
   setClassByCondition(coverCoinContainer, coinsCollectedFlags.cover, 'idle');
+  setClassByCondition(coverCoinContainer, !coinsCollectedFlags.cover, 'hidden');
   setClassByCondition(coverCoinScrollText, coinsCollectedFlags.cover, 'collected');
 
   if (!coinsCollectedFlags.cover) {
@@ -134,6 +132,7 @@ coverButton.addEventListener('click', () => {
   if (!coinsCollectedFlags.cover) {
     coverBoxImg.classList.remove('idle');
     coverBoxImg.classList.add('open');
+    coverCoinContainer.classList.remove('hidden');
     coverCoinContainer.classList.add('idle');
     playCoinSpinAnimation();
     coverCoinScrollText.classList.add('collected');
@@ -141,6 +140,7 @@ coverButton.addEventListener('click', () => {
     coinsCollectedFlags.cover = true;
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
+    triggerSummaryAnimations();
   } else if (!coinIsSpinning) {
     playCoinSpinAnimation();
     restartAnimation(coverCoinScrollText, 'collected');
@@ -216,6 +216,7 @@ export function collectFillBarCoin() {
     coinsCollectedFlags.fillBar = true;
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
+    triggerSummaryAnimations();
   } else {
     highlightSummaryCoinContainer();
   }
@@ -227,6 +228,7 @@ export function collectRPSCoin() {
     coinsCollectedFlags.rps = true;
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
+    triggerSummaryAnimations();
   }
 }
 
@@ -245,7 +247,6 @@ export function resetCoins() {
 }
 
 function triggerSummaryAnimations() {
-  restartAnimation(summaryCoin, 'spin');
   highlightSummaryCoinContainer();
 }
 

@@ -53,7 +53,7 @@ function updateContent() {
 const languageBtnPT = document.querySelector('.js-pt-locale');
 const languageBtnEN = document.querySelector('.js-en-locale');
   
-export function changeLanguage(lng) {
+function changeLanguage(lng) {
   return new Promise(resolve => {
     i18next.changeLanguage(lng, () => {
       updateContent();

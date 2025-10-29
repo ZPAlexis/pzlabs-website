@@ -51,10 +51,13 @@ function runAutoText() {
   // Typing Logic
   // ----------------
   const controller = { stopped: false };
-  async function typeText(textString, html, ms, signal) {
-    controller.stopped = false;
+  const listControllers = new WeakMap();
+  async function typeText(textString, html, ms) {
+    const controller = { stopped: false };
+    listControllers.set(html, controller);
     for (let i = 0; i < textString.length; i++) {
-      if (controller?.stopped) break;
+      const currentController = listControllers.get(html);
+      if (currentController !== controller || controller.stopped) break;
       html.innerHTML += textString[i];
       await sleep(ms);
     }
@@ -74,13 +77,13 @@ function runAutoText() {
     chooseCoverText();
 
     while (true) {
-      await sleep(1000);
+      await sleep(200);
 
       blinkActive = false;
       await typeText(coverText, coverTextHTML, 80, controller);
       blinkActive = true;
 
-      await sleep(2200);
+      await sleep(2000);
 
       blinkActive = false;
       await eraseCoverText();
@@ -109,12 +112,13 @@ function runAutoText() {
   
   function restartListTexts() {
     targets.forEach ((element) => {
-      if (element.innerHTML != '') {
-        element.innerHTML = '';
-        const key = element.dataset.text;
-        const text = i18next.t(key);
-        typeText(text, element, 60);
-      }
+      const controller = listControllers.get(element);
+      if (controller) controller.stopped = true;
+
+      element.innerHTML = '';
+      const key = element.dataset.text;
+      const text = i18next.t(key);
+      typeText(text, element, 60);
     });
   }
   
