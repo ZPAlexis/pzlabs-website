@@ -14,6 +14,13 @@ export const buttonActions = {
   navigate: (el) => {
     const target = el.dataset.target;
     const newTab = el.dataset.newTab === 'true' || el.dataset.blank === 'true';
+    const trackingEvent = el.dataset.tracking;
+
+    if (trackingEvent && typeof window.clarity === "function") {
+      window.clarity("event", trackingEvent);
+    } else {
+    console.log(`Tracking skipped (Clarity missing): ${trackingEvent}`);
+    }
 
     if (newTab) {
       window.open(target, '_blank');

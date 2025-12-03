@@ -53,14 +53,25 @@ if (saved) {
   Object.assign(coinsCollectedFlags, JSON.parse(saved));
 }
 
+const trackEvent = (eventName) => {
+  if (typeof window.clarity === "function") {
+    window.clarity("event", eventName);
+  } else {
+    console.log(`Tracking skipped (Clarity missing): ${eventName}`);
+  }
+};
+
 export function calculateCoinAmount() {
   const totalCoins = Object.keys(coinsCollectedFlags).length;
   const coinsCollected = Object.values(coinsCollectedFlags).filter(Boolean).length;
   coinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
   
-  if (coinsCollected != 0) {
+  if (coinsCollected !== 0) {
     summaryCoinContainer.classList.remove('hidden');
     fadeUpdate(coinAmount, `${coinsCollected} / ${totalCoins}`);
+  }
+  if (coinsCollected === totalCoins) {
+    trackEvent("allCoinsCollected");
   }
   updateSummaryMenu(coinsCollected, totalCoins);
 }
@@ -99,9 +110,9 @@ function updateSummaryMenu(coinsCollected, totalCoins) {
   setClassByCondition(summaryMenuResetScoreButton, !allCoinsCollected, 'locked');
 
   summaryMenuLockIcons.forEach(el =>
-    setClassByCondition(el, coinsCollected === totalCoins, 'hidden')
+    setClassByCondition(el, allCoinsCollected, 'hidden')
   );
-  setClassByCondition(summaryMenuUnlockText, coinsCollected === totalCoins, 'hidden');
+  setClassByCondition(summaryMenuUnlockText, allCoinsCollected, 'hidden');
 }
 
 export function refreshIndex() {
@@ -141,6 +152,7 @@ coverButton.addEventListener('click', () => {
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
     triggerSummaryAnimations();
+    trackEvent("1stCoinCollected");
   } else if (!coinIsSpinning) {
     playCoinSpinAnimation();
     restartAnimation(coverCoinScrollText, 'collected');
@@ -217,6 +229,7 @@ export function collectFillBarCoin() {
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
     triggerSummaryAnimations();
+    trackEvent("2ndCoinCollected");
   } else {
     highlightSummaryCoinContainer();
   }
@@ -229,6 +242,7 @@ export function collectRPSCoin() {
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
     triggerSummaryAnimations();
+    trackEvent("3rdCoinCollected");
   }
 }
 
@@ -239,11 +253,11 @@ function saveCoinFlags() {
 export function resetCoins() {
   Object.assign(coinsCollectedFlags, defaultCoinFlags);
   saveCoinFlags();
-
   resetFillBarTimers();
   resetRPSScore();
   refreshIndex();
   calculateCoinAmount();
+  trackEvent("coinsReset");
 }
 
 function triggerSummaryAnimations() {

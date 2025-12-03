@@ -13,7 +13,7 @@
 }
 
 .header-nav {
-  max-width: 1200px;
+  max-width: var(--max-width-container);
   padding: 8px;
   display: flex;
   flex: 1;
