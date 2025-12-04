@@ -1,0 +1,49 @@
+@media (max-width: 720px) and (hover: none) and (pointer: coarse) {
+  .mobile-nav {
+    position: fixed;
+    height: 90px;
+    background-color: var(--color-button);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  .mobile-nav-container {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    pointer-events: auto;
+    box-shadow: var(--shadow-mobile-nav) var(--color-mobile-nav-shadow);
+  }
+
+  .mobile-nav-button {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .header-menu-container {
+    gap: 0;
+  }
+
+  .return-to-top-container {
+    bottom: 104px;
+    right: 8px;
+    z-index: 99;
+  }
+
+  footer {
+    padding-bottom: 100px;
+  }
+}
