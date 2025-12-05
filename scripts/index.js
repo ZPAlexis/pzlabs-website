@@ -1,5 +1,6 @@
 import { fadeUpdate, resetRPSScore, updateRPSFillBar, updateScoreText, resetResult } from './rock-paper-scissors.js';
 import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
+import { trackEvent } from './utils.js';
 
 //Language Change
 const languageBtnPT = document.querySelector('.js-pt-locale');
@@ -52,14 +53,6 @@ const saved = localStorage.getItem('coinFlags');
 if (saved) {
   Object.assign(coinsCollectedFlags, JSON.parse(saved));
 }
-
-const trackEvent = (eventName) => {
-  if (typeof window.clarity === "function") {
-    window.clarity("event", eventName);
-  } else {
-    console.log(`Tracking skipped (Clarity missing): ${eventName}`);
-  }
-};
 
 export function calculateCoinAmount() {
   const totalCoins = Object.keys(coinsCollectedFlags).length;

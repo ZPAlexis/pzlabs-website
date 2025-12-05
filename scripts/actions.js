@@ -1,3 +1,5 @@
+import { trackEvent } from './utils.js';
+
 export const buttonActions = {
   fillBar: async (el) => {
     const { fillBar } = await import('./fillBar.js');
@@ -14,12 +16,10 @@ export const buttonActions = {
   navigate: (el) => {
     const target = el.dataset.target;
     const newTab = el.dataset.newTab === 'true' || el.dataset.blank === 'true';
-    const trackingEvent = el.dataset.tracking;
+    const trackingEventName = el.dataset.tracking;
 
-    if (trackingEvent && typeof window.clarity === "function") {
-      window.clarity("event", trackingEvent);
-    } else {
-    console.log(`Tracking skipped (Clarity missing): ${trackingEvent}`);
+    if (trackingEventName) {
+      trackEvent(trackingEventName);
     }
 
     if (newTab) {
