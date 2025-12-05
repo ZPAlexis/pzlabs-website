@@ -18,7 +18,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-V9Q0C2324T');
     </script>
 
@@ -40,7 +39,7 @@
     <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/rock-paper-scissors.css">
-    <!---<link rel="stylesheet" href="styles/mobile-navigation.css">--->
+    <!---<link rel="stylesheet" href="styles/mobile-nav.css">--->
 </head>
 <body>
   <header class="header">
@@ -146,9 +145,24 @@
 
   <!---<nav class="mobile-nav">
     <div class="mobile-nav-container">
-      <button class="mobile-nav-button">HOME</button>
-      <button class="mobile-nav-button">PROJECTS</button>
-      <button class="mobile-nav-button">ABOUT</button>
+      <button class="mobile-nav-button"  data-action="navigate" data-target="/">
+        <div class="mobile-nav-icon-container">
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_home_dark.png"> 
+        </div>
+        <div class="mobile-nav-home-text">Home</div>
+      </button>
+      <button class="mobile-nav-button" data-action="navigate" data-target="/projects.html">
+        <div class="mobile-nav-icon-container">
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_app_light.png"> 
+        </div>
+        <div class="mobile-nav-home-text inactive">Projects</div>
+      </button>
+      <button class="mobile-nav-button" data-action="navigate" data-target="/about.html">
+        <div class="mobile-nav-icon-container">
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_about_light.png"> 
+        </div>
+        <div class="mobile-nav-home-text inactive">About</div>
+      </button>
     </div>
   </nav>--->
 

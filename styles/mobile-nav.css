@@ -31,6 +31,29 @@
     width: 100%;
     background-color: transparent;
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .mobile-nav-icon-container {
+    height: 30px;
+  }
+
+  .mobile-nav-icon {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .mobile-nav-home-text{
+    color: var(--color-text-dark);
+    font-size: var(--font-size-body);
+    font-family: var(--font-family-accent);
+  }
+
+  .mobile-nav-home-text.inactive{
+    color: var(--color-text-inactive);
   }
 
   .desktop-nav {

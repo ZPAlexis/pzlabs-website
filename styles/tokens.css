@@ -4,7 +4,7 @@
   --color-text-dark: #1a202c;
   --color-text-shadow: #e2e8f020;
   --color-text-accent: #e2e8f0;
-  --color-text-dark: #07307d;
+  --color-text-inactive: #818181;
   --color-accent: #FAC036;
   --color-accent-shadow: #CA9B2A;
   --color-background: #1a202c;
@@ -33,7 +33,7 @@
   --color-button-base-shadow: #C1C6CC;
   --color-button-text-shadow: #00000025;
   --color-button-border: #FFFFFF20;
-  --color-mobile-nav-shadow: #02154040;
+  --color-mobile-nav-shadow: #02154025;
 
   /* Gradients */
   --gradient-gold-button: linear-gradient(
@@ -78,7 +78,7 @@
   --shadow-lg: 0 6px 0 0;
   --shadow-button: 0 8px 0 0;
   --shadow-spread: 0 0 10px 0;
-  --shadow-mobile-nav: 0 -2px 6px 0;
+  --shadow-mobile-nav: 0 -2px 4px 0;
 
   /* Text Shadows */
   --text-shadow-sm: 0 2px 0;
