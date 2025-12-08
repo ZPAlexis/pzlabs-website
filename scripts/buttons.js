@@ -1,8 +1,8 @@
 import { buttonActions } from './actions.js';
 
-const buttons = document.querySelectorAll('.js-animated-button');
+const animatedButtons = document.querySelectorAll('.js-animated-button');
 
-buttons.forEach((button) => {
+animatedButtons.forEach((button) => {
   function handlePressStart() {
     if (button.disabled) return;
 
@@ -26,6 +26,27 @@ buttons.forEach((button) => {
     const actionType = button.dataset.action;
     const action = buttonActions[actionType];
 
+    if (typeof action === 'function') {
+      action(button);
+    } else {
+      console.warn(`No action found for type "${actionType}"`);
+    }
+  }
+
+  button.addEventListener('pointerdown', handlePressStart);
+});
+
+const mobileNavButtons = document.querySelectorAll('.js-mobile-nav-button');
+
+mobileNavButtons.forEach((button) => {
+  function handlePressStart() {
+    if (button.disabled) return;
+    
+    const actionType = button.dataset.action;
+    const action = buttonActions[actionType];
+    
+    //handle selection animation
+    
     if (typeof action === 'function') {
       action(button);
     } else {
