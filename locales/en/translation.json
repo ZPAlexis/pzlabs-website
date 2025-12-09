@@ -13,6 +13,12 @@
     "credits": "Developed by"
   },
 
+  "mobile-nav":{
+    "home-nav": "Home",
+    "projects-nav": "Projects",
+    "about-nav": "About"
+  },
+
   "summary": {
     "title": "COINS<br>COLLECTED",
     "text-coin-1": "<span>#1. </span>Hidden in box",

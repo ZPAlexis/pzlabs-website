@@ -1,4 +1,5 @@
 import { buttonActions } from './actions.js';
+import { mobileNavSelect } from './mobile-nav.js';
 
 const animatedButtons = document.querySelectorAll('.js-animated-button');
 
@@ -45,7 +46,7 @@ mobileNavButtons.forEach((button) => {
     const actionType = button.dataset.action;
     const action = buttonActions[actionType];
     
-    //handle selection animation
+    mobileNavSelect(button);
     
     if (typeof action === 'function') {
       action(button);

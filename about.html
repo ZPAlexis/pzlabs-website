@@ -55,7 +55,7 @@
               <img class="button-icon small" src="icons/icon_right_dark.png">
             </button>
 
-            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/#projects">
+            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/projects.html">
               <p data-i18n="header.projects"></p>
               <img class="button-icon small" src="icons/icon_right_dark.png">
             </button>
@@ -79,23 +79,26 @@
 
   <nav class="mobile-nav">
     <div class="mobile-nav-container">
-      <button class="js-mobile-nav-button mobile-nav-button"  data-action="navigate" data-target="/">
+      <button class="js-mobile-nav-button mobile-nav-button" data-action="navigate" data-target="/">
         <div class="mobile-nav-icon-container">
           <img class="mobile-nav-icon" src="icons/icon_mobile_nav_home_light.png"> 
+          <img class="js-nav mobile-nav-icon inactive" src="icons/icon_mobile_nav_home_dark.png"> 
         </div>
-        <div class="mobile-nav-home-text inactive">Home</div>
+        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.home-nav"></div>
       </button>
       <button class="js-mobile-nav-button mobile-nav-button" data-action="navigate" data-target="/projects.html">
         <div class="mobile-nav-icon-container">
-          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_app_light.png"> 
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_app_light.png">
+          <img class="js-nav mobile-nav-icon inactive" src="icons/icon_mobile_nav_app_dark.png">
         </div>
-        <div class="mobile-nav-home-text inactive">Projects</div>
+        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.projects-nav"></div>
       </button>
-      <button class="js-mobile-nav-button mobile-nav-button">
+      <button class="mobile-nav-button">
         <div class="mobile-nav-icon-container">
-          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_about_dark.png"> 
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_about_light.png"> 
+          <img class="js-nav-active mobile-nav-icon" src="icons/icon_mobile_nav_about_dark.png">
         </div>
-        <div class="mobile-nav-home-text">About</div>
+        <div class="js-nav-active mobile-nav-text" data-i18n="mobile-nav.about-nav"></div>
       </button>
     </div>
   </nav>
@@ -356,7 +359,7 @@ Survivor</h1>
   <script src="https://unpkg.com/i18next-http-backend@2.2.2/i18nextHttpBackend.min.js"></script>
   <script src="https://unpkg.com/i18next-browser-languagedetector@7.0.1/i18nextBrowserLanguageDetector.min.js"></script>
   <script type="module" src="scripts/i18n.js"></script>
-
   <script type="module" src="scripts/buttons.js"></script>
+  <script type="module" src="scripts/mobile-nav.js"></script>
 </body>
 </html>
