@@ -37,13 +37,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    padding-top: 16px;
     gap: 4px;
-    transition: background-color 0.2s ease-out;
-  }
-
-  .mobile-nav-button:active {
-    background-color: #FFFFFF;
   }
 
   .mobile-nav-icon-container {
