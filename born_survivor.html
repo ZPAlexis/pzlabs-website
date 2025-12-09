@@ -13,23 +13,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9Q0C2324T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-V9Q0C2324T');
+    </script>
+
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "uf7okcqynq");
+    </script>
+
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="styles/themes.css">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/post.css">
+    <link rel="stylesheet" href="styles/mobile-nav.css">
 </head>
 <body>
   <header class="header">
     <nav class="header-nav">
       <div class="header-menu-container">
         <div class="js-header-menu">
-          <button class="js-animated-button js-menu-toggle cta-button nav-button">
+          <button class="js-animated-button js-menu-toggle cta-button nav-button desktop-nav">
             <img class="button-icon" src="icons/icon_menu_dark.png">
           </button>
 
@@ -39,13 +55,13 @@
               <img class="button-icon small" src="icons/icon_right_dark.png">
             </button>
 
-            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/about.html">
-              <p data-i18n="header.about"></p>
+            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/projects.html">
+              <p data-i18n="header.projects"></p>
               <img class="button-icon small" src="icons/icon_right_dark.png">
             </button>
 
-            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/#projects">
-              <p data-i18n="header.projects"></p>
+            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/about.html" data-tracking="aboutClick">
+              <p data-i18n="header.about"></p>
               <img class="button-icon small" src="icons/icon_right_dark.png">
             </button>
           </div>
@@ -65,6 +81,32 @@
       </div>
     </nav>
   </header>
+
+  <nav class="mobile-nav">
+    <div class="mobile-nav-container">
+      <button class="js-mobile-nav-button mobile-nav-button" data-action="navigate" data-target="/">
+        <div class="mobile-nav-icon-container">
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_home_light.png"> 
+          <img class="js-nav mobile-nav-icon inactive" src="icons/icon_mobile_nav_home_dark.png"> 
+        </div>
+        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.home-nav"></div>
+      </button>
+      <button class="js-mobile-nav-button mobile-nav-button" data-action="navigate" data-target="/projects.html">
+        <div class="mobile-nav-icon-container">
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_app_light.png">
+          <img class="js-nav mobile-nav-icon" src="icons/icon_mobile_nav_app_dark.png">
+        </div>
+        <div class="js-nav mobile-nav-text" data-i18n="mobile-nav.projects-nav"></div>
+      </button>
+      <button class="js-mobile-nav-button mobile-nav-button" data-action="navigate" data-target="/about.html" data-tracking="aboutClick">
+        <div class="mobile-nav-icon-container">
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_about_light.png"> 
+          <img class="js-nav mobile-nav-icon inactive" src="icons/icon_mobile_nav_about_dark.png">
+        </div>
+        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.about-nav"></div>
+      </button>
+    </div>
+  </nav>
 
   <main class="main-container">
     <section class="post-section">
@@ -269,5 +311,6 @@ public void GeneratePowerUpOptions() {
   <script type="module" src="scripts/buttons.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+  <script type="module" src="scripts/mobile-nav.js"></script>
 </body>
 </html>

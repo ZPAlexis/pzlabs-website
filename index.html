@@ -31,7 +31,6 @@
 
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="styles/themes.css">
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/index.css">
@@ -39,7 +38,7 @@
     <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/rock-paper-scissors.css">
-    <!---<link rel="stylesheet" href="styles/mobile-nav.css">--->
+    <link rel="stylesheet" href="styles/mobile-nav.css">
 </head>
 <body>
   <header class="header">
@@ -51,13 +50,13 @@
           </button>
 
           <div class="js-header-drawer header-menu-nav-drawer">
-            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/about.html" data-tracking="aboutClick">
-              <p data-i18n="header.about"></p>
+            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/projects.html">
+              <p data-i18n="header.projects"></p>
               <img class="button-icon small" src="icons/icon_right_dark.png">
             </button>
-
-            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="#projects">
-              <p data-i18n="header.projects"></p>
+            
+            <button class="js-animated-button cta-button nav-button menu-fix-width text" data-action="navigate" data-target="/about.html" data-tracking="aboutClick">
+              <p data-i18n="header.about"></p>
               <img class="button-icon small" src="icons/icon_right_dark.png">
             </button>
           </div>
@@ -143,28 +142,31 @@
     </div>
   </nav>
 
-  <!---<nav class="mobile-nav">
+  <nav class="mobile-nav">
     <div class="mobile-nav-container">
-      <button class="mobile-nav-button"  data-action="navigate" data-target="/">
+      <button class="mobile-nav-button">
         <div class="mobile-nav-icon-container">
-          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_home_dark.png"> 
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_home_light.png"> 
+          <img class="js-nav-active mobile-nav-icon" src="icons/icon_mobile_nav_home_dark.png"> 
         </div>
-        <div class="mobile-nav-home-text">Home</div>
+        <div class="js-nav-active mobile-nav-text" data-i18n="mobile-nav.home-nav"></div>
       </button>
-      <button class="mobile-nav-button" data-action="navigate" data-target="/projects.html">
+      <button class="js-mobile-nav-button mobile-nav-button" data-action="navigate" data-target="/projects.html">
         <div class="mobile-nav-icon-container">
-          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_app_light.png"> 
+          <img class="mobile-nav-icon" src="icons/icon_mobile_nav_app_light.png">
+          <img class="js-nav mobile-nav-icon inactive" src="icons/icon_mobile_nav_app_dark.png">
         </div>
-        <div class="mobile-nav-home-text inactive">Projects</div>
+        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.projects-nav"></div>
       </button>
-      <button class="mobile-nav-button" data-action="navigate" data-target="/about.html">
+      <button class="js-mobile-nav-button mobile-nav-button" data-action="navigate" data-target="/about.html" data-tracking="aboutClick">
         <div class="mobile-nav-icon-container">
           <img class="mobile-nav-icon" src="icons/icon_mobile_nav_about_light.png"> 
+          <img class="js-nav mobile-nav-icon inactive" src="icons/icon_mobile_nav_about_dark.png">
         </div>
-        <div class="mobile-nav-home-text inactive">About</div>
+        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.about-nav"></div>
       </button>
     </div>
-  </nav>--->
+  </nav>
 
   <main class="main-container">
     <section class="intro-section">
@@ -273,7 +275,7 @@
       </div>
     </section>
 
-    <section class="about-projects-section fade-up" id="projects">
+    <section class="about-projects-section fade-up">
       <div class="about-projects-container">
         <h1 class="about-projects-title" data-i18n="index.about-projects-title"></h1>
         <p class="about-projects-description" data-i18n="index.about-projects-description"></p>
@@ -419,7 +421,7 @@ Survivor</h1>
     <div class="footer-container">
       <div class="footer-line"></div>
       <div class="footer-small-font">
-        <p style="font-size: var(--font-size-xsmall);">v0.82</p>
+        <p style="font-size: var(--font-size-xsmall);">v0.85</p>
         <p data-i18n="footer.credits"></p>
         <p><a class="link" href="https://github.com/ZPAlexis">Alexis Coelho // .zero</a></p>
         <p class="footer-small-font">CC-BY-SA-4.0 2025</p>
@@ -445,6 +447,7 @@ Survivor</h1>
   <script src="scripts/animations.js"></script>
   <script type="module" src="scripts/buttons.js"></script>
   <script type="module" src="scripts/rock-paper-scissors.js"></script>
+  <script type="module" src="scripts/mobile-nav.js"></script>
 
 </body>
 </html>
