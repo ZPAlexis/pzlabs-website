@@ -145,7 +145,7 @@ coverButton.addEventListener('click', () => {
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
     triggerSummaryAnimations();
-    trackEvent("1stCoinCollected");
+    trackEvent("boxCoin", { syncToApi: true });
   } else if (!coinIsSpinning) {
     playCoinSpinAnimation();
     restartAnimation(coverCoinScrollText, 'collected');
@@ -222,7 +222,7 @@ export function collectFillBarCoin() {
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
     triggerSummaryAnimations();
-    trackEvent("2ndCoinCollected");
+    trackEvent("fillCoin", { syncToApi: true });
   } else {
     highlightSummaryCoinContainer();
   }
@@ -235,7 +235,7 @@ export function collectRPSCoin() {
     localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
     calculateCoinAmount();
     triggerSummaryAnimations();
-    trackEvent("3rdCoinCollected");
+    trackEvent("rpsCoin", { syncToApi: true });
   }
 }
 

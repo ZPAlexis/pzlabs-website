@@ -1,3 +1,4 @@
+/*
 import { recordCoinCollected } from './api.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,3 +29,4 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', handleCoinCollection);
     }
 });
+*/
