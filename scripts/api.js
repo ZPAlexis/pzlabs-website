@@ -1,4 +1,4 @@
-const SERVER_URL = 'http://18.230.122.36:8080';
+const SERVER_URL = 'https://api.acoelho.dev';
 
 export async function recordCoinCollected(coinName) {
     const eventData = {
