@@ -1,5 +1,34 @@
 import { buttonActions } from './actions.js';
 
+const buttons = document.querySelectorAll('.js-button');
+
+buttons.forEach((button) => {
+  function handlePressStart() {
+    if (button.disabled) return;
+
+    window.addEventListener('pointerup', handlePressEnd);
+    window.addEventListener('pointercancel', handlePressEnd);
+  }
+
+  function handlePressEnd() {
+    if (button.disabled) return;
+
+    window.removeEventListener('pointerup', handlePressEnd);
+    window.removeEventListener('pointercancel', handlePressEnd);
+
+    const actionType = button.dataset.action;
+    const action = buttonActions[actionType];
+
+    if (typeof action === 'function') {
+      action(button);
+    } else {
+      console.warn(`No action found for type "${actionType}"`);
+    }
+  }
+
+  button.addEventListener('pointerdown', handlePressStart);
+});
+
 const animatedButtons = document.querySelectorAll('.js-animated-button');
 
 animatedButtons.forEach((button) => {
