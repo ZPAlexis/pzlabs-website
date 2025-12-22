@@ -2,25 +2,11 @@
   display: flex;
 }
 
-.rock-paper-scissors-container {
-  display: flex;
-  flex-direction: column;
-  margin: 80px 0;
-  padding: 120px 20px;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  background-color: var(--color-primary-shade);
-  box-shadow: var(--shadow-md) var(--color-shadow);
+.game-container.rps {
   gap: 10px;
 }
 
-.rps-title-container {
-  display: flex;
-  max-width: 360px;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+.game-title-container.rps {
   padding-bottom: 40px;
 }
 
@@ -29,12 +15,6 @@
   position: relative;
   align-items: center;
   justify-content: center;
-}
-
-.rps-title {
-  font-size: var(--font-size-h1);
-  line-height: 100%;
-  width: 70%;
 }
 
 .rps-info {
@@ -51,7 +31,7 @@
   align-items: start;
 }
 
-.rps-name, .rps-versus, .rps-title {
+.rps-name, .rps-versus {
   font-family: var(--font-family-accent);
   color: var(--color-text);
   text-shadow: var(--text-shadow-sm) var(--color-shadow);

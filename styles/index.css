@@ -421,6 +421,43 @@
   transform: translateY(6px);
 }
 
+.game-analytics-section {
+  display: flex;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  margin: 80px 0;
+  padding: 120px 20px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  background-color: var(--color-primary-shade);
+  box-shadow: var(--shadow-md) var(--color-shadow);
+  gap: 20px;
+}
+
+.game-title-container {
+  display: flex;
+  max-width: 360px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-title {
+  font-size: var(--font-size-h1);
+  line-height: 100%;
+  width: 70%;
+  font-family: var(--font-family-accent);
+  color: var(--color-text);
+  text-shadow: var(--text-shadow-sm) var(--color-shadow);
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+}
+
 @media (max-width: 720px) {
   .intro-container {
     flex-direction: column-reverse;
