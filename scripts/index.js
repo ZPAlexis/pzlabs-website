@@ -1,6 +1,7 @@
 import { fadeUpdate, resetRPSScore, updateRPSFillBar, updateScoreText, resetResult } from './rock-paper-scissors.js';
 import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
 import { trackEvent } from './utils.js';
+import { TutorialManager } from './tutorials.js';
 
 //Language Change
 const languageBtnPT = document.querySelector('.js-pt-locale');
@@ -12,7 +13,6 @@ const coverBoxImg = coverButton.querySelector('.js-cover-box');
 const coverCoinContainer = coverButton.querySelector('.js-coin-container');
 const coverCoinIdleGif = coverButton.querySelector('.js-coin-idle');
 const coverCoinSpinGif = coverButton.querySelector('.js-coin-spin');
-const coinAmount = document.querySelector('.js-coin-amount');
 const coverCoinScrollText = document.querySelector('.js-cover-coin-collected-text');
 
 //Rock Paper Scissors
@@ -23,8 +23,10 @@ const rpsBarText = document.querySelector('.js-rps-bar-text');
 
 //Summary Header
 const summaryCoinContainer = document.querySelector('.js-coin-summary');
+const coinAmount = document.querySelector('.js-coin-amount');
+const analyticsCoinContainer = document.querySelector('.js-analytics-coin-summary');
+const analyticsCoinAmount = document.querySelector('.js-analytics-coin-amount');
 const coinSummaryTrigger = document.querySelectorAll('.js-trigger-coin-summary');
-const summaryCoin = document.querySelector('.js-gold-coin');
 const summaryOverlay = document.querySelector('.js-summary-menu-overlay');
 const summaryCloseButton = document.querySelector('.js-summary-close-btn');
 
@@ -58,6 +60,7 @@ export function calculateCoinAmount() {
   const totalCoins = Object.keys(coinsCollectedFlags).length;
   const coinsCollected = Object.values(coinsCollectedFlags).filter(Boolean).length;
   coinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
+  analyticsCoinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
   
   if (coinsCollected !== 0) {
     summaryCoinContainer.classList.remove('hidden');
@@ -181,6 +184,13 @@ summaryCoinContainer.addEventListener('click', () => {
   summaryCoinContainer.classList.toggle('hidden');
 });
 
+analyticsCoinContainer.addEventListener('click', () => {
+  summaryOverlay.classList.toggle('hidden');
+  document.body.classList.toggle('no-scroll');
+  summaryCoinContainer.classList.toggle('hidden');
+  TutorialManager.completeHint('hint-press-button');
+});
+
 summaryCloseButton.addEventListener('click', () => {
   summaryOverlay.classList.toggle('hidden');
   document.body.classList.toggle('no-scroll');
@@ -192,6 +202,7 @@ summaryMenuResetScoreButton.addEventListener('click', () => {
   document.body.classList.toggle('no-scroll');
   summaryCoinContainer.classList.toggle('hidden');
   resetCoins();
+  TutorialManager.resetFlags();
 });
 
 const triggerCoinSummaryObserver = new IntersectionObserver(entries => {

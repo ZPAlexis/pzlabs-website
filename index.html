@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/rock-paper-scissors.css">
     <link rel="stylesheet" href="styles/mobile-nav.css">
+    <link rel="stylesheet" href="styles/tutorials.css">
 </head>
 <body>
   <header class="header">
@@ -76,7 +77,7 @@
       </div>
       <button class="js-animated-button js-coin-summary coin-summary cta-button hidden">
         <div class="gold-coin-container">
-          <img class="js-gold-coin summary-icon" src="icons/coin-gold.svg">
+          <img class="summary-icon" src="icons/coin-gold.svg">
         </div>
         <div class="js-coin-amount coin-amount"></div>
       </button>
@@ -416,13 +417,37 @@ Survivor</h1>
       </div>
     </section>
 
+    <section class="game-analytics-section">
+      <div class="game-container">
+        <div class="game-title-container">
+          <p class="game-title" data-i18n="index.game-analytics-title"></p>
+        </div>
+        <div class="analytics-container">
+          <div class="analyics-number-container">
+            <p class="api-total-coins js-analyics-number game-title analyics-number fade-in">0</p>
+            <img class="analytics-coin" src="icons/coin_idle.gif">
+          </div>
+          <p class="analytics-text" data-i18n-html="index.game-analytics-description"></p>
+        </div>
+        <p class="analytics-cta" data-i18n="index.game-analytics-cta"></p>
+        <button class="js-animated-button js-analytics-coin-summary coin-summary cta-button">
+          <div class="gold-coin-container">
+            <img class="summary-icon" src="icons/coin-gold.svg">
+          </div>
+          <div class="js-analytics-coin-amount coin-amount"></div>
+        </button>
+        <div id="hint-press-button" class="tutorial-hint up">
+          <img class="tutorial-box-arrow" src="icons/icon_halfarrow_up_blue.png">
+          <p class="tutorial-text" data-i18n="index.tutorial-press-hint"></p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="footer-container">
-      <div class="footer-line"></div>
       <div class="footer-small-font">
-        <p style="font-size: var(--font-size-xsmall);">v0.92</p>
+        <p style="font-size: var(--font-size-xsmall);">v0.92b</p>
         <p data-i18n="footer.credits"></p>
         <p><a class="link" href="https://github.com/ZPAlexis">Alexis Coelho // .zero</a></p>
         <p class="footer-small-font">CC-BY-SA-4.0 2025</p>
@@ -449,6 +474,7 @@ Survivor</h1>
   <script type="module" src="scripts/buttons.js"></script>
   <script type="module" src="scripts/rock-paper-scissors.js"></script>
   <script type="module" src="scripts/mobile-nav.js"></script>
+  <script type="module" src="scripts/tutorials.js"></script>
 
 </body>
 </html>

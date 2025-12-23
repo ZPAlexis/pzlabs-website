@@ -29,50 +29,44 @@ export async function recordCoinCollected(coinName) {
 }
 
 async function fetchAndDisplayMetrics() {
-    const metricsContainer = document.getElementById('metrics-container');
-    const statusMessage = document.querySelector('p');
-    
-    // 1. Show a loading state
-    statusMessage.textContent = 'Fetching the latest data...';
-    metricsContainer.style.display = 'none';
-
     try {
-        // 2. Perform the GET request to the API endpoint
-        const response = await fetch(`${SERVER_URL}/api/metrics/coins`, {
-            method: 'GET',
-            headers: {
-                // No 'Content-Type': 'application/json' needed for GET unless sending a body,
-                // but the header 'Accept: application/json' could be used.
+        const response = await fetch(`${SERVER_URL}/api/metrics/coins`);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+        const jsonResponse = await response.json();
+        if (jsonResponse.status !== 'success' || !jsonResponse.data) return;
+
+        const { totalCoinsCollected, totalUsersWithAllThreeCoins, totalUsersWithCoins } = jsonResponse.data;
+        const formattedCoins = new Intl.NumberFormat().format(totalCoinsCollected);
+
+        const numberContainers = document.querySelectorAll('.js-analyics-number');
+        const coinDisplays = document.querySelectorAll('.api-total-coins');
+        
+        coinDisplays.forEach(el => {
+            el.textContent = formattedCoins;
+        });
+
+        const digitCount = totalCoinsCollected.toString().length;
+
+        numberContainers.forEach(container => {
+            container.classList.remove('long-number', 'huge-number');
+
+            if (digitCount >= 7) {
+                container.classList.add('huge-number'); // 1,000,000+
+            } else if (digitCount >= 4) {
+                container.classList.add('long-number'); // 1,000 to 999,999
             }
         });
 
-        // Check for HTTP errors (4xx or 5xx)
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+        const percentageEl = document.getElementById('api-total-users-all-three');
+        if (percentageEl && totalUsersWithCoins > 0) {
+            const percentage = (totalUsersWithAllThreeCoins / totalUsersWithCoins) * 100;
+            percentageEl.textContent = percentage.toFixed(1);
         }
-
-        const jsonResponse = await response.json();
-        
-        // Ensure the API call was successful based on the JSON body
-        if (jsonResponse.status !== 'success' || !jsonResponse.data) {
-            throw new Error('API reported a non-success status.');
-        }
-
-        const data = jsonResponse.data;
-
-        // 3. Update the HTML elements with the received data
-        document.getElementById('total-coins').textContent = data.totalCoinsCollected;
-        document.getElementById('total-users-min-one').textContent = data.totalUsersWithCoins;
-        document.getElementById('total-users-all-three').textContent = data.totalUsersWithAllThreeCoins;
-
-        // 4. Update the display status
-        statusMessage.textContent = 'Data successfully loaded.';
-        metricsContainer.style.display = 'block';
 
     } catch (error) {
-        // 5. Handle any errors (network, parsing, API failure)
         console.error('Error fetching statistics:', error);
-        statusMessage.textContent = 'Error loading statistics. Please try again.';
-        metricsContainer.style.display = 'none';
     }
 }
+
+//fetchAndDisplayMetrics();

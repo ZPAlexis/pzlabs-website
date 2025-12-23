@@ -71,7 +71,10 @@
     "rps-lose": "Você perdeu.",
     "rps-tie": "Empate.",
     "cta-text": "Tem alguma pergunta ou quer conversar?<br><br>Entre em contato:",
-    "game-analytics-title": "PARTICIPE DO JOGO"
+    "game-analytics-title": "ENTRE NO JOGO",
+    "game-analytics-description": "<span>moedas foram coletadas no total</span><br>por todos os visitantes desta página",
+    "game-analytics-cta": "Você consegue achar e coletar todas as 3 moedas?",
+    "tutorial-press-hint": "Aperte para dicas!"
   },
 
   "projects": {

@@ -448,13 +448,79 @@
 .game-title {
   font-size: var(--font-size-h1);
   line-height: 100%;
-  width: 70%;
   font-family: var(--font-family-accent);
   color: var(--color-text);
   text-shadow: var(--text-shadow-sm) var(--color-shadow);
   font-weight: bold;
   justify-content: center;
   text-align: center;
+}
+
+.analytics-container {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  background-color: var(--color-primary-dark);
+  border-radius: 20px;
+  padding: 30px 0;
+  text-align: center;
+  gap: 6px;
+}
+
+.analyics-number-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.analyics-number-container::before {
+  content: "";
+  display: block;
+  width: 50px;
+}
+
+.analyics-number {
+  font-size: 80px;
+  color: var(--color-accent);
+  margin: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.analyics-number.long-number {
+  font-size: 50px; 
+}
+
+.analyics-number.huge-number {
+  font-size: 34px;
+}
+
+.analytics-coin {
+  width: 50px;
+  display: block;
+}
+
+
+.analytics-text {
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-medium);
+  line-height: 120%;
+  text-align: center;
+}
+
+.analytics-text span {
+  font-weight: bold;
+  color: var(--color-accent);
+}
+
+.analytics-cta {
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-body);
+  font-weight: bold;
+  text-align: center;
+  max-width: 290px;
+  color: var(--color-accent);
 }
 
 @media (max-width: 720px) {

@@ -98,6 +98,14 @@
   background-color: var(--color-button-active)
 }
 
+.gold-button:hover {
+  background-color: var(--color-accent-highlight);
+}
+
+.blue-button:hover {
+  background-color: var(--color-primary-highlight);
+}
+
 .button-icon {
   object-fit: cover;
   height: 25px;
