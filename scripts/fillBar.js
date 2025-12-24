@@ -1,4 +1,4 @@
-import { collectFillBarCoin, restartAnimation } from './index.js';
+import { collectFillBarCoin } from './index.js';
 
 const resetFillBarButton = document.querySelector('.js-fill-bar-reset-button');
 const bestTimerText = document.querySelector('.js-fill-bar-best-text');

@@ -1,4 +1,34 @@
-//Fade Up Observer
+import { Elements } from './uiElements.js';
+
+export const Animations = {
+  restart(el, className) {
+    if (!el) return;
+    el.classList.remove(className);
+    void el.offsetWidth;
+    el.classList.add(className);
+  },
+
+  highlightSummaryCoinContainer() {
+        this.restart(Elements.summaryCoinContainer, 'highlight');
+    },
+
+  playCoinSpin(idleEl, spinEl, idleUrl, spinUrl, onComplete) {
+    const SPIN_DURATION = 3200;
+    spinEl.src = '';
+    spinEl.style.opacity = '1';
+    spinEl.src = spinUrl;
+    idleEl.style.opacity = '0';
+
+    setTimeout(() => {
+      idleEl.src = idleUrl;
+      idleEl.style.opacity = '1';
+      spinEl.style.opacity = '0';
+      if (onComplete) onComplete();
+    }, SPIN_DURATION);
+  }
+};
+
+//1. Fade Up Observer
 const fadeUp = document.querySelectorAll('.fade-up');
 
 const fadeUpObserver = new IntersectionObserver(entries => {
@@ -23,7 +53,7 @@ const fadeUpObserver = new IntersectionObserver(entries => {
 
 fadeUp.forEach(el => fadeUpObserver.observe(el));
 
-//Fade Left Observer
+//2. Fade Left Observer
 const fadeLeft = document.querySelectorAll('.fade-left');
 
 const fadeLeftObserver = new IntersectionObserver(entries => {
@@ -50,7 +80,7 @@ const fadeLeftObserver = new IntersectionObserver(entries => {
 
 fadeLeft.forEach(el => fadeLeftObserver.observe(el));
 
-//Fade Right Observer
+//3. Fade Right Observer
 const fadeRight = document.querySelectorAll('.fade-right');
 
 const fadeRightObserver = new IntersectionObserver(entries => {

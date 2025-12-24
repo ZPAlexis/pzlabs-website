@@ -1,4 +1,5 @@
-import { collectRPSCoin, restartAnimation } from './index.js';
+import { collectRPSCoin } from './index.js';
+import { Animations } from './animations.js';
 
 const jsResult = document.querySelector('.js-result');
 const jsPlayerMove = document.querySelector('.js-player-move');
@@ -92,7 +93,7 @@ export function updateRPSFillBar() {
 
     rpsGrayCoin.classList.add('hidden');
     rpsGoldCoin.classList.remove('hidden');
-    restartAnimation(rpsBarBorder, 'highlight');
+    Animations.restart(rpsBarBorder, 'highlight');
 
     const originalSrc = 'icons/coin-gold.svg';
     const gifSrc = 'icons/coin_spin.gif';

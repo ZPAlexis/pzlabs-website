@@ -1,297 +1,240 @@
+import { GameState } from './gameState.js';
+import { Elements } from './uiElements.js';
+import { TabManager } from './tabManager.js';
+import { TutorialManager } from './tutorialManager.js';
+import { Animations } from './animations.js';
+import { fetchAndDisplayMetrics } from './api.js';
+
 import { fadeUpdate, resetRPSScore, updateRPSFillBar, updateScoreText, resetResult } from './rock-paper-scissors.js';
 import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
 import { trackEvent } from './utils.js';
-import { TutorialManager } from './tutorialManager.js';
 
-//Language Change
-const languageBtnPT = document.querySelector('.js-pt-locale');
-const languageBtnEN = document.querySelector('.js-en-locale');
+const App = {
+  coinIsSpinning: false,
+  
+  init() {
+    GameState.load();
+    TabManager.init();
+    TutorialManager.init();
+    
+    this.setupEventListeners();
+    this.setupScrollObservers();
+    
+    if (typeof i18next !== 'undefined' && i18next.isInitialized) {
+      this.refreshApp();
+    } else {
+      i18next.on('initialized', () => this.refreshApp());
+    }
 
-//Cover Coin
-const coverButton = document.querySelector('.cover-btn');
-const coverBoxImg = coverButton.querySelector('.js-cover-box');
-const coverCoinContainer = coverButton.querySelector('.js-coin-container');
-const coverCoinIdleGif = coverButton.querySelector('.js-coin-idle');
-const coverCoinSpinGif = coverButton.querySelector('.js-coin-spin');
-const coverCoinScrollText = document.querySelector('.js-cover-coin-collected-text');
+    //fetchAndDisplayMetrics();
+  },
 
-//Rock Paper Scissors
-const rpsGoldCoin = document.querySelector('.js-rps-collected-coin');
-const rpsGrayCoin = document.querySelector('.js-rps-gray-coin');
-const rpsBarBorder = document.querySelector('.js-rps-bar-container');
-const rpsBarText = document.querySelector('.js-rps-bar-text');
+  refreshApp() {
+    refreshIndex();
+    calculateCoinAmount();
+    triggerFillBarAnimations(GameState.flags.fillBar);
+    updateRPSFillBar();
+    updateScoreText();
+  },
 
-//Summary Header
-const summaryCoinContainer = document.querySelector('.js-coin-summary');
-const coinAmount = document.querySelector('.js-coin-amount');
-const analyticsCoinContainer = document.querySelector('.js-analytics-coin-summary');
-const analyticsCoinAmount = document.querySelector('.js-analytics-coin-amount');
-const coinSummaryTrigger = document.querySelectorAll('.js-trigger-coin-summary');
-const summaryOverlay = document.querySelector('.js-summary-menu-overlay');
-const summaryCloseButton = document.querySelector('.js-summary-close-btn');
+  setupEventListeners() {
+    Elements.coverButton?.addEventListener('click', () => this.coverCoinClick());
 
-//Summary Menu
-const summaryMenuCoinCollectedCover = document.querySelector('.js-summary-menu-cover-gold-coin'); 
-const summaryMenuCoinCollectedFillbar = document.querySelector('.js-summary-menu-fillbar-gold-coin'); 
-const summaryMenuCoinCollectedRPS = document.querySelector('.js-summary-menu-rps-gold-coin'); 
-const summaryMenuCoverText = document.querySelector('.js-summary-menu-cover-text');
-const summaryMenuFillbarText = document.querySelector('.js-summary-menu-fillbar-text');
-const summaryMenuFillbarTimerContainer = document.querySelector('.js-summary-menu-stat-timer-container');
-const summaryMenuBestTimer = document.querySelector('.js-fill-bar-best-timer');
-const summaryMenuRPSText = document.querySelector('.js-summary-menu-rps-text');
-const summaryMenuRPSStats = document.querySelector('.js-summary-menu-rps-stats');
-const summaryMenuResetScoreButton = document.querySelector('.js-summary-reset-score-button'); 
-const summaryMenuLockIcons = document.querySelectorAll('.js-summary-lock-icon');
-const summaryMenuUnlockText = document.querySelector('.js-summary-unlock-text');
+    Elements.summaryCoinContainer?.addEventListener('click', () => {
+        this.toggleSummary(false);
+    });
 
-const defaultCoinFlags = {
-  cover: false,
-  fillBar: false,
-  rps: false
+    Elements.summaryCloseButton?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleSummary(true);
+    });
+
+    Elements.analyticsCoinContainer?.addEventListener('click', () => {
+        this.toggleSummary();
+        TutorialManager.completeHint('hint-press-button');
+    });
+
+    Elements.summaryMenuResetScoreButton?.addEventListener('click', () => {
+        this.toggleSummary();
+        this.resetCoins();
+        TutorialManager.resetFlags();
+    });
+
+    Elements.languageBtnEN?.addEventListener('click', () => this.changeAppLanguage('en'));
+
+    Elements.languageBtnPT?.addEventListener('click', () => this.changeAppLanguage('pt'));
+  },
+
+  setupScrollObservers() {
+    if (Elements.coinSummaryTriggers.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+
+          Elements.summaryCoinContainer?.classList.remove('hidden');
+
+          const handleTransitionEnd = (e) => {
+            if (e.target === el && (e.propertyName === 'transform' || e.propertyName === 'opacity')) {
+              el.classList.remove('js-trigger-coin-summary');
+              el.removeEventListener('transitionend', handleTransitionEnd);
+            }
+          };
+
+          el.addEventListener('transitionend', handleTransitionEnd);
+
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    Elements.coinSummaryTriggers.forEach(el => observer.observe(el));
+  },
+
+  coverCoinClick() {
+    const newlyCollected = GameState.collectCoverCoin();
+    
+    if (newlyCollected) {
+        Elements.coverBoxImg?.classList.add('open');
+        this.refreshApp();
+        this.playSpin();
+        Animations.highlightSummaryCoinContainer();
+    } else {
+        this.playSpin();
+        Animations.restart(Elements.coverCoinScrollText, 'collected');
+        Animations.highlightSummaryCoinContainer();
+    }
+  },
+
+  playSpin() {
+    if (this.coinIsSpinning) return;
+    this.coinIsSpinning = true;
+    Animations.playCoinSpin(
+      Elements.coverCoinIdleGif, 
+      Elements.coverCoinSpinGif, 
+      'icons/coin_idle.gif', 
+      'icons/coin_spin.gif',
+      () => { this.coinIsSpinning = false; }
+    );
+  },
+
+  toggleSummary(shouldHide) {
+    const isHidden = Elements.summaryOverlay.classList.toggle('hidden', shouldHide);
+    
+    Elements.toggle(document.body, 'no-scroll', !isHidden);
+    
+
+    Elements.toggle(Elements.summaryCoinContainer, 'hidden', !isHidden);
+  },
+
+  resetCoins() {
+    GameState.reset();
+    resetFillBarTimers();
+    resetRPSScore();
+    this.refreshApp();
+    trackEvent("coinsReset");
+  },
+
+  async changeAppLanguage(lang) {
+    await changeLanguage(lang);
+    this.refreshApp();
+    resetResult();
+  }
 };
 
-const coinsCollectedFlags = { ...defaultCoinFlags };
-
-const saved = localStorage.getItem('coinFlags');
-if (saved) {
-  Object.assign(coinsCollectedFlags, JSON.parse(saved));
-}
-
 export function calculateCoinAmount() {
-  const totalCoins = Object.keys(coinsCollectedFlags).length;
-  const coinsCollected = Object.values(coinsCollectedFlags).filter(Boolean).length;
-  coinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
-  analyticsCoinAmount.innerHTML = `${coinsCollected} / ${totalCoins}`;
+  const totalCoins = GameState.getTotalCount();
+  const coinsCollected = GameState.getCollectedCount();
+  const statusText = `${coinsCollected} / ${totalCoins}`;
+
+  Elements.coinAmount.innerHTML = statusText;
+  Elements.analyticsCoinAmount.innerHTML = statusText;
   
+  Elements.toggle(Elements.summaryCoinContainer, 'hidden', coinsCollected === 0);
+
   if (coinsCollected !== 0) {
-    summaryCoinContainer.classList.remove('hidden');
-    fadeUpdate(coinAmount, `${coinsCollected} / ${totalCoins}`);
+    fadeUpdate(Elements.coinAmount, statusText);
   }
+
   if (coinsCollected === totalCoins) {
     trackEvent("allCoinsCollected");
   }
+  
   updateSummaryMenu(coinsCollected, totalCoins);
 }
 
-function setClassByCondition(element, condition, className) {
-  element.classList.toggle(className, condition);
+export function refreshIndex() {
+  const isCoverCollected = GameState.flags.cover;
+  
+  Elements.toggle(Elements.coverBoxImg, 'idle', !isCoverCollected);
+  Elements.toggle(Elements.coverBoxImg, 'hidden', isCoverCollected);
+  
+  Elements.toggle(Elements.coverCoinContainer, 'idle', isCoverCollected);
+  Elements.toggle(Elements.coverCoinContainer, 'hidden', !isCoverCollected);
+  
+  Elements.toggle(Elements.coverCoinScrollText, 'collected', isCoverCollected);
+
+  if (!isCoverCollected) {
+    Elements.coverBoxImg?.classList.remove('open');
+  }
+
+  triggerFillBarAnimations(GameState.flags.fillBar);
+}
+
+export function collectFillBarCoin() {
+    const isNew = GameState.collectFillBarCoin();
+    if (isNew) {
+        calculateCoinAmount(); 
+        Animations.highlightSummaryCoinContainer();
+    } else {
+        Animations.highlightSummaryCoinContainer();
+    }
+    triggerFillBarAnimations(GameState.flags.fillBar);
+}
+
+export function collectRPSCoin() {
+    const isNew = GameState.collectRPSCoin();
+    if (isNew) {
+        calculateCoinAmount();
+        Animations.highlightSummaryCoinContainer();
+    }
 }
 
 function updateSummaryMenu(coinsCollected, totalCoins) {
   const flagMapping = {
     cover: [
-      summaryMenuCoinCollectedCover,
-      summaryMenuCoverText,
+      Elements.summaryMenuCoinCollectedCover,
+      Elements.summaryMenuCoverText,
     ],
     fillBar: [
-      summaryMenuCoinCollectedFillbar,
-      summaryMenuFillbarTimerContainer,
-      summaryMenuFillbarText,
+      Elements.summaryMenuCoinCollectedFillbar,
+      Elements.summaryMenuFillbarTimerContainer,
+      Elements.summaryMenuFillbarText,
     ],
     rps: [
-      summaryMenuCoinCollectedRPS,
-      summaryMenuRPSText,
-      summaryMenuRPSStats,
+      Elements.summaryMenuCoinCollectedRPS,
+      Elements.summaryMenuRPSText,
+      Elements.summaryMenuRPSStats,
     ],
   };
 
   Object.entries(flagMapping).forEach(([flag, elements]) => {
-    elements.forEach(el =>
-      setClassByCondition(el, !coinsCollectedFlags[flag], 'hidden')
-    );
+    const isCollected = GameState.flags[flag];
+    elements.forEach(el => Elements.toggle(el, 'hidden', !isCollected));
   });
 
-  summaryMenuBestTimer.textContent = bestTimer !== null ? `${bestTimer}s` : '---';
+  Elements.setText(Elements.summaryMenuBestTimer, bestTimer !== null ? `${bestTimer}s` : '---');
 
   const allCoinsCollected = coinsCollected === totalCoins;
-  summaryMenuResetScoreButton.disabled = !allCoinsCollected;
-  setClassByCondition(summaryMenuResetScoreButton, !allCoinsCollected, 'locked');
-
-  summaryMenuLockIcons.forEach(el =>
-    setClassByCondition(el, allCoinsCollected, 'hidden')
-  );
-  setClassByCondition(summaryMenuUnlockText, allCoinsCollected, 'hidden');
-}
-
-export function refreshIndex() {
-  setClassByCondition(coverBoxImg, !coinsCollectedFlags.cover, 'idle');
-  setClassByCondition(coverBoxImg, coinsCollectedFlags.cover, 'hidden');
-  setClassByCondition(coverCoinContainer, coinsCollectedFlags.cover, 'idle');
-  setClassByCondition(coverCoinContainer, !coinsCollectedFlags.cover, 'hidden');
-  setClassByCondition(coverCoinScrollText, coinsCollectedFlags.cover, 'collected');
-
-  if (!coinsCollectedFlags.cover) {
-    coverBoxImg.classList.remove('open');
+  
+  if (Elements.summaryMenuResetScoreButton) {
+    Elements.summaryMenuResetScoreButton.disabled = !allCoinsCollected;
+    Elements.toggle(Elements.summaryMenuResetScoreButton, 'locked', !allCoinsCollected);
   }
 
-  triggerFillBarAnimations(coinsCollectedFlags.fillBar);
+  Elements.summaryMenuLockIcons.forEach(el => Elements.toggle(el, 'hidden', allCoinsCollected));
+  Elements.toggle(Elements.summaryMenuUnlockText, 'hidden', allCoinsCollected);
 }
 
-export function restartAnimation(el, className) {
-  el.classList.remove(className);
-  void el.offsetWidth;
-  el.classList.add(className);
-}
-
-export function highlightSummaryCoinContainer() {
-  restartAnimation(summaryCoinContainer, 'highlight');
-}
-
-coverButton.addEventListener('click', () => {
-  if (!coinsCollectedFlags.cover) {
-    coverBoxImg.classList.remove('idle');
-    coverBoxImg.classList.add('open');
-    coverCoinContainer.classList.remove('hidden');
-    coverCoinContainer.classList.add('idle');
-    playCoinSpinAnimation();
-    coverCoinScrollText.classList.add('collected');
-
-    coinsCollectedFlags.cover = true;
-    localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
-    calculateCoinAmount();
-    triggerSummaryAnimations();
-    trackEvent("boxCoin", { syncToApi: true });
-  } else if (!coinIsSpinning) {
-    playCoinSpinAnimation();
-    restartAnimation(coverCoinScrollText, 'collected');
-    highlightSummaryCoinContainer();
-  }
-});
-
-let coinIsSpinning = false;
-const idleUrl = 'icons/coin_idle.gif';
-const spinUrl = 'icons/coin_spin.gif';
-const idleImage = new Image(); idleImage.src = idleUrl;
-const spinImage = new Image(); spinImage.src = spinUrl;
-
-function playCoinSpinAnimation() {
-  if (coinIsSpinning) return;
-  coinIsSpinning = true;
-  const SPIN_DURATION = 3200;
-  coverCoinSpinGif.src = '';
-  coverCoinSpinGif.style.opacity = '1';
-  coverCoinSpinGif.src = spinUrl;
-  coverCoinIdleGif.style.opacity = '0';
-  setTimeout(() => {
-    coverCoinIdleGif.src = idleUrl;
-    coverCoinIdleGif.style.opacity = '1';
-    coverCoinSpinGif.style.opacity = '0';
-    coinIsSpinning = false;
-  }, SPIN_DURATION);
-}
-
-summaryCoinContainer.addEventListener('click', () => {
-  summaryOverlay.classList.toggle('hidden');
-  document.body.classList.toggle('no-scroll');
-  summaryCoinContainer.classList.toggle('hidden');
-});
-
-analyticsCoinContainer.addEventListener('click', () => {
-  summaryOverlay.classList.toggle('hidden');
-  document.body.classList.toggle('no-scroll');
-  summaryCoinContainer.classList.toggle('hidden');
-  TutorialManager.completeHint('hint-press-button');
-});
-
-summaryCloseButton.addEventListener('click', () => {
-  summaryOverlay.classList.toggle('hidden');
-  document.body.classList.toggle('no-scroll');
-  summaryCoinContainer.classList.toggle('hidden');
-});
-
-summaryMenuResetScoreButton.addEventListener('click', () => {
-  summaryOverlay.classList.toggle('hidden');
-  document.body.classList.toggle('no-scroll');
-  summaryCoinContainer.classList.toggle('hidden');
-  resetCoins();
-  TutorialManager.resetFlags();
-});
-
-const triggerCoinSummaryObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      summaryCoinContainer.classList.remove('hidden');
-    
-      const handleTransitionEnd = (e) => {
-        if (e.target === el && (e.propertyName === 'transform' || e.propertyName === 'opacity')) {
-          el.classList.remove('js-trigger-coin-summary');
-          el.removeEventListener('transitionend', handleTransitionEnd);
-        }
-      };
-
-      el.addEventListener('transitionend', handleTransitionEnd);
-
-      triggerCoinSummaryObserver.unobserve(el);
-    }
-  });
-});
-
-coinSummaryTrigger.forEach(el => triggerCoinSummaryObserver.observe(el));
-
-export function collectFillBarCoin() {
-  if (!coinsCollectedFlags.fillBar) {
-    coinsCollectedFlags.fillBar = true;
-    localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
-    calculateCoinAmount();
-    triggerSummaryAnimations();
-    trackEvent("fillCoin", { syncToApi: true });
-  } else {
-    highlightSummaryCoinContainer();
-  }
-  triggerFillBarAnimations(coinsCollectedFlags.fillBar);
-}
-
-export function collectRPSCoin() {
-  if (!coinsCollectedFlags.rps) {
-    coinsCollectedFlags.rps = true;
-    localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
-    calculateCoinAmount();
-    triggerSummaryAnimations();
-    trackEvent("rpsCoin", { syncToApi: true });
-  }
-}
-
-function saveCoinFlags() {
-  localStorage.setItem('coinFlags', JSON.stringify(coinsCollectedFlags));
-}
-
-export function resetCoins() {
-  Object.assign(coinsCollectedFlags, defaultCoinFlags);
-  saveCoinFlags();
-  resetFillBarTimers();
-  resetRPSScore();
-  refreshIndex();
-  calculateCoinAmount();
-  trackEvent("coinsReset");
-}
-
-function triggerSummaryAnimations() {
-  highlightSummaryCoinContainer();
-}
-
-languageBtnEN.addEventListener('click', async () => {
-  await changeLanguage('en');
-  triggerFillBarAnimations(coinsCollectedFlags.fillBar);
-  updateRPSFillBar();
-  updateScoreText();
-  resetResult()
-});
-
-languageBtnPT.addEventListener('click', async () => {
-  await changeLanguage('pt');
-  triggerFillBarAnimations(coinsCollectedFlags.fillBar);
-  updateRPSFillBar();
-  updateScoreText();
-  resetResult()
-});
-
-if (i18next.isInitialized) {
-  refreshIndex();
-  calculateCoinAmount();
-} else {
-  i18next.on('initialized', () => {
-    refreshIndex();
-    calculateCoinAmount();
-  });
-}
+App.init();
