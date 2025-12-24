@@ -20,6 +20,7 @@
   --color-primary-dark99: #07307df6;
   --color-primary-darker: #021540;
   --color-primary-darker99: #021540e3;
+  --color-primary-tabs: #002D94;
   --color-border: #e2e8f0;
   --color-border-shadow: #d0d7df;
   --color-overlay: rgba(2, 2, 2, 0.637);
@@ -81,6 +82,7 @@
   --shadow-button: 0 8px 0 0;
   --shadow-spread: 0 0 10px 0;
   --shadow-mobile-nav: 0 -2px 4px 0;
+  --shadow-tab: 0 4px 4px 0;
 
   /* Text Shadows */
   --text-shadow-sm: 0 2px 0;

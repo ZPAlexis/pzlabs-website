@@ -1,7 +1,7 @@
 import { fadeUpdate, resetRPSScore, updateRPSFillBar, updateScoreText, resetResult } from './rock-paper-scissors.js';
 import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
 import { trackEvent } from './utils.js';
-import { TutorialManager } from './tutorials.js';
+import { TutorialManager } from './tutorialManager.js';
 
 //Language Change
 const languageBtnPT = document.querySelector('.js-pt-locale');
@@ -36,6 +36,7 @@ const summaryMenuCoinCollectedFillbar = document.querySelector('.js-summary-menu
 const summaryMenuCoinCollectedRPS = document.querySelector('.js-summary-menu-rps-gold-coin'); 
 const summaryMenuCoverText = document.querySelector('.js-summary-menu-cover-text');
 const summaryMenuFillbarText = document.querySelector('.js-summary-menu-fillbar-text');
+const summaryMenuFillbarTimerContainer = document.querySelector('.js-summary-menu-stat-timer-container');
 const summaryMenuBestTimer = document.querySelector('.js-fill-bar-best-timer');
 const summaryMenuRPSText = document.querySelector('.js-summary-menu-rps-text');
 const summaryMenuRPSStats = document.querySelector('.js-summary-menu-rps-stats');
@@ -84,6 +85,7 @@ function updateSummaryMenu(coinsCollected, totalCoins) {
     ],
     fillBar: [
       summaryMenuCoinCollectedFillbar,
+      summaryMenuFillbarTimerContainer,
       summaryMenuFillbarText,
     ],
     rps: [

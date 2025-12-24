@@ -38,5 +38,3 @@ export const TutorialManager = {
     });
   }
 };
-
-document.addEventListener('DOMContentLoaded', () => TutorialManager.init());

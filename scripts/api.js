@@ -28,7 +28,7 @@ export async function recordCoinCollected(coinName) {
     }
 }
 
-async function fetchAndDisplayMetrics() {
+export async function fetchAndDisplayMetrics() {
     try {
         const response = await fetch(`${SERVER_URL}/api/metrics/coins`);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
@@ -68,5 +68,3 @@ async function fetchAndDisplayMetrics() {
         console.error('Error fetching statistics:', error);
     }
 }
-
-//fetchAndDisplayMetrics();
