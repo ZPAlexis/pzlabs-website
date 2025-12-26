@@ -52,9 +52,9 @@ export async function fetchAndDisplayMetrics() {
             container.classList.remove('long-number', 'huge-number');
 
             if (digitCount >= 7) {
-                container.classList.add('huge-number'); // 1,000,000+
+                container.classList.add('huge-number');
             } else if (digitCount >= 4) {
-                container.classList.add('long-number'); // 1,000 to 999,999
+                container.classList.add('long-number');
             }
         });
 

@@ -304,11 +304,15 @@
   gap: 80px;
   justify-content: center;
 
-
   max-width: var(--max-width-container);
   width: 100%;
   margin: 20px 0 120px 0;
   padding: 0 20px;
+}
+
+.projects-container.baseline {
+  align-items: baseline;
+  justify-content: start;
 }
 
 .project-container {
@@ -477,7 +481,7 @@
 .analyics-number-container::before {
   content: "";
   display: block;
-  width: 50px;
+  width: 44px;
 }
 
 .analyics-number {
@@ -497,7 +501,7 @@
 }
 
 .analytics-coin {
-  width: 50px;
+  width: 44px;
   display: block;
 }
 
@@ -509,8 +513,13 @@
   text-align: center;
 }
 
+.analytics-text.body {
+  font-size: var(--font-size-body);
+  line-height: 140%;
+}
+
 .analytics-text span {
-  font-weight: bold;
+  font-weight: 500;
   color: var(--color-accent);
 }
 
