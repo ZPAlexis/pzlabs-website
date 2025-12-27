@@ -2,7 +2,7 @@ i18next
   .use(i18nextHttpBackend)
   .use(i18nextBrowserLanguageDetector)
   .init({
-    debug: true, // Turn off in production
+    debug: false,
     fallbackLng: 'en',
     supportedLngs: ['en', 'pt'],
     load: 'languageOnly',

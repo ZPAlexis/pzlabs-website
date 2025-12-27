@@ -41,11 +41,17 @@ export const Elements = {
     
     summaryMenuResetScoreButton: document.querySelector('.js-summary-reset-score-button'),
     summaryMenuUnlockText: document.querySelector('.js-summary-unlock-text'),
-    
+
     get summaryMenuLockIcons() { 
         return document.querySelectorAll('.js-summary-lock-icon'); 
     },
 
+    // --- Analytics Details ---
+    analyticsCTACoins: document.querySelector('.js-analytics-cta-text'),
+    analyticsSummaryCoins: document.querySelector('.js-analytics-coins-text'),
+    analyticsSummaryPercentage: document.querySelector('.js-analytics-percentage-text'),
+    
+    // --- Helpers ---
     toggle(element, className, condition) {
         if (element) {
             element.classList.toggle(className, condition);

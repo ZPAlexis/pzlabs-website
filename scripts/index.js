@@ -32,7 +32,6 @@ const App = {
   refreshApp() {
     refreshIndex();
     calculateCoinAmount();
-    triggerFillBarAnimations(GameState.flags.fillBar);
     updateRPSFillBar();
     updateScoreText();
   },
@@ -123,8 +122,6 @@ const App = {
     const isHidden = Elements.summaryOverlay.classList.toggle('hidden', shouldHide);
     
     Elements.toggle(document.body, 'no-scroll', !isHidden);
-    
-
     Elements.toggle(Elements.summaryCoinContainer, 'hidden', !isHidden);
   },
 
@@ -157,11 +154,12 @@ export function calculateCoinAmount() {
     fadeUpdate(Elements.coinAmount, statusText);
   }
 
+  updateAnalyticsText(coinsCollected, totalCoins);
+  updateSummaryMenu(coinsCollected, totalCoins);
+
   if (coinsCollected === totalCoins) {
     trackEvent("allCoinsCollected");
   }
-  
-  updateSummaryMenu(coinsCollected, totalCoins);
 }
 
 export function refreshIndex() {
@@ -235,6 +233,24 @@ function updateSummaryMenu(coinsCollected, totalCoins) {
 
   Elements.summaryMenuLockIcons.forEach(el => Elements.toggle(el, 'hidden', allCoinsCollected));
   Elements.toggle(Elements.summaryMenuUnlockText, 'hidden', allCoinsCollected);
+}
+
+function updateAnalyticsText(collected, total) {
+  const allCollected = collected === total;
+
+  const ctaKey = allCollected
+  ? 'index.game-analytics-summary-coins-3'
+  : 'index.game-analytics-cta';
+  
+  const summaryKey = `index.game-analytics-summary-coins-${collected}`;
+
+  const percentageKey = allCollected
+  ? 'index.game-analytics-summary-percentage-all'
+  : 'index.game-analytics-summary-percentage-none';
+
+  Elements.analyticsCTACoins.innerHTML = i18next.t(ctaKey);
+  Elements.analyticsSummaryCoins.innerHTML = i18next.t(summaryKey);
+  Elements.analyticsSummaryPercentage.innerHTML = i18next.t(percentageKey);
 }
 
 App.init();

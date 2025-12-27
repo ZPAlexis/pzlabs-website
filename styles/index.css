@@ -518,6 +518,11 @@
   line-height: 140%;
 }
 
+.analytics-text.accent {
+  font-weight: 400;
+  color: var(--color-accent);
+}
+
 .analytics-text span {
   font-weight: 500;
   color: var(--color-accent);
