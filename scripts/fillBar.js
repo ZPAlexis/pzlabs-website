@@ -1,208 +1,230 @@
 import { collectFillBarCoin } from './index.js';
+import { Animations } from './animations.js';
+import { Elements } from './uiElements.js';
 
-const resetFillBarButton = document.querySelector('.js-fill-bar-reset-button');
-const bestTimerText = document.querySelector('.js-fill-bar-best-text');
+export const FillBarGame = {
+  bestTimer: parseFloat(localStorage.getItem('bestTimer')) || null,
+  lastTimer: parseFloat(localStorage.getItem('lastTimer')) || null,
+  timerInterval: null,
+  timerStart: null,
+  isAnimating: false,
+  currentSeconds: "0.00",
 
-const fillBarFill = document.querySelector('.js-fill-bar-fill');
-const fillBarGoldCoin = document.querySelector('.js-fill-bar-collected-coin');
-const fillBarGrayCoin = document.querySelector('.js-fill-bar-gray-coin');
-const fillBarBorder = document.querySelector('.js-fill-bar-container');
-const fillBarText = document.querySelector('.js-fill-bar-text');
-const fillTimerCont = document.querySelector('.js-fill-bar-timer-container');
-const fillTimerEl = document.querySelector('.js-fill-bar-timer');
+  init() {
+    this.setupEventListeners();
+    this.updateBestDisplay();
+    const isCollected = JSON.parse(localStorage.getItem('gameState'))?.fillBar || false;
+    this.refreshUI(isCollected);
+  },
 
-export function resetFillBarTimers() {
-  bestTimer = null;
-  lastTimer = null;
-  localStorage.removeItem('bestTimer');
-  localStorage.removeItem('lastTimer');
-}
+  setupEventListeners() {
+    Elements.resetFillBarButton?.addEventListener('click', () => this.resetUI());
+  },
 
-export function fillBar(amount) {
-  const fill = document.querySelector('.js-fill-bar-fill');
-  const currentWidthStr = fill.style.width || '0%';
-  let currentWidth = parseFloat(currentWidthStr);
+  // --- Core Game Logic ---
   
-  let newWidth = currentWidth + amount;
+  increment(amount) {
+    const fill = Elements.fillBarFill;
+    if (!fill) return;
 
-  // Clamp between 0 and 100
-  newWidth = Math.max(0, Math.min(100, newWidth));
+    const currentWidth = parseFloat(fill.style.width) || 0;
+    let newWidth = Math.max(0, Math.min(100, currentWidth + amount));
 
-  const isReachingFull = newWidth === 100 && currentWidth < 100;
+    const isReachingFull = newWidth === 100 && currentWidth < 100;
 
-  fill.style.width = newWidth + '%';
+    fill.style.width = `${newWidth}%`;
 
-  if (currentWidth == 0) {
-    startDecay();
-    startTimer();
-  } 
-  if (isReachingFull) {
-    const onTransitionEnd = (e) => {
+    if (currentWidth === 0 && newWidth > 0) {
+      this.startDecay();
+      this.startTimer();
+    }
+
+    if (isReachingFull) {
+      const onTransitionEnd = (e) => {
+        if (e.propertyName === 'width') {
+          fill.removeEventListener('transitionend', onTransitionEnd);
+          collectFillBarCoin();
+        }
+      };
+      fill.addEventListener('transitionend', onTransitionEnd);
+    } else if (currentWidth === 100) {
+      collectFillBarCoin();
+    }
+  },
+
+  // --- Timer Logic ---
+
+  startTimer() {
+    const fill = Elements.fillBarFill;
+    if (!fill) return;
+
+    const handleStart = (e) => {
       if (e.propertyName === 'width') {
-        fill.removeEventListener('transitionend', onTransitionEnd);
-        collectFillBarCoin();
+        this.timerStart = performance.now();
+        this.timerInterval = requestAnimationFrame(() => this.updateTimer());
+        Elements.fillTimerCont?.classList.remove('hidden');
+        fill.removeEventListener('transitionstart', handleStart);
       }
     };
-    fill.addEventListener('transitionend', onTransitionEnd);
-  } else if (currentWidth == 100) {
-    collectFillBarCoin();
-  }
-}
 
-async function startDecay() {
-  const fill = document.querySelector('.js-fill-bar-fill');
-  fill.dataset.decaying = 'true';
-  while (true) {
-    await new Promise(resolve => setTimeout(resolve, 300)); // wait
+    const handleEnd = (e) => {
+      if (e.propertyName !== 'width') return;
+      const width = parseFloat(fill.style.width);
 
-    let currentWidth = parseFloat(fill.style.width) || 0;
+      if (width >= 100) {
+        this.stopTimer(true);
+        fill.removeEventListener('transitionend', handleEnd);
+      } else if (width <= 0) {
+        this.stopTimer(false);
+        fill.removeEventListener('transitionend', handleEnd);
+      }
+    };
 
-    if (currentWidth <= 0) {
-      fill.style.width = '0%';
-      delete fill.dataset.decaying;
-      break;
-    } else if (currentWidth == 100) {
-      fill.style.width = '100%';
-      delete fill.dataset.decaying;
-      break;
+    fill.addEventListener('transitionstart', handleStart);
+    fill.addEventListener('transitionend', handleEnd);
+  },
+
+  updateTimer() {
+    if (!this.timerInterval) return;
+    const elapsed = performance.now() - this.timerStart;
+    this.currentSeconds = (elapsed / 1000).toFixed(2);
+    
+    if (Elements.fillTimerEl) {
+      Elements.fillTimerEl.textContent = this.currentSeconds;
     }
+    this.timerInterval = requestAnimationFrame(() => this.updateTimer());
+  },
 
-    fill.style.width = Math.max(0, currentWidth - 2) + '%';
-  }
-}
+  stopTimer(isWin) {
+    cancelAnimationFrame(this.timerInterval);
+    this.timerInterval = null;
 
-let timerInterval = null;
-let timerStart = null;
-export let bestTimer = parseFloat(localStorage.getItem('bestTimer')) || null;
-export let lastTimer = parseFloat(localStorage.getItem('lastTimer')) || null;
-
-async function startTimer() {
-  const fill = document.querySelector('.js-fill-bar-fill');
-  const timerCont = document.querySelector('.js-fill-bar-timer-container');
-  const timerEl = document.querySelector('.js-fill-bar-timer');
-  const bestTimerEl = document.querySelector('.js-fill-bar-best-timer');
-
-  let currentSeconds = "0.00";
-
-  // Wait until transition actually begins
-  fill.addEventListener('transitionstart', function handleStart(e) {
-    if (e.propertyName === 'width') {
-      timerStart = performance.now();
-      timerInterval = requestAnimationFrame(updateTimer);
-      timerCont.classList.remove('hidden');
-      fill.removeEventListener('transitionstart', handleStart);
+    if (isWin) {
+      this.lastTimer = this.currentSeconds;
+      localStorage.setItem('lastTimer', this.lastTimer);
+      this.checkNewBest();
+    } else {
+      Elements.fillTimerCont?.classList.add('hidden');
     }
-  });
+  },
 
-  function updateTimer() {
-    const elapsed = performance.now() - timerStart;
-    currentSeconds = (elapsed / 1000).toFixed(2);
-    timerEl.textContent = currentSeconds;
-    timerInterval = requestAnimationFrame(updateTimer);
-  }
+  // --- Decay Logic ---
 
-  fill.addEventListener('transitionend', function handleEnd(e) {
-    if (e.propertyName !== 'width') return;
+  async startDecay() {
+    const fill = Elements.fillBarFill;
+    if (!fill || fill.dataset.decaying === 'true') return;
 
-    const width = parseFloat(fill.style.width);
+    fill.dataset.decaying = 'true';
 
-    if (width >= 100) {
-      cancelAnimationFrame(timerInterval);
-      timerInterval = null;
+    const decayLoop = () => {
+      let currentWidth = parseFloat(fill.style.width) || 0;
 
-      lastTimer = currentSeconds;
-      localStorage.setItem('lastTimer', lastTimer);
-
-      if (bestTimer === null || parseFloat(currentSeconds) < parseFloat(bestTimer)) {
-        bestTimer = currentSeconds;
-        localStorage.setItem('bestTimer', bestTimer);
-        bestTimerEl.textContent = `${bestTimer}s`;
-        bestTimerText.classList.add('best');
+      if (currentWidth <= 0 || currentWidth >= 100) {
+        delete fill.dataset.decaying;
+        return;
       }
 
-      fill.removeEventListener('transitionend', handleEnd);
-    } else if (width <= 0) {
-      cancelAnimationFrame(timerInterval);
-      timerInterval = null;
-      timerCont.classList.add('hidden');
+      fill.style.width = `${Math.max(0, currentWidth - 0.6)}%`;
+      setTimeout(decayLoop, 100);
+    };
 
-      fill.removeEventListener('transitionend', handleEnd);
+    decayLoop();
+  },
+
+  // --- UI & Storage ---
+
+  checkNewBest() {
+    const current = parseFloat(this.currentSeconds);
+    const best = this.bestTimer ? parseFloat(this.bestTimer) : Infinity;
+
+    if (current < best) {
+      this.bestTimer = this.currentSeconds;
+      localStorage.setItem('bestTimer', this.bestTimer);
+      this.updateBestDisplay();
     }
-  });
-}
+  },
 
-let isAnimatingFillBar = false;
-
-export function triggerFillBarAnimations(collected) {
-  if (isAnimatingFillBar) return;
-  isAnimatingFillBar = true;
-
-  if (collected) {
-    fillBarFill.style.width = '100%';
-    
-    fillBarGrayCoin.classList.add('hidden');
-    fillBarGoldCoin.classList.remove('hidden');
-    
-    const originalSrc = 'icons/coin-gold.svg';
-    const gifSrc = 'icons/coin_spin.gif';
-    const gifDuration = 3000;
-    fillBarGoldCoin.src = gifSrc;
-    setTimeout(() => {
-      fillBarGoldCoin.src = originalSrc;
-    }, gifDuration);
-
-    fillBarBorder.classList.add('highlight');
-      
-    fillBarText.classList.remove('show');
-    fillBarText.innerHTML = i18next.t('index.coin-collected-text');
-    void fillBarText.offsetWidth;
-    fillBarText.classList.add('show');
-
-    fillTimerEl.innerHTML = lastTimer;
-    fillTimerCont.classList.remove('hidden');
-
-    resetFillBarButton.classList.remove('hidden');
-
-    if (lastTimer === bestTimer) {
-      bestTimerText.classList.add('best');
+  updateBestDisplay() {
+    if (Elements.summaryMenuBestTimer && this.bestTimer) {
+      Elements.summaryMenuBestTimer.textContent = `${this.bestTimer}s`;
     }
-  } else if (!collected) {
-    fillBarFill.style.width = '0%';
-    
-    fillBarGrayCoin.classList.remove('hidden');
-    fillBarGoldCoin.classList.add('hidden');
-    
-    fillBarBorder.classList.remove('highlight');
-      
-    fillBarText.innerHTML = i18next.t('index.fill-bar-text-guide') + ' <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
-    fillBarText.classList.remove('show');
-    
-    fillTimerCont.classList.add('hidden');
+  },
 
-    resetFillBarButton.classList.add('hidden');
+  resetTimers() {
+    this.bestTimer = null;
+    this.lastTimer = null;
+    localStorage.removeItem('bestTimer');
+    localStorage.removeItem('lastTimer');
+    this.updateBestDisplay();
+  },
 
-    bestTimerText.classList.remove('best');
+  refreshUI(collected) {
+    if (collected) {
+      this.handleCollectedState();
+    } else {
+      this.handleEmptyState();
+    }
+  },
+
+  handleCollectedState() {
+    if (Elements.fillBarFill) {
+      Elements.fillBarFill.style.width = '100%';
+    }
+
+    Elements.toggle(Elements.fillBarGrayCoin, 'hidden', true);
+    Elements.toggle(Elements.fillBarGoldCoin, 'hidden', false);
+    Elements.fillBarBorder?.classList.add('highlight');
+    
+    this.updateBarText(i18next.t('index.coin-collected-text'), true);
+    
+    this.playCoinSpin();
+
+    if (Elements.fillTimerEl && this.lastTimer) {
+        Elements.fillTimerEl.textContent = this.lastTimer;
+    }
+
+    Elements.fillTimerCont?.classList.remove('hidden');
+    Elements.resetFillBarButton?.classList.remove('hidden');
+    
+    if (this.lastTimer === this.bestTimer) {
+      Elements.bestTimerText?.classList.add('best');
+    }
+  },
+
+  handleEmptyState() {
+    if (Elements.fillBarFill) {
+      Elements.fillBarFill.style.width = '0%';
+      delete Elements.fillBarFill.dataset.decaying;
+    }
+
+    Elements.toggle(Elements.fillBarGrayCoin, 'hidden', false);
+    Elements.toggle(Elements.fillBarGoldCoin, 'hidden', true);
+    Elements.fillBarBorder?.classList.remove('highlight');
+    
+    const guideHtml = `${i18next.t('index.fill-bar-text-guide')} <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">`;
+    this.updateBarText(guideHtml, false);
+    
+    Elements.fillTimerCont?.classList.add('hidden');
+    Elements.resetFillBarButton?.classList.add('hidden');
+    Elements.bestTimerText?.classList.remove('best');
+  },
+
+  updateBarText(html, show) {
+    if (!Elements.fillBarText) return;
+    Elements.fillBarText.innerHTML = html;
+    Elements.toggle(Elements.fillBarText, 'show', show);
+  },
+
+  playCoinSpin() {
+    if (this.coinIsSpinning) return;
+    this.coinIsSpinning = true;
+    Animations.playCoinSpin(
+      Elements.fillBarGoldCoin,
+      () => { this.coinIsSpinning = false; }
+    );
+  },
+
+  resetUI() {
+    this.handleEmptyState();
   }
-
-  setTimeout(() => {
-    isAnimatingFillBar = false;
-  }, 300);
-}
-
-function resetFillBar() {
-  const fillBarFill = document.querySelector('.js-fill-bar-fill');
-  const fillBarBorder = document.querySelector('.js-fill-bar-container');
-  const fillBarText = document.querySelector('.js-fill-bar-text');
-  const fillTimerCont = document.querySelector('.js-fill-bar-timer-container');
-
-  fillBarFill.style.width = '0%';
-  fillBarBorder.classList.remove('highlight');
-  fillBarText.innerHTML = i18next.t('index.fill-bar-text-guide') + ' <img class="fill-bar-arrow" src="icons/arrow-fill-right.svg">';
-  fillBarText.classList.remove('show');
-  fillTimerCont.classList.add('hidden');
-  bestTimerText.classList.remove('best');
-}
-
-resetFillBarButton.addEventListener('click', () => {
-  resetFillBar();
-});
+};

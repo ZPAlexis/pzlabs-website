@@ -33,32 +33,32 @@ export const GameState = {
   },
 
   collectCoverCoin() {
-        if (!this.flags.cover) {
-            this.flags.cover = true;
-            this.save();
-            trackEvent("boxCoin", { syncToApi: true });
-            return true;
-        }
-        return false;
-    },
+      if (!this.flags.cover) {
+          this.flags.cover = true;
+          this.save();
+          trackEvent("boxCoin", { syncToApi: true });
+          return true;
+      }
+      return false;
+  },
 
-    collectFillBarCoin() {
-        if (!this.flags.fillBar) {
-            this.flags.fillBar = true;
-            this.save();
-            trackEvent("fillCoin", { syncToApi: true });
-            return true;
-        }
-        return false;
-    },
+  collectFillBarCoin() {
+      if (!this.flags.fillBar) {
+          this.flags.fillBar = true;
+          this.save();
+          trackEvent("fillCoin", { syncToApi: true });
+          return true;
+      }
+      return false;
+  },
 
-    collectRPSCoin() {
-        if (!this.flags.rps) {
-            this.flags.rps = true;
-            this.save();
-            trackEvent("rpsCoin", { syncToApi: true });
-            return true;
-        }
-        return false;
-    }
+  collectRPSCoin() {
+      if (!this.flags.rps) {
+          this.flags.rps = true;
+          this.save();
+          trackEvent("rpsCoin", { syncToApi: true });
+          return true;
+      }
+      return false;
+  }
 };

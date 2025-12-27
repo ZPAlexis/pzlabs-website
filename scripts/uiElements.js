@@ -50,6 +50,28 @@ export const Elements = {
     analyticsCTACoins: document.querySelector('.js-analytics-cta-text'),
     analyticsSummaryCoins: document.querySelector('.js-analytics-coins-text'),
     analyticsSummaryPercentage: document.querySelector('.js-analytics-percentage-text'),
+
+    // --- RPSGame ---
+    jsResult: document.querySelector('.js-result'),
+    jsPlayerMove: document.querySelector('.js-player-move'),
+    jsAiMove: document.querySelector('.js-ai-move'),
+    jsAvatarMove: document.querySelectorAll('.js-avatar-move'),
+    rpsFill: document.querySelector('.js-rps-bar-fill'),
+    rpsGoldCoin: document.querySelector('.js-rps-collected-coin'),
+    rpsGrayCoin: document.querySelector('.js-rps-gray-coin'),
+    rpsBarBorder: document.querySelector('.js-rps-bar-container'),
+    rpsBarText: document.querySelector('.js-rps-bar-text'),
+
+    // --- FillBarGame ---
+    resetFillBarButton: document.querySelector('.js-fill-bar-reset-button'),
+    bestTimerText: document.querySelector('.js-fill-bar-best-text'),
+    fillBarFill: document.querySelector('.js-fill-bar-fill'),
+    fillBarGoldCoin: document.querySelector('.js-fill-bar-collected-coin'),
+    fillBarGrayCoin: document.querySelector('.js-fill-bar-gray-coin'),
+    fillBarBorder: document.querySelector('.js-fill-bar-container'),
+    fillBarText: document.querySelector('.js-fill-bar-text'),
+    fillTimerCont: document.querySelector('.js-fill-bar-timer-container'),
+    fillTimerEl: document.querySelector('.js-fill-bar-timer'),
     
     // --- Helpers ---
     toggle(element, className, condition) {

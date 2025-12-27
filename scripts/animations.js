@@ -1,6 +1,40 @@
 import { Elements } from './uiElements.js';
 
 export const Animations = {
+  initScrollReveals() {
+    const revealConfigs = [
+      { selector: '.fade-up', threshold: 0.1, className: 'fade-up' },
+      { selector: '.fade-left', threshold: 0.5, className: 'fade-left' },
+      { selector: '.fade-right', threshold: 0.5, className: 'fade-right' }
+    ];
+
+    revealConfigs.forEach(config => {
+      const targets = document.querySelectorAll(config.selector);
+      if (targets.length === 0) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            el.classList.add('visible');
+
+            const handleTransitionEnd = (e) => {
+              if (e.target === el && (e.propertyName === 'transform' || e.propertyName === 'opacity')) {
+                el.classList.remove(config.className, 'visible');
+                el.removeEventListener('transitionend', handleTransitionEnd);
+              }
+            };
+
+            el.addEventListener('transitionend', handleTransitionEnd);
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: config.threshold });
+
+      targets.forEach(target => observer.observe(target));
+    });
+  },
+  
   restart(el, className) {
     if (!el) return;
     el.classList.remove(className);
@@ -9,100 +43,68 @@ export const Animations = {
   },
 
   highlightSummaryCoinContainer() {
-        this.restart(Elements.summaryCoinContainer, 'highlight');
-    },
+      this.restart(Elements.summaryCoinContainer, 'highlight');
+  },
 
-  playCoinSpin(idleEl, spinEl, idleUrl, spinUrl, onComplete) {
-    const SPIN_DURATION = 3200;
+  fadeUpdate(element, newHTML) {
+    return new Promise((resolve) => {
+      if (!element) return resolve();
+
+      element.classList.add('hidden');
+
+      const handler = (e) => {
+        if (e.target !== element) return;
+
+        element.innerHTML = newHTML;
+
+        void element.offsetWidth;
+
+        element.classList.remove('hidden');
+
+        element.removeEventListener('transitionend', handler);
+        resolve();
+      };
+
+      const style = window.getComputedStyle(element);
+      if (style.transitionDuration === '0s' || style.opacity === '0') {
+        element.innerHTML = newHTML;
+        element.classList.remove('hidden');
+        return resolve();
+      }
+
+      element.addEventListener('transitionend', handler);
+    });
+  },
+
+  coinStaticSrc: 'icons/coin-gold.svg',
+  coinSpinSrc: 'icons/coin_spin.gif',
+  coinIdleSrc: 'icons/coin_idle.gif',
+  coinGifDuration: 3000,
+
+  playIdleCoinSpin(idleEl, spinEl, onComplete) {
     spinEl.src = '';
     spinEl.style.opacity = '1';
-    spinEl.src = spinUrl;
+    spinEl.src = this.coinSpinSrc;
     idleEl.style.opacity = '0';
 
     setTimeout(() => {
-      idleEl.src = idleUrl;
+      idleEl.src = this.coinIdleSrc;
       idleEl.style.opacity = '1';
       spinEl.style.opacity = '0';
       if (onComplete) onComplete();
-    }, SPIN_DURATION);
-  }
+    }, this.coinGifDuration);
+  },
+  
+  playCoinSpin(el, onComplete) {
+    if (!el) return;
+
+    el.src = ''; 
+    void el.offsetWidth;
+    el.src = this.coinSpinSrc;
+
+    setTimeout(() => {
+      el.src = this.coinStaticSrc;
+      if (onComplete) onComplete();
+    }, this.coinGifDuration);
+  },
 };
-
-//1. Fade Up Observer
-const fadeUp = document.querySelectorAll('.fade-up');
-
-const fadeUpObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      el.classList.add('visible');
-    
-      const handleTransitionEnd = (e) => {
-        if (e.target === el && (e.propertyName === 'transform' || e.propertyName === 'opacity')) {
-          el.classList.remove('fade-up', 'visible');
-          el.removeEventListener('transitionend', handleTransitionEnd);
-        }
-      };
-
-      el.addEventListener('transitionend', handleTransitionEnd);
-
-      fadeUpObserver.unobserve(el);
-    }
-  });
-});
-
-fadeUp.forEach(el => fadeUpObserver.observe(el));
-
-//2. Fade Left Observer
-const fadeLeft = document.querySelectorAll('.fade-left');
-
-const fadeLeftObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      el.classList.add('visible');
-    
-      const handleTransitionEnd = (e) => {
-        if (e.target === el && (e.propertyName === 'transform' || e.propertyName === 'opacity')) {
-          el.classList.remove('fade-left', 'visible');
-          el.removeEventListener('transitionend', handleTransitionEnd);
-        }
-      };
-
-      el.addEventListener('transitionend', handleTransitionEnd);
-
-      fadeLeftObserver.unobserve(el);
-    }
-  });
-}, {
-  threshold: [0.5]
-});
-
-fadeLeft.forEach(el => fadeLeftObserver.observe(el));
-
-//3. Fade Right Observer
-const fadeRight = document.querySelectorAll('.fade-right');
-
-const fadeRightObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      el.classList.add('visible');
-    
-      const handleTransitionEnd = (e) => {
-        if (e.target === el && (e.propertyName === 'transform' || e.propertyName === 'opacity')) {
-          el.classList.remove('fade-right', 'visible');
-          el.removeEventListener('transitionend', handleTransitionEnd);
-        }
-      };
-
-      el.addEventListener('transitionend', handleTransitionEnd);
-
-      fadeRightObserver.unobserve(el);
-    }
-  });
-}, {
-  threshold: [0.5]
-});
-
-fadeRight.forEach(el => fadeRightObserver.observe(el));

@@ -3,10 +3,11 @@ import { Elements } from './uiElements.js';
 import { TabManager } from './tabManager.js';
 import { TutorialManager } from './tutorialManager.js';
 import { Animations } from './animations.js';
+import { ButtonManager } from './buttons.js';
 import { fetchAndDisplayMetrics } from './api.js';
 
-import { fadeUpdate, resetRPSScore, updateRPSFillBar, updateScoreText, resetResult } from './rock-paper-scissors.js';
-import { bestTimer, resetFillBarTimers, triggerFillBarAnimations } from './fillBar.js';
+import { RPSGame } from './rock-paper-scissors.js';
+import { FillBarGame } from './fillBar.js';
 import { trackEvent } from './utils.js';
 
 const App = {
@@ -14,8 +15,12 @@ const App = {
   
   init() {
     GameState.load();
+    Animations.initScrollReveals();
     TabManager.init();
     TutorialManager.init();
+    ButtonManager.init();
+    RPSGame.init();
+    FillBarGame.init();
     
     this.setupEventListeners();
     this.setupScrollObservers();
@@ -26,14 +31,15 @@ const App = {
       i18next.on('initialized', () => this.refreshApp());
     }
 
-    //fetchAndDisplayMetrics();
+    //fetchAndDisplayMetrics(); //better if moved to refreshApp() but will use more server calls
   },
 
   refreshApp() {
     refreshIndex();
     calculateCoinAmount();
-    updateRPSFillBar();
-    updateScoreText();
+    FillBarGame.refreshUI(GameState.flags.fillBar);
+    RPSGame.updateRPSFillBar();
+    RPSGame.updateScoreText();
   },
 
   setupEventListeners() {
@@ -97,23 +103,21 @@ const App = {
     if (newlyCollected) {
         Elements.coverBoxImg?.classList.add('open');
         this.refreshApp();
-        this.playSpin();
+        this.playCoverSpin();
         Animations.highlightSummaryCoinContainer();
     } else {
-        this.playSpin();
+        this.playCoverSpin();
         Animations.restart(Elements.coverCoinScrollText, 'collected');
         Animations.highlightSummaryCoinContainer();
     }
   },
 
-  playSpin() {
+  playCoverSpin() {
     if (this.coinIsSpinning) return;
     this.coinIsSpinning = true;
-    Animations.playCoinSpin(
+    Animations.playIdleCoinSpin(
       Elements.coverCoinIdleGif, 
       Elements.coverCoinSpinGif, 
-      'icons/coin_idle.gif', 
-      'icons/coin_spin.gif',
       () => { this.coinIsSpinning = false; }
     );
   },
@@ -127,8 +131,8 @@ const App = {
 
   resetCoins() {
     GameState.reset();
-    resetFillBarTimers();
-    resetRPSScore();
+    FillBarGame.resetTimers();
+    RPSGame.resetRPSScore();
     this.refreshApp();
     trackEvent("coinsReset");
   },
@@ -136,7 +140,7 @@ const App = {
   async changeAppLanguage(lang) {
     await changeLanguage(lang);
     this.refreshApp();
-    resetResult();
+    RPSGame.resetResult();
   }
 };
 
@@ -151,7 +155,7 @@ export function calculateCoinAmount() {
   Elements.toggle(Elements.summaryCoinContainer, 'hidden', coinsCollected === 0);
 
   if (coinsCollected !== 0) {
-    fadeUpdate(Elements.coinAmount, statusText);
+    Animations.fadeUpdate(Elements.coinAmount, statusText);
   }
 
   updateAnalyticsText(coinsCollected, totalCoins);
@@ -176,8 +180,6 @@ export function refreshIndex() {
   if (!isCoverCollected) {
     Elements.coverBoxImg?.classList.remove('open');
   }
-
-  triggerFillBarAnimations(GameState.flags.fillBar);
 }
 
 export function collectFillBarCoin() {
@@ -188,7 +190,7 @@ export function collectFillBarCoin() {
     } else {
         Animations.highlightSummaryCoinContainer();
     }
-    triggerFillBarAnimations(GameState.flags.fillBar);
+    FillBarGame.refreshUI(GameState.flags.fillBar);
 }
 
 export function collectRPSCoin() {
@@ -222,7 +224,7 @@ function updateSummaryMenu(coinsCollected, totalCoins) {
     elements.forEach(el => Elements.toggle(el, 'hidden', !isCollected));
   });
 
-  Elements.setText(Elements.summaryMenuBestTimer, bestTimer !== null ? `${bestTimer}s` : '---');
+  Elements.setText(Elements.summaryMenuBestTimer, FillBarGame.bestTimer !== null ? `${FillBarGame.bestTimer}s` : '---');
 
   const allCoinsCollected = coinsCollected === totalCoins;
   
