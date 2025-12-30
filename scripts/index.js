@@ -4,17 +4,17 @@ import { TabManager } from './tabManager.js';
 import { TutorialManager } from './tutorialManager.js';
 import { Animations } from './animations.js';
 import { ButtonManager } from './buttons.js';
-import { fetchAndDisplayMetrics } from './api.js';
-
 import { RPSGame } from './rock-paper-scissors.js';
 import { FillBarGame } from './fillBar.js';
-import { trackEvent } from './utils.js';
+import { AutoText } from './autoText.js';
+import { fetchAndDisplayMetrics } from './api.js';
 
 const App = {
   coinIsSpinning: false,
   
   init() {
     GameState.load();
+    AutoText.init();
     Animations.initScrollReveals();
     TabManager.init();
     TutorialManager.init();
@@ -134,7 +134,6 @@ const App = {
     FillBarGame.resetTimers();
     RPSGame.resetRPSScore();
     this.refreshApp();
-    trackEvent("coinsReset");
   },
 
   async changeAppLanguage(lang) {
@@ -160,10 +159,6 @@ export function calculateCoinAmount() {
 
   updateAnalyticsText(coinsCollected, totalCoins);
   updateSummaryMenu(coinsCollected, totalCoins);
-
-  if (coinsCollected === totalCoins) {
-    trackEvent("allCoinsCollected");
-  }
 }
 
 export function refreshIndex() {

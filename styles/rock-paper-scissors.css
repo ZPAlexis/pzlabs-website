@@ -177,6 +177,6 @@
 
 .result-highlight {
   font-size: var(--font-size-h3);
-  font-weight: 500;
+  font-weight: 400;
   text-shadow: var(--text-shadow-sm) var(--color-shadow);
 }

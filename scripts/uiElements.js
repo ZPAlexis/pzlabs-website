@@ -3,6 +3,13 @@ export const Elements = {
     languageBtnPT: document.querySelector('.js-pt-locale'),
     languageBtnEN: document.querySelector('.js-en-locale'),
 
+    // --- Auto Text ---
+    coverTextHTML: document.querySelector('.js-cover-text'),
+    coverBarBlinkHTML: document.querySelector('.js-cover-bar-blink'),
+    listTextsHTML: document.querySelectorAll('.js-list-text-1, .js-list-text-2, .js-list-text-3'),
+    listBarBlinkHTML: document.querySelectorAll('.js-list-bar-blink'),
+
+
     // --- Cover Coin Section ---
     coverButton: document.querySelector('.cover-btn'),
     coverBoxImg: document.querySelector('.js-cover-box'),
@@ -72,6 +79,12 @@ export const Elements = {
     fillBarText: document.querySelector('.js-fill-bar-text'),
     fillTimerCont: document.querySelector('.js-fill-bar-timer-container'),
     fillTimerEl: document.querySelector('.js-fill-bar-timer'),
+
+    // --- Notifications ---
+    notificationBox: document.querySelector('.js-notification-container'),
+    notificationTitle: document.querySelector('.js-notification-title'),
+    notificationDescription: document.querySelector('.js-notification-description'),
+
     
     // --- Helpers ---
     toggle(element, className, condition) {

@@ -77,6 +77,10 @@
   will-change: transform, box-shadow;
 }
 
+.cta-button.fixed-width {
+  width: 100px;
+}
+
 .cta-button:hover {
   background-color: var(--color-button-active);
 }

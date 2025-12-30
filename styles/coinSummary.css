@@ -13,7 +13,7 @@
 }
 
 .coin-summary.highlight {
-  animation: borderHighlight 0.6s ease;
+  animation: borderHighlight 8.0s ease;
 }
 
 .coin-summary.hidden {

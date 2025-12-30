@@ -21,6 +21,8 @@
 
   "summary": {
     "title": "COIN<br>GAME",
+    "tab-you": "YOU",
+    "tab-everyone": "EVERYONE",
     "text-coin-1": "<span>#1. </span>Hidden in box",
     "text-coin-2": "<span>#2. </span>Fill the bar",
     "best-coin-2": "Best:",
@@ -303,5 +305,10 @@
       "learnings-li-5": "<span class='text-highlight'>Coding with AI</span><p>This was the first time I started to use Artificial Intelligence tools for my code and it was quite an eye-opening experience. While these tools were great for quickly building more complex code, it quickly became a detriment to how I was able to retain information and re-apply it again in other similar situations. Since then I’ve scaled back the usage of the tool so it is purely educational and for situations that I’m truly stuck for longer periods of time. There’s a full statement on my usage of AI on our <a class='link' href='/about.html#ai'>about page.</a></p>",
       "closing": "Thank you for checking out this project!"
     }
+  },
+
+  "notifications": {
+    "notification-title-1": "Congratulations! \uD83C\uDF89",
+    "notification-description-1": "You've found all coins and completed game \uD83E\uDD73"
   }
 }

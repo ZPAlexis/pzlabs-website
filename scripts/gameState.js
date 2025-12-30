@@ -1,4 +1,5 @@
 import { trackEvent } from './utils.js';
+import { NotificationManager } from './notifications.js';
 
 const defaultCoinFlags = {
   cover: false,
@@ -22,20 +23,34 @@ export const GameState = {
   reset() {
     this.flags = { ...defaultCoinFlags };
     this.save();
+    trackEvent("coinsReset");
   },
 
   getCollectedCount() {
-    return Object.values(this.flags).filter(Boolean).length;
+    return Object.values(this.flags).filter(val => val === true).length;
   },
 
   getTotalCount() {
     return Object.keys(this.flags).length;
   },
 
+  checkCompletion() {
+    const total = this.getTotalCount();
+    const collected = this.getCollectedCount();
+
+    if (collected === total) {
+      trackEvent("allCoinsCollected");
+      NotificationManager.notify(1);
+      return true;
+    }
+    return false;
+  },
+
   collectCoverCoin() {
       if (!this.flags.cover) {
           this.flags.cover = true;
           this.save();
+          this.checkCompletion();
           trackEvent("boxCoin", { syncToApi: true });
           return true;
       }
@@ -46,6 +61,7 @@ export const GameState = {
       if (!this.flags.fillBar) {
           this.flags.fillBar = true;
           this.save();
+          this.checkCompletion();
           trackEvent("fillCoin", { syncToApi: true });
           return true;
       }
@@ -56,6 +72,7 @@ export const GameState = {
       if (!this.flags.rps) {
           this.flags.rps = true;
           this.save();
+          this.checkCompletion();
           trackEvent("rpsCoin", { syncToApi: true });
           return true;
       }

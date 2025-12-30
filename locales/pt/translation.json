@@ -21,6 +21,8 @@
 
   "summary": {
     "title": "JOGO DA<br>MOEDA",
+    "tab-you": "VOCÊ",
+    "tab-everyone": "TODOS",
     "text-coin-1": "<span>#1. </span>Escondido na caixa",
     "text-coin-2": "<span>#2. </span>Encha a barra",
     "best-coin-2": "Melhor:",
@@ -303,5 +305,10 @@
       "learnings-li-5": "<span class='text-highlight'>Programando com IA.</span><p>Essa foi a primeira vez que comecei a usar ferramentas de Inteligência Artificial no meu código, e a experiência foi bastante reveladora. Embora essas ferramentas fossem ótimas para criar códigos complexos rapidamente, logo se tornou um obstáculo para reter conhecimento e aplicá-lo novamente em situações semelhantes. Desde então, reduzi o uso da ferramenta, utilizando-a apenas para aprendizado e em situações em que realmente fico travado por longos períodos. Escrevi em mais detalhes sobre meu uso dessas ferramentas na <a class='link' href='/about.html#ai'>página sobre mim.</a></p>",
       "closing": "Obrigado por conhecer mais sobre esse projeto!"
     }
+  },
+
+  "notifications": {
+    "notification-title-1": "Parabéns! \uD83C\uDF89",
+    "notification-description-1": "Você achou todas as moedas e completou o jogo \uD83E\uDD73"
   }
 }

@@ -39,8 +39,8 @@ export async function fetchAndDisplayMetrics() {
         const { totalCoinsCollected, totalUsersWithAllThreeCoins, totalUsersWithCoins } = jsonResponse.data;
         const formattedCoins = new Intl.NumberFormat().format(totalCoinsCollected);
 
-        const numberContainers = document.querySelectorAll('.js-analyics-number');
         const coinDisplays = document.querySelectorAll('.api-total-coins');
+        const numberContainers = document.querySelectorAll('.js-analyics-number');
         
         coinDisplays.forEach(el => {
             el.textContent = formattedCoins;
@@ -58,7 +58,7 @@ export async function fetchAndDisplayMetrics() {
             }
         });
 
-        const percentageEl = document.getElementById('api-total-users-all-three');
+        const percentageEl = document.querySelector('api-total-percentage');
         if (percentageEl && totalUsersWithCoins > 0) {
             const percentage = (totalUsersWithAllThreeCoins / totalUsersWithCoins) * 100;
             percentageEl.textContent = percentage.toFixed(1);

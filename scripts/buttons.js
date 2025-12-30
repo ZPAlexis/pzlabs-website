@@ -15,6 +15,7 @@ export const ButtonManager = {
     buttons.forEach((button) => {
       const handlePressStart = () => {
         if (button.disabled) return;
+        button.classList.remove('highlight')
         button.style.setProperty('transition', 'none');
         button.classList.add('pressed');
 

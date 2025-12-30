@@ -1,144 +1,131 @@
-function runAutoText() {
-  const coverTextHTML = document.querySelector('.js-cover-text');
-  const coverBarBlinkHTML = document.querySelector('.js-cover-bar-blink');
-  const listBarBlinkHTML = document.querySelectorAll('.js-list-bar-blink');
+import { Elements } from './uiElements.js';
 
-  const targets = document.querySelectorAll('.js-list-text-1, .js-list-text-2, .js-list-text-3');
+export const AutoText = {
+  coverBlinkActive: true,
+  controller: { stopped: false },
+  listControllers: new WeakMap(),
+  coverTextOptions: [],
+  targets: [],
+  i1: 0,
 
-  let coverTextOptions = i18next.t('index.intro-cover-options', { returnObjects: true });
+  init() {
+    if (i18next.isInitialized) {
+      this.runAutoText();
+    } else {
+      i18next.on('initialized', () => this.runAutoText());
+    }
+  },
 
-  let coverText = '';
-  let i1 = 0;
+  runAutoText() {
+    this.targets = Elements.listTextsHTML;
 
-  function chooseCoverText() {
-    coverText = coverTextOptions[i1];
-    i1 = (i1 + 1) % coverTextOptions.length;
-  }
+    this.coverTextOptions = i18next.t('index.intro-cover-options', { returnObjects: true });
 
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-  // ----------------
-  // Blink Controller
-  // ----------------
-  let coverBlinkActive = true;
+    const chooseCoverText = () => {
+      const text = this.coverTextOptions[this.i1];
+      this.i1 = (this.i1 + 1) % this.coverTextOptions.length;
+      return text;
+    };
 
-  async function startCoverBarBlink() {
-    while (true) {
-      if (coverBlinkActive) {
-        coverBarBlinkHTML.innerHTML = '|';
+    const startCoverBarBlink = async () => {
+      while (true) {
+        if (this.coverBlinkActive) {
+          Elements.coverBarBlinkHTML.innerHTML = '|';
+          await sleep(800);
+          Elements.coverBarBlinkHTML.innerHTML = '&nbsp;';
+          await sleep(400);
+        } else {
+          Elements.coverBarBlinkHTML.innerHTML = '|';
+          await sleep(400);
+        }
+      }
+    };
+
+    const startListBarBlink = async () => {
+      while (true) {
+        Elements.listBarBlinkHTML.forEach(el => el.innerHTML = '|');
         await sleep(800);
-        coverBarBlinkHTML.innerHTML = '&nbsp;';
-        await sleep(400);
-      } else {
-        coverBarBlinkHTML.innerHTML = '|';
+        Elements.listBarBlinkHTML.forEach(el => el.innerHTML = '&nbsp;');
         await sleep(400);
       }
-    }
-  }
+    };
 
-  async function startListBarBlink() {
-    while (true) {
-      listBarBlinkHTML.forEach(el => el.innerHTML = '|');
-      await sleep(800);
-      listBarBlinkHTML.forEach(el => el.innerHTML = '&nbsp;');
-      await sleep(400);
-    }
-  }
-
-  // ----------------
-  // Typing Logic
-  // ----------------
-  const controller = { stopped: false };
-  const listControllers = new WeakMap();
-  async function typeText(textString, html, ms) {
-    const controller = { stopped: false };
-    listControllers.set(html, controller);
-    for (let i = 0; i < textString.length; i++) {
-      const currentController = listControllers.get(html);
-      if (currentController !== controller || controller.stopped) break;
-      html.innerHTML += textString[i];
-      await sleep(ms);
-    }
-  }
-
-  async function eraseCoverText() {
-    while (coverTextHTML.innerHTML.length > 0) {
-      coverTextHTML.innerHTML = coverTextHTML.innerHTML.slice(0, -1);
-      await sleep(60);
-    }
-  }
-
-  // ----------------
-  // Main Orchestrator
-  // ----------------
-  async function startCoverText() {
-    chooseCoverText();
-
-    while (true) {
-      await sleep(200);
-
-      blinkActive = false;
-      await typeText(coverText, coverTextHTML, 80, controller);
-      blinkActive = true;
-
-      await sleep(2000);
-
-      blinkActive = false;
-      await eraseCoverText();
-      blinkActive = true;
-      
-      chooseCoverText();
-    }
-  }
-
-  const autoTextObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        startListText(entry.target);
-        observer.unobserve(entry.target);
+    const typeText = async (textString, html, ms) => {
+      const controller = { stopped: false };
+      this.listControllers.set(html, controller);
+      for (let i = 0; i < textString.length; i++) {
+        const currentController = this.listControllers.get(html);
+        if (currentController !== controller || controller.stopped) break;
+        html.innerHTML += textString[i];
+        await sleep(ms);
       }
-    });
-  }, { threshold: 0.8 });
+    };
 
-  targets.forEach(target => autoTextObserver.observe(target));
+    const eraseCoverText = async () => {
+      while (Elements.coverTextHTML.innerHTML.length > 0) {
+        Elements.coverTextHTML.innerHTML = Elements.coverTextHTML.innerHTML.slice(0, -1);
+        await sleep(60);
+      }
+    };
 
-  function startListText(element) {
-    const key = element.dataset.text;
-    const text = i18next.t(key);
-    typeText(text, element, 60);
-  }
-  
-  function restartListTexts() {
-    targets.forEach ((element) => {
-      const controller = listControllers.get(element);
-      if (controller) controller.stopped = true;
+    const startCoverText = async () => {
+      while (true) {
+        let currentCoverText = chooseCoverText();
+        await sleep(200);
 
-      element.innerHTML = '';
+        this.coverBlinkActive = false;
+        await typeText(currentCoverText, Elements.coverTextHTML, 80);
+        this.coverBlinkActive = true;
+
+        await sleep(2000);
+
+        this.coverBlinkActive = false;
+        await eraseCoverText();
+        this.coverBlinkActive = true;
+      }
+    };
+
+    const startListText = (element) => {
       const key = element.dataset.text;
       const text = i18next.t(key);
       typeText(text, element, 60);
+    };
+
+    const restartListTexts = () => {
+      this.targets.forEach((element) => {
+        const controller = this.listControllers.get(element);
+        if (controller) controller.stopped = true;
+
+        element.innerHTML = '';
+        const key = element.dataset.text;
+        const text = i18next.t(key);
+        typeText(text, element, 60);
+      });
+    };
+
+    const autoTextObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startListText(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.8 });
+
+    this.targets.forEach(target => autoTextObserver.observe(target));
+
+    i18next.on('languageChanged', () => {
+      this.coverTextOptions = i18next.t('index.intro-cover-options', { returnObjects: true });
+      this.controller.stopped = true; // This will stop current cover loop
+      Elements.coverTextHTML.innerHTML = '';
+      this.i1 = 0;
+      restartListTexts();
     });
-  }
-  
-  i18next.on('languageChanged', () => {
-    coverTextOptions = i18next.t('index.intro-cover-options', { returnObjects: true });
-    controller.stopped = true;
-    coverTextHTML.innerHTML = '';
-    i1 = 0;
-    restartListTexts()
-  });
-  
+
     startCoverBarBlink();
     startCoverText();
     startListBarBlink();
-}
-
-if (i18next.isInitialized) {
-  // i18next already finished loading
-  runAutoText();
-} else {
-  // wait until it finishes
-  i18next.on('initialized', runAutoText);
-}
+  }
+};

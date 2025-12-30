@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/coinSummary.css">
+    <link rel="stylesheet" href="styles/notifications.css">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/fillbar.css">
     <link rel="stylesheet" href="styles/buttons.css">
@@ -76,12 +77,18 @@
           </div>
         </div>
       </div>
-      <button class="js-animated-button js-coin-summary coin-summary cta-button hidden">
-        <div class="gold-coin-container">
-          <img class="summary-icon" src="icons/coin-gold.svg">
+      <div class="header-menu-container column">
+        <button class="js-animated-button js-coin-summary coin-summary cta-button  fixed-width hidden">
+          <div class="gold-coin-container">
+            <img class="summary-icon" src="icons/coin-gold.svg">
+          </div>
+          <div class="js-coin-amount coin-amount"></div>
+        </button>
+        <div class="js-notification-container notification-container closed">
+          <p class="js-notification-title notification-title"></p>
+          <p class="js-notification-description"></p>
         </div>
-        <div class="js-coin-amount coin-amount"></div>
-      </button>
+      </div>
     </nav>
   </header>
 
@@ -94,10 +101,12 @@
       <div class="summary-tabs" data-tab-group="summary-menu">
         <div class="js-tab summary-you-tab selected"
         data-tab-target="#tab-contents-summary-you" 
-        data-tab-group="summary-menu">YOU</div>
+        data-tab-group="summary-menu"
+        data-i18n="summary.tab-you"></div>
         <div class="js-tab summary-everyone-tab"
         data-tab-target="#tab-contents-summary-everyone" 
-        data-tab-group="summary-menu">EVERYONE</div>
+        data-tab-group="summary-menu"
+        data-i18n="summary.tab-everyone"></div>
       </div>
       <div id="tab-contents-summary-you" class="js-tab-content tab-content" data-tab-group="summary-menu">
         <div class="summary-menu-stats-container">
@@ -154,7 +163,7 @@
       <div id="tab-contents-summary-everyone" class="js-tab-content tab-content hidden" data-tab-group="summary-menu">
         <div class="summary-menu-analytics-container">
           <div class="analyics-number-container">
-            <p class="api-total-coins game-title analyics-number long-number">3,000</p>
+            <p class="api-total-coins game-title analyics-number long-number">0</p>
             <img class="analytics-coin" src="icons/coin_idle.gif">
           </div>
           <p class="analytics-text body" data-i18n-html="index.game-analytics-description-summary"></p>
@@ -162,7 +171,7 @@
         </div>
         <div class="summary-menu-analytics-container">
           <div class="analyics-number-container">
-            <p class="api-total-coins game-title analyics-number long-number">8%</p>
+            <p class="api-total-percentage game-title analyics-number long-number">0%</p>
             <img class="analytics-coin" src="icons/icon_trophy_gold.png">
           </div>
           <p class="analytics-text body" data-i18n-html="index.game-analytics-description-percentage-summary"></p>
@@ -476,7 +485,7 @@ Survivor</h1>
   <footer>
     <div class="footer-container">
       <div class="footer-small-font">
-        <p style="font-size: var(--font-size-xsmall);">v0.92f</p>
+        <p style="font-size: var(--font-size-xsmall);">v0.93</p>
         <p data-i18n="footer.credits"></p>
         <p><a class="link" href="https://github.com/ZPAlexis">Alexis Coelho // .zero</a></p>
         <p class="footer-small-font">CC-BY-SA-4.0 2025</p>
