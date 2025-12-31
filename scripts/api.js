@@ -58,10 +58,10 @@ export async function fetchAndDisplayMetrics() {
             }
         });
 
-        const percentageEl = document.querySelector('api-total-percentage');
+        const percentageEl = document.querySelector('.api-total-percentage');
         if (percentageEl && totalUsersWithCoins > 0) {
             const percentage = (totalUsersWithAllThreeCoins / totalUsersWithCoins) * 100;
-            percentageEl.textContent = percentage.toFixed(1);
+            percentageEl.textContent = `${percentage.toFixed(0)}%`;
         }
 
     } catch (error) {

@@ -13,12 +13,12 @@ const App = {
   coinIsSpinning: false,
   
   init() {
+    Animations.initScrollReveals();
+    ButtonManager.init();
     GameState.load();
     AutoText.init();
-    Animations.initScrollReveals();
     TabManager.init();
     TutorialManager.init();
-    ButtonManager.init();
     RPSGame.init();
     FillBarGame.init();
     
@@ -31,7 +31,7 @@ const App = {
       i18next.on('initialized', () => this.refreshApp());
     }
 
-    //fetchAndDisplayMetrics(); //better if moved to refreshApp() but will use more server calls
+    fetchAndDisplayMetrics(); //better if moved to refreshApp() but will use more server calls
   },
 
   refreshApp() {
