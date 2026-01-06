@@ -194,8 +194,9 @@
 .about-focus-title {
   font-size: var(--font-size-h3);
   color: var(--color-accent);
+  text-shadow: var(--text-shadow-sm) var(--color-accent-shadow);
   margin: 0;
-  line-height: 30px;
+  line-height: 200%;
 }
 
 .auto-text-list-container {
@@ -204,7 +205,7 @@
 }
 
 .about-focus-description {
-  line-height: 24px;
+  line-height: 150%;
 }
 
 .about-me-section {
@@ -265,6 +266,7 @@
 
 .about-me-description span {
   color: var(--color-accent);
+  text-shadow: var(--text-shadow-sm) var(--color-accent-shadow);
   font-weight: bold;
 }
 
@@ -298,6 +300,7 @@
 .about-projects-title {
   font-size: var(--font-size-h1);
   color: var(--color-accent);
+  text-shadow: var(--text-shadow-sm) var(--color-accent-shadow);
   margin: 0;
 }
 
@@ -371,6 +374,7 @@
 .project-title-text {
   font-size: var(--font-size-h2);
   color: var(--color-accent);
+  text-shadow: var(--text-shadow-sm) var(--color-accent-shadow);
   position: relative;
   display: inline-block;
   margin: 0 0 -4px 0;
@@ -417,13 +421,19 @@
   width: 280px;
 }
 
+.cta-container.small {
+  margin: 20px 20px;
+  width: 100%;
+}
+
 .cta-container.center {
   text-align: center;
   margin: 80px 20px;
 }
 
 .cta-message {
-  line-height: 26px;
+  line-height: 150%;
+  font-weight: 600;
 }
 
 .cta-link {
@@ -469,7 +479,7 @@
   line-height: 100%;
   font-family: var(--font-family-accent);
   color: var(--color-accent);
-  text-shadow: var(--text-shadow-sm) var(--color-shadow);
+  text-shadow: var(--text-shadow-sm) var(--color-accent-shadow);
   font-weight: bold;
   justify-content: center;
   text-align: center;
@@ -502,6 +512,7 @@
 .analyics-number {
   font-size: 80px;
   color: var(--color-accent);
+  text-shadow: var(--text-shadow-sm) var(--color-accent-shadow);
   margin: 0;
   line-height: 1;
   white-space: nowrap;

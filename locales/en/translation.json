@@ -95,14 +95,14 @@
   },
 
   "about": {
-    "bio-availability": "Available for Freelance",
-    "bio-role": "Product Developer",
+    "bio-availability": "Looking for opportunities",
+    "bio-role": "Solutions Engineer",
     "bio-location": "São Paulo, Brazil",
-    "hi": "Hi!",
-    "intro-1": "I'm Alexis Coelho. A Product Developer, Industrial Engineer, MBA, and most importantly — a certified nerd.",
+    "hi": "Profile",
+    "intro-1": "I'm Alexis Coelho. A Solutions Engineer, Industrial Engineer, MBA, and most importantly — a certified nerd.",
     "intro-2": "I create digital products that motivate customer engagement. My focus is on the exploration of creative game-like solutions that generate memorable experiences.",
     "intro-3": "These are some of the skills that I’ve been actively working on the past few years:",
-    "intro-html": "Frontend development of websites and applications.",
+    "intro-html": "Frontend development of applications and websites.",
     "intro-javascript": "Full stack development with Node.js.",
     "intro-csharp": "Logic systems for Unity applications and games.",
     "intro-unity": "Development of games and applications on iOS and Android mobile devices.",
@@ -133,7 +133,7 @@
     "background-4": "In an effort to pivot into a more technology-driven career I decided to go back to school and get an MBA. This led me to better understand the motivations behind different business strategies and opened opportunities to leverage my passion for technology in the startup space. This is where I spent most of my professional career working with Customer Loyalty Apps, Software as a Service solutions (SaaS), and implementing internal Customer Resource Management (CRM) systems to align internal processes with the overall company strategy.",
     "background-5": "I only truly understood the transformative potential of gamification systems when I worked with loyalty programs that had a real impact on financial results, and when I saw how internal competitions managed through <a class='link' href='https://www.salesforce.com/crm/what-is-crm/' target='_blank'>CRM software</a> boosted the performance of sales teams.",
     "background-6": "The possibilities for gamification of real life and work situations are endless. Technology is only becoming more and more accessble. This the perfect time to start leveraging gamified digital solutions to motivate real-life consequences.",
-    "background-quote-title": "Mary Poppins said it back in 1964:",
+    "background-quote-title": "Mary Poppins said this in 1964:",
     "background-quote": "“In every job that must be done, there’s an element of fun. You find the fun, and *snaps fingers* the job is a game!”",
     "ai-title": "My usage of AI tools",
     "ai-1": "Being a millenial, I grew up in the early stages of the internet. The only way to find information at the time was through mIRC channels and hidden forums. Since then, the way we access information online evolved quickly from Google searches, Stack Overflow conversations, Youtube tutorial videos, Reddit and other social communities, and now Artificial Intelligence.",
@@ -141,7 +141,8 @@
     "ai-3": "This is an area that we are all learning from right now. We are truly living in an inflection moment with how powerful and acessible AI tools are becoming. It is undeniable that it is a tool that can’t be ignored.",
     "ai-4": "I’ve learned from personal experience that offloading critical tasks leads to a slippery slope of knowledge retention issues and work quality maintenance. I use AI tools the same way I used Youtube videos, Google searches, and forum deep-dives in the past. It’s a way to review and improve instead of an avenue for creation and decision-making. None of my applications are defined or built by AI tools and prompts, they are only reviewed and improved by carefully planned interfacing with these tools.",
     "closing": "I wanted to thank you for taking the time to read this far, and I’m very interested to know your opinion on these topics. Feel free to reach out with your thougts over by email or WhatsApp!",
-    "cta": "Want to connect?<br>Send me a message!",
+    "projects-btn": "CHECK OUT MY PROJECTS",
+    "cta": "Get in touch:",
     "cta-projects": "Check out some of our projects:"
   },
 
