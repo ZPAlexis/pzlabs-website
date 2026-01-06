@@ -65,7 +65,7 @@
   align-items: center;
   flex: 1;
   gap: 10px;
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-body);
   font-family: var(--font-family-accent);
   color: var(--color-text);
 }

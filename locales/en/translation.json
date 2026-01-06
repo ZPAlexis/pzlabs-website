@@ -10,7 +10,8 @@
   },
 
   "footer":{
-    "credits": "Developed by"
+    "credits": "Developed by:",
+    "credits-2": "Source code available<br>publicly on GitHub."
   },
 
   "mobile-nav":{
@@ -31,13 +32,13 @@
     "text-ties": "Ties",
     "text-losses": "Losses",
     "reset-text-btn": "RESET PROGRESS",
-    "reset-text": "Collect all coins"
+    "reset-text": "Collect all to unlock"
   },
   
   "index": {
     "intro-cover": "Gamified<br>Experiences",
     "coin-collected-text": "Coin Collected!",
-    "intro-description": "Game-like solutions to inspire and motivate user engagement.",
+    "intro-description": "Game-like solutions to truly engage visitors",
     "intro-cover-options": [
       "Creating",
       "Engineering",
@@ -53,16 +54,16 @@
     "fill-bar-text-guide": "Fill this bar",
     "fill-bar-best-text": "Best Time!",
     "focus-auto-text-1": "Gamification",
-    "focus-text-1": "is the application of game elements to increase user engagement.",
+    "focus-text-1": "is the application of game elements to motivate user engagement.",
     "focus-auto-text-2": "Game elements",
-    "focus-text-2": "can range from well-designed user interfaces to complex loyalty reward programs.",
-    "focus-auto-text-3": "Our focus",
-    "focus-text-3": "is to apply the perfect elements to the right situation.",
+    "focus-text-2": "include points, challenges, rewards and fidelity programs.",
+    "focus-auto-text-3": "My focus",
+    "focus-text-3": "is to identify and apply the correct elements to the perfect situation.",
     "about-text-bubble": "Hi!",
-    "about-text": "I’m <b>Alexis Coelho</b>, a <b>product manager</b> and enthusiast of clever game mechanics that influences our decision-making.",
-    "about-learn-more-btn": "LEARN MORE ABOUT ME",
-    "about-projects-title": "Projects.",
-    "about-projects-description": "These are some of the experiments we’ve experimented with so far, more to come!",
+    "about-text": "I’m <span>Alexis Coelho</span>, a <span>Solutions Engineer</span> and enthusiast of clever game mechanics that influences our lives.",
+    "about-learn-more-btn": "CHECK PROFILE",
+    "about-projects-title": "Projects",
+    "about-projects-description": "These are some of our experiments so far.",
     "learn-more-btn": "LEARN MORE",
     "rps-title": "ROCK PAPER SCISSORS",
     "rps-you": "YOU",
@@ -72,12 +73,12 @@
     "rps-win": "You win!",
     "rps-lose": "You lose.",
     "rps-tie": "Tie.",
-    "cta-text": "Have a question or want to chat?<br><br>Send me a message:",
+    "cta-text": "Have a question or<br>want to chat?<br><br>Get in touch:",
     "game-analytics-title": "JOIN THE GAME",
-    "game-analytics-description": "<span>total coins were collected</span><br>by everyone who visited this page",
+    "game-analytics-description": "total coins were collected<br>by everyone who visited this page",
     "tutorial-press-hint": "Press for hints!",
-    "game-analytics-description-summary": "<span>were collected in total</span> by <br>everyone who joined the game",
-    "game-analytics-description-percentage-summary": "of participants<br>collected <span>all 3 coins</span>",
+    "game-analytics-description-summary": "were collected in total by <br>everyone who joined the game",
+    "game-analytics-description-percentage-summary": "of participants<br>collected all 3 coins",
     "game-analytics-cta": "Can you find all 3 coins?",
     "game-analytics-summary-coins-0": "You haven’t found a coin yet.",
     "game-analytics-summary-coins-1": "You found 1 coin!",

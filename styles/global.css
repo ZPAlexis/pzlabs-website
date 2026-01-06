@@ -25,6 +25,11 @@ body.no-scroll {
 
 p {
   margin: 0;
+  font-size: var(--font-size-body);
+}
+
+p.small {
+  font-size: var(--font-size-small);
 }
 
 html {

@@ -31,7 +31,7 @@ const App = {
       i18next.on('initialized', () => this.refreshApp());
     }
 
-    fetchAndDisplayMetrics(); //better if moved to refreshApp() but will use more server calls
+    //fetchAndDisplayMetrics(); //better if moved to refreshApp() but will use more server calls
   },
 
   refreshApp() {
@@ -155,6 +155,7 @@ export function calculateCoinAmount() {
 
   if (coinsCollected !== 0) {
     Animations.fadeUpdate(Elements.coinAmount, statusText);
+    TutorialManager.hideElement('hint-press-button');
   }
 
   updateAnalyticsText(coinsCollected, totalCoins);

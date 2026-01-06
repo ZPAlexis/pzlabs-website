@@ -31,7 +31,7 @@
 .intro-title {
   font-size: var(--font-size-h1);
   margin: 0;
-  line-height: 52px;
+  line-height: 120%;
 }
 
 .auto-text-container {
@@ -44,8 +44,14 @@
   margin-right: -2px;
 }
 
-.cover-bar-blink, .list-bar-blink {
+.cover-bar-blink {
   margin: 0 -2px;
+  font-size: var(--font-size-h2);
+}
+
+.list-bar-blink {
+  margin: 0 -1px;
+  font-size: var(--font-size-body);
 }
 
 .intro-description {
@@ -186,7 +192,8 @@
 }
 
 .about-focus-title {
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-h3);
+  color: var(--color-accent);
   margin: 0;
   line-height: 30px;
 }
@@ -251,8 +258,14 @@
 }
 
 .about-me-description {
-  width: 220px;
+  font-size: var(--font-size-body);
+  width: 280px;
   line-height: 26px;
+}
+
+.about-me-description span {
+  color: var(--color-accent);
+  font-weight: bold;
 }
 
 .about-me-button {
@@ -284,6 +297,7 @@
 
 .about-projects-title {
   font-size: var(--font-size-h1);
+  color: var(--color-accent);
   margin: 0;
 }
 
@@ -356,6 +370,7 @@
 
 .project-title-text {
   font-size: var(--font-size-h2);
+  color: var(--color-accent);
   position: relative;
   display: inline-block;
   margin: 0 0 -4px 0;
@@ -399,7 +414,7 @@
   display: flex;
   flex-direction: column;
   margin: 180px 20px;
-  width: 220px;
+  width: 280px;
 }
 
 .cta-container.center {
@@ -453,7 +468,7 @@
   font-size: var(--font-size-h1);
   line-height: 100%;
   font-family: var(--font-family-accent);
-  color: var(--color-text);
+  color: var(--color-accent);
   text-shadow: var(--text-shadow-sm) var(--color-shadow);
   font-weight: bold;
   justify-content: center;
@@ -514,15 +529,10 @@
 
 .analytics-text.body {
   font-size: var(--font-size-body);
-  line-height: 140%;
+  line-height: 120%;
 }
 
 .analytics-text.accent {
-  font-weight: 400;
-  color: var(--color-accent);
-}
-
-.analytics-text span {
   font-weight: 500;
   color: var(--color-accent);
 }
@@ -540,7 +550,7 @@
   .intro-container {
     flex-direction: column-reverse;
     align-items: center;
-    margin: 40px 0;
+    margin: 20px 0 40px 0;
   }
 
   .intro-left-container {

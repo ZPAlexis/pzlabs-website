@@ -10,7 +10,8 @@
   },
   
   "footer":{
-    "credits": "Desenvolvido por"
+    "credits": "Desenvolvido por:",
+    "credits-2": "Código fonte disponível<br>publicamente no GitHub."
   },
 
   "mobile-nav":{
@@ -31,13 +32,13 @@
     "text-ties": "Empates",
     "text-losses": "Derrotas",
     "reset-text-btn": "RESETAR PROGRESSO",
-    "reset-text": "Colete todas as moedas"
+    "reset-text": "Colete todas para desbloquear"
   },
   
   "index": {
     "intro-cover": "Experiências<br>Gamificadas",
     "coin-collected-text": "Moeda Coletada!",
-    "intro-description": "Soluções semelhantes a jogos para inspirar e motivar engajamento de usuários.",
+    "intro-description": "Soluções inspiradas em jogos para engajar usuários",
     "intro-cover-options": [
       "Criando",
       "Engenhando",
@@ -53,16 +54,16 @@
     "fill-bar-text-guide": "Encha a barra",
     "fill-bar-best-text": "Melhor Tempo!",
     "focus-auto-text-1": "Gamificação",
-    "focus-text-1": "é a aplicação de elementos de jogos para aumentar engajamento de usuários.",
+    "focus-text-1": "é a aplicação de elementos de jogos para motivar engajamento de clientes.",
     "focus-auto-text-2": "Elementos de jogos",
-    "focus-text-2": "incluem desde interfaces de usuário atraentes até sistemas complexos de fidelidade.",
-    "focus-auto-text-3": "Nosso foco",
-    "focus-text-3": "é identificar e aplicar os elementos perfeitos para cada situação!",
+    "focus-text-2": "incluem programas de fidelidade, pontos, desafios e recompensas.",
+    "focus-auto-text-3": "Meu foco",
+    "focus-text-3": "é identificar e aplicar os elementos corretos para situações perfeitas.",
     "about-text-bubble": "Oi!",
-    "about-text": "Meu nome é <b>Alexis Coelho</b>, sou um <b>desenvolvedor de produtos</b> e entusiasta de mecânicas de jogos que influenciam nossa tomada de decisão.",
-    "about-learn-more-btn": "MAIS SOBRE MIM",
-    "about-projects-title": "Projetos.",
-    "about-projects-description": "Aqui estão alguns dos nossos experimentos até agora — esse é só o começo!",
+    "about-text": "Meu nome é <span>Alexis Coelho</span>, sou um <span>Engenheiro de Soluções e Processos</span> e entusiasta de mecânicas de jogos que influenciam nossas vidas.",
+    "about-learn-more-btn": "VER PERFIL",
+    "about-projects-title": "Projetos",
+    "about-projects-description": "Esses são alguns dos nossos experimentos até agora.",
     "learn-more-btn": "SAIBA MAIS",
     "rps-title": "PEDRA PAPEL TESOURA",
     "rps-you": "VOCÊ",
@@ -74,10 +75,10 @@
     "rps-tie": "Empate.",
     "cta-text": "Tem alguma pergunta ou quer conversar?<br><br>Entre em contato:",
     "game-analytics-title": "ENTRE NO JOGO",
-    "game-analytics-description": "<span>moedas foram coletadas no total</span><br>por todos os visitantes desta página",
+    "game-analytics-description": "moedas foram coletadas no total<br>por todos os visitantes desta página",
     "tutorial-press-hint": "Aperte para dicas!",
-    "game-analytics-description-summary": "<span>moedas foram coletadas no total</span><br>por todos que entraram no jogo",
-    "game-analytics-description-percentage-summary": "dos participantes<br>coletaram<span> todas as 3 moedas</span>",
+    "game-analytics-description-summary": "moedas foram coletadas no total<br>por todos que entraram no jogo",
+    "game-analytics-description-percentage-summary": "dos participantes<br>coletaram todas as 3 moedas",
     "game-analytics-cta": "Você consegue achar<br>todas as 3 moedas?",
     "game-analytics-summary-coins-0": "Você não achou moedas ainda.",
     "game-analytics-summary-coins-1": "Você achou 1 moeda!",
@@ -89,8 +90,8 @@
 
   "projects": {
     "trofy-project-description": "Um app de tarefas que transforma seus objetivos pessoais em um jogo para ajudar na criação de bons hábitos.",
-    "bs-project-description": "Um jogo demo feito em Unity com uma mecânica no estilo “escolha 1 entre 3”, inspirada em Vampire Survivors.",
-    "fa-project-description": "Nosso primeiro jogo demo em Unity, feito para aprender os fundamentos de desenvolvimento de jogos, inspirado em Flappy Bird."
+    "bs-project-description": "Um jogo demo feito em Unity com uma mecânica no estilo “escolha 1 de 3”, inspirada em Vampire Survivors.",
+    "fa-project-description": "Um jogo simples feito em Unity com mecânicas de tempo e sobrevivência, inspirado em Flappy Bird."
   },
 
   "about": {

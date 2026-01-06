@@ -15,16 +15,14 @@ footer {
   flex-direction: column;
   justify-content: end;
   align-items: center;
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 10px 20px;
   gap: 10px;
 }
 
 .footer-small-font {
-  font-size: 12px;
-  padding-bottom: 14px;
-  width: 200px;
+  font-size: var(--font-size-xsmall);
   text-align: center;
-  line-height: 26px;
+  line-height: 150%;
 }
 
 .footer-line {
