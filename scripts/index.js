@@ -8,6 +8,7 @@ import { RPSGame } from './rock-paper-scissors.js';
 import { FillBarGame } from './fillBar.js';
 import { AutoText } from './autoText.js';
 import { fetchAndDisplayMetrics } from './api.js';
+import { NotificationManager } from './notifications.js';
 
 const App = {
   coinIsSpinning: false,
@@ -31,7 +32,7 @@ const App = {
       i18next.on('initialized', () => this.refreshApp());
     }
 
-    fetchAndDisplayMetrics(); //better if moved to refreshApp() but will use more server calls
+    //fetchAndDisplayMetrics(); //better if moved to refreshApp() but will use more server calls
   },
 
   refreshApp() {
@@ -52,6 +53,10 @@ const App = {
     Elements.summaryCloseButton?.addEventListener('click', (e) => {
         e.stopPropagation();
         this.toggleSummary(true);
+    });
+
+    Elements.notificationCloseBtn?.addEventListener('click', (e) => {
+        NotificationManager.closeNotificationBox();
     });
 
     Elements.analyticsCoinContainer?.addEventListener('click', () => {

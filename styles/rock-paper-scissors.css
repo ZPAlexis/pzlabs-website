@@ -49,6 +49,7 @@
 .rps-vs-icon {
   width: 44px;
   position: absolute;
+  filter: drop-shadow(var(--text-shadow-sm) var(--color-accent-shadow));
 }
 
 .rps-avatars-container {

@@ -66,13 +66,13 @@
 
 @keyframes bumpRight {
   0%, 100% {
-    transform: translateX(0);
+    transform: translateX(0) translateY(-2px);
   }
   50% {
-    transform: translateX(10px);
+    transform: translateX(10px) translateY(-2px);
   }
   90% {
-    transform: translateX(-2px);
+    transform: translateX(-2px) translateY(-2px);
   }
 }
 

@@ -399,7 +399,7 @@
 
 .project-cta {
   height: 40px;
-  width: 80%;
+  width: 160px;
   margin-bottom: 4px;
 }
 
@@ -433,7 +433,7 @@
 
 .cta-message {
   line-height: 150%;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .cta-link {

@@ -51,7 +51,8 @@
   margin: 0;
   padding-top: 20px;
   font-size: var(--font-size-h2);
-  text-shadow: var(--text-shadow-spread) var(--color-shadow);
+  color: var(--color-accent);
+  text-shadow: var(--text-shadow-sm) var(--color-accent-shadow);
 }
 
 .post-heading.title {
@@ -89,6 +90,8 @@
   font-weight: bold;
   font-size: var(--font-size-h3);
   font-family: var(--font-family-accent);
+  color: var(--color-accent);
+  text-shadow: var(--text-shadow-sm) var(--color-accent-shadow);
 }
 
 .post-text li {
@@ -154,8 +157,7 @@
 }
 
 .post-cta-button {
-  max-width: 220px;
-  width: 50%;
+  width: 180px;
   height: 44px;
   align-self: center;
 }
@@ -167,7 +169,8 @@
   width: 100%;
   margin: 0;
   line-height: 150%;
-  text-shadow: var(--text-shadow-spread) var(--color-shadow);
+  color: var(--color-accent);
+  text-shadow: var(--text-shadow-sm) var(--color-accent-shadow);
 }
 
 .post-spacing {

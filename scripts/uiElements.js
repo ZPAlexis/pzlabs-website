@@ -84,7 +84,7 @@ export const Elements = {
     notificationBox: document.querySelector('.js-notification-container'),
     notificationTitle: document.querySelector('.js-notification-title'),
     notificationDescription: document.querySelector('.js-notification-description'),
-
+    notificationCloseBtn: document.querySelector('.js-notification-close-btn'),
     
     // --- Helpers ---
     toggle(element, className, condition) {

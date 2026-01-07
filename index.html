@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <link rel="icon" type="image/png" href="icons/coin-gold.svg">
     <title>PZLabs</title>
 
@@ -79,13 +79,16 @@
         </div>
       </div>
       <div class="header-menu-container column">
-        <button class="js-animated-button js-coin-summary coin-summary cta-button  fixed-width hidden">
+        <button class="js-animated-button js-coin-summary coin-summary cta-button fixed-width hidden">
           <div class="gold-coin-container">
             <img class="summary-icon" src="icons/coin-gold.svg">
           </div>
           <div class="js-coin-amount coin-amount"></div>
         </button>
         <div class="js-notification-container notification-container closed">
+          <div class="js-notification-close-btn notification-close-btn-container">
+            <button class="notification-close-btn"><img class="button-icon small" src="icons/icon_x_dark_thin.png"></button>
+          </div>
           <p class="js-notification-title notification-title"></p>
           <p class="js-notification-description"></p>
         </div>
@@ -189,21 +192,21 @@
           <img class="mobile-nav-icon" src="icons/icon_mobile_nav_home_light.png"> 
           <img class="js-nav-active mobile-nav-icon" src="icons/icon_mobile_nav_home_dark.png"> 
         </div>
-        <div class="js-nav-active mobile-nav-text" data-i18n="mobile-nav.home-nav"></div>
+        <div class="js-nav-active mobile-nav-text" data-i18n="mobile-nav.home-nav">Home</div>
       </button>
       <button class="js-mobile-nav-button mobile-nav-button" data-action="navigate" data-target="/projects.html">
         <div class="mobile-nav-icon-container">
           <img class="mobile-nav-icon" src="icons/icon_mobile_nav_app_light.png">
           <img class="js-nav mobile-nav-icon inactive" src="icons/icon_mobile_nav_app_dark.png">
         </div>
-        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.projects-nav"></div>
+        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.projects-nav">Projects</div>
       </button>
       <button class="js-mobile-nav-button mobile-nav-button" data-action="navigate" data-target="/about.html" data-tracking="aboutClick">
         <div class="mobile-nav-icon-container">
           <img class="mobile-nav-icon" src="icons/icon_mobile_nav_about_light.png"> 
           <img class="js-nav mobile-nav-icon inactive" src="icons/icon_mobile_nav_about_dark.png">
         </div>
-        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.about-nav"></div>
+        <div class="js-nav mobile-nav-text inactive" data-i18n="mobile-nav.about-nav">About</div>
       </button>
     </div>
   </nav>
@@ -311,7 +314,7 @@
           </div>
         </div>
         <div class="about-me-description fade-up" data-i18n-html="index.about-text"></div>
-        <button class="js-animated-button cta-button about-me-button fade-up" data-action="navigate" data-target="/about.html" data-i18n="index.about-learn-more-btn"></button>
+        <button class="js-animated-button cta-button project-cta fade-up" data-action="navigate" data-target="/about.html" data-i18n="index.about-learn-more-btn"></button>
       </div>
     </section>
 
@@ -469,7 +472,7 @@ Survivor</h1>
           <p class="analytics-text" data-i18n-html="index.game-analytics-description"></p>
         </div>
         <p class="js-analytics-cta-text analytics-cta"></p>
-        <button class="js-animated-button js-analytics-coin-summary coin-summary cta-button">
+        <button class="js-animated-button js-analytics-coin-summary coin-summary cta-button fixed-width">
           <div class="gold-coin-container">
             <img class="summary-icon" src="icons/coin-gold.svg">
           </div>
@@ -486,7 +489,7 @@ Survivor</h1>
   <footer>
     <div class="footer-container">
       <div class="footer-small-font">
-        <p class="footer-small-font">v1.01a</p>
+        <p class="footer-small-font">v1.01b</p>
         <p class="footer-small-font" data-i18n="footer.credits"></p>
         <a class="link" href="https://github.com/ZPAlexis">Alexis Coelho //.zero</a>
         <p class="footer-small-font" data-i18n-html="footer.credits-2"></p>

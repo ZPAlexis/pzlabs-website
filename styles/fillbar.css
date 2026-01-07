@@ -15,12 +15,18 @@
   width: 100%;
   display: flex;
   justify-content: center;
+
+  width: 324px;
+  height: 60px;
+  border-radius: 9999px;
+  background-color: var(--color-button-base-shadow);
+  box-shadow: var(--shadow-md) var(--color-button-base-shadow);
 }
 
 .fill-bar-container {
   background-color: var(--color-primary-dark);
   height: 58px;
-  width: 100%;
+  width: 99%;
   max-width: 680px;
   border-radius: 9999px;
   box-shadow: inset var(--shadow-md) var(--color-shadow);
@@ -68,6 +74,7 @@
   font-size: var(--font-size-body);
   font-family: var(--font-family-accent);
   color: var(--color-text);
+  transform: translateY(-2px);
 }
 
 .fill-bar-text.show {

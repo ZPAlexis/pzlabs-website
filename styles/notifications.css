@@ -1,5 +1,6 @@
 .notification-container {
   display: flex;
+  position: relative;
   flex-direction: column;
   text-align: center;
   font-family: var(--font-family-accent);
@@ -22,4 +23,28 @@
 
 .notification-title {
   font-weight: bold;
+}
+
+.notification-close-btn-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex: 1;
+
+  justify-content: end;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.notification-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: none;
+  background-color: transparent;
 }
