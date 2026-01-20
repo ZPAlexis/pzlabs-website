@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: var(--shadow-md) var(--color-shadow);
+  box-shadow: var(--shadow-spread) var(--color-shadow);
   gap: 40px;
   padding: 120px 40px;
   margin: 60px 0;

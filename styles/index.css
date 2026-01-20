@@ -462,7 +462,7 @@
   align-items: center;
   flex: 1;
   background-color: var(--color-primary-shade);
-  box-shadow: var(--shadow-md) var(--color-shadow);
+  box-shadow: var(--shadow-spread) var(--color-shadow);
   gap: 20px;
 }
 
