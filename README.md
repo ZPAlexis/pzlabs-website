@@ -1,4 +1,6 @@
-# Portfolio Website & Web Lab
+# README
+
+## Portfolio Website & Web Lab
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -24,7 +26,7 @@ Currently, the project focuses on:
 
 * **Responsive Design:** Ensuring a seamless experience across different devices. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
 * **Clean HTML Structure:** Building semantic and accessible web pages. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
-* **Modern CSS Techniques:** Utilizing Flexbox, Grid, custom properties, and animations. ![In Progress](https://img.shields.io/badge/In%20Progress-8A2BE2)
+* **Modern CSS Techniques:** Utilizing Flexbox, Grid, custom properties, and animations. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
 
 Future iterations will delve into:
 
@@ -34,7 +36,7 @@ Future iterations will delve into:
 
 * **HTML5:** For structuring the web content. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
 * **CSS3:** For styling and visual presentation. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
-* **JavaScript:** For adding interactivity and dynamic features. ![In Progress](https://img.shields.io/badge/In%20Progress-8A2BE2)
+* **JavaScript:** For adding interactivity and dynamic features. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
 
 ## Features
 
@@ -44,18 +46,18 @@ Future iterations will delve into:
 * **Navigation Menu:** Easy access to different sections of the portfolio. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
 * **Project Showcase:** Dedicated section to display my work (with placeholders for project details). ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
 * **About Me Section:** A brief introduction. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
-* **Blog Functionality:** Blog posts, tags, and lists. ![In Progress](https://img.shields.io/badge/In%20Progress-8A2BE2)
-* **Laguage Toggle:** User-preference language switching. ![In Progress](https://img.shields.io/badge/In%20Progress-8A2BE2)
-* **Dark Mode Toggle:** User-preference based theme switching. ![In Progress](https://img.shields.io/badge/In%20Progress-8A2BE2)
-* **Authentication & API Integration:** The third phase of the project, including user authentication, and data for future app projects. ![Planned](https://img.shields.io/badge/Planned-7a8582)
+* **Laguage Toggle:** User-preference language switching. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
+* **API Integration:** The third phase of the project, including user authentication, and data for future app projects. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
+* **Blog Functionality:** Blog posts, tags, and lists. ![Planned](https://img.shields.io/badge/Planned-7a8582)
+* **User Authentication:** Including functionality for future app projects. ![Planned](https://img.shields.io/badge/Planned-7a8582)
 
 ## Roadmap
 
 This project is a continuous work in progress. Here's a general roadmap of planned enhancements:
 
 * **Phase 1:** HTML structure, basic CSS styling, responsive layout. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
-* **Phase 2 (Current):** Implement core JavaScript functionalities and Blogging section. ![In Progress](https://img.shields.io/badge/In%20Progress-8A2BE2)
-* **Phase 3:** Advanced JavaScript features (e.g., API integration, complex animations). ![Planned](https://img.shields.io/badge/Planned-7a8582)
-* **Phase 4:** Authentication and user related features. ![Planned](https://img.shields.io/badge/Planned-7a8582)
+* **Phase 2:** Implement core JavaScript functionalities. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
+* **Phase 3:** Create API for logging and sharing user interactions. ![Complete Badge](https://img.shields.io/badge/Complete-25c2a0)
+* **Phase 4:** Blogging section & User authentication related features. ![Planned](https://img.shields.io/badge/Planned-7a8582)
 
-I aim to regularly push updates and document the learning process, so check out the [commits section](https://github.com/ZPAlexis/pzlabs-website/commits/main/) for all updates!
+Check the [commits section](https://github.com/ZPAlexis/pzlabs-website/commits/main/) for all updates.
